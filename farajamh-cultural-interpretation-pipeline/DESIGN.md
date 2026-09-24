@@ -1,12 +1,5 @@
 # Minority Report for FarajaMH: assessment and adaptation design
 
-**Version 0.1 (22 September 2026) · Scope: Stage 1 of the FarajaMH Semantic Architecture v10 (AI-assisted translation and candidate interpretation). Triage is out of scope.**
-
-Sources reviewed:
-- `codata/the-minority-report` at commit `a7cb9cb` (22 June 2026). I read the orchestrator, prompts, ODRL policy, API, MCP server, OntoPortal client, Croissant generator and tests.
-- FarajaMH application form (Kavu, 333073/Z/25/Z).
-- FarajaMH Semantic Architecture v10 (17 August 2026).
-- The LinkedIn announcement could not be read: LinkedIn blocks automated access. Anything announced there but not in the repository is not covered here.
 
 ---
 
