@@ -1,0 +1,907 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-TRY-250694-try",
+ "utterance_ref": {
+  "utterance_id": "TRY-250694",
+  "input_sha256": "e700ff7e53477161d2a5a97e81cbd308396d46b06610b41f64cad1d7e2d654fe"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.1.0-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "try",
+  "started_at": "2026-09-23T00:49:23+00:00",
+  "ended_at": "2026-09-23T00:52:38+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "3778d3a3877f70de5781db7f6d15044222b904d7be938003a014798ffece26dd"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "15b3d7d39efcde785dc5a5e0aa78968e26208bea5842b88e72fc856da8c26286"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "7b84e42553a0b2f44f3c7bef35479844d3c6422c63e3862f30555179ee48b09e"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Moyo wangu unauma",
+  "expression_span": {
+   "start": 0,
+   "end": 17,
+   "text": "Moyo wangu unauma"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-nairobi",
+   "site_id": "adhoc",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "chat_platform",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Moyo wangu unauma",
+  "normalised_expression": "Moyo wangu unauma",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "heart my is hurting",
+    "idiomatic_translation": "My heart aches.",
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "moyo refers to the heart, but in Swahili, it carries a broader meaning encompassing emotions, feelings, and the seat of one's being. It's not just a physical organ; it's the center of emotional experience. 'My heart' here signifies deep emotional distress, not necessarily cardiac pain."
+     }
+    ],
+    "uncertainty_note": "None",
+    "self_reported_confidence": 0.95,
+    "back_translation": {
+     "by_model": "qwen2.5:7b",
+     "text": "Ndiyo kusimamia kusimamia kusimamia.",
+     "similarity_to_normalised": 0.0
+    }
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "My heart is heavy",
+    "idiomatic_translation": "I am feeling down",
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "This term is a culturally specific way to express emotional distress and is commonly used in Swahili."
+     }
+    ],
+    "uncertainty_note": "uncertain",
+    "self_reported_confidence": 0.8,
+    "back_translation": {
+     "by_model": "llama3.1:8b",
+     "text": "Ninakosekana",
+     "similarity_to_normalised": 0.0
+    }
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "My heart is heavy",
+    "idiomatic_translation": "I'm feeling weighed down by my emotions",
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "refers to the emotional heart, not just the physical organ"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9,
+    "back_translation": {
+     "by_model": "gemma3:12b",
+     "text": "Nahisi ninaonyonywa na hisia zangu.",
+     "similarity_to_normalised": 0.0
+    }
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "emotional pain",
+    "gloss": "The speaker is experiencing a deep sense of sadness, grief, or emotional distress.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker has recently experienced a loss or disappointment.",
+     "The speaker is generally prone to expressing emotions openly."
+    ],
+    "rationale": "The translations 'My heart aches' and 'I am feeling down' suggest an emotional interpretation. 'Moyo' (heart) is often used metaphorically to represent emotions in many cultures.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     },
+     {
+      "type": "model_background_knowledge",
+      "ref": "cultural metaphor",
+      "quote": "Heart as a metaphor for emotions"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "spiritual affliction",
+    "gloss": "The speaker believes they are experiencing a spiritual problem or suffering caused by supernatural forces.",
+    "category": "spiritual_or_supernatural",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker is part of a community with strong spiritual beliefs.",
+     "The speaker has previously attributed physical or emotional distress to spiritual causes."
+    ],
+    "rationale": "In some cultures, physical or emotional pain can be attributed to spiritual causes. 'Moyo' can also refer to the spirit or soul.",
+    "evidence": [
+     {
+      "type": "model_background_knowledge",
+      "ref": "cultural beliefs",
+      "quote": "Belief in spiritual causes of suffering"
+     },
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.4
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "gemma3:12b",
+    "sense_key": "social burden",
+    "gloss": "The speaker feels overwhelmed by responsibilities or pressures within their social network or community.",
+    "category": "social_or_relational",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker is facing significant social obligations or expectations.",
+     "The speaker is experiencing conflict or strain in their relationships."
+    ],
+    "rationale": "The feeling of 'unauma' (aching) could represent the weight of social burdens and the emotional toll they take.",
+    "evidence": [
+     {
+      "type": "model_background_knowledge",
+      "ref": "social pressure",
+      "quote": "Social obligations can cause emotional distress"
+     },
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.3
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "gemma3:12b",
+    "sense_key": "physical discomfort",
+    "gloss": "The speaker is experiencing a physical sensation of discomfort or pain in the chest area.",
+    "category": "somatic_experience",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker is describing a physical symptom to a medical professional.",
+     "The speaker is known to use metaphorical language to describe physical sensations."
+    ],
+    "rationale": "While 'moyo' is often metaphorical, it literally means heart. 'Unauma' can mean aching or painful. It's possible the speaker is experiencing chest pain and using the phrase literally.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     },
+     {
+      "type": "model_background_knowledge",
+      "ref": "literal meaning",
+      "quote": "'Moyo' can refer to the physical heart."
+     }
+    ],
+    "self_reported_plausibility": 0.2
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "I am feeling sad.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker is affirming the statement, indicating a current emotional state of sadness.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S6",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "rumination",
+    "gloss": "I am dwelling on negative thoughts.",
+    "category": "cognitive_process",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker is affirming the statement, suggesting they are currently engaging in negative thought patterns.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S7",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "spiritual affliction",
+    "gloss": "I am experiencing a spiritual burden.",
+    "category": "spiritual_or_supernatural",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker is affirming the statement, which could indicate a spiritual or supernatural cause for their distress.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.5
+   },
+   {
+    "sense_id": "S8",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "feeling a deep emotional pain or sorrow",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current"
+    ],
+    "rationale": "The speaker affirms their emotional state, indicating a genuine feeling of distress.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original utterance",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S9",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "spiritual affliction",
+    "gloss": "being troubled or tormented by spiritual forces",
+    "category": "spiritual_or_supernatural",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current"
+    ],
+    "rationale": "In some cultures, emotional pain is attributed to spiritual forces, making this sense plausible.",
+    "evidence": [
+     {
+      "type": "model_background_knowledge",
+      "ref": "",
+      "quote": ""
+     }
+    ],
+    "self_reported_plausibility": 0.2
+   },
+   {
+    "sense_id": "S10",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "somatic experience",
+    "gloss": "experiencing physical discomfort or tension",
+    "category": "somatic_experience",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current"
+    ],
+    "rationale": "The expression could also refer to a physical sensation of discomfort or tension.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original utterance",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.5
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C2",
+    "label": "spiritual affliction",
+    "category": "spiritual_or_supernatural",
+    "member_sense_ids": [
+     "S2",
+     "S7",
+     "S9"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C5",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S5",
+     "S8"
+    ],
+    "supporting_models": [
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C1",
+    "label": "emotional pain",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "social burden",
+    "category": "social_or_relational",
+    "member_sense_ids": [
+     "S3"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C4",
+    "label": "physical discomfort",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C6",
+    "label": "rumination",
+    "category": "cognitive_process",
+    "member_sense_ids": [
+     "S6"
+    ],
+    "supporting_models": [
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C7",
+    "label": "somatic experience",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S10"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.083,
+   "back_translation_similarity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "cultural_terms_lost": [
+    "T1:moyo",
+    "T2:moyo",
+    "T3:moyo"
+   ],
+   "sense_entropy": 0.943,
+   "n_clusters": 7,
+   "n_minority_clusters": 5,
+   "concept_agreement": {
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C5": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000056",
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOEM:000056"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": true
+    },
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000203",
+      "qwen2.5:7b": "MFOEM:000203",
+      "llama3.1:8b": "MFOEM:000194"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C4": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000222",
+      "qwen2.5:7b": "MFOEM:000222",
+      "llama3.1:8b": "MFOEM:000222"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C6": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C7": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "back_translation_mismatch",
+   "cultural_term_lost_in_back_translation"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "Consider adding a concept for supernatural or spiritual suffering to MFOEM or SNOMED CT to better capture the meaning of the expression. | The candidate meaning describes a culturally specific belief about spiritual suffering caused by supernatural forces. Current SNOMED CT and MFOEM do not have concepts that adequately capture this combination of spiritual belief, distress, and supernatural causation within an East African cultural context. A concept would need to incorporate elements of spiritual distress, supernatural etiology, and potentially cultural beliefs about spirits or curses, which are currently absent. | There are no concepts in the provided list that match the candidate meaning of experiencing a spiritual problem or suffering caused by supernatural forces."
+   },
+   {
+    "cluster_id": "C5",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "Moyo wangu unauma expresses a feeling of sadness, which aligns with the general concept of sadness. The expression likely carries cultural nuances not captured by the simple definition of sadness."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept 'sadness' is a broader term that encompasses the emotional state described by the candidate meaning 'I am feeling sad'."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "The concept of sadness directly matches the candidate meaning of feeling sad."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 2,
+        "proposed_predicate": "skos:relatedMatch",
+        "rationale": "While the expression conveys sadness, it doesn't solely describe a facial expression. It's a statement of feeling."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 3,
+        "proposed_predicate": "skos:relatedMatch",
+        "rationale": "Similar to the facial expression concept, the utterance is a component, but not the entirety, of the expressed feeling."
+       }
+      ]
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [],
+    "gap_note": "The expression 'Moyo wangu unauma' likely carries a deeper cultural significance related to emotional distress or suffering that isn't fully represented by the provided concepts. It might involve a sense of heaviness, pain, or burden that goes beyond simple sadness."
+   },
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000203",
+      "label": "feeling of pain",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "emotional pain",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The expression 'Moyo wangu unauma' (my heart aches) conveys a sense of pain, which aligns with 'feeling of pain'. However, the cultural meaning is richer, encompassing sadness, grief, and emotional distress beyond simple physical pain."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept 'feeling of pain' is broader as it can encompass a range of emotional states, including sadness and grief, which are part of the candidate meaning."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000194",
+      "label": "valence",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "emotional pain",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 2,
+        "proposed_predicate": "skos:relatedMatch",
+        "rationale": "Valence describes a general positive or negative emotional state. While 'Moyo wangu unauma' implies a negative valence, it's a more specific and intense experience than simply having a negative valence."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of valence is broader and encompasses a range of emotional states, including sadness and grief, which aligns with the candidate meaning."
+       }
+      ]
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [],
+    "gap_note": "The expression 'Moyo wangu unauma' carries a cultural weight that is not fully captured by either concept. It's a deeply felt emotional distress rooted in a sense of loss or suffering, which could involve elements of despair, anguish, or profound sorrow. A concept specifically addressing grief or emotional suffering would be more appropriate, but is not present in the retrieved list."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "None of the provided concepts match the candidate meaning of 'Moyo wangu unauma,' which refers to feeling overwhelmed by responsibilities or pressures within one's social network or community. This expression is specific to cultural and social contexts and does not have an adequate concept in the given list. | The candidate meaning describes a complex emotional state rooted in social and communal pressures. Current terminology systems like SNOMED CT and MFOEM lack concepts that adequately capture this culturally specific blend of overwhelm, responsibility, and social burden. A suitable concept would need to encompass elements of stress, social obligation, and a sense of being burdened by community expectations, which are not explicitly represented in the provided terminology."
+   },
+   {
+    "cluster_id": "C4",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000222",
+      "label": "feeling of need",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "physical discomfort",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning describes a physical sensation of discomfort/pain. 'Feeling of need' can be a broader representation of a somatic experience, as discomfort might motivate a need for relief or action."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The expression 'Moyo wangu unauma' refers to a general feeling or sensation, which is broader than the specific physical sensation of discomfort or pain in the chest area."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of 'feeling of need' is broader than the candidate meaning of experiencing discomfort or pain in the chest area, as it encompasses a range of physical sensations, not just pain."
+       }
+      ]
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "The candidate meaning specifically refers to chest pain, a localized somatic experience. The retrieved concepts do not capture this specificity. A more appropriate concept would need to describe chest pain, discomfort, or a localized somatic sensation, which is currently absent from the provided list."
+   },
+   {
+    "cluster_id": "C6",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "The candidate meaning 'I am dwelling on negative thoughts' describes a cognitive and emotional state involving rumination and distress. The retrieved concepts do not contain any terms that adequately capture this combination of cognitive process, emotional distress, and dwelling on negative thoughts within a cultural context. A suitable concept would need to encompass elements of rumination, negative affect, and potentially a culturally specific understanding of mental suffering, which are absent from the provided list. | The expression 'Moyo wangu unauma' does not have a direct or broadly matching concept in the provided list. This expression seems to convey a deeper, more emotional state of being, which may not be fully captured by existing SNOMED CT or MFOEM concepts."
+   },
+   {
+    "cluster_id": "C7",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "No concepts were retrieved that match the candidate meaning. Consider adding more concepts to the knowledge base or using a different search strategy. | None of the provided concepts match the candidate meaning of experiencing physical discomfort or tension in the context of the East African expression 'Moyo wangu unauma'. The expression seems to convey a more nuanced cultural experience that is not adequately represented in the given list. | The candidate meaning describes a general feeling of physical discomfort or tension, likely encompassing a range of somatic experiences. The absence of retrieved concepts suggests that there isn't a direct equivalent in the provided terminology systems (SNOMED CT or MFOEM). A culturally appropriate concept would need to capture the nuanced somatic experience and potentially the emotional weight associated with it within the East African cultural context, which is currently missing."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_mismatch",
+   "cultural_term_lost_in_back_translation",
+   "possible_semantic_gap",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.883,
+   "translation_agreement": 0.083,
+   "back_translation_similarity_min": 0.0,
+   "top_cluster_support": 1.0,
+   "sense_entropy": 0.943,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

@@ -1,0 +1,41 @@
+### Definition
+Elektroschrott, oder E‑waste, bezieht sich auf elektrische oder elektronische Geräte, die Abfälle sind, einschließlich aller Komponenten, Unterbaugruppen und Verbrauchsmaterialien, die Teil des Geräts sind, sobald das Gerät zum Abfall wird (UNEP, 2019a).
+
+### Primäre Referenz(en)
+UNEP, 2019. Technische Richtlinien für grenzüberschreitende Bewegungen von Elektroschrott und gebrauchten elektrischen und elektronischen Geräten, insbesondere in Bezug auf die Unterscheidung zwischen Abfall und Nicht‑Abfall gemäß dem Basel‑Vertrag. (Version vom 10. Mai 2019). United Nations Environment Programme (UNEP). Abgerufen am 11. Februar 2025.
+
+### Anmerkungen
+#### Zusätzliche wissenschaftliche Beschreibung
+Elektroschrott wird sowohl als gefährlicher Abfall als auch als ungefährlicher Abfall klassifiziert, laut der Basel-Konvention über die Kontrolle grenzüberschreitender Bewegungen gefährlicher Abfälle und deren Entsorgung (UNEP, kein Datum a). Es wird als gefährlicher Abfall eingestuft, wenn es in einer der Kategorien des Anhangs I der Basel-Konvention liegt und keine der gefährlichen Eigenschaften des Anhangs III aufweist. Zum Beispiel gilt Elektroschrott als gefährlicher Abfall, wenn es giftige Substanzen wie Quecksilber, Blei und bromierte Flammschutzmittel enthält (Basel-Konvention, 2020). Neben den enthaltenen, recycelbaren und rückgewinnbaren Metallen und Materialien wie Gold, Kupfer, Nickel, Silber, Seltene Erden und strategisch wichtigen Materialien wie Indium und Palladium kann Elektroschrott bis zu 60 verschiedene Elemente aus dem Periodensystem enthalten, einschließlich gefährlicher Chemikalien, von denen einige persistente organische Schadstoffe (POPs) und Dioxine sind, die unter der Stockholm-Konvention über persistente organische Schadstoffe (PACE, 2019) gelistet sind. Die Unterscheidung zwischen Abfall und Nicht-Abfall ist wichtig. Einige Länder betrachten gebrauchte Geräte, die für Fehleranalyse, Reparatur oder Aufbereitung bestimmt sind, als Abfall, während andere dies nicht tun. Diese Unterscheidung kann die Klassifizierung und Regulierung des Materials beeinflussen.
+
+### Metriken und numerische Grenzwerte
+Die Klassifizierung von Elektroschrott, die Metriken liefert, wird nun in Anhang II (Y49 für ungefährlichen Elektroschrott) und Anhang VIII (A1181 für gefährlichen Elektroschrott) der Basel-Konvention bereitgestellt. Die früheren Unterscheidungen zwischen gefährlichem und ungefährlichem Elektroschrott in Anhang VIII und IX (z. B. A1180 und B1110) sind nicht mehr gültig. Ein Rekord von 53,6 Millionen Tonnen (Mt) elektronischem Abfall wurde 2019 weltweit erzeugt, was einem Anstieg von 21 % in nur fünf Jahren entspricht. Der neue Bericht (Global e-waste Monitor, 2024) prognostiziert, dass der weltweite Elektroschrott bis 2030 82 Mt erreichen wird. Im Jahr 2022 wurden 62 Millionen Tonnen (Mt) Elektroschrott produziert, was einem Anstieg von 82 % seit 2010 entspricht. Dieser Betrag wird voraussichtlich um weitere 32 % steigen und 82 Millionen Tonnen bis 2030 erreichen. Die jährliche Erzeugung von Elektroschrott steigt um 2,6 Millionen Tonnen pro Jahr.
+
+### Schlüsselrelevante UN-Konvention / multilateraler Vertrag
+Die Basel-Konvention über die Kontrolle grenzüberschreitender Bewegungen gefährlicher Abfälle und deren Entsorgung, die 1989 angenommen wurde, ist ein wichtiger multilateraler Umweltvertrag. Zum 1. Januar 2024 hat sie 191 Vertragsparteien. Der Vertrag wurde seit seiner Annahme erheblich geändert, wobei die jüngsten Änderungen in Bezug auf das Elektroschrottmanagement am 1. Januar 2025 in Kraft treten (Basel-Konferenzsekretariat, 2024).
+
+#### Stockholm-Konvention über persistente organische Schadstoffe (POPs)
+[Links im Originaltext beibehalten]
+
+### Treiber
+Während Elektroschrott einer der am schnellsten wachsenden gefährlichen Abfallströme weltweit ist (UNEP, 2007a; PACE, 2019), zeigten die Ergebnisse des Global E-Waste Monitors 2017 die niedrige Recyclingrate von Elektroschrott weltweit (Baldé et al., 2017). Bis 2016 erzeugte die Welt 44,7 Millionen Tonnen Elektroschrott, und nur rund 20 % davon wurden über geeignete Kanäle recycelt (Baldé et al., 2017). Die Weltgesundheitsorganisation berichtete 2020, dass der weltweite Elektroschrott zunimmt und in fünf Jahren um 21 % wachsen wird, mit einem Rekord von 53,6 Millionen Tonnen im Jahr 2019 – dem Gewicht von 350 Kreuzfahrtschiffen der Größe der Queen Mary 2; 57 Mio. USD an Gold und anderen abgeworfenen Komponenten – die meist versenkt oder verbrannt wurden (WHO, 2020).
+
+### Auswirkungen
+Dieser rasche Anstieg von Elektroschrott hat gravierende Folgen für Gesundheit und Umwelt. Kinder und schwangere Frauen sind besonders anfällig für die giftigen Chemikalien in Elektroschrott. Die Exposition kann zu negativen neonatalen Ergebnissen, neuroentwicklungsbedingten Problemen, Veränderungen der Lungenfunktion, DNA-Schäden, beeinträchtigter Schilddrüsenfunktion und einem erhöhten Risiko chronischer Krankheiten später im Leben, wie Krebs und Herz-Kreislauf-Erkrankungen, führen.
+
+### Mehrfachexpositionskontext
+Die untenstehende Abbildung fasst die häufigen Interaktionen zwischen Elektroschrott und anderen Gefahren zusammen. Diese Informationen sollten mit Vorsicht verwendet und nicht ausschließlich in der Katastrophenrisikomanagement-Praxis angewendet werden, insbesondere da einige Interaktionen möglicherweise nicht berücksichtigt wurden. Beachten Sie, dass gefährliche Ereignisse, die gleichzeitig oder lokal in Raum oder Zeit auftreten, nicht notwendigerweise verursachen, verstärken oder sonst irgendwie miteinander verbunden sein müssen.
+
+### Mehrfachexpositionsdiagramm
+[Die Abbildung wird als Bild eingebettet, die Beschriftung bleibt unverändert.]
+
+### Risikomanagement
+Technologien oder technische Interventionen sind entscheidend für die WEEE-/Elektroschrott-Managementkette, um die Materialrückgewinnung zu maximieren und Risiken zu minimieren. Technische Interventionen für die Sammlung und den Transport von WEEE/Elektroschrott werden üblicherweise als Behandlungs- oder Infrastrukturkanäle bezeichnet. Technische Interventionen für die Behandlung von WEEE/Elektroschrott werden allgemein als Behandlungstechnologien bezeichnet (UNEP, 2007b). Länder, die bereits WEEE/Elektroschrott-Regulierungen haben, haben oft Schwierigkeiten bei der Umsetzung der Vorschriften. Diese Schwierigkeiten resultieren aus einem Mangel an Mechanismen im Fluss von WEEE/Elektroschrott im Lebenszyklus von WEEE/Elektroschrott. Sie sehen die Notwendigkeit, die effektivsten Sammel- und Transportsysteme zu planen und zu übernehmen, um die regulatorischen Systeme zu begleiten (UNEP, 2012). Die Lösung für das Problem des Elektroschrotts ist nicht einfach das Verbot grenzüberschreitender Bewegungen von Elektroschrott, da die heimische Erzeugung einen signifikanten Anteil von Elektroschrott in allen Ländern ausmacht. Fundamentale Lösungen müssen die Tatsache berücksichtigen, dass aktuelle Praktiken und illegale Geschäfte wirtschaftliche Anreize schaffen. Es ist wichtig, lokale und regionale Kontexte sowie die sozialen Implikationen des Problems zu erkennen; die Implementierung eines kapitalintensiven, hochtechnologischen Recyclingprozesses ist in jedem Land oder jeder Region nicht angemessen. Effektive Regulierung muss mit Anreizen für informelle Recyclingbetriebe kombiniert werden, damit diese keine destruktiven Prozesse durchführen. Günstige, sichere und einfache Verarbeitungsmethoden für die Einführung in den informellen Sektor fehlen derzeit; daher ist es notwendig, einen finanziellen Anreiz für informelle Recyclingbetriebe zu schaffen, die wiedergewonnenen Teile an zentrale Sammelstellen liefern, anstatt sie selbst zu verarbeiten. Multidisziplinäre Lösungen sind neben technischen Lösungen entscheidend, ebenso wie die Bewältigung der zugrunde liegenden sozialen Ungleichheiten im Elektroschrott-Geschäft (Sydnes; 2021).
+
+### Überwachung
+Keine Informationen verfügbar
+
+### References
+> (Der komplette Referenzblock bleibt unverändert in englischer Sprache, wie im Originaltext angegeben.)
+
+***

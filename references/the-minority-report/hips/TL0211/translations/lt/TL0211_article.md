@@ -1,0 +1,53 @@
+```markdown
+### Definition
+**Atsiliepimo komunikacijų sustojimas** yra plataus spektro terminas, apimantis telekomunikacijas „išskirtinio pobūdžio“, kai tinklo sąlygos yra neįprastos ir potencialiai neigiamos (ITU, 2007).
+
+### Primary reference(s)
+ITU, 2007. Y.2172: Service restoration priority levels in Next Generation Networks. International Telecommunication Union (ITU). Accessed 26 January 2025.
+
+### Annotations
+#### Additional scientific description
+Atsiliepimo komunikacijos yra kritinės, kai įvyksta katastrofa, nes jos leidžia atsitiktinių ir katastrofų reagavimo komandų, vyriausybės ministerijų, departamentų ir agentūrų, taip pat humanitarinių agentūrų koordinuoti ir vykdyti katastrofų reagavimo bei atkūrimo pastangas. **Atsiliepimo komunikacijų sustojimas** glaudžiai susijęs su paslaugų atkūrimu. Paslaugų atkūrimas apibūdinamas kaip automatizuotų arba rankinių metodų rinkinys, įgyvendinamas po tinklo gedimo, siekiant pagerinti sėkmingų komunikacijų persiuntimų ir užbaigimo galimybes aplink gedusius tinklo elementus (ITU, 2014). Visi komunikacijos srautai turėtų būti perduodami per naujos generacijos tinklus – valdymo plano srautai (pvz., maršrutizavimo ir signalizacijos žinutės), atsitiktinės komunikacijos, realaus laiko balso ir vaizdo paslaugos, duomenų paslaugos, virtualaus privataus tinklo (VPN) paslaugos, taip pat tradiciniai „best‑effort“ srautai. Tokioje aplinkoje svarbu priskirti prioritetų klasifikacijas ir nustatyti taisykles paslaugų atkūrimui, kad kritinės paslaugos (pvz., valdymo plano srautai ir atsitiktinės komunikacijos) būtų atpažintos ir atkurtos virš kitų paslaugų, jei tinklas perkrautas ar sutrukdo. Kadangi paslaugų srautai gali pereiti per kelias tinklo sritis, prioritetų klasifikacija yra svarbus žingsnis kuriant būtinas signalizacijos protokolo plėtinius, taip pat mechanizmus, leidžiančius pirmenybę suteikti kritinėms paslaugoms (ITU, 2014). Reikalavimai katastrofų komunikacijoms dėl patikimumo, patvarumo ir atsparumo skiriasi priklausomai nuo katastrofos etapų. Didelė katastrofų valdymo apimtis iš komunikacijos perspektyvos turi būti tvarkoma pagal komunikacijos technologijų tipą ir jų naudojimą įvairiuose katastrofos etapuose (ITU, 2014).
+
+### Metrics and numeric limits
+ITU šiuo metu rengia globalias gaires, leidžiančias šalims kurti **Nacionalinius atsitiktinių komunikacijų planus (NETS)**, kurie naudojami ankstyvajam įspėjimui ir sparčiam reagavimui. Ši struktūra siekia spręsti šalies saugumą nuo gamtinių pavojų ir katastrofų, padedant kurti atsitiktinių duomenų ir komunikacijos sistemas (ITU, 2019).
+
+### Key relevant UN convention / multilateral treaty
+Tampere susitarimas dėl telekomunikacijų išteklių teikimo katastrofų mažinimo ir pagalbos operacijoms buvo įsteigtas 2005 m. Ši tarptautinė sutartis leidžia šalims pašalinti reguliavimo kliūtis, kad būtų galima nuolat teikti atsitiktines telekomunikacijas, kai įvyksta katastrofa (United Nations Treaty Collection, 1998).
+
+### Drivers
+Gamtos pavojai gali sunaikinti telekomunikacijų infrastruktūrą ir sukelti rimtų tinklo sutrikimų. Elektros energija yra esminė šių atsitiktinių komunikacijų sistemų veikimui, o elektros tiekimo sutrikimai tiesiogiai susiję su šiomis rizikomis (Townsend and Moss, 2005; Chang et al., 2007). Be to, **žmogaus sukeltos pavojai**, tokios kaip sabotavimas, vandalizmas ir karas, veikia atsitiktines komunikacijas. Gamtos pavojai paveikia atsitiktinių komunikacijų sistemą. Per ir po žemės drebėjimo atsitiktinės komunikacijos yra kritinės. Patikima komunikacija yra svarbi informacijos sklaidymui, gelbėjimo pastangų koordinavimui ir žmonių leidimui būti informuotiems bei susisiekti su mylimaisiais. Įprastai po įvykio tradiciniai telefoniniai skambučiai gali būti nepatikimi, todėl tekstiniai pranešimai, socialiniai tinklai ir baterijomis veikiančios radijos tampa svarbiais komunikacijos įrankiais (US Department of Homeland Security, 2024; PAHO, 2009). Saulės geomagnetinės audros generuoja rentgeno spindulius ir saulės radijo burstus, greičiuja saulės daleles iki relativaus greičio, sukeldamos didelius saulės vėjo sutrikimus, ir gali turėti žalingą poveikį elektros tinklui, palydovams, aviacinei įrangai, oro keliautojams, palydovų navigacijos sistemų signalams, mobiliesiems telefonams ir kt. (National Research Council, 2008; Royal Academy of Engineering, 2013).
+
+### Impacts
+Atsiliepimo komunikacijų sustojimas gali sukelti ankstyvo įspėjimo sistemų gedimus, padidindamas antrinių žalų riziką. Tai taip pat sumažina katastrofų reagavimo galimybes, sukeldamas vėlavimus arba sumažindamas atsitiktinių reagavimo operacijų efektyvumą. Be to, dėl tarpusavio priklausomybės nuo elektroenergetikos ir ICT sistemų telekomunikacijų infrastruktūra gali tapti kibernetinės atakos taikinio, sukeldama papildomas sistemų pažeidžiamumus (CISA, 2023). Atsitiktinių komunikacijų sistemų gedimai turės didesnį poveikį, kai kartu įvyksta kiti pavojai, pvz., miško gaisrai, ypač paveikdami perdavimo tinklo grandines (Salema & Caldeirinha, 2024). Atsitiktinių komunikacijų gedimų klausimai didina fizinio pažeidimo ir finansinių nuostolių riziką, todėl greitas paslaugų atkūrimas, siekiant pagerinti katastrofų reagavimo galimybes ir stiprinti atsitiktinį ryšį, yra esminis.
+
+### Multi‑hazard context
+Žemiau pateikta paveikslėlis apibendrina dažniausiai pasitaikančias sąveikas tarp atsitiktinių komunikacijų gedimų ir kitų pavojų. Ši informacija turėtų būti naudojama atsargiai ir neturėtų būti vienintelis pagrindas katastrofų rizikos valdymui, ypač kai kai kurios sąveikos gali nebuvo įtrauktos. Atkreipkite dėmesį, kad kartu ar vietoje įvykiančių įvykių, kurie gali padidinti riziką ar būti kitų susijusių, gali nebuvo įtraukti. Specifiniai kelių pavojų konteksto pavyzdžiai aptarti aukščiau esančiose „Pavojų veiksniai“ ir „Pavojų poveikiai“ skyriuose.
+
+#### Multi‑hazard diagram
+<!-- Diagram placeholder -->
+
+### Risk Management
+ITU NETS struktūra gali būti taikoma visose katastrofų valdymo ciklo stadijose ir siūlo gaires šalims sukurti tvirtesnes Informacijos ir komunikacijos technologijų (ICT) sistemas prieš, per ir po katastrofos (ITU, 2019). Didelių katastrofų situacijose atsitiktinių telekomunikacijų gedimai dažniausiai susiję su tinklo perkrovimu ar priklausomais nuo elektroenergetikos sistemų. Norint spręsti šias rizikas, svarbu stiprinti komunikacijos sistemų atsparumą, įgyvendinant tokias priemones kaip tinklo srauto ir sistemos veiklos stebėjimas. Be to, rizika gali būti mažinama, sukuriant atsargines komunikacijos sistemas, užtikrinant alternatyvius komunikacijos kelio, ir iš anksto planuojant personalą bei išteklius, reikalingus nepraeinamos veiklos užtikrinimui. Mobilioji technologija veikia kaip kritiškas įrankis, mažinantis atsitiktinių komunikacijų gedimus, leidžiantis efektyvią komunikaciją per visus katastrofų valdymo etapus, įskaitant pasiruošimą, atsparumo stiprinimą, reagavimą ir atkūrimą. Tai užtikrina prieigą prie svarbios informacijos ir ypač reikšmingą vaidmenį ankstyvo įspėjimų sklaidoje (GSMA, 2023).
+
+### Monitoring
+Atsitiktinių komunikacijų gedimai didina katastrofų riziką, nes trikdo komunikaciją ir koordinavimą tarp reakcijos komandų, kuriantis vėlavimus ar neveiksmingą atsitiktinį reagavimą, ir didina fizinį bei finansinį žalos lygį. Greitas paslaugų atkūrimas yra svarbus, kad būtų pagerintos katastrofų reagavimo galimybės, nes jis leidžia laiku komunikuoti, dalintis informacija ir koordinuoti veiksmus, kad būtų sumažintas žalos lygis ir padėta paveiktiems asmenims (OECD, 2025).
+
+### References
+Chang S.E., McDaniels T.L., Mikawoz J., Peterson K. Infrastructure failure interdependencies in extreme events: power outage consequences in the 1998 Ice Storm. Natural Hazards, 41 (2) (2007), pp. 337-358. Accessed 19 May 2025  
+Cybersecurity and Infrastructure Security Agency (CISA), 2023. Emergency Services sector cyber risk assessment. Cybersecurity and Infrastructure Security Agency (CISA). Accessed 26 January 2025  
+Groupe Spéciale Mobile Association (GSMA), 2021. National Emergency Telecommunications Plans: Enablers and Safeguards. A brief evaluation guide for policy practitioners. Accessed 19 May 2025  
+Groupe Spéciale Mobile Association (GSMA), 2023. Cell Broadcast for Early Warning Systems: A review of the Technology and how to implement it. Accessed 26 January 2025.  
+International Telecommunication Union (ITU), 2014. Gap Analysis of Disaster Relief Systems, Network Resilience and Recovery. ITU‑T Focus Group on Disaster Relief Systems, Resilience and Recovery Network. International Telecommunication Union (ITU). Accessed 26 January 2025.  
+International Telecommunication Union (ITU), 2019. Global guidelines to develop national emergency telecommunication plans: Draft for comments. International Telecommunication Union (ITU). ITU Guidelines for national emergency telecommunication plans. Accessed 26 January 2025.  
+National Research Council. 2008. Severe Space Weather Events: Understanding Societal and Economic Impacts: A Workshop Report. Washington, DC: The National Academies Press. DOI: 10.17226/12507. Accessed 19 May 2025.  
+Organisation for Economic Co-operation and Development (OECD), 2025. Enhancing the resilience of communication networks. OECD digital economy papers May 2025 No. 374. Organisation for Economic Co-operation and Development (OECD). Accessed 19 May 2025.  
+Pan American Health Organization (PAHO), 2009. Information management and communication in emergencies and disasters: manual for disaster response teams. Pan American Health Organization (PAHO). Accessed 19 May 2020  
+Royal Academy of Engineering, 2013. Extreme space weather: impacts on engineered systems and infrastructure. Accessed 19 May 2020  
+Salema, C, and Caldeirinha R. 2024. ‘Perspective Chapter: Mobile Radio Emergency Communications for Large-Scale Wildfire Fighting – Portugal as a Case Study’. Fire Safety Engineering - Measures, Policies, and Applications [Working Title]. IntechOpen. doi:10.5772/intechopen.1007773. Accessed 19 May 2025  
+Townsend, A.M. and M.L. Moss, 2005. Telecommunications infrastructure in disasters: Preparing cities for crisis communications. Telecommunications Infrastructures in Disasters: Preparing Cities for Crisis Communications - World | ReliefWeb. Accessed 26 January 2025.  
+United Nations Treaty Collection, 1998. Chapter XXV: Telecommunications: 4. Tampere Convention on the provision of telecommunication resources for disaster mitigation and relief operations. Accessed 10 May 2025.  
+US Department of Homeland Security, 2025. Earthquake. Accessed 19 May 2020  
+
+Cite this [Copy citation]
+```

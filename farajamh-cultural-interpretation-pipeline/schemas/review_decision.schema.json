@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/farajamh/mr/schema/review_decision/0.1.0",
+  "title": "FarajaMH human review decision",
+  "description": "Written only by human reviewers. One record per reviewer per package; an adjudication record (role 'adjudicator') resolves disagreement between reviewers. Only records with final=true feed the Local Concept Layer and SSSOM.",
+  "type": "object",
+  "required": ["schema_version", "decision_id", "package_id", "reviewer", "decided_at", "blind_first_pass", "layer_decisions", "final"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "decision_id": {"type": "string"},
+    "package_id": {"type": "string"},
+    "reviewer": {
+      "type": "object",
+      "required": ["reviewer_id", "role"],
+      "properties": {
+        "reviewer_id": {"type": "string", "description": "ORCID where the reviewer consents; otherwise a pseudonymous FarajaMH reviewer ID (e.g. LEAB members)."},
+        "role": {"enum": ["linguist", "cultural_expert", "clinician", "lived_experience", "adjudicator"]},
+        "site": {"type": "string"}
+      }
+    },
+    "decided_at": {"type": "string"},
+    "blind_first_pass": {
+      "type": "object",
+      "required": ["done"],
+      "description": "Reviewer's own reading recorded BEFORE seeing AI candidates (for a sample of items). Used to measure anchoring.",
+      "properties": {"done": {"type": "boolean"}, "own_translation": {"type": "string"}, "own_interpretation": {"type": "string"}}
+    },
+    "layer_decisions": {
+      "type": "object",
+      "required": ["normalisation", "translation", "interpretation", "context"],
+      "properties": {
+        "normalisation": {"type": "object", "required": ["decision"], "properties": {"decision": {"enum": ["accept", "edit", "reject"]}, "edited_text": {"type": "string"}, "note": {"type": "string"}}},
+        "translation": {"type": "object", "required": ["decision"], "properties": {"decision": {"enum": ["accept_candidate", "edit", "replace"]}, "candidate_id": {"type": "string"}, "final_translation": {"type": "string"}, "note": {"type": "string"}}},
+        "interpretation": {"type": "object", "required": ["decision"], "properties": {
+          "decision": {"enum": ["accept_cluster", "accept_multiple", "human_sense", "insufficient_context", "reject_all"]},
+          "accepted_cluster_ids": {"type": "array", "items": {"type": "string"}},
+          "human_sense": {"type": "string"},
+          "clinical_status": {"enum": ["non_clinical_cultural", "possible_symptom_indicator", "symptom_expression", "safety_relevant"]},
+          "note": {"type": "string"}}},
+        "context": {"type": "object", "required": ["confirmed"], "properties": {"confirmed": {"type": "boolean"}, "corrections": {"type": "object"}}},
+        "concepts": {"type": "array", "items": {"type": "object", "required": ["decision"], "properties": {
+          "cluster_id": {"type": "string"},
+          "system": {"type": "string"},
+          "id": {"type": "string"},
+          "label": {"type": "string"},
+          "decision": {"enum": ["approve", "reject", "defer", "no_adequate_concept"]},
+          "predicate_id": {"type": "string"},
+          "negative_assertion": {"type": "boolean", "description": "Reviewer explicitly asserts this mapping is WRONG (exported with predicate_modifier Not)."},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "justification": {"type": "string"}}}}
+      }
+    },
+    "local_concept_action": {
+      "type": "object",
+      "properties": {
+        "action": {"enum": ["create", "add_variant", "none"]},
+        "local_concept_id": {"type": "string"},
+        "pref_label_sw": {"type": "string"},
+        "pref_label_en": {"type": "string"},
+        "definition": {"type": "string"}
+      }
+    },
+    "final": {"type": "boolean"}
+  }
+}

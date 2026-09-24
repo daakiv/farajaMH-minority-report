@@ -1,0 +1,35 @@
+```markdown
+### Definition
+tõrgevalgne hingamõru sündroom (SARS) on viiruse hingamisteede haigus, mida põhjustab koroonaviirus nimega SARS‑assotsiatsiooniline koroonaviirus (SARS‑CoV). WHO praeguse juhtumikriteeriumi alusel kinnitatud tõrgevalgne hingamõru sündroomi juhtumite puhul on surmavõimalus ligikaudu 9,6 % (WHO, no date).
+
+### Primary reference(s)
+WHO, no date. Severe Acute Respiratory Syndrome World Health Organization (WHO). Accessed 27 May 2025.
+
+### Annotations
+#### Additional scientific description
+tõrgevalgne hingamõru sündroom (SARS) tuvastati esimest korda 2003. aasta veebruari lõpus Hiinas, kus algas epideemia, mis levitas end nelja teise riigi suunas (WHO, no date). Maailma Terviseorganisatsioon (WHO) koordineeris rahvusvahelist uurimist ja pakkus epidemioloogilist, klinilist ning logistilist tuge, aidates epideemiat kontrolli alla viia (WHO, no date). Enamik SARS‑juhtumeid hõlmas varasemalt terveid täiskasvanuid, vanuses 25–70 aastat. Mõned kahtlusjuhtumid esinesid 15‑aastastest alates (WHO, no date). SARS levib lähedase isik-ile-isik kontakti kaudu. Viirus, mis põhjustab SARS‑i, levib peamiselt hingamispakkide (spurtide) kaudu, mis tekivad, kui nakkusjuht naeratab või köidab. Viirus võib levida ka siis, kui inimene puudutab pinnat või objekti, mis on saastatud nakkusjuhtest tulevikspurtide, ja seejärel puudutab oma suu, nina või silma (WHO, no date). Lisaks võib SARS‑viirus levida laiemalt õhu kaudu (õhuliigune levik) või teiste teadaoleva mittetäieliku viisil. SARS‑i inkubaatsiooneperiood on tavaliselt 2–7 päeva, kuid võib ulatuda kuni 10 päevani (WHO, 2003b; no date). SARS‑i algus on sageli palavik (> 38 °C). Mõnikord kaasneb hüvälik ja seiskus, samuti võivad tekkida teised sümptomid, nagu peavalu, ebamugavus ja lihasvalud. Hädaolukorra alguses esinevad mõnel juhtumil leevad hingamisvaevad (WHO, no date). Alakõrva hingamistegevus algab pärast 3–4 päeva, hõlmates kuivat, tootmatust köit või hingamisraskust, mis võib kaasa tuua või edeneda hüpoksiemiale. 10 %–20 % juhtumist nõuab raske hingamisvaevad intubaatsiooni ja mehaanilist ventilatsiooni (WHO, 2020). SARS‑ile ei ole ravivõimalust ega vaktsiin, ravis keskendutakse toetavale lähenemisele, mis põhineb patsiendi sümptomitel (WHO, no date). Laboratoorsed diagnoosid on võtmetähtsusega, et määrata sümptomite etioloogia, sealhulgas diferentiaaldiagnoos teiste koroonaviiruste, sealhulgas SARS‑CoV‑2, vahel. Varajane kliiniline tuvastamine SARS‑CoV‑i haiguse puhul tugineb kliinilistele, laboratoorsetele ja epidemioloogilistele tunnustele. SARS‑CoV‑i haigusest ei ole võimalik kindlalt eristada teistest hingamisteede haigustest kiiresti (CDC, 2005). Vaktsiin või spetsiifiline ravisüsteem ei ole SARS‑i jaoks saadaval, kuid see kuulub WHO teadus- ja arendustegevuse plaanis prioriteetide nimekirja (WHO, 2016a). WHO avaldas juhiseid juhtumite klassifitseerimiseks, jälgimise standardite ja soovituste kohta SARS‑i ja veriturvalisuse osas (WHO, 2003a; 2021). Pille on tõenäoliselt SARS‑viiruse looduslik majjam (CSIRO, 2021).
+
+### Metrics and numeric limits
+tõrgevalgne hingamõru sündroomi juhtumite surmavõimalus, mis vastab WHO praeguse juhtumikriteeriumi alusel kinnitatud juhtumite kohta, on ligikaudu 9,6 % (WHO, no date).
+
+### Key relevant UN convention / multilateral treaty
+Rahvusvahelised terviseregulatsioonid (2005), 3. väljaanne (WHO, 2016b).
+
+### Drivers
+SARS‑CoV‑1 on transmissioonne uus haigus, mis tekkis 21. sajandil ja levitas end hingamisteede kaudu, põhjustades epideemia, mis levis rahvusvahelise lennureisi kaudu, kui inimesed reisevad teistesse riikidesse (WHO, no date). SARS‑i võib kaudse kokkuleppe kaudu levida, kui viirus süstetakse pinnale, mida puudutab nakkusjuht (WHO, no date).
+
+### Impacts
+tõrgevalgne hingamõru sündroomi juhtumite surmavõimalus, mis vastab WHO praeguse juhtumikriteeriumi alusel kinnitatud juhtumite kohta, on ligikaudu 3 % (WHO, no date). tõrgevalgne hingamõru sündroom (SARS) on viiruse hingamisteede haigus, mida põhjustab SARS‑koroonaviirus. SARS‑juhtumid tuvastati 2002. aasta novembris, kui Hiinas algas epideemia, mis levitas end 28 teist riiki. Kuid patogeen, mis põhjustab haigust, tuvastati koroonaviirusena 2003. aasta veebruari lõpus (WHO, no date). (… tekst jätkub identil...)
+
+### Multi‑hazard context
+SARS‑CoV‑1 on transmissioonne uus haigus, mis tekkis 21. sajandil ja levitas end hingamisteede kaudu, põhjustades epideemia, mis levis rahvusvahelise lennureisi kaudu (WHO, no date). SARS‑i levib kaudse kokkuleppe kaudu (WHO, no date). …
+
+### Risk Management
+Ennetamine toimub peamiselt tervishoiu, kodu ja kogukonna piirkondade nakkuskontrolli kaudu. Isiklikud ennetusmeetmed hõlmavad sagedast kätepesu seebiga või alkoholipõhise desinfektsiooniga. Kõrge nakkusriski isikutel, näiteks tervishoiutöötajatel, on kohustuslik kasutada isikliku kaitsevarustust, sealhulgas maski, silmakaitset ja köpet. Kui võimalik, peaks ka kodukontaktid kandma maski (WHO, no date). SARS‑i kontroll hõlmab juhtumite kiiret tuvastamist ja nende sobivat haldamist, sealhulgas kahtlus- ja tõenäoliste juhtumite isolatsiooni ning lähedaste kontaktide haldamist (WHO, no date). Uurimises olevad isikud tuleb paigutada hingamiskontrolli alla ning järgida rangelt ettevaatusabinõusid (WHO, no date). Hoolimata sellest sõltub SARS‑i tõhus kontroll kiirast juhtumite tuvastamisest, isolatsioonist ja tõenäoliste kontaktide jälgimisest (WHO, no date). Lisaks on oluline rakendada varajase hoiatusjärjestust (WHO, no date) koos isolatsiooniga, kontaktide jälgimisega, 10-päevase karantina, väljumise kontrolliga ning õhu- ja vee kaudu leviva viiruse desinfektsiooniga (WHO, no date).
+
+### Monitoring
+Global Outbreak Alert and Response Network (GOARN) loodi 2000. aasta aprillis, et aidata tehnilisi partnereid ja võrgustikke kogu maailmas koordineerida ja pakkuda sihitud abi ning toetust riiklikule tervishoiutöötajale, kui neid seda vajanud. GOARN‑i igapäevased tegevused toimivad platvormina, kus partnerid regulaarselt ühenduvad ja jagavad teateid ning operatiivset teavet, et kõik oleksid kursis uute epideemiate andmetega. Esimene igapäevane kõne 2017. aasta jaanuaris, eesmärgiks on teabevahetuse tõhustamine, koostöö ja koordineerimise suurendamine ning lõpuks riiklike, piirkondlike ja globaalsete tasandite reaktsioonide parandamine (WHO, 2024). WHO varajase hoiatus-, teavitus- ja vastusjärelevalve süsteemi (EWARS) on loodud, et parandada haigusseisundite avastamist kriisikeskustes, näiteks konfliktides või loodusõnnetuste järel. See on lihtne ja kuluefektiivne viis kiiralt haigusejälgimissüsteemi üles seadmeks. EWARS rakendatakse kriisi ajal täiendava süsteemina riikliku haigusejälgimissüsteemi kõrval. WHO teeb koostööd tervishoiu ministeeriumide ja sektoripartneritega, et koolitada kohalikke tervishoiutöötajaid süsteemi kasutama. Pärast kriisi peaks EWARS integreeruma tagasi riiklikku süsteemi (WHO, 2023).
+
+### References
+*(unchanged – this section is left in English as per the instructions)*
+```

@@ -1,0 +1,12 @@
+{
+  "PILOT-P01": "v10 worked example. Many readings (emptiness, spiritual loss, fright). Tests multiple candidates and a probable semantic gap.",
+  "PILOT-P02": "Grant example 'my heart is heavy'. Heart metaphor must not be read as a cardiac complaint. Tests literal vs idiomatic translation.",
+  "PILOT-P03": "'Thinking too much' idiom. The literature describes it as neither exactly rumination nor worry. Tests over-medicalisation and a relatedMatch or gap outcome.",
+  "PILOT-P04": "Grant example 'thoughts burn my head'. Somatic metaphor: the risk is a literal 'headache' reading or an automatic cognitive-symptom reading.",
+  "PILOT-P05": "'I have been bewitched' (kuroga, with l/r variation). Tests normalisation and the risk of labelling a cultural explanation as a delusion. Should NOT map clinically without clinician context.",
+  "PILOT-P06": "Sheng and English code-mixing ('mob' = a lot). Tests code-switch handling and the second concept in the utterance (sleep).",
+  "PILOT-P07": "Positive control: likely candidate for a low-mood or anhedonia concept. 'Sina' is lexical negation (I have no joy); the expression itself is AFFIRMED.",
+  "PILOT-P08": "Safety-critical (v10 example). The pipeline must refuse to process until escalation is recorded. Tests the safety gate.",
+  "PILOT-P09": "Negated form of P03 ('I no longer think too much'). Tests that Silver negation reaches reviewers and is not dropped.",
+  "PILOT-P10": "Attribution to another person, plus bereavement onset. Tests that the experiencer is not assumed to be the speaker."
+}

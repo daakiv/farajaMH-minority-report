@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/farajamh/mr/schema/utterance_input/0.1.0",
+  "title": "FarajaMH Minority Report — utterance input record",
+  "description": "One utterance, as it leaves Silver processing and enters the FarajaMH-adapted Minority Report (Stage 1). Only utterances routed by triage as NEAR MATCH (different concept) or NEW reach this stage. Contains restricted data: process only inside the DSA-approved environment.",
+  "type": "object",
+  "required": ["schema_version", "utterance_id", "silver_record_ref", "source", "original_text", "expression_span", "context", "triage", "safety", "data_classification"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "utterance_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]+$"},
+    "silver_record_ref": {
+      "type": "object",
+      "required": ["record_id", "silver_version", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {"type": "string"},
+        "silver_version": {"type": "string"},
+        "sha256": {"type": "string", "description": "Hash of the Silver record this utterance came from; lets the package be traced without copying the full record."}
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["modality"],
+      "additionalProperties": false,
+      "properties": {
+        "modality": {"enum": ["chat", "clinical_note", "voice_transcript", "peer_support_session", "simulated_patient", "constructed_pilot_example"]},
+        "transcription_method": {"enum": ["none", "manual", "asr", "asr_corrected"]},
+        "asr_model": {"type": "string"},
+        "asr_confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "original_text": {"type": "string", "minLength": 1, "description": "Exact utterance text as received from Silver. Never modified downstream."},
+    "language_declared": {"type": "string", "description": "BCP 47 tag declared upstream, e.g. 'sw', 'sw-KE', 'sw-TZ', 'en-KE'. May be wrong; Stage M1 re-identifies."},
+    "expression_span": {
+      "type": "object",
+      "required": ["start", "end", "text"],
+      "additionalProperties": false,
+      "description": "The candidate expression of distress inside the utterance (character offsets into original_text, end exclusive).",
+      "properties": {
+        "start": {"type": "integer", "minimum": 0},
+        "end": {"type": "integer", "minimum": 1},
+        "text": {"type": "string"}
+      }
+    },
+    "conversational_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "window_policy": {"type": "string", "description": "How the window was chosen, e.g. '2 turns before, 1 after, same session'."},
+        "preceding_turns": {"type": "array", "items": {"$ref": "#/$defs/turn"}},
+        "following_turns": {"type": "array", "items": {"$ref": "#/$defs/turn"}}
+      }
+    },
+    "context": {
+      "type": "object",
+      "required": ["country", "speaker_role", "setting", "negation", "temporality", "attribution"],
+      "additionalProperties": false,
+      "description": "Context resolved in Silver (v10 design position). The Minority Report reads it and may flag inconsistencies; it does not overwrite it.",
+      "properties": {
+        "country": {"enum": ["KE", "TZ"]},
+        "region": {"type": "string", "description": "Controlled FarajaMH region list, e.g. 'KE-coast', 'KE-western', 'TZ-lake'."},
+        "site_id": {"type": "string"},
+        "dialect_declared": {"type": "string", "description": "Controlled FarajaMH dialect list (e.g. 'Kiamu', 'Kimvita', 'Kiunguja', 'Sheng', 'standard'). BCP 47 has no subtags for most Swahili dialects."},
+        "speaker_role": {"enum": ["participant", "family_member", "chw", "clinician", "peer_supporter", "simulated_patient", "unknown"]},
+        "setting": {"enum": ["home_visit", "clinic", "hospital_ward", "chat_platform", "peer_support", "hdss_survey", "simulation", "unknown"]},
+        "negation": {"$ref": "#/$defs/resolved_value", "description": "affirmed | negated | uncertain"},
+        "temporality": {"$ref": "#/$defs/resolved_value", "description": "current | past | recurrent | hypothetical | unknown"},
+        "attribution": {"$ref": "#/$defs/resolved_value", "description": "Experiencer: self | family_member | other_person | generic | unknown"},
+        "applicability": {"$ref": "#/$defs/resolved_value"},
+        "onset_or_duration": {"type": "string"}
+      }
+    },
+    "triage": {
+      "type": "object",
+      "required": ["route"],
+      "additionalProperties": false,
+      "properties": {
+        "route": {"enum": ["near_match_different_concept", "new_expression"]},
+        "nearest_local_concept": {"type": "string", "description": "FarajaMH local concept ID closest to this expression, if any (for NEAR MATCH)."},
+        "triage_ref": {"type": "string"}
+      }
+    },
+    "safety": {
+      "type": "object",
+      "required": ["flag", "escalated"],
+      "additionalProperties": false,
+      "description": "Result of the v10 safety check, which runs before triage. A flagged utterance must already be escalated before the Minority Report touches it.",
+      "properties": {
+        "flag": {"type": "boolean"},
+        "escalated": {"type": "boolean"},
+        "escalation_ref": {"type": "string"}
+      }
+    },
+    "data_classification": {"enum": ["restricted", "deidentified", "synthetic"]},
+    "consent_scope_ref": {"type": "string"}
+  },
+  "$defs": {
+    "turn": {
+      "type": "object",
+      "required": ["speaker_role", "text"],
+      "additionalProperties": false,
+      "properties": {"speaker_role": {"type": "string"}, "text": {"type": "string"}}
+    },
+    "resolved_value": {
+      "type": "object",
+      "required": ["value", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {"type": "string"},
+        "source": {"enum": ["silver_nlp", "annotator", "metadata", "not_resolved"]},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}

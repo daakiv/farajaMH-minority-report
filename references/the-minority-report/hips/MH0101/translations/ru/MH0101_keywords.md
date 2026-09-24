@@ -1,0 +1,1 @@
+violent and damaging downdraught, strong downdraft that induces an outburst of damaging winds, Microburst, Macroburst, evaporative cooling and precipitation drag, localized columns of sinking air, damaging straight-line winds, wind shear, rapid changes in wind speed and direction, damaging winds comparable to that of tornadoes, aviation hazards

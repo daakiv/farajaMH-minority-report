@@ -1,0 +1,26 @@
+{
+  "@context": ["http://www.w3.org/ns/odrl.jsonld", {"ai": "https://cdif.org/vocab/ai-pipeline/", "fmh": "https://w3id.org/farajamh/policy/", "dc": "http://purl.org/dc/elements/1.1/"}],
+  "@type": "Set",
+  "uid": "https://w3id.org/farajamh/policy/minority-report-v0.1",
+  "dc:description": "FarajaMH extension of the Minority Report translation-pipeline ODRL policy. Replaces the HIPS-specific duties (40% length ratio, IAEA/WMO proofreading) with duties for mental-health expressions. Enforced in code by mr_farajamh/policy.py; this file is the declarative record.",
+  "permission": [
+    {"target": "fmh:restricted-utterance", "action": "ai:translate",
+     "constraint": [{"leftOperand": "fmh:hostLocality", "operator": "odrl:eq", "rightOperand": "local_dsa_approved"}],
+     "dc:description": "D1. Restricted utterances may be sent only to model hosts inside the DSA-approved environment. No external APIs (the upstream Gemini CLI path is disabled)."},
+    {"target": "fmh:utterance", "action": "ai:interpret",
+     "duty": [{"action": "fmh:checkSafetyEscalated", "dc:description": "D2. If safety.flag is true, safety.escalated must be true before processing. The Minority Report never delays clinical escalation."}]},
+    {"target": "fmh:concept-candidate", "action": "ai:propose",
+     "constraint": [{"leftOperand": "fmh:idOrigin", "operator": "odrl:eq", "rightOperand": "terminology_service"}],
+     "dc:description": "D3. Every concept identifier must come from a terminology-service response in the same run. LLMs rank; they never originate IDs."},
+    {"target": "fmh:agreement", "action": "ai:record",
+     "duty": [{"action": "fmh:retainMinority", "dc:description": "D4. Minority and dissenting candidates are kept in the package. No winner is selected by the AI layer (replaces upstream arbitration)."},
+              {"action": "fmh:requireModelDiversity", "dc:description": "D5. At least 3 interpreter models from at least 2 model families."}]}
+  ],
+  "prohibition": [
+    {"target": "fmh:sssom-mapping", "action": "odrl:distribute",
+     "constraint": [{"leftOperand": "fmh:humanApproval", "operator": "odrl:neq", "rightOperand": "final"}],
+     "dc:description": "P1. No SSSOM row, Local Concept Layer entry or OMOP concept may be produced from a package without a final human review decision."},
+    {"target": "fmh:candidate-package", "action": "fmh:setStatusApproved",
+     "dc:description": "P2. The AI layer cannot mark any package, interpretation or mapping as approved."}
+  ]
+}

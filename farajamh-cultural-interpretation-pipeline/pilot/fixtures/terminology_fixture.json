@@ -1,0 +1,130 @@
+{
+ "inner emptiness": {
+  "SNOMEDCT": [
+   "feeling empty"
+  ]
+ },
+ "grief": {
+  "SNOMEDCT": [
+   "grief",
+   "bereavement finding"
+  ],
+  "MFOEM": [
+   "grief-related emotion"
+  ]
+ },
+ "spiritual loss": {
+  "SNOMEDCT": [
+   "spiritual concern"
+  ]
+ },
+ "loss of vitality": {
+  "SNOMEDCT": [
+   "lack of energy"
+  ]
+ },
+ "fright": {
+  "SNOMEDCT": [
+   "fear"
+  ],
+  "MFOEM": [
+   "fear"
+  ]
+ },
+ "sadness": {
+  "SNOMEDCT": [
+   "feeling sad"
+  ],
+  "MFOEM": [
+   "sadness"
+  ]
+ },
+ "morning reluctance": {},
+ "chest heaviness": {
+  "SNOMEDCT": [
+   "chest heaviness"
+  ]
+ },
+ "thinking too much": {
+  "SNOMEDCT": [
+   "worrying",
+   "rumination"
+  ]
+ },
+ "worry": {
+  "SNOMEDCT": [
+   "worrying"
+  ],
+  "MFOEM": [
+   "anxiety"
+  ]
+ },
+ "life stressors": {},
+ "rumination": {
+  "SNOMEDCT": [
+   "rumination"
+  ]
+ },
+ "functional impairment": {
+  "SNOMEDCT": [
+   "difficulty performing work"
+  ]
+ },
+ "burning head sensation": {
+  "SNOMEDCT": [
+   "burning sensation of head"
+  ]
+ },
+ "night-time intrusive thoughts": {
+  "SNOMEDCT": [
+   "intrusive thoughts"
+  ]
+ },
+ "headache": {
+  "SNOMEDCT": [
+   "headache"
+  ]
+ },
+ "bewitchment explanation": {},
+ "interpersonal conflict": {
+  "SNOMEDCT": [
+   "interpersonal relationship problem"
+  ]
+ },
+ "persecutory belief": {
+  "SNOMEDCT": [
+   "persecutory delusion"
+  ]
+ },
+ "sleep difficulty": {
+  "SNOMEDCT": [
+   "difficulty sleeping"
+  ]
+ },
+ "stress": {
+  "SNOMEDCT": [
+   "feeling stressed"
+  ],
+  "MFOEM": [
+   "stress-related emotion"
+  ]
+ },
+ "low mood": {
+  "SNOMEDCT": [
+   "low mood"
+  ],
+  "MFOEM": [
+   "sadness"
+  ]
+ },
+ "loss of pleasure": {
+  "SNOMEDCT": [
+   "anhedonia"
+  ]
+ },
+ "lack of peace": {
+  "SNOMEDCT": [
+   "feeling restless"
+  ]
+ }
+}

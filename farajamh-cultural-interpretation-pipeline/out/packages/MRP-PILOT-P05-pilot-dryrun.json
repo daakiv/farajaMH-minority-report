@@ -1,0 +1,596 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P05-pilot-dryrun",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P05",
+  "input_sha256": "5b36c7bc1a1834c436e04bc9ecd51077e7055eefd36ed31b352e36d54340e03b"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.1.0-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "pilot-dryrun",
+  "started_at": "2026-09-22T08:23:08+00:00",
+  "ended_at": "2026-09-22T08:23:08+00:00",
+  "backend_mode": "fixture_simulated",
+  "models": [
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "normaliser",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-B",
+    "family": "sim-family-2",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-C",
+    "family": "sim-family-3",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "3778d3a3877f70de5781db7f6d15044222b904d7be938003a014798ffece26dd"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "15b3d7d39efcde785dc5a5e0aa78968e26208bea5842b88e72fc856da8c26286"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "7b84e42553a0b2f44f3c7bef35479844d3c6422c63e3862f30555179ee48b09e"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "SNOMEDCT+MFOEM",
+    "version": "placeholder",
+    "endpoint": "fixture-placeholder"
+   }
+  ],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Nimelogwa, ndiyo maana siwezi kulala.",
+  "expression_span": {
+   "start": 0,
+   "end": 9,
+   "text": "Nimelogwa"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-coast",
+   "site_id": "pilot",
+   "dialect_declared": "Kimvita",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Nimerogwa, ndiyo maana siwezi kulala.",
+  "normalised_expression": "Nimerogwa",
+  "edits": [
+   {
+    "from": "Nimelogwa",
+    "to": "Nimerogwa",
+    "type": "phonological_variant",
+    "note": "l/r alternation (-loga / -roga). DRAFT: linguist to confirm which form FarajaMH treats as standard."
+   }
+  ],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [
+   {
+    "dialect": "Kimvita (declared)",
+    "evidence": "l/r alternation is widespread; not diagnostic of dialect."
+   }
+  ],
+  "producer": "sim-model-A"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "sim-model-A",
+    "literal_gloss": "I-have-been-bewitched, that-is why I-cannot sleep",
+    "idiomatic_translation": "I have been bewitched; that is why I can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-B",
+     "text": "Nimerogwa; ndiyo sababu siwezi kulala.",
+     "similarity_to_normalised": 0.6
+    }
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "sim-model-B",
+    "literal_gloss": "I-have-been-bewitched, that-is reason I-cannot sleep",
+    "idiomatic_translation": "I've been bewitched, that's why I cannot sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-C",
+     "text": "Nimerogwa, ndiyo maana siwezi kulala.",
+     "similarity_to_normalised": 1.0
+    }
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "sim-model-C",
+    "literal_gloss": "I-have-been-cursed, therefore I-cannot sleep",
+    "idiomatic_translation": "I've been cursed, that's why I can't sleep.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-A",
+     "text": "Nimelaaniwa, ndiyo maana siwezi kulala.",
+     "similarity_to_normalised": 0.6
+    }
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "sim-model-A",
+    "sense_key": "bewitchment explanation",
+    "gloss": "The speaker attributes their problem to witchcraft; a culturally shared explanation of misfortune.",
+    "category": "spiritual_or_supernatural",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "community beliefs",
+     "whether others share the explanation"
+    ],
+    "rationale": "Explanatory model, not in itself a symptom.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "Nimelogwa"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "sim-model-A",
+    "sense_key": "sleep difficulty",
+    "gloss": "Difficulty sleeping.",
+    "category": "somatic_experience",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Second clause.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "siwezi kulala"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "sim-model-B",
+    "sense_key": "bewitchment explanation",
+    "gloss": "Attributing distress to bewitchment.",
+    "category": "spiritual_or_supernatural",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Culturally normative explanation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "Nimelogwa"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "sim-model-B",
+    "sense_key": "interpersonal conflict",
+    "gloss": "Witchcraft accusations can signal conflict or suspicion within family or community.",
+    "category": "social_or_relational",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Common social meaning of bewitchment talk.",
+    "evidence": [
+     {
+      "type": "model_background_knowledge",
+      "ref": "general",
+      "quote": ""
+     }
+    ],
+    "self_reported_plausibility": 0.3
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "sim-model-C",
+    "sense_key": "bewitchment explanation",
+    "gloss": "Belief in being bewitched.",
+    "category": "spiritual_or_supernatural",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Direct reading.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "Nimelogwa"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S6",
+    "model_ref": "sim-model-C",
+    "sense_key": "persecutory belief",
+    "gloss": "A belief of being harmed by others that could be clinically relevant if fixed and out of keeping with local norms.",
+    "category": "clinical_symptom",
+    "register": "clinical",
+    "context_dependencies": [
+     "cultural normativity",
+     "other psychotic features"
+    ],
+    "rationale": "Include for clinician check only; culturally shared beliefs are not delusions.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "Nimelogwa"
+     }
+    ],
+    "self_reported_plausibility": 0.2
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "sim-family-1",
+   "sim-family-2",
+   "sim-family-3"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "bewitchment explanation",
+    "category": "spiritual_or_supernatural",
+    "member_sense_ids": [
+     "S1",
+     "S3",
+     "S5"
+    ],
+    "supporting_models": [
+     "sim-model-A",
+     "sim-model-B",
+     "sim-model-C"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "sleep difficulty",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S2"
+    ],
+    "supporting_models": [
+     "sim-model-A"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "interpersonal conflict",
+    "category": "social_or_relational",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "sim-model-B"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C4",
+    "label": "persecutory belief",
+    "category": "clinical_symptom",
+    "member_sense_ids": [
+     "S6"
+    ],
+    "supporting_models": [
+     "sim-model-C"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "clinical"
+    ]
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.533,
+   "back_translation_similarity": [
+    0.6,
+    1.0,
+    0.6
+   ],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.896,
+   "n_clusters": 4,
+   "n_minority_clusters": 3,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": null,
+      "sim-model-C": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "sim-model-A",
+      "sim-model-B",
+      "sim-model-C"
+     ],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "sim-model-A": "SCTID:LOOKUP-difficulty-sleeping",
+      "sim-model-B": "SCTID:LOOKUP-difficulty-sleeping",
+      "sim-model-C": "SCTID:LOOKUP-difficulty-sleeping"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": true
+    },
+    "C3": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "SCTID:LOOKUP-interpersonal-relationship-problem",
+      "sim-model-C": "SCTID:LOOKUP-interpersonal-relationship-problem"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    },
+    "C4": {
+     "top1_by_model": {
+      "sim-model-A": "SCTID:LOOKUP-persecutory-delusion",
+      "sim-model-B": "SCTID:LOOKUP-persecutory-delusion",
+      "sim-model-C": "SCTID:LOOKUP-persecutory-delusion"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "register_divergence_clinical_vs_everyday",
+   "minority_clinical_reading"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [],
+    "no_adequate_match_votes": [
+     "sim-model-A",
+     "sim-model-B",
+     "sim-model-C"
+    ],
+    "gap_note": "No concepts retrieved for this meaning."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-difficulty-sleeping",
+      "label": "<lookup: difficulty sleeping>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "sleep difficulty",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-A",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [],
+    "gap_note": ""
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-interpersonal-relationship-problem",
+      "label": "<lookup: interpersonal relationship problem>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "interpersonal conflict",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:relatedMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   },
+   {
+    "cluster_id": "C4",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-persecutory-delusion",
+      "label": "<lookup: persecutory delusion>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "persecutory belief",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-A",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [],
+    "gap_note": ""
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "minority_clinical_reading",
+   "over_medicalisation_risk",
+   "placeholder_ids_not_verified",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.817,
+   "translation_agreement": 0.533,
+   "back_translation_similarity_min": 0.6,
+   "top_cluster_support": 1.0,
+   "sense_entropy": 0.896,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

@@ -1,0 +1,558 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P06-pilot-dryrun",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P06",
+  "input_sha256": "c949f88e49f7de28819e6485a3a9d08f14f1f7d69c14b84e663755c61628038d"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.1.0-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "pilot-dryrun",
+  "started_at": "2026-09-22T08:23:08+00:00",
+  "ended_at": "2026-09-22T08:23:08+00:00",
+  "backend_mode": "fixture_simulated",
+  "models": [
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "normaliser",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-B",
+    "family": "sim-family-2",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-C",
+    "family": "sim-family-3",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "3778d3a3877f70de5781db7f6d15044222b904d7be938003a014798ffece26dd"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "15b3d7d39efcde785dc5a5e0aa78968e26208bea5842b88e72fc856da8c26286"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "7b84e42553a0b2f44f3c7bef35479844d3c6422c63e3862f30555179ee48b09e"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "SNOMEDCT+MFOEM",
+    "version": "placeholder",
+    "endpoint": "fixture-placeholder"
+   }
+  ],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Niko na stress mob, siwezi lala.",
+  "expression_span": {
+   "start": 0,
+   "end": 18,
+   "text": "Niko na stress mob"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-nairobi",
+   "site_id": "pilot",
+   "dialect_declared": "Sheng",
+   "speaker_role": "participant",
+   "setting": "chat_platform",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Niko na stress mob, siwezi kulala.",
+  "normalised_expression": "Niko na stress mob",
+  "edits": [
+   {
+    "from": "stress",
+    "to": "stress",
+    "type": "code_switch_marked",
+    "note": "English loanword kept."
+   },
+   {
+    "from": "mob",
+    "to": "mob",
+    "type": "code_switch_marked",
+    "note": "Sheng intensifier ('a lot'); kept."
+   },
+   {
+    "from": "siwezi lala",
+    "to": "siwezi kulala",
+    "type": "sheng_lexical",
+    "note": "Colloquial infinitive without ku-."
+   }
+  ],
+  "language_id": "sw-x-sheng",
+  "code_switch_segments": [
+   {
+    "text": "Niko na",
+    "lang": "sw"
+   },
+   {
+    "text": "stress",
+    "lang": "en"
+   },
+   {
+    "text": "mob",
+    "lang": "sw-x-sheng"
+   },
+   {
+    "text": "siwezi kulala",
+    "lang": "sw"
+   }
+  ],
+  "dialect_hypotheses": [
+   {
+    "dialect": "Sheng (declared)",
+    "evidence": "'mob', dropped ku- infinitive"
+   }
+  ],
+  "producer": "sim-model-A"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "sim-model-A",
+    "literal_gloss": "I-am with stress a-lot, I-cannot sleep",
+    "idiomatic_translation": "I'm really stressed, I can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [
+     {
+      "term": "stress",
+      "reason": "loanword; local sense may be broader than English"
+     }
+    ],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-B",
+     "text": "Niko na stress sana, siwezi kulala.",
+     "similarity_to_normalised": 0.667
+    }
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "sim-model-B",
+    "literal_gloss": "I-am with stress much, I-cannot sleep",
+    "idiomatic_translation": "I'm very stressed and can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-C",
+     "text": "Nina msongo mkubwa na siwezi kulala.",
+     "similarity_to_normalised": 0.25
+    }
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "sim-model-C",
+    "literal_gloss": "I-am with stress lots, I-cannot sleep",
+    "idiomatic_translation": "I'm so stressed, I can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-A",
+     "text": "Nina stress sana, siwezi kulala.",
+     "similarity_to_normalised": 0.429
+    }
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "sim-model-A",
+    "sense_key": "stress",
+    "gloss": "Feeling under heavy pressure or strain.",
+    "category": "emotional_state",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Loanword used as in everyday Kenyan speech.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "stress mob"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "sim-model-A",
+    "sense_key": "sleep difficulty",
+    "gloss": "Difficulty sleeping.",
+    "category": "somatic_experience",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Second clause.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "siwezi lala"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "sim-model-B",
+    "sense_key": "stress",
+    "gloss": "Feeling under heavy pressure or strain.",
+    "category": "emotional_state",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Loanword used as in everyday Kenyan speech.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "stress mob"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "sim-model-B",
+    "sense_key": "sleep difficulty",
+    "gloss": "Difficulty sleeping.",
+    "category": "somatic_experience",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Second clause.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "siwezi lala"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "sim-model-C",
+    "sense_key": "stress",
+    "gloss": "Feeling under heavy pressure or strain.",
+    "category": "emotional_state",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Loanword used as in everyday Kenyan speech.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "stress mob"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S6",
+    "model_ref": "sim-model-C",
+    "sense_key": "sleep difficulty",
+    "gloss": "Difficulty sleeping.",
+    "category": "somatic_experience",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Second clause.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "siwezi lala"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "sim-family-1",
+   "sim-family-2",
+   "sim-family-3"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "stress",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S3",
+     "S5"
+    ],
+    "supporting_models": [
+     "sim-model-A",
+     "sim-model-B",
+     "sim-model-C"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "sleep difficulty",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S2",
+     "S4",
+     "S6"
+    ],
+    "supporting_models": [
+     "sim-model-A",
+     "sim-model-B",
+     "sim-model-C"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "mixed"
+    ]
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.7,
+   "back_translation_similarity": [
+    0.667,
+    0.25,
+    0.429
+   ],
+   "cultural_terms_lost": [
+    "T2:stress"
+   ],
+   "sense_entropy": 1.0,
+   "n_clusters": 2,
+   "n_minority_clusters": 0,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "sim-model-A": "SCTID:LOOKUP-feeling-stressed",
+      "sim-model-B": "MFOEM:LOOKUP-stress-related-emotion",
+      "sim-model-C": "SCTID:LOOKUP-feeling-stressed"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": true
+    },
+    "C2": {
+     "top1_by_model": {
+      "sim-model-A": "SCTID:LOOKUP-difficulty-sleeping",
+      "sim-model-B": "SCTID:LOOKUP-difficulty-sleeping",
+      "sim-model-C": "SCTID:LOOKUP-difficulty-sleeping"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "multiple_components_in_utterance",
+   "full_agreement_audit_candidate",
+   "cultural_term_lost_in_back_translation"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-feeling-stressed",
+      "label": "<lookup: feeling stressed>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "stress",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-A",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-B",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:LOOKUP-stress-related-emotion",
+      "label": "<lookup: stress-related emotion>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "stress",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "sim-model-A",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 2,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [],
+    "gap_note": ""
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-difficulty-sleeping",
+      "label": "<lookup: difficulty sleeping>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "sleep difficulty",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-A",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [],
+    "gap_note": ""
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "cultural_term_lost_in_back_translation",
+   "full_agreement_audit_candidate",
+   "multiple_components_in_utterance",
+   "placeholder_ids_not_verified"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.85,
+   "translation_agreement": 0.7,
+   "back_translation_similarity_min": 0.25,
+   "top_cluster_support": 1.0,
+   "sense_entropy": 1.0,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

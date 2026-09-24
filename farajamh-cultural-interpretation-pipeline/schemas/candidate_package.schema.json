@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/farajamh/mr/schema/candidate_package/0.1.0",
+  "title": "FarajaMH Minority Report — candidate interpretation package",
+  "description": "Everything the AI layer proposes for one utterance, separated into layers. It is a proposal: status can never be 'approved' here. Human decisions live in review_decision records; approved meaning lives in the Local Concept Layer; approved mappings live in SSSOM.",
+  "type": "object",
+  "required": ["schema_version", "package_id", "status", "utterance_ref", "provenance", "L1_original", "L2_normalisation", "L3_translation", "L4_interpretation", "L5_agreement", "L6_concept_candidates", "L7_review_signals"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "package_id": {"type": "string"},
+    "status": {"enum": ["awaiting_review", "blocked_pending_safety_escalation", "failed"], "description": "Deliberately has no 'approved' value."},
+    "utterance_ref": {
+      "type": "object",
+      "required": ["utterance_id", "input_sha256"],
+      "properties": {"utterance_id": {"type": "string"}, "input_sha256": {"type": "string"}}
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["pipeline", "pipeline_version", "run_id", "started_at", "ended_at", "backend_mode", "models", "prompts", "terminologies"],
+      "properties": {
+        "pipeline": {"const": "farajamh-minority-report"},
+        "pipeline_version": {"type": "string"},
+        "upstream": {"type": "string", "description": "Upstream Minority Report repo + commit this adaptation derives from."},
+        "run_id": {"type": "string"},
+        "started_at": {"type": "string"},
+        "ended_at": {"type": "string"},
+        "backend_mode": {"enum": ["live", "fixture_simulated"]},
+        "models": {"type": "array", "items": {"type": "object", "required": ["model_ref", "family", "role"], "properties": {
+          "model_ref": {"type": "string"}, "family": {"type": "string"}, "role": {"type": "string"},
+          "digest": {"type": "string"}, "host_locality": {"enum": ["local_dsa_approved", "external", "fixture"]},
+          "options": {"type": "object"}}}},
+        "prompts": {"type": "array", "items": {"type": "object", "required": ["name", "sha256"], "properties": {"name": {"type": "string"}, "sha256": {"type": "string"}}}},
+        "terminologies": {"type": "array", "items": {"type": "object", "required": ["system", "version", "endpoint"], "properties": {"system": {"type": "string"}, "version": {"type": "string"}, "endpoint": {"type": "string"}}}},
+        "policy": {"type": "string"}
+      }
+    },
+    "L1_original": {
+      "type": "object",
+      "required": ["original_text", "expression_span"],
+      "properties": {"original_text": {"type": "string"}, "expression_span": {"type": "object"}, "context_as_received": {"type": "object"}}
+    },
+    "L2_normalisation": {
+      "type": "object",
+      "required": ["normalised_text", "normalised_expression", "edits", "language_id", "producer"],
+      "properties": {
+        "normalised_text": {"type": "string"},
+        "normalised_expression": {"type": "string"},
+        "edits": {"type": "array", "items": {"type": "object", "required": ["from", "to", "type"], "properties": {"from": {"type": "string"}, "to": {"type": "string"}, "type": {"enum": ["orthographic", "phonological_variant", "sheng_lexical", "code_switch_marked", "asr_correction", "spacing_punctuation"]}, "note": {"type": "string"}}}},
+        "language_id": {"type": "string"},
+        "code_switch_segments": {"type": "array", "items": {"type": "object", "properties": {"text": {"type": "string"}, "lang": {"type": "string"}}}},
+        "dialect_hypotheses": {"type": "array", "items": {"type": "object", "properties": {"dialect": {"type": "string"}, "evidence": {"type": "string"}}}},
+        "producer": {"type": "string"}
+      }
+    },
+    "L3_translation": {
+      "type": "object",
+      "required": ["candidates"],
+      "properties": {"candidates": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/translation_candidate"}}}
+    },
+    "L4_interpretation": {
+      "type": "object",
+      "required": ["candidates"],
+      "properties": {"candidates": {"type": "array", "items": {"$ref": "#/$defs/sense_candidate"}}}
+    },
+    "L5_agreement": {
+      "type": "object",
+      "required": ["n_models", "model_families", "sense_clusters", "metrics", "divergence_flags"],
+      "properties": {
+        "n_models": {"type": "integer"},
+        "model_families": {"type": "array", "items": {"type": "string"}},
+        "sense_clusters": {"type": "array", "items": {"type": "object", "required": ["cluster_id", "label", "category", "member_sense_ids", "supporting_models", "support_ratio", "standing"], "properties": {
+          "cluster_id": {"type": "string"}, "label": {"type": "string"}, "category": {"type": "string"},
+          "member_sense_ids": {"type": "array", "items": {"type": "string"}},
+          "supporting_models": {"type": "array", "items": {"type": "string"}},
+          "support_ratio": {"type": "number"},
+          "standing": {"enum": ["unanimous", "majority", "minority"]}}}},
+        "metrics": {"type": "object"},
+        "divergence_flags": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "L6_concept_candidates": {
+      "type": "object",
+      "required": ["per_cluster"],
+      "properties": {"per_cluster": {"type": "array", "items": {"type": "object", "required": ["cluster_id", "candidates", "no_adequate_match_votes"], "properties": {
+        "cluster_id": {"type": "string"},
+        "candidates": {"type": "array", "items": {"$ref": "#/$defs/concept_candidate"}},
+        "no_adequate_match_votes": {"type": "array", "items": {"type": "string"}, "description": "Models that judged none of the retrieved concepts adequate. A legitimate outcome, not a failure."},
+        "gap_note": {"type": "string"}}}}}
+    },
+    "L7_review_signals": {
+      "type": "object",
+      "required": ["review_priority", "risk_flags", "confidence_components"],
+      "properties": {
+        "review_priority": {"enum": ["high", "medium", "low"]},
+        "risk_flags": {"type": "array", "items": {"type": "string"}},
+        "confidence_components": {"type": "object", "description": "Separate signals, not a probability. None of them approves anything."},
+        "suggested_reviewer_roles": {"type": "array", "items": {"enum": ["linguist", "cultural_expert", "clinician", "lived_experience"]}},
+        "nonconformances": {"type": "array", "description": "Repairs applied to schema-invalid model output, with the raw value kept.",
+          "items": {"type": "object", "properties": {"where": {"type": "string"}, "field": {"type": "string"},
+                    "model_value": {"type": "string"}, "used_instead": {"type": "string"}}}}
+      }
+    }
+  },
+  "$defs": {
+    "translation_candidate": {
+      "type": "object",
+      "required": ["candidate_id", "model_ref", "literal_gloss", "idiomatic_translation"],
+      "properties": {
+        "candidate_id": {"type": "string"},
+        "model_ref": {"type": "string"},
+        "literal_gloss": {"type": "string", "description": "Word-by-word rendering; keeps the metaphor visible."},
+        "idiomatic_translation": {"type": "string"},
+        "preserved_terms": {"type": "array", "items": {"type": "object", "properties": {"term": {"type": "string"}, "reason": {"type": "string"}}}},
+        "uncertainty_note": {"type": "string"},
+        "self_reported_confidence": {"type": "number"},
+        "back_translation": {"type": "object", "properties": {"by_model": {"type": "string"}, "text": {"type": "string"},
+          "similarity_to_normalised": {"type": ["number", "null"], "description": "null = not assessed (back-translation unusable)"},
+          "note": {"type": "string"}}}
+      }
+    },
+    "sense_candidate": {
+      "type": "object",
+      "required": ["sense_id", "model_ref", "sense_key", "gloss", "category", "register", "rationale", "evidence"],
+      "properties": {
+        "sense_id": {"type": "string"},
+        "model_ref": {"type": "string"},
+        "sense_key": {"type": "string"},
+        "gloss": {"type": "string"},
+        "category": {"enum": ["emotional_state", "cognitive_process", "somatic_experience", "spiritual_or_supernatural", "social_or_relational", "clinical_symptom", "risk_or_safety", "other"]},
+        "register": {"enum": ["everyday_cultural", "clinical", "mixed"]},
+        "context_dependencies": {"type": "array", "items": {"type": "string"}},
+        "rationale": {"type": "string"},
+        "evidence": {"type": "array", "items": {"type": "object", "required": ["type", "ref"], "properties": {"type": {"enum": ["utterance_span", "context_field", "conversation_turn", "translation_candidate", "model_background_knowledge", "local_concept_layer"]}, "ref": {"type": "string"}, "quote": {"type": "string"}}}},
+        "self_reported_plausibility": {"type": "number"}
+      }
+    },
+    "concept_candidate": {
+      "type": "object",
+      "required": ["system", "id", "label", "id_verified", "retrieval_query", "retrieved_from"],
+      "properties": {
+        "system": {"enum": ["SNOMEDCT", "MFOEM", "FARAJAMH_LOCAL"]},
+        "id": {"type": "string"},
+        "label": {"type": "string"},
+        "id_verified": {"type": "boolean", "description": "True only if the ID came back from the terminology service in this run. LLMs never originate IDs."},
+        "retrieved_from": {"type": "string"},
+        "retrieval_query": {"type": "string"},
+        "retrieval_rank": {"type": "integer"},
+        "system_version": {"type": "string"},
+        "ranking": {"type": "array", "items": {"type": "object", "properties": {"model_ref": {"type": "string"}, "rank": {"type": "integer"}, "proposed_predicate": {"type": "string"}, "rationale": {"type": "string"}}}}
+      }
+    }
+  }
+}

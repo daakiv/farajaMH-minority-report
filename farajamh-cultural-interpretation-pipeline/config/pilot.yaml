@@ -1,0 +1,49 @@
+# FarajaMH-adapted Minority Report — pilot configuration
+# Model names below are EXAMPLES to test on the Ollama host(s). Check Swahili quality and licences before use.
+# For restricted (real participant) data, every host must be inside the DSA-approved environment.
+
+pipeline_version: "0.2.0-pilot"
+upstream: "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9"
+
+ollama_hosts: ["http://localhost:11434"]    # comma-list supported, same as upstream ModelRouter
+
+models:
+  normaliser:     {model_ref: "gemma3:27b",  family: "gemma"}
+  interpreters:                               # >= 3 models from >= 2 families; diversity is a hard requirement
+    - {model_ref: "gemma3:27b",   family: "gemma"}
+    - {model_ref: "qwen3:32b",    family: "qwen"}
+    - {model_ref: "llama3.3:70b", family: "llama"}
+  back_translation: "ring"                    # "ring" (model i+1 back-translates), a model name, or "off"
+  embedding_model: ""                         # e.g. "embeddinggemma" or "nomic-embed-text"; empty = word-overlap clustering
+  options: {temperature: 0.2, seed: 42}
+
+# Do NOT use the model being fine-tuned for FarajaMH (Llama 4 Scout per the grant) as an interpreter while its
+# training data is being built from reviewed packages; that would feed its own outputs back into its training set.
+
+terminologies:
+  SNOMEDCT:
+    client: snowstorm
+    endpoint: "https://<your-snowstorm-host>/snowstorm/snomed-ct"   # licensed instance; confirm SNOMED licence first
+    branch: "MAIN"
+    version: "<pin edition + effectiveTime, e.g. International 2026-xx-01>"
+    ecl_scope: "<< 404684003"                  # Clinical finding hierarchy; widen only by explicit decision
+    limit: 8
+  MFOEM:
+    client: ols
+    endpoint: "https://www.ebi.ac.uk/ols4/api"
+    ontology: "mfoem"
+    version: "<pin release>"
+    limit: 8
+  # MFOEM is optional parallel enrichment (not a mandatory hop), per the current architecture decision.
+
+agreement:
+  cluster_jaccard_threshold: 0.34             # used only when no embedding model is configured
+  embedding_similarity_threshold: 0.85        # merge two senses in the SAME category above this cosine
+  embedding_cross_category_threshold: 0.93    # higher bar to merge across categories, so somatic/clinical
+                                              # readings are not absorbed into an emotional cluster
+  minority_below: 0.5
+  translation_divergence_below: 0.35
+  back_translation_mismatch_below: 0.25
+  min_model_families: 2
+
+policy: "policy/farajamh_mr_odrl.jsonld"

@@ -1,0 +1,735 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P03-pilot-dryrun",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P03",
+  "input_sha256": "14ff78577275eec130b8daeb048732611f17beae8cab74e06b07ac74e5199435"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.1.0-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "pilot-dryrun",
+  "started_at": "2026-09-22T08:23:08+00:00",
+  "ended_at": "2026-09-22T08:23:08+00:00",
+  "backend_mode": "fixture_simulated",
+  "models": [
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "normaliser",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-B",
+    "family": "sim-family-2",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-C",
+    "family": "sim-family-3",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "3778d3a3877f70de5781db7f6d15044222b904d7be938003a014798ffece26dd"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "15b3d7d39efcde785dc5a5e0aa78968e26208bea5842b88e72fc856da8c26286"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "7b84e42553a0b2f44f3c7bef35479844d3c6422c63e3862f30555179ee48b09e"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "SNOMEDCT+MFOEM",
+    "version": "placeholder",
+    "endpoint": "fixture-placeholder"
+   }
+  ],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Nina mawazo mengi, siwezi kufanya kazi.",
+  "expression_span": {
+   "start": 0,
+   "end": 17,
+   "text": "Nina mawazo mengi"
+  },
+  "context_as_received": {
+   "country": "TZ",
+   "region": "TZ-lake",
+   "site_id": "pilot",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "hdss_survey",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Nina mawazo mengi, siwezi kufanya kazi.",
+  "normalised_expression": "Nina mawazo mengi",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "sim-model-A"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "sim-model-A",
+    "literal_gloss": "I-have thoughts many, I-cannot do work",
+    "idiomatic_translation": "I am thinking too much; I can't work.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-B",
+     "text": "Nawaza sana; siwezi kufanya kazi.",
+     "similarity_to_normalised": 0.375
+    }
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "sim-model-B",
+    "literal_gloss": "I-have thoughts many, I-cannot do work",
+    "idiomatic_translation": "I have a lot on my mind, I can't work.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-C",
+     "text": "Nina mambo mengi akilini, siwezi kufanya kazi.",
+     "similarity_to_normalised": 0.625
+    }
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "sim-model-C",
+    "literal_gloss": "I-have worries many, I-cannot work",
+    "idiomatic_translation": "I am worrying a lot and cannot work.",
+    "self_reported_confidence": 0.7,
+    "preserved_terms": [],
+    "uncertainty_note": "Rendered 'mawazo' as worries.",
+    "back_translation": {
+     "by_model": "sim-model-A",
+     "text": "Nina wasiwasi mwingi na siwezi kufanya kazi.",
+     "similarity_to_normalised": 0.5
+    }
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "sim-model-A",
+    "sense_key": "thinking too much",
+    "gloss": "The 'thinking too much' idiom of distress: persistent troubling thoughts, often about life problems.",
+    "category": "cognitive_process",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "'Mawazo mengi' is a widely reported East African idiom of distress.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "mawazo mengi"
+     },
+     {
+      "type": "model_background_knowledge",
+      "ref": "general",
+      "quote": ""
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "sim-model-A",
+    "sense_key": "worry",
+    "gloss": "Worry about problems.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Overlaps with worry.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "mawazo"
+     }
+    ],
+    "self_reported_plausibility": 0.5
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "sim-model-B",
+    "sense_key": "thinking too much",
+    "gloss": "Thinking too much about one's problems.",
+    "category": "cognitive_process",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Standard reading of the idiom.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "Nina mawazo mengi"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "sim-model-B",
+    "sense_key": "life stressors",
+    "gloss": "Preoccupation with social or economic problems (money, family, work).",
+    "category": "social_or_relational",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "The idiom often refers to concrete hardship.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "siwezi kufanya kazi"
+     },
+     {
+      "type": "model_background_knowledge",
+      "ref": "general",
+      "quote": ""
+     }
+    ],
+    "self_reported_plausibility": 0.4
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "sim-model-C",
+    "sense_key": "worry",
+    "gloss": "Excessive worry.",
+    "category": "emotional_state",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Mawazo as worries.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "mawazo mengi"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S6",
+    "model_ref": "sim-model-C",
+    "sense_key": "rumination",
+    "gloss": "Repetitive negative thinking.",
+    "category": "clinical_symptom",
+    "register": "clinical",
+    "context_dependencies": [],
+    "rationale": "Could correspond to rumination.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "mawazo mengi"
+     }
+    ],
+    "self_reported_plausibility": 0.4
+   },
+   {
+    "sense_id": "S7",
+    "model_ref": "sim-model-C",
+    "sense_key": "functional impairment",
+    "gloss": "Unable to work because of the thoughts.",
+    "category": "clinical_symptom",
+    "register": "clinical",
+    "context_dependencies": [],
+    "rationale": "Second clause reports impact on work.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "siwezi kufanya kazi"
+     }
+    ],
+    "self_reported_plausibility": 0.5
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "sim-family-1",
+   "sim-family-2",
+   "sim-family-3"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "thinking too much",
+    "category": "cognitive_process",
+    "member_sense_ids": [
+     "S1",
+     "S3"
+    ],
+    "supporting_models": [
+     "sim-model-A",
+     "sim-model-B"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "worry",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "sim-model-A",
+     "sim-model-C"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "life stressors",
+    "category": "social_or_relational",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "sim-model-B"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C4",
+    "label": "rumination",
+    "category": "clinical_symptom",
+    "member_sense_ids": [
+     "S6"
+    ],
+    "supporting_models": [
+     "sim-model-C"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "clinical"
+    ]
+   },
+   {
+    "cluster_id": "C5",
+    "label": "functional impairment",
+    "category": "clinical_symptom",
+    "member_sense_ids": [
+     "S7"
+    ],
+    "supporting_models": [
+     "sim-model-C"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "clinical"
+    ]
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.278,
+   "back_translation_similarity": [
+    0.375,
+    0.625,
+    0.5
+   ],
+   "cultural_terms_lost": [
+    "T1:mawazo",
+    "T2:mawazo",
+    "T3:mawazo"
+   ],
+   "sense_entropy": 0.963,
+   "n_clusters": 5,
+   "n_minority_clusters": 3,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "SCTID:LOOKUP-rumination",
+      "sim-model-C": "SCTID:LOOKUP-worrying"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    },
+    "C2": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "MFOEM:LOOKUP-anxiety",
+      "sim-model-C": "SCTID:LOOKUP-worrying"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    },
+    "C3": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": null,
+      "sim-model-C": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "sim-model-A",
+      "sim-model-B",
+      "sim-model-C"
+     ],
+     "predicate_disagreement": false
+    },
+    "C4": {
+     "top1_by_model": {
+      "sim-model-A": "SCTID:LOOKUP-rumination",
+      "sim-model-B": "SCTID:LOOKUP-rumination",
+      "sim-model-C": "SCTID:LOOKUP-rumination"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": true
+    },
+    "C5": {
+     "top1_by_model": {
+      "sim-model-A": "SCTID:LOOKUP-difficulty-performing-work",
+      "sim-model-B": "SCTID:LOOKUP-difficulty-performing-work",
+      "sim-model-C": "SCTID:LOOKUP-difficulty-performing-work"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday",
+   "minority_clinical_reading",
+   "cultural_term_lost_in_back_translation"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-worrying",
+      "label": "<lookup: worrying>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "thinking too much",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-rumination",
+      "label": "<lookup: rumination>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "thinking too much",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 2,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-worrying",
+      "label": "<lookup: worrying>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "worry",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:LOOKUP-anxiety",
+      "label": "<lookup: anxiety>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "worry",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 2,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [],
+    "no_adequate_match_votes": [
+     "sim-model-A",
+     "sim-model-B",
+     "sim-model-C"
+    ],
+    "gap_note": "No concepts retrieved for this meaning."
+   },
+   {
+    "cluster_id": "C4",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-rumination",
+      "label": "<lookup: rumination>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "rumination",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-A",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [],
+    "gap_note": ""
+   },
+   {
+    "cluster_id": "C5",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-difficulty-performing-work",
+      "label": "<lookup: difficulty performing work>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "functional impairment",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-A",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [],
+    "gap_note": ""
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "cultural_term_lost_in_back_translation",
+   "minority_clinical_reading",
+   "over_medicalisation_risk",
+   "placeholder_ids_not_verified",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.733,
+   "translation_agreement": 0.278,
+   "back_translation_similarity_min": 0.375,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.963,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

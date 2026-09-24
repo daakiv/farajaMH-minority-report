@@ -1,0 +1,1482 @@
+{
+ "_warning": "SIMULATED fixture responses written by hand for pipeline testing. Not model outputs. Not validated interpretations.",
+ "PILOT-P01": {
+  "normalise": {
+   "normalised_text": "Tangu msiba ule, roho yangu imeondoka.",
+   "normalised_expression": "roho yangu imeondoka",
+   "edits": [],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": [
+    {
+     "dialect": "Kiamu (declared)",
+     "evidence": "No Kiamu-specific forms in this utterance; standard spelling already."
+    }
+   ]
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "since bereavement that, soul my has-left",
+    "idiomatic_translation": "Since that death, I feel as if my spirit has left me.",
+    "self_reported_confidence": 0.7,
+    "preserved_terms": [
+     {
+      "term": "roho",
+      "reason": "soul / spirit / life-breath / heart; no single English equivalent"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "since funeral that, spirit my it-has-gone",
+    "idiomatic_translation": "Since that funeral I have felt empty inside.",
+    "self_reported_confidence": 0.6,
+    "preserved_terms": [
+     {
+      "term": "roho",
+      "reason": "soul / spirit / life-breath / heart; no single English equivalent"
+     }
+    ],
+    "uncertainty_note": "'roho' can mean soul, spirit, heart or life-breath."
+   },
+   "sim-model-C": {
+    "literal_gloss": "since loss that, heart my has-gone",
+    "idiomatic_translation": "Since that loss, my heart has gone out of me.",
+    "self_reported_confidence": 0.5,
+    "preserved_terms": [
+     {
+      "term": "roho",
+      "reason": "soul / spirit / life-breath / heart; no single English equivalent"
+     }
+    ],
+    "uncertainty_note": "Could also describe losing courage, or a fright."
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Tangu kifo kile, nahisi kama roho yangu imeniacha."
+   },
+   "sim-model-B": {
+    "text": "Tangu mazishi yale nimejisikia mtupu ndani."
+   },
+   "sim-model-C": {
+    "text": "Tangu msiba ule, moyo wangu umenitoka."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "inner emptiness",
+      "gloss": "A feeling of inner emptiness or numbness after the loss.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [
+       "bereavement context",
+       "duration since loss"
+      ],
+      "rationale": "'Roho imeondoka' is used for a sense that one's inner life has gone.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "roho yangu imeondoka"
+       },
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Tangu msiba ule"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     },
+     {
+      "sense_key": "grief",
+      "gloss": "Grief following a death.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "'Msiba' marks a death or funeral as the onset.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Tangu msiba ule"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "inner emptiness",
+      "gloss": "Feeling empty inside since the funeral.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "My translation reads the phrase as emptiness.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "roho yangu imeondoka"
+       }
+      ],
+      "self_reported_plausibility": 0.5
+     },
+     {
+      "sense_key": "spiritual loss",
+      "gloss": "A felt loss of one's spirit or spiritual connection, possibly tied to the dead person.",
+      "category": "spiritual_or_supernatural",
+      "register": "everyday_cultural",
+      "context_dependencies": [
+       "speaker's religious framing",
+       "local beliefs about the dead"
+      ],
+      "rationale": "Roho has a spiritual sense; the loss may be understood spiritually.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "roho"
+       },
+       {
+        "type": "model_background_knowledge",
+        "ref": "general",
+        "quote": ""
+       }
+      ],
+      "self_reported_plausibility": 0.4
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "grief",
+      "gloss": "Grief reaction to a bereavement.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Onset tied to msiba.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Tangu msiba ule"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     },
+     {
+      "sense_key": "loss of vitality",
+      "gloss": "Loss of life-energy or will: feeling that one's life-force has gone.",
+      "category": "somatic_experience",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Roho as life-breath suggests reduced vitality.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "roho"
+       },
+       {
+        "type": "model_background_knowledge",
+        "ref": "general",
+        "quote": ""
+       }
+      ],
+      "self_reported_plausibility": 0.3
+     },
+     {
+      "sense_key": "fright",
+      "gloss": "Having been badly shaken or frightened.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Roho expressions are also used for fright; less likely given the bereavement onset.",
+      "evidence": [
+       {
+        "type": "model_background_knowledge",
+        "ref": "general",
+        "quote": ""
+       }
+      ],
+      "self_reported_plausibility": 0.2
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P02": {
+  "normalise": {
+   "normalised_text": "Moyo wangu ni mzito kila asubuhi.",
+   "normalised_expression": "Moyo wangu ni mzito",
+   "edits": [],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": []
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "heart my is heavy every morning",
+    "idiomatic_translation": "Every morning my heart feels heavy.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "heart as seat of emotion; not the cardiac organ in this use"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "heart my is heavy each morning",
+    "idiomatic_translation": "Every morning I feel heavy-hearted.",
+    "self_reported_confidence": 0.8,
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "heart as seat of emotion; not the cardiac organ in this use"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "heart my is heavy every morning",
+    "idiomatic_translation": "My heart is heavy every morning.",
+    "self_reported_confidence": 0.8,
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "heart as seat of emotion; not the cardiac organ in this use"
+     }
+    ],
+    "uncertainty_note": ""
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Kila asubuhi moyo wangu unakuwa mzito."
+   },
+   "sim-model-B": {
+    "text": "Kila asubuhi najisikia moyo mzito."
+   },
+   "sim-model-C": {
+    "text": "Moyo wangu ni mzito kila asubuhi."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "sadness",
+      "gloss": "Sadness or sorrow, felt as heaviness of the heart.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Common idiom of sorrow.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Moyo wangu ni mzito"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "sadness",
+      "gloss": "Low, sorrowful mood.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Heaviness of heart = sorrow.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Moyo wangu ni mzito"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "morning reluctance",
+      "gloss": "Dread or reluctance on waking to face the day.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [
+       "temporality: recurrent"
+      ],
+      "rationale": "'Kila asubuhi' points to a morning pattern.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "kila asubuhi"
+       }
+      ],
+      "self_reported_plausibility": 0.4
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "sadness",
+      "gloss": "Sad mood.",
+      "category": "emotional_state",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Idiom of sorrow.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Moyo wangu ni mzito"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     },
+     {
+      "sense_key": "chest heaviness",
+      "gloss": "A physical sensation of heaviness in the chest.",
+      "category": "clinical_symptom",
+      "register": "clinical",
+      "context_dependencies": [],
+      "rationale": "A literal reading of 'moyo' as the chest; include for clinician check.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Moyo"
+       }
+      ],
+      "self_reported_plausibility": 0.2
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P03": {
+  "normalise": {
+   "normalised_text": "Nina mawazo mengi, siwezi kufanya kazi.",
+   "normalised_expression": "Nina mawazo mengi",
+   "edits": [],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": []
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "I-have thoughts many, I-cannot do work",
+    "idiomatic_translation": "I am thinking too much; I can't work.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "I-have thoughts many, I-cannot do work",
+    "idiomatic_translation": "I have a lot on my mind, I can't work.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "I-have worries many, I-cannot work",
+    "idiomatic_translation": "I am worrying a lot and cannot work.",
+    "self_reported_confidence": 0.7,
+    "preserved_terms": [],
+    "uncertainty_note": "Rendered 'mawazo' as worries."
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Nawaza sana; siwezi kufanya kazi."
+   },
+   "sim-model-B": {
+    "text": "Nina mambo mengi akilini, siwezi kufanya kazi."
+   },
+   "sim-model-C": {
+    "text": "Nina wasiwasi mwingi na siwezi kufanya kazi."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "thinking too much",
+      "gloss": "The 'thinking too much' idiom of distress: persistent troubling thoughts, often about life problems.",
+      "category": "cognitive_process",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "'Mawazo mengi' is a widely reported East African idiom of distress.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "mawazo mengi"
+       },
+       {
+        "type": "model_background_knowledge",
+        "ref": "general",
+        "quote": ""
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "worry",
+      "gloss": "Worry about problems.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Overlaps with worry.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "mawazo"
+       }
+      ],
+      "self_reported_plausibility": 0.5
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "thinking too much",
+      "gloss": "Thinking too much about one's problems.",
+      "category": "cognitive_process",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Standard reading of the idiom.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Nina mawazo mengi"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "life stressors",
+      "gloss": "Preoccupation with social or economic problems (money, family, work).",
+      "category": "social_or_relational",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "The idiom often refers to concrete hardship.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "siwezi kufanya kazi"
+       },
+       {
+        "type": "model_background_knowledge",
+        "ref": "general",
+        "quote": ""
+       }
+      ],
+      "self_reported_plausibility": 0.4
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "worry",
+      "gloss": "Excessive worry.",
+      "category": "emotional_state",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Mawazo as worries.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "mawazo mengi"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     },
+     {
+      "sense_key": "rumination",
+      "gloss": "Repetitive negative thinking.",
+      "category": "clinical_symptom",
+      "register": "clinical",
+      "context_dependencies": [],
+      "rationale": "Could correspond to rumination.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "mawazo mengi"
+       }
+      ],
+      "self_reported_plausibility": 0.4
+     },
+     {
+      "sense_key": "functional impairment",
+      "gloss": "Unable to work because of the thoughts.",
+      "category": "clinical_symptom",
+      "register": "clinical",
+      "context_dependencies": [],
+      "rationale": "Second clause reports impact on work.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "siwezi kufanya kazi"
+       }
+      ],
+      "self_reported_plausibility": 0.5
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P04": {
+  "normalise": {
+   "normalised_text": "Mawazo yananichoma kichwa usiku.",
+   "normalised_expression": "Mawazo yananichoma kichwa",
+   "edits": [],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": []
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "thoughts they-are-burning-me head at-night",
+    "idiomatic_translation": "At night my thoughts burn in my head.",
+    "self_reported_confidence": 0.7,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "thoughts burn-me head night",
+    "idiomatic_translation": "At night, thoughts make my head burn.",
+    "self_reported_confidence": 0.65,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "thoughts pierce-me head night",
+    "idiomatic_translation": "At night I get headaches from thinking.",
+    "self_reported_confidence": 0.5,
+    "preserved_terms": [],
+    "uncertainty_note": "'-choma' can mean burn or pierce."
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Usiku mawazo yananiunguza kichwani."
+   },
+   "sim-model-B": {
+    "text": "Usiku, mawazo yanafanya kichwa changu kiungue."
+   },
+   "sim-model-C": {
+    "text": "Usiku napata maumivu ya kichwa kwa kufikiri."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "thinking too much",
+      "gloss": "Troubling thoughts experienced as heat or burning in the head.",
+      "category": "cognitive_process",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Idiom joins thinking too much with a bodily metaphor.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Mawazo yananichoma kichwa"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     },
+     {
+      "sense_key": "burning head sensation",
+      "gloss": "A bodily burning or heat sensation in the head.",
+      "category": "somatic_experience",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Somatic idioms of distress are common.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "kichwa"
+       }
+      ],
+      "self_reported_plausibility": 0.4
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "night-time intrusive thoughts",
+      "gloss": "Unwanted thoughts that keep coming at night.",
+      "category": "cognitive_process",
+      "register": "mixed",
+      "context_dependencies": [
+       "sleep context"
+      ],
+      "rationale": "'Usiku' places it at night; may affect sleep.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "usiku"
+       }
+      ],
+      "self_reported_plausibility": 0.5
+     },
+     {
+      "sense_key": "thinking too much",
+      "gloss": "Thinking too much at night.",
+      "category": "cognitive_process",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Idiom reading.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Mawazo"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "headache",
+      "gloss": "Headache caused by thinking.",
+      "category": "clinical_symptom",
+      "register": "clinical",
+      "context_dependencies": [],
+      "rationale": "Literal reading of kichwa + choma.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "kichwa"
+       }
+      ],
+      "self_reported_plausibility": 0.5
+     },
+     {
+      "sense_key": "thinking too much",
+      "gloss": "Excessive thinking.",
+      "category": "cognitive_process",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Mawazo.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Mawazo"
+       }
+      ],
+      "self_reported_plausibility": 0.5
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P05": {
+  "normalise": {
+   "normalised_text": "Nimerogwa, ndiyo maana siwezi kulala.",
+   "normalised_expression": "Nimerogwa",
+   "edits": [
+    {
+     "from": "Nimelogwa",
+     "to": "Nimerogwa",
+     "type": "phonological_variant",
+     "note": "l/r alternation (-loga / -roga). DRAFT: linguist to confirm which form FarajaMH treats as standard."
+    }
+   ],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": [
+    {
+     "dialect": "Kimvita (declared)",
+     "evidence": "l/r alternation is widespread; not diagnostic of dialect."
+    }
+   ]
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "I-have-been-bewitched, that-is why I-cannot sleep",
+    "idiomatic_translation": "I have been bewitched; that is why I can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "I-have-been-bewitched, that-is reason I-cannot sleep",
+    "idiomatic_translation": "I've been bewitched, that's why I cannot sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "I-have-been-cursed, therefore I-cannot sleep",
+    "idiomatic_translation": "I've been cursed, that's why I can't sleep.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Nimerogwa; ndiyo sababu siwezi kulala."
+   },
+   "sim-model-B": {
+    "text": "Nimerogwa, ndiyo maana siwezi kulala."
+   },
+   "sim-model-C": {
+    "text": "Nimelaaniwa, ndiyo maana siwezi kulala."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "bewitchment explanation",
+      "gloss": "The speaker attributes their problem to witchcraft; a culturally shared explanation of misfortune.",
+      "category": "spiritual_or_supernatural",
+      "register": "everyday_cultural",
+      "context_dependencies": [
+       "community beliefs",
+       "whether others share the explanation"
+      ],
+      "rationale": "Explanatory model, not in itself a symptom.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Nimelogwa"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "sleep difficulty",
+      "gloss": "Difficulty sleeping.",
+      "category": "somatic_experience",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Second clause.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "siwezi kulala"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "bewitchment explanation",
+      "gloss": "Attributing distress to bewitchment.",
+      "category": "spiritual_or_supernatural",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Culturally normative explanation.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Nimelogwa"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "interpersonal conflict",
+      "gloss": "Witchcraft accusations can signal conflict or suspicion within family or community.",
+      "category": "social_or_relational",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Common social meaning of bewitchment talk.",
+      "evidence": [
+       {
+        "type": "model_background_knowledge",
+        "ref": "general",
+        "quote": ""
+       }
+      ],
+      "self_reported_plausibility": 0.3
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "bewitchment explanation",
+      "gloss": "Belief in being bewitched.",
+      "category": "spiritual_or_supernatural",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Direct reading.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Nimelogwa"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     },
+     {
+      "sense_key": "persecutory belief",
+      "gloss": "A belief of being harmed by others that could be clinically relevant if fixed and out of keeping with local norms.",
+      "category": "clinical_symptom",
+      "register": "clinical",
+      "context_dependencies": [
+       "cultural normativity",
+       "other psychotic features"
+      ],
+      "rationale": "Include for clinician check only; culturally shared beliefs are not delusions.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Nimelogwa"
+       }
+      ],
+      "self_reported_plausibility": 0.2
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P06": {
+  "normalise": {
+   "normalised_text": "Niko na stress mob, siwezi kulala.",
+   "normalised_expression": "Niko na stress mob",
+   "edits": [
+    {
+     "from": "stress",
+     "to": "stress",
+     "type": "code_switch_marked",
+     "note": "English loanword kept."
+    },
+    {
+     "from": "mob",
+     "to": "mob",
+     "type": "code_switch_marked",
+     "note": "Sheng intensifier ('a lot'); kept."
+    },
+    {
+     "from": "siwezi lala",
+     "to": "siwezi kulala",
+     "type": "sheng_lexical",
+     "note": "Colloquial infinitive without ku-."
+    }
+   ],
+   "language_id": "sw-x-sheng",
+   "code_switch_segments": [
+    {
+     "text": "Niko na",
+     "lang": "sw"
+    },
+    {
+     "text": "stress",
+     "lang": "en"
+    },
+    {
+     "text": "mob",
+     "lang": "sw-x-sheng"
+    },
+    {
+     "text": "siwezi kulala",
+     "lang": "sw"
+    }
+   ],
+   "dialect_hypotheses": [
+    {
+     "dialect": "Sheng (declared)",
+     "evidence": "'mob', dropped ku- infinitive"
+    }
+   ]
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "I-am with stress a-lot, I-cannot sleep",
+    "idiomatic_translation": "I'm really stressed, I can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [
+     {
+      "term": "stress",
+      "reason": "loanword; local sense may be broader than English"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "I-am with stress much, I-cannot sleep",
+    "idiomatic_translation": "I'm very stressed and can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "I-am with stress lots, I-cannot sleep",
+    "idiomatic_translation": "I'm so stressed, I can't sleep.",
+    "self_reported_confidence": 0.85,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Niko na stress sana, siwezi kulala."
+   },
+   "sim-model-B": {
+    "text": "Nina msongo mkubwa na siwezi kulala."
+   },
+   "sim-model-C": {
+    "text": "Nina stress sana, siwezi kulala."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "stress",
+      "gloss": "Feeling under heavy pressure or strain.",
+      "category": "emotional_state",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Loanword used as in everyday Kenyan speech.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "stress mob"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "sleep difficulty",
+      "gloss": "Difficulty sleeping.",
+      "category": "somatic_experience",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Second clause.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "siwezi lala"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "stress",
+      "gloss": "Feeling under heavy pressure or strain.",
+      "category": "emotional_state",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Loanword used as in everyday Kenyan speech.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "stress mob"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "sleep difficulty",
+      "gloss": "Difficulty sleeping.",
+      "category": "somatic_experience",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Second clause.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "siwezi lala"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "stress",
+      "gloss": "Feeling under heavy pressure or strain.",
+      "category": "emotional_state",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Loanword used as in everyday Kenyan speech.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "stress mob"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     },
+     {
+      "sense_key": "sleep difficulty",
+      "gloss": "Difficulty sleeping.",
+      "category": "somatic_experience",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Second clause.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "siwezi lala"
+       }
+      ],
+      "self_reported_plausibility": 0.8
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P07": {
+  "normalise": {
+   "normalised_text": "Sina raha siku hizi.",
+   "normalised_expression": "Sina raha",
+   "edits": [],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": []
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "I-have-no joy days these",
+    "idiomatic_translation": "I have no joy these days.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [
+     {
+      "term": "raha",
+      "reason": "joy / comfort / peace / ease"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "I-have-no happiness days these",
+    "idiomatic_translation": "I am not happy these days.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "I-have-no peace days these",
+    "idiomatic_translation": "I have no peace these days.",
+    "self_reported_confidence": 0.7,
+    "preserved_terms": [
+     {
+      "term": "raha",
+      "reason": "can mean peace or ease, not only happiness"
+     }
+    ],
+    "uncertainty_note": ""
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Sina furaha siku hizi."
+   },
+   "sim-model-B": {
+    "text": "Sina furaha siku hizi."
+   },
+   "sim-model-C": {
+    "text": "Sina amani siku hizi."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "low mood",
+      "gloss": "Persistently low or unhappy mood.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Common way to report unhappiness.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Sina raha"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "loss of pleasure",
+      "gloss": "Not finding pleasure in things.",
+      "category": "clinical_symptom",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Could indicate anhedonia.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Sina raha"
+       }
+      ],
+      "self_reported_plausibility": 0.5
+     },
+     {
+      "sense_key": "low mood",
+      "gloss": "Feeling unhappy.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Plain reading.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Sina raha"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "lack of peace",
+      "gloss": "No inner peace or ease; feeling unsettled.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Raha as ease/peace.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "raha"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P09": {
+  "normalise": {
+   "normalised_text": "Siku hizi sina mawazo mengi kama zamani.",
+   "normalised_expression": "sina mawazo mengi",
+   "edits": [],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": []
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "days these I-have-no thoughts many like before",
+    "idiomatic_translation": "These days I don't think too much like I used to.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "days these I-have-no thoughts many like past",
+    "idiomatic_translation": "Nowadays I don't have as much on my mind as before.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "days these I-have-no worries many like before",
+    "idiomatic_translation": "These days I don't worry as much as I did.",
+    "self_reported_confidence": 0.7,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Siku hizi siwazi sana kama zamani."
+   },
+   "sim-model-B": {
+    "text": "Siku hizi sina mambo mengi akilini kama zamani."
+   },
+   "sim-model-C": {
+    "text": "Siku hizi sina wasiwasi mwingi kama zamani."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "thinking too much",
+      "gloss": "The 'thinking too much' idiom, reported as ABSENT or reduced now.",
+      "category": "cognitive_process",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Negated form; polarity must be kept.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "sina mawazo mengi"
+       },
+       {
+        "type": "context_field",
+        "ref": "context.negation",
+        "quote": "negated"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "thinking too much",
+      "gloss": "Reports improvement: no longer thinking too much.",
+      "category": "cognitive_process",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Negation plus 'kama zamani' implies improvement.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "kama zamani"
+       },
+       {
+        "type": "context_field",
+        "ref": "context.negation",
+        "quote": "negated"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "worry",
+      "gloss": "Worry reduced compared with before.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Negated worry.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "sina mawazo mengi"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     }
+    ]
+   }
+  }
+ },
+ "PILOT-P10": {
+  "normalise": {
+   "normalised_text": "Mama yangu hana raha tangu baba afariki.",
+   "normalised_expression": "hana raha",
+   "edits": [],
+   "language_id": "sw",
+   "code_switch_segments": [],
+   "dialect_hypotheses": []
+  },
+  "translate": {
+   "sim-model-A": {
+    "literal_gloss": "mother my she-has-no joy since father died",
+    "idiomatic_translation": "My mother has had no joy since father died.",
+    "self_reported_confidence": 0.8,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   },
+   "sim-model-B": {
+    "literal_gloss": "mother my has-no happiness since father passed",
+    "idiomatic_translation": "My mother has been unhappy since my father passed away.",
+    "self_reported_confidence": 0.8,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   },
+   "sim-model-C": {
+    "literal_gloss": "mother my has-no peace since father died",
+    "idiomatic_translation": "My mother has had no peace since father died.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [],
+    "uncertainty_note": ""
+   }
+  },
+  "back_translate": {
+   "sim-model-A": {
+    "text": "Mama yangu hana furaha tangu baba afariki."
+   },
+   "sim-model-B": {
+    "text": "Mama yangu hana furaha tangu baba yangu afariki dunia."
+   },
+   "sim-model-C": {
+    "text": "Mama yangu hana amani tangu baba afariki."
+   }
+  },
+  "interpret": {
+   "sim-model-A": {
+    "senses": [
+     {
+      "sense_key": "low mood",
+      "gloss": "The MOTHER (not the speaker) has been unhappy.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Experiencer is the mother.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "Mama yangu hana raha"
+       },
+       {
+        "type": "context_field",
+        "ref": "context.attribution",
+        "quote": "family_member"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     }
+    ]
+   },
+   "sim-model-B": {
+    "senses": [
+     {
+      "sense_key": "grief",
+      "gloss": "The mother's grief after her husband's death.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Onset is the death.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "tangu baba afariki"
+       },
+       {
+        "type": "context_field",
+        "ref": "context.attribution",
+        "quote": "family_member"
+       }
+      ],
+      "self_reported_plausibility": 0.7
+     }
+    ]
+   },
+   "sim-model-C": {
+    "senses": [
+     {
+      "sense_key": "grief",
+      "gloss": "Bereavement reaction in the mother.",
+      "category": "emotional_state",
+      "register": "mixed",
+      "context_dependencies": [],
+      "rationale": "Onset tied to death.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "tangu baba afariki"
+       }
+      ],
+      "self_reported_plausibility": 0.6
+     },
+     {
+      "sense_key": "lack of peace",
+      "gloss": "The mother is unsettled, without peace.",
+      "category": "emotional_state",
+      "register": "everyday_cultural",
+      "context_dependencies": [],
+      "rationale": "Raha as peace.",
+      "evidence": [
+       {
+        "type": "utterance_span",
+        "ref": "original_text",
+        "quote": "hana raha"
+       }
+      ],
+      "self_reported_plausibility": 0.4
+     }
+    ]
+   }
+  }
+ }
+}

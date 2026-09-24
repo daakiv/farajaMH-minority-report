@@ -1,0 +1,482 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-TRY-571766-try",
+ "utterance_ref": {
+  "utterance_id": "TRY-571766",
+  "input_sha256": "8780cc912f25aef47cee119ae59c7e92dd308ef4b05d9d286f33e05b1366cda1"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.0-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "try",
+  "started_at": "2026-09-23T09:18:40+00:00",
+  "ended_at": "2026-09-23T09:19:49+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "3778d3a3877f70de5781db7f6d15044222b904d7be938003a014798ffece26dd"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "afe1f067c37919e66133eeb0fa50ef7c7a49971140c031c7b025b9c438aa136e"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "7b84e42553a0b2f44f3c7bef35479844d3c6422c63e3862f30555179ee48b09e"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Moyo wangu unauma",
+  "expression_span": {
+   "start": 0,
+   "end": 17,
+   "text": "Moyo wangu unauma"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-nairobi",
+   "site_id": "adhoc",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "chat_platform",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Moyo wangu unauma",
+  "normalised_expression": "Moyo wangu unauma",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "heart my is hurting",
+    "idiomatic_translation": "My heart aches.",
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "moyo refers to the heart, but in Swahili, it carries a broader meaning encompassing emotions, feelings, and the seat of one's being. It's not just a physical organ; it's the center of emotional experience. 'My heart' here signifies deep emotional distress, not necessarily cardiac pain."
+     }
+    ],
+    "uncertainty_note": "None",
+    "self_reported_confidence": 0.95,
+    "back_translation": {
+     "by_model": "qwen2.5:7b",
+     "text": "Ndiyo kusimamia kusimamia kusimamia.",
+     "similarity_to_normalised": null,
+     "note": "output unusable for comparison (degenerate or too short)"
+    }
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "My heart is heavy",
+    "idiomatic_translation": "I am feeling down",
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "This term is a culturally specific way to express emotional distress and is commonly used in Swahili."
+     }
+    ],
+    "uncertainty_note": "uncertain",
+    "self_reported_confidence": 0.8,
+    "back_translation": {
+     "by_model": "llama3.1:8b",
+     "text": "Ninakosekana",
+     "similarity_to_normalised": null,
+     "note": "output unusable for comparison (degenerate or too short)"
+    }
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "My heart is heavy",
+    "idiomatic_translation": "I'm feeling weighed down by my emotions",
+    "preserved_terms": [
+     {
+      "term": "moyo",
+      "reason": "refers to the emotional heart, not just the physical organ"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9,
+    "back_translation": {
+     "by_model": "gemma3:12b",
+     "text": "Nahisi ninaonyonywa na hisia zangu.",
+     "similarity_to_normalised": 0.0
+    }
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "physical pain",
+    "gloss": "The speaker is experiencing a literal pain in their chest or heart area.",
+    "category": "somatic_experience",
+    "register": "mixed",
+    "context_dependencies": [
+     "lack of figurative language cues"
+    ],
+    "rationale": "The word 'unauma' can mean 'to ache' or 'to be painful'. Without further context, a literal interpretation of physical pain is possible.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.4
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "emotional distress",
+    "gloss": "The speaker is experiencing a deep sense of sadness, grief, or emotional pain.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "translations suggesting emotional meaning"
+    ],
+    "rationale": "Given the proposed translations 'My heart aches' and 'I am feeling down', 'unauma' may be used metaphorically to express emotional distress. The heart is often associated with emotions.",
+    "evidence": [
+     {
+      "type": "translation_candidate",
+      "ref": "Translations proposed so far",
+      "quote": "My heart aches."
+     },
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "I am feeling sad.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker is affirming the statement, and the context indicates a current, self-attributed emotional state.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "I am feeling sad or down.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed"
+    ],
+    "rationale": "The speaker is affirming the statement, indicating a positive emotional state is not intended.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Moyo wangu unauma",
+      "quote": "Moyo wangu unauma"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "heartache",
+    "gloss": "I am experiencing emotional pain or distress.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "The word 'moyo' means 'heart' in Swahili, which is often used metaphorically to refer to emotions.",
+    "evidence": [
+     {
+      "type": "model_background_knowledge",
+      "ref": "",
+      "quote": ""
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S2",
+     "S3",
+     "S4",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state",
+     "somatic_experience"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "metrics": {
+   "translation_agreement": 0.083,
+   "back_translation_similarity": [
+    null,
+    null,
+    0.0
+   ],
+   "cultural_terms_lost": [
+    "T3:moyo"
+   ],
+   "sense_entropy": 0.0,
+   "n_clusters": 1,
+   "n_minority_clusters": 0,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000056",
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOEM:000056"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "back_translation_mismatch",
+   "full_agreement_audit_candidate",
+   "cultural_term_lost_in_back_translation"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "While 'Moyo wangu unauma' can express emotional distress, the primary meaning is physical pain in the chest/heart. Sadness is a related emotional state, but doesn't capture the literal pain aspect."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning describes a physical sensation of pain, which is broader than the emotional state of sadness."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of sadness is broader than the candidate meaning of a literal pain in the chest or heart area, as sadness can encompass a range of emotions, but the concept is related to emotional states."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 2,
+        "proposed_predicate": "skos:relatedMatch",
+        "rationale": "A sad facial expression *might* accompany the distress, but it's not inherent to the meaning of the phrase."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 3,
+        "proposed_predicate": "skos:relatedMatch",
+        "rationale": "Similar to the facial expression, a sad voice utterance could be present, but isn't a core element of the meaning."
+       }
+      ]
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "There is no adequate concept to represent the literal physical pain in the chest/heart area as the primary meaning of the expression. The existing concepts focus on emotional responses, not the physical sensation itself. A concept representing chest pain or cardiac discomfort would be needed."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_mismatch",
+   "cultural_term_lost_in_back_translation",
+   "full_agreement_audit_candidate",
+   "possible_semantic_gap",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [],
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.883,
+   "translation_agreement": 0.083,
+   "back_translation_similarity_min": 0.0,
+   "top_cluster_support": 1.0,
+   "sense_entropy": 0.0,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

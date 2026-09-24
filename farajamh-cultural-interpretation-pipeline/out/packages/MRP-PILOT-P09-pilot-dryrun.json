@@ -1,0 +1,486 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P09-pilot-dryrun",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P09",
+  "input_sha256": "55df170dea132d4328d1207efe18dc464562836dc04f044064d46fdc7043eb36"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.1.0-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "pilot-dryrun",
+  "started_at": "2026-09-22T08:23:08+00:00",
+  "ended_at": "2026-09-22T08:23:08+00:00",
+  "backend_mode": "fixture_simulated",
+  "models": [
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "normaliser",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-B",
+    "family": "sim-family-2",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-C",
+    "family": "sim-family-3",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "3778d3a3877f70de5781db7f6d15044222b904d7be938003a014798ffece26dd"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "15b3d7d39efcde785dc5a5e0aa78968e26208bea5842b88e72fc856da8c26286"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "7b84e42553a0b2f44f3c7bef35479844d3c6422c63e3862f30555179ee48b09e"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "SNOMEDCT+MFOEM",
+    "version": "placeholder",
+    "endpoint": "fixture-placeholder"
+   }
+  ],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Siku hizi sina mawazo mengi kama zamani.",
+  "expression_span": {
+   "start": 10,
+   "end": 27,
+   "text": "sina mawazo mengi"
+  },
+  "context_as_received": {
+   "country": "TZ",
+   "region": "TZ-lake",
+   "site_id": "pilot",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "hdss_survey",
+   "negation": {
+    "value": "negated",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Siku hizi sina mawazo mengi kama zamani.",
+  "normalised_expression": "sina mawazo mengi",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "sim-model-A"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "sim-model-A",
+    "literal_gloss": "days these I-have-no thoughts many like before",
+    "idiomatic_translation": "These days I don't think too much like I used to.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "thoughts / worries; 'mawazo mengi' carries the 'thinking too much' idiom"
+     }
+    ],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-B",
+     "text": "Siku hizi siwazi sana kama zamani.",
+     "similarity_to_normalised": 0.167
+    }
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "sim-model-B",
+    "literal_gloss": "days these I-have-no thoughts many like past",
+    "idiomatic_translation": "Nowadays I don't have as much on my mind as before.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-C",
+     "text": "Siku hizi sina mambo mengi akilini kama zamani.",
+     "similarity_to_normalised": 0.5
+    }
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "sim-model-C",
+    "literal_gloss": "days these I-have-no worries many like before",
+    "idiomatic_translation": "These days I don't worry as much as I did.",
+    "self_reported_confidence": 0.7,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-A",
+     "text": "Siku hizi sina wasiwasi mwingi kama zamani.",
+     "similarity_to_normalised": 0.333
+    }
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "sim-model-A",
+    "sense_key": "thinking too much",
+    "gloss": "The 'thinking too much' idiom, reported as ABSENT or reduced now.",
+    "category": "cognitive_process",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Negated form; polarity must be kept.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "sina mawazo mengi"
+     },
+     {
+      "type": "context_field",
+      "ref": "context.negation",
+      "quote": "negated"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "sim-model-B",
+    "sense_key": "thinking too much",
+    "gloss": "Reports improvement: no longer thinking too much.",
+    "category": "cognitive_process",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Negation plus 'kama zamani' implies improvement.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "kama zamani"
+     },
+     {
+      "type": "context_field",
+      "ref": "context.negation",
+      "quote": "negated"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "sim-model-C",
+    "sense_key": "worry",
+    "gloss": "Worry reduced compared with before.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Negated worry.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "sina mawazo mengi"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "sim-family-1",
+   "sim-family-2",
+   "sim-family-3"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "thinking too much",
+    "category": "cognitive_process",
+    "member_sense_ids": [
+     "S1",
+     "S2"
+    ],
+    "supporting_models": [
+     "sim-model-A",
+     "sim-model-B"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "worry",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S3"
+    ],
+    "supporting_models": [
+     "sim-model-C"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.287,
+   "back_translation_similarity": [
+    0.167,
+    0.5,
+    0.333
+   ],
+   "cultural_terms_lost": [
+    "T1:mawazo",
+    "T2:mawazo",
+    "T3:mawazo"
+   ],
+   "sense_entropy": 0.918,
+   "n_clusters": 2,
+   "n_minority_clusters": 1,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "SCTID:LOOKUP-rumination",
+      "sim-model-C": "SCTID:LOOKUP-worrying"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    },
+    "C2": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "MFOEM:LOOKUP-anxiety",
+      "sim-model-C": "SCTID:LOOKUP-worrying"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "back_translation_mismatch",
+   "polarity_negated",
+   "cultural_term_lost_in_back_translation"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-worrying",
+      "label": "<lookup: worrying>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "thinking too much",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-rumination",
+      "label": "<lookup: rumination>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "thinking too much",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 2,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-worrying",
+      "label": "<lookup: worrying>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "worry",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:LOOKUP-anxiety",
+      "label": "<lookup: anxiety>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "worry",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 2,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_mismatch",
+   "cultural_term_lost_in_back_translation",
+   "placeholder_ids_not_verified",
+   "polarity_negated",
+   "possible_semantic_gap",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.733,
+   "translation_agreement": 0.287,
+   "back_translation_similarity_min": 0.167,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.918,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

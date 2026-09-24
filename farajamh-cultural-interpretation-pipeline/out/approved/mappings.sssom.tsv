@@ -1,0 +1,22 @@
+# curie_map:
+#   FMHLC: https://w3id.org/farajamh/lc/
+#   SCTID: http://snomed.info/id/
+#   MFOEM: http://purl.obolibrary.org/obo/MFOEM_
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   semapv: https://w3id.org/semapv/vocab/
+#   sssom: https://w3id.org/sssom/
+#   obo: http://purl.obolibrary.org/obo/
+#   orcid: https://orcid.org/
+#   fmhr: https://w3id.org/farajamh/reviewer/
+# mapping_set_id: https://w3id.org/farajamh/mappings/idioms-of-distress-DEMO-NOT-FOR-REGISTRATION
+# mapping_set_version: 2026-09-22
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_set_description: FarajaMH local concepts (idioms of distress) to SNOMED CT / MFOEM. Human-approved only.
+# comment: DEMO built from SIMULATED review decisions and placeholder IDs. Do not register or load.
+subject_id	subject_label	predicate_id	predicate_modifier	object_id	object_label	object_source	object_source_version	mapping_justification	author_id	reviewer_id	creator_id	mapping_tool	mapping_tool_version	confidence	mapping_date	comment
+FMHLC:0001	moyo mzito	skos:broadMatch		SCTID:LOOKUP-feeling-sad	<lookup: feeling sad>	http://snomed.info/sct	placeholder	semapv:ManualMappingCuration	fmhr:ADJ-01|fmhr:CLIN-01|fmhr:LING-01	fmhr:ADJ-01		farajamh-minority-report	0.1.0-pilot	0.8	2026-10-01	DEMO PLACEHOLDER ID. Local idiom is a culturally specific expression of sadness; the SNOMED concept is broader. | AI candidate package MRP-PILOT-P02-pilot-dryrun
+FMHLC:0001	moyo mzito	skos:exactMatch	Not	SCTID:LOOKUP-chest-heaviness	<lookup: chest heaviness>	http://snomed.info/sct	placeholder	semapv:ManualMappingCuration	fmhr:ADJ-01|fmhr:CLIN-01|fmhr:LING-01	fmhr:ADJ-01		farajamh-minority-report	0.1.0-pilot	0.9	2026-10-01	DEMO PLACEHOLDER ID. Literal cardiac reading is wrong for this idiom. | AI candidate package MRP-PILOT-P02-pilot-dryrun
+FMHLC:0002	mawazo mengi	skos:relatedMatch		SCTID:LOOKUP-worrying	<lookup: worrying>	http://snomed.info/sct	placeholder	semapv:ManualMappingCuration	fmhr:ADJ-01|fmhr:CULT-01	fmhr:ADJ-01		farajamh-minority-report	0.1.0-pilot	0.6	2026-10-01	DEMO PLACEHOLDER ID. Overlaps with worrying but carries social-hardship meaning that SNOMED does not capture. | AI candidate package MRP-PILOT-P03-pilot-dryrun
+FMHLC:0002	mawazo mengi	skos:exactMatch		sssom:NoTermFound		http://snomed.info/sct		semapv:ManualMappingCuration	fmhr:ADJ-01|fmhr:CULT-01	fmhr:ADJ-01		farajamh-minority-report	0.1.0-pilot	0.8	2026-10-01	Semantic gap. No SNOMED CT concept for the 'thinking too much' idiom of distress as a whole. | AI candidate package MRP-PILOT-P03-pilot-dryrun
+FMHLC:0003	kurogwa	skos:exactMatch		sssom:NoTermFound		http://snomed.info/sct		semapv:ManualMappingCuration	fmhr:ADJ-01|fmhr:LEX-01	fmhr:ADJ-01		farajamh-minority-report	0.1.0-pilot	0.9	2026-10-01	Semantic gap. Culturally shared explanatory model; no adequate external concept. Keep local. | AI candidate package MRP-PILOT-P05-pilot-dryrun
+FMHLC:0003	kurogwa	skos:exactMatch	Not	SCTID:LOOKUP-persecutory-delusion	<lookup: persecutory delusion>	http://snomed.info/sct	placeholder	semapv:ManualMappingCuration	fmhr:ADJ-01|fmhr:LEX-01	fmhr:ADJ-01		farajamh-minority-report	0.1.0-pilot	0.95	2026-10-01	DEMO PLACEHOLDER ID. A normative cultural belief is not a delusion. Clinical review is needed per case, not at vocabulary level. | AI candidate package MRP-PILOT-P05-pilot-dryrun

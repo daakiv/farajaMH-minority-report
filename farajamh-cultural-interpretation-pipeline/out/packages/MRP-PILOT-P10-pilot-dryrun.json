@@ -1,0 +1,576 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P10-pilot-dryrun",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P10",
+  "input_sha256": "d50ae6528d40bd13736a37c73aecd45b9370e50ee19c77b94737760b7e3a0cd9"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.1.0-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "pilot-dryrun",
+  "started_at": "2026-09-22T08:23:08+00:00",
+  "ended_at": "2026-09-22T08:23:08+00:00",
+  "backend_mode": "fixture_simulated",
+  "models": [
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "normaliser",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-A",
+    "family": "sim-family-1",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-B",
+    "family": "sim-family-2",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "sim-model-C",
+    "family": "sim-family-3",
+    "role": "translator+interpreter+ranker",
+    "digest": "fixture",
+    "host_locality": "fixture",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "3778d3a3877f70de5781db7f6d15044222b904d7be938003a014798ffece26dd"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "15b3d7d39efcde785dc5a5e0aa78968e26208bea5842b88e72fc856da8c26286"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "7b84e42553a0b2f44f3c7bef35479844d3c6422c63e3862f30555179ee48b09e"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "SNOMEDCT+MFOEM",
+    "version": "placeholder",
+    "endpoint": "fixture-placeholder"
+   }
+  ],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Mama yangu hana raha tangu baba afariki.",
+  "expression_span": {
+   "start": 11,
+   "end": 20,
+   "text": "hana raha"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-coast",
+   "site_id": "pilot",
+   "dialect_declared": "standard",
+   "speaker_role": "family_member",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "family_member",
+    "source": "annotator"
+   },
+   "onset_or_duration": "since father's death"
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Mama yangu hana raha tangu baba afariki.",
+  "normalised_expression": "hana raha",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "sim-model-A"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "sim-model-A",
+    "literal_gloss": "mother my she-has-no joy since father died",
+    "idiomatic_translation": "My mother has had no joy since father died.",
+    "self_reported_confidence": 0.8,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-B",
+     "text": "Mama yangu hana furaha tangu baba afariki.",
+     "similarity_to_normalised": 0.714
+    }
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "sim-model-B",
+    "literal_gloss": "mother my has-no happiness since father passed",
+    "idiomatic_translation": "My mother has been unhappy since my father passed away.",
+    "self_reported_confidence": 0.8,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-C",
+     "text": "Mama yangu hana furaha tangu baba yangu afariki dunia.",
+     "similarity_to_normalised": 0.625
+    }
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "sim-model-C",
+    "literal_gloss": "mother my has-no peace since father died",
+    "idiomatic_translation": "My mother has had no peace since father died.",
+    "self_reported_confidence": 0.75,
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "back_translation": {
+     "by_model": "sim-model-A",
+     "text": "Mama yangu hana amani tangu baba afariki.",
+     "similarity_to_normalised": 0.714
+    }
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "sim-model-A",
+    "sense_key": "low mood",
+    "gloss": "The MOTHER (not the speaker) has been unhappy.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Experiencer is the mother.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "Mama yangu hana raha"
+     },
+     {
+      "type": "context_field",
+      "ref": "context.attribution",
+      "quote": "family_member"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "sim-model-B",
+    "sense_key": "grief",
+    "gloss": "The mother's grief after her husband's death.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Onset is the death.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "tangu baba afariki"
+     },
+     {
+      "type": "context_field",
+      "ref": "context.attribution",
+      "quote": "family_member"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "sim-model-C",
+    "sense_key": "grief",
+    "gloss": "Bereavement reaction in the mother.",
+    "category": "emotional_state",
+    "register": "mixed",
+    "context_dependencies": [],
+    "rationale": "Onset tied to death.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "tangu baba afariki"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "sim-model-C",
+    "sense_key": "lack of peace",
+    "gloss": "The mother is unsettled, without peace.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "Raha as peace.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "original_text",
+      "quote": "hana raha"
+     }
+    ],
+    "self_reported_plausibility": 0.4
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "sim-family-1",
+   "sim-family-2",
+   "sim-family-3"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C2",
+    "label": "grief",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S2",
+     "S3"
+    ],
+    "supporting_models": [
+     "sim-model-B",
+     "sim-model-C"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C1",
+    "label": "low mood",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1"
+    ],
+    "supporting_models": [
+     "sim-model-A"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "lack of peace",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "sim-model-C"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.472,
+   "back_translation_similarity": [
+    0.714,
+    0.625,
+    0.714
+   ],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.946,
+   "n_clusters": 3,
+   "n_minority_clusters": 2,
+   "concept_agreement": {
+    "C2": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "MFOEM:LOOKUP-grief-related-emotion",
+      "sim-model-C": "SCTID:LOOKUP-grief"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    },
+    "C1": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "MFOEM:LOOKUP-sadness",
+      "sim-model-C": "SCTID:LOOKUP-low-mood"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    },
+    "C3": {
+     "top1_by_model": {
+      "sim-model-A": null,
+      "sim-model-B": "SCTID:LOOKUP-feeling-restless",
+      "sim-model-C": "SCTID:LOOKUP-feeling-restless"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [
+      "sim-model-A"
+     ],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "experiencer_not_speaker"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C2",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-grief",
+      "label": "<lookup: grief>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "grief",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 3,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-bereavement-finding",
+      "label": "<lookup: bereavement finding>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "grief",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 2,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:LOOKUP-grief-related-emotion",
+      "label": "<lookup: grief-related emotion>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "grief",
+      "retrieval_rank": 3,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 3,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   },
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-low-mood",
+      "label": "<lookup: low mood>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "low mood",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 2,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:LOOKUP-sadness",
+      "label": "<lookup: sadness>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "low mood",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 2,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [
+     {
+      "system": "SNOMEDCT",
+      "id": "SCTID:LOOKUP-feeling-restless",
+      "label": "<lookup: feeling restless>",
+      "id_verified": false,
+      "retrieved_from": "fixture-placeholder",
+      "system_version": "placeholder",
+      "retrieval_query": "lack of peace",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "sim-model-B",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       },
+       {
+        "model_ref": "sim-model-C",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "SIMULATED ranking for pipeline testing."
+       }
+      ]
+     }
+    ],
+    "no_adequate_match_votes": [
+     "sim-model-A"
+    ],
+    "gap_note": "Retrieved concepts are narrower or more medical than the everyday meaning."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "experiencer_not_speaker",
+   "placeholder_ids_not_verified",
+   "possible_semantic_gap"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.783,
+   "translation_agreement": 0.472,
+   "back_translation_similarity_min": 0.625,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.946,
+   "context_fields_resolved": 1.0
+  }
+ }
+}
