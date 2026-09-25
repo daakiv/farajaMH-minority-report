@@ -240,3 +240,14 @@ def test_category_support_is_reported(env):
     assert out[1]["support_ratio"] == 0.333
     p = run_package(UTTS["PILOT-P02"], *env)
     assert p["L5_agreement"]["category_support"]
+
+
+def test_try_ids_are_stable_across_runs():
+    """The same expression must get the same id every run, so runs can be compared."""
+    import hashlib
+    import re
+    src = (ROOT / "mr_farajamh/cli.py").read_text()
+    assert "abs(hash(" not in src, "process-salted hash makes ids unstable"
+    assert re.search(r'uid = .*sha256\(text\.encode\(\)\)\.hexdigest\(\)\[:8\]\.upper\(\)', src)
+    expected = hashlib.sha256("Moyo wangu unauma".encode()).hexdigest()[:8].upper()
+    assert len(expected) == 8

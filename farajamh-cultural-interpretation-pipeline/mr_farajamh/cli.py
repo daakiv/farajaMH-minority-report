@@ -144,8 +144,11 @@ def cmd_try(a):
     if expr not in text:
         raise SystemExit(f"--expression {expr!r} is not part of the utterance {text!r}")
     start = text.find(expr)
+    # Stable across runs: Python's built-in hash() is salted per process, which gave the same
+    # expression a different ID every run and made runs impossible to line up.
+    uid = __import__("hashlib").sha256(text.encode()).hexdigest()[:8].upper()
     utt = {
-        "schema_version": "0.1.0", "utterance_id": f"TRY-{abs(hash(text)) % 10**6:06d}",
+        "schema_version": "0.1.0", "utterance_id": f"TRY-{uid}",
         "silver_record_ref": {"record_id": "typed-by-hand", "silver_version": "n/a", "sha256": ""},
         "source": {"modality": "constructed_pilot_example", "transcription_method": "none"},
         "original_text": text, "language_declared": f"sw-{a.country}",
