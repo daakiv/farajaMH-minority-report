@@ -1,0 +1,10 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-QREC-DRY-011-qrec-dryrun-v7",
+ "utterance_ref": {
+  "utterance_id": "QREC-DRY-011",
+  "input_sha256": "d8b91144bdafb9e9ea9eddf5bda5579c53a4f893859313eb2efbc69687bd5c14"
+ },
+ "status": "blocked_pending_safety_escalation",
+ "note": "Safety-flagged and not yet escalated. Escalate first (v10 step 1); curation can follow."
+}

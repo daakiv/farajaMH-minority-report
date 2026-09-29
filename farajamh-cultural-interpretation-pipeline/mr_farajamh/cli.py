@@ -14,6 +14,7 @@ import jsonschema
 import yaml
 
 from . import __version__
+from . import safety
 from .approve import build_outputs
 from .backends import FixtureBackend, OllamaBackend
 from .pipeline import run_package
@@ -65,8 +66,17 @@ def cmd_run(a):
     (out / "packages").mkdir(parents=True, exist_ok=True)
     (out / "review_cards").mkdir(parents=True, exist_ok=True)
     pkgs = []
+    held = []
     for utt in load_jsonl(a.input):
         jsonschema.validate(utt, in_schema)
+        # Pre-model screen. On anything that is not a constructed example, risk language the upstream v10
+        # check did not flag raises the flag here, so D2 holds the package and no model sees the utterance.
+        screen = safety.detect_in_utterance(utt)
+        utt["safety"]["lexicon_screen"] = screen
+        if screen["fired"] and utt["data_classification"] != "synthetic" and not utt["safety"]["flag"]:
+            utt["safety"]["flag"] = True
+            utt["safety"]["flag_source"] = "curation_lexicon_screen"
+            held.append(utt["utterance_id"])
         p = run_package(utt, cfg, backend, terms)
         if p["status"] == "awaiting_review":
             jsonschema.validate(p, pkg_schema)
@@ -75,6 +85,17 @@ def cmd_run(a):
         (out / "review_cards" / f"{utt['utterance_id']}.md").write_text(review_card(p), encoding="utf-8")
     export_review_sheet(pkgs, out / "review_sheet.csv")
     print(json.dumps({p["utterance_ref"]["utterance_id"]: p["status"] for p in pkgs}, indent=1))
+    if held:
+        print("\n" + "!" * 78)
+        print(f"HELD for safety escalation, flagged by the curation lexicon screen and NOT by the upstream")
+        print(f"v10 safety check: {', '.join(held)}")
+        print("No model saw these utterances. Escalate per the study protocol, then re-run with")
+        print("safety.escalated set. That the upstream check missed them is itself a finding to report.")
+        print("!" * 78)
+    missed = [p["utterance_ref"]["utterance_id"] for p in pkgs
+              if "risk_language_missed_by_models" in (p.get("L7_review_signals", {}).get("risk_flags") or [])]
+    if missed:
+        print(f"\nRISK LANGUAGE THAT NO MODEL FLAGGED: {', '.join(missed)} — clinician sign-off required.")
 
 
 def print_summary(p: dict):
@@ -84,6 +105,16 @@ def print_summary(p: dict):
         w(f"\nSTATUS: {p['status']}\n{p.get('note', '')}")
         return
     n = p["L2_normalisation"]
+    det = p["L7_review_signals"].get("safety_signals") or {}
+    if det.get("fired"):
+        w("\n" + "!" * 78)
+        w(f"RISK LANGUAGE DETECTED — {', '.join(det.get('categories') or [])}")
+        if "risk_language_missed_by_models" in p["L7_review_signals"]["risk_flags"]:
+            w("NO MODEL PROPOSED A RISK READING. The models below missed this; the lexicon screen did not.")
+        for m in (det.get("matches") or [])[:6]:
+            w(f"  · {m['term']}  (in {m['where']})")
+        w("Clinician sign-off required. If these are a real person's words, escalate first.")
+        w("!" * 78)
     w("\n" + "=" * 78)
     w(f"INPUT      {p['L1_original']['original_text']}")
     w(f"EXPRESSION {p['L1_original']['expression_span']['text']}")
@@ -160,13 +191,29 @@ def cmd_try(a):
                     "temporality": {"value": a.temporality, "source": "annotator"},
                     "attribution": {"value": a.attribution, "source": "annotator"}},
         "triage": {"route": "new_expression"},
-        "safety": {"flag": a.safety_flagged, "escalated": False},
+        "safety": {"flag": a.safety_flagged, "escalated": False,
+                   "flag_source": "annotator" if a.safety_flagged else "not_flagged"},
         "data_classification": "synthetic",
     }
+    # Pre-model lexicon screen. `try` only ever handles constructed examples, so a hit does not block the
+    # run — the whole point of curating these expressions is that some of them carry risk language, and
+    # blocking would mean the vocabulary could never cover them. It is recorded and shown loudly instead.
+    # On real utterances (cmd_run, non-synthetic) the same screen raises safety.flag and D2 holds the package.
+    screen = safety.detect_in_utterance(utt)
+    utt["safety"]["lexicon_screen"] = screen
     utt["silver_record_ref"]["sha256"] = __import__("hashlib").sha256(text.encode()).hexdigest()
     jsonschema.validate(utt, SCHEMA("utterance_input"))
-    print("NOTE: this command has no safety detection. Use it for constructed examples only, never for "
-          "participant data, and set --safety-flagged yourself for anything safety-critical.")
+    if screen["fired"]:
+        print("\n" + "!" * 78)
+        print("RISK LANGUAGE in this expression: " + ", ".join(screen["categories"]))
+        for m in screen["matches"][:6]:
+            print(f"  · {m['term']}")
+        print("Proceeding because this is a constructed example (data_classification: synthetic).")
+        print("If these are a real person's words, stop and follow the study escalation route first.")
+        print("!" * 78 + "\n")
+    else:
+        print("NOTE: the lexicon screen found no risk language, but it is an over-inclusive keyword screen and "
+              "not a clinical instrument. Use this command for constructed examples only, never participant data.")
     cfg, backend, terms = _live_env(a.config, a.run_id)
     p = run_package(utt, cfg, backend, terms)
     if p["status"] == "awaiting_review":

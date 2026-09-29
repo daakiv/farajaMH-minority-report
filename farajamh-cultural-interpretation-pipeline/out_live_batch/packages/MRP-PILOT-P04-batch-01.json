@@ -1,0 +1,634 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P04-batch-01",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P04",
+  "input_sha256": "c1bdc1669c74b0f57cc1cfe775cee240c601bf729ccf0c7703fb9483a823eed6"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.4-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "batch-01",
+  "started_at": "2026-09-25T22:23:07+00:00",
+  "ended_at": "2026-09-25T22:27:24+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Mawazo yananichoma kichwa usiku.",
+  "expression_span": {
+   "start": 0,
+   "end": 25,
+   "text": "Mawazo yananichoma kichwa"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "pilot",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "chat_platform",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "recurrent",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Mawazo yananishoma kichwa usiku.",
+  "normalised_expression": "Mawazo yananishoma kichwa",
+  "edits": [
+   {
+    "from": "Mawazo yananichoma",
+    "to": "Mawazo yananishoma",
+    "type": "orthographic",
+    "note": "Corrected verb conjugation to standard form 'yananishoma' from 'yananichoma'."
+   }
+  ],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "Thoughts they-are-piercing head my night.",
+    "idiomatic_translation": "My thoughts are piercing my head at night.",
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "Refers to thoughts, but carries a sense of worry, preoccupation, or mental burden that isn't always present in the English word 'thoughts'."
+     },
+     {
+      "term": "kichwa",
+      "reason": "Means 'head', but in this context, it's not just the physical head; it signifies the mind or mental state."
+     }
+    ],
+    "uncertainty_note": "The verb 'kunashoma' (to pierce) is quite strong and suggests a significant level of distress. It's possible the speaker is experiencing intense anxiety or intrusive thoughts.",
+    "self_reported_confidence": 0.9
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "Thoughts stay heavy night",
+    "idiomatic_translation": "My thoughts are heavy at night",
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "This Swahili term directly translates to 'thoughts' and is a culturally specific way to express emotional distress."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "Thoughts are hitting the head at night",
+    "idiomatic_translation": "I have thoughts that are weighing heavily on my mind at night",
+    "preserved_terms": [
+     {
+      "term": "Mawazo",
+      "reason": "Mawazo refers to thoughts or ideas, and is a specific concept in Swahili that doesn't directly translate to English"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "distress",
+    "gloss": "The speaker is experiencing significant mental discomfort or anguish.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker's description of the experience is subjective and may not reflect an objective reality."
+    ],
+    "rationale": "The verb 'yananishoma' (piercing/burning) suggests a painful and distressing experience. The phrase describes a recurring event ('usiku' - at night), indicating ongoing suffering.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Mawazo yananishoma kichwa",
+      "quote": "Mawazo yananishoma kichwa"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's description of intense mental distress, potentially involving feelings of being 'burned' or 'pierced' by thoughts, may indicate a risk of self-harm or a need for immediate support; this phrasing may be idiomatic or hyperbolic.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker's history and current circumstances are unknown, so the potential for harm cannot be ruled out."
+    ],
+    "rationale": "The phrasing 'burning' or 'piercing' the head, while potentially metaphorical, could also reflect a severe mental state where the speaker is experiencing significant distress and may be at risk. It is crucial to consider this as a potential indicator of harm, regardless of whether the phrasing is intended literally.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Mawazo yananishoma kichwa",
+      "quote": "Mawazo yananishoma kichwa"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "thoughts_heavy",
+    "gloss": "My thoughts are heavy at night.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=recurrent",
+     "attribution=self"
+    ],
+    "rationale": "The speaker is affirming the statement, and the context indicates a recurrent, self-reported issue.",
+    "evidence": [
+     {
+      "type": "translation_candidate",
+      "ref": "KE-western",
+      "quote": "I have thoughts that are weighing heavily on my mind at night"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "thought burden",
+    "gloss": "Having thoughts that feel heavy or oppressive at night.",
+    "category": "somatic_experience",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "temporality=recurrent"
+    ],
+    "rationale": "The word 'yananishoma' is translated to 'piercing' or 'heavy', which suggests a physical or bodily experience.",
+    "evidence": [
+     {
+      "type": "translation_candidate",
+      "ref": "1",
+      "quote": "My thoughts are piercing my head at night."
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "Feeling overwhelmed by thoughts to the point of considering harm to oneself.",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed"
+    ],
+    "rationale": "The speaker affirms the statement, which may indicate a sense of urgency or desperation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "1",
+      "quote": "Mawazo yananishoma kichwa usiku"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C1",
+    "label": "distress",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "thoughts_heavy",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S3"
+    ],
+    "supporting_models": [
+     "qwen2.5:7b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C4",
+    "label": "thought burden",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "somatic_experience"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "somatic_experience",
+    "models": [
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.333
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.34,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.961,
+   "n_clusters": 4,
+   "n_minority_clusters": 3,
+   "concept_agreement": {
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": "MFOEM:000216"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C4": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the mixed register, the intense mental distress, and the potential risk of self-harm or need for immediate support, possibly involving feelings of being 'burned' or 'pierced' by thoughts. | Concepts would need to cover idiomatic expressions of intense mental distress, potentially involving feelings of being 'burned' or 'pierced' by thoughts, and indicating a risk of self-harm or a need for immediate support. | The candidate meaning describes a specific form of intense mental distress potentially linked to self-harm risk. A suitable concept would need to encompass severe mental anguish, possibly including elements of feeling overwhelmed, consumed, or experiencing psychological pain, and ideally acknowledge a potential link to self-harm ideation. Simply 'distress' or 'pain' is too general; it lacks the nuance of being 'burned' or 'pierced' by thoughts and the implied risk."
+   },
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000031",
+      "label": "crying",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 1,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000052",
+      "label": "compassion",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000055",
+      "label": "shame",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000216",
+      "label": "gloomy mood",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 4,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "Gloomy mood is a broader concept that encompasses mental discomfort or anguish, and is a more general state that can include the candidate meaning."
+       }
+      ]
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "A concept that specifically refers to mental discomfort or anguish, such as distress or anxiety, would be a better match. The current concepts either refer to different emotions or are too general. | None of the retrieved concepts directly match the candidate meaning of significant mental discomfort or anguish. A concept that covers emotional distress or a state of mental discomfort would be needed. | The candidate meaning describes a state of mental discomfort or anguish. A suitable concept would need to encompass a range of negative emotional states related to mental distress, such as worry, anxiety, or overwhelming sadness, without being limited to a specific behavioral manifestation (like crying) or a specific emotion (like shame or compassion)."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the feeling of thoughts being heavy or burdensome at night, which is a specific emotional state. | Concepts would need to cover a sense of mental or emotional weight, specifically at night, and possibly in a cultural context. | The candidate meaning expresses a feeling of mental burden and distress experienced at night. A suitable concept would need to cover feelings of mental heaviness, worry, or distress, particularly when experienced as a recurring or nightly phenomenon. It should not simply refer to general sadness or anxiety, but something more specific to a feeling of mental weight."
+   },
+   {
+    "cluster_id": "C4",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the specific experience of having heavy or oppressive thoughts at night, which is a unique somatic and psychological experience. | Concepts would need to cover the specific experience of thoughts feeling heavy or oppressive at night, which is a somatic experience in everyday cultural register. | The candidate meaning describes a specific somatic experience of oppressive thoughts at night. A suitable concept would need to encompass the feeling of mental heaviness or oppression, particularly when experienced as a physical sensation or disturbance, and ideally be linked to nighttime or sleep-related experiences. Concepts relating to anxiety, worry, or mental fatigue might be related, but would need to explicitly address the 'heavy' or 'oppressive' feeling and the nighttime context."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S2/gloss",
+     "context": "…ed' by thoughts, may indicate a risk of self-harm or a need for immediate support; this p…"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "nife",
+     "where": "gap_note/C1",
+     "context": "…eing limited to a specific behavioral manifestation (like crying) or a specific emot…"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "gap_note/C2",
+     "context": "…tal distress, and the potential risk of self-harm or need for immediate support, possibly…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.933,
+   "translation_agreement": 0.34,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.961,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

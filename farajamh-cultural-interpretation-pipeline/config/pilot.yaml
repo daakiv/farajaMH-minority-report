@@ -2,7 +2,7 @@
 # Model names below are EXAMPLES to test on the Ollama host(s). Check Swahili quality and licences before use.
 # For restricted (real participant) data, every host must be inside the DSA-approved environment.
 
-pipeline_version: "0.2.0-pilot"
+pipeline_version: "0.2.4-pilot"
 upstream: "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9"
 
 ollama_hosts: ["http://localhost:11434"]    # comma-list supported, same as upstream ModelRouter
@@ -13,7 +13,9 @@ models:
     - {model_ref: "gemma3:27b",   family: "gemma"}
     - {model_ref: "qwen3:32b",    family: "qwen"}
     - {model_ref: "llama3.3:70b", family: "llama"}
-  back_translation: "ring"                    # "ring" (model i+1 back-translates), a model name, or "off"
+  back_translation: "off"                     # "ring" (model i+1 back-translates), a model name, or "off"
+                                              # OFF since v0.2.4: small models produce ungrammatical Swahili, so the
+                                              # similarity score measured model competence, not translation fidelity.
   embedding_model: ""                         # e.g. "embeddinggemma" or "nomic-embed-text"; empty = word-overlap clustering
   options: {temperature: 0.2, seed: 42}
 

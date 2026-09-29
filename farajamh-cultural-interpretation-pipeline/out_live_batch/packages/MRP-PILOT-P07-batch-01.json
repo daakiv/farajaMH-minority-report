@@ -1,0 +1,558 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P07-batch-01",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P07",
+  "input_sha256": "15bbb12fa0eb13979b5894bd982d01f671723b9f2be3003c7c30167fc57e1672"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.4-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "batch-01",
+  "started_at": "2026-09-25T22:40:58+00:00",
+  "ended_at": "2026-09-25T22:42:32+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Sina raha siku hizi.",
+  "expression_span": {
+   "start": 0,
+   "end": 9,
+   "text": "Sina raha"
+  },
+  "context_as_received": {
+   "country": "TZ",
+   "region": "TZ-lake",
+   "site_id": "pilot",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "clinic",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Sina raha siku hizi.",
+  "normalised_expression": "Sina raha",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "I pleasure not these days.",
+    "idiomatic_translation": "I'm not enjoying things these days.",
+    "preserved_terms": [],
+    "uncertainty_note": "None",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "I do not have peace",
+    "idiomatic_translation": "I am not at peace",
+    "preserved_terms": [
+     {
+      "term": "raha",
+      "reason": "This term is culturally specific and conveys a sense of inner peace or well-being that is important to preserve."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "I have happiness not",
+    "idiomatic_translation": "I'm feeling unhappy these days",
+    "preserved_terms": [
+     {
+      "term": "raha",
+      "reason": "refers to a state of emotional well-being or happiness"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "unhappiness",
+    "gloss": "The speaker is expressing a general feeling of unhappiness or discontent.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker's tone of voice, body language, and the overall conversation would provide further clues."
+    ],
+    "rationale": "The phrase 'Sina raha' directly translates to 'I have no enjoyment/peace,' which is indicative of unhappiness. The affirmed negation strengthens this interpretation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Sina raha",
+      "quote": "Sina raha"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, while potentially idiomatic, expresses a desire to escape a difficult situation, and requires assessment for risk.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker's history, current circumstances, and any other concerning statements would be crucial to assess the level of risk."
+    ],
+    "rationale": "The expression conveys a lack of enjoyment and peace, which, while potentially hyperbolic, could indicate a desire to escape a situation. It is crucial to assess whether this reflects a risk of self-harm or other harmful actions, even if the phrasing is not a literal statement of intent.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Sina raha",
+      "quote": "Sina raha"
+     }
+    ],
+    "self_reported_plausibility": 0.3
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "I am not enjoying things these days.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker is using a negation to express a current state of not enjoying things, which aligns with the proposed translation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Sina raha siku hizi.",
+      "quote": "Sina raha siku hizi."
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "feeling unhappy or unfulfilled",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current"
+    ],
+    "rationale": "The speaker uses the word 'sina' (not) and 'raha' (peace/enjoyment) to express a negative emotional state.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Sina raha",
+      "quote": "Sina raha"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "expressing a desire to escape or leave the current situation",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [],
+    "rationale": "The speaker's statement may be idiomatic, but it contains language related to not having enjoyment, which could be interpreted as a desire to leave or escape the current situation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Sina raha",
+      "quote": "Sina raha"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S3",
+     "S4"
+    ],
+    "supporting_models": [
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C1",
+    "label": "unhappiness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.133,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.96,
+   "n_clusters": 3,
+   "n_minority_clusters": 1,
+   "concept_agreement": {
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOEM:000056"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the dual meaning of expressing a desire to escape a difficult situation and the assessment for risk. | Concepts would need to cover a desire to escape a difficult situation, requiring assessment for risk, and potentially idiomatic. | The candidate meaning expresses a desire to escape a difficult situation and requires risk assessment. A suitable concept would need to encompass feelings of distress combined with a motivation to avoid or escape a challenging circumstance, potentially involving an element of perceived danger or threat. It is not simply about feeling distress, but about wanting to get away from the source of that distress and the need to evaluate the risks involved in doing so."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning 'I am not enjoying things these days' is an emotional state of sadness, which is a broader concept that encompasses the idea of not enjoying things."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of sadness is broader than the candidate meaning of not enjoying things these days, as it encompasses a range of negative emotions, including the current state."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "The candidate meaning expresses a general lack of enjoyment or contentment. A suitable concept would need to encompass a state of diminished pleasure or satisfaction, potentially including feelings of malaise, disappointment, or a general sense of being unwell emotionally. It is not simply sadness, but a broader state of being. | The retrieved concepts focus on specific manifestations of sadness (facial expression and voice utterance), but do not capture the general emotional state described by the candidate meaning."
+   },
+   {
+    "cluster_id": "C1",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the general feeling of unhappiness or discontent expressed by the East African expression 'sina raha'. | Concepts would need to cover a general feeling of unhappiness or discontent, possibly with a sense of dissatisfaction or discontentment. | The candidate meaning describes a general feeling of unhappiness or discontent. A suitable concept would need to encompass a range of negative emotional states without specifying a particular cause or intensity, reflecting the everyday and culturally-bound nature of the expression."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S2/rationale",
+     "context": "…assess whether this reflects a risk of self-harm or other harmful actions, even if the p…"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "nife",
+     "where": "gap_note/C3",
+     "context": "…retrieved concepts focus on specific manifestations of sadness (facial expression a…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.95,
+   "translation_agreement": 0.133,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.96,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

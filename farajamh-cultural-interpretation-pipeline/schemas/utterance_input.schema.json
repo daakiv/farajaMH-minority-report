@@ -89,7 +89,10 @@
       "properties": {
         "flag": {"type": "boolean"},
         "escalated": {"type": "boolean"},
-        "escalation_ref": {"type": "string"}
+        "escalation_ref": {"type": "string"},
+        "flag_source": {"enum": ["v10_safety_check", "curation_lexicon_screen", "annotator", "not_flagged"],
+          "description": "Where the flag came from. curation_lexicon_screen means mr_farajamh/safety.py raised it because the upstream check had not, which is a finding about the upstream check."},
+        "lexicon_screen": {"type": "object", "description": "Pre-model screen result, recorded even when it does not raise the flag (e.g. on synthetic examples)."}
       }
     },
     "data_classification": {"enum": ["restricted", "deidentified", "synthetic"]},

@@ -9,6 +9,7 @@ from pathlib import Path
 
 from . import agreement as ag
 from . import conform
+from . import safety
 from .policy import assert_not_approved, check_before_run, enforce_id_origin
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -155,10 +156,19 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
 
     # ---- M6 review signals
     risk = list(flags)
+    # Lexicon screen over everything produced, independent of what the models proposed. See safety.py.
+    detector = safety.detect_in_package({
+        "original_text": utt["original_text"], "normalised_text": norm["normalised_text"],
+        "translations": trans, "senses": senses, "per_cluster": per_cluster})
     if any(c["category"] in ag.CLINICAL_CATEGORIES for c in clusters) and any(c["category"] not in ag.CLINICAL_CATEGORIES for c in clusters):
         risk.append("over_medicalisation_risk")
     if any(c["category"] == "risk_or_safety" for c in clusters):
         risk.append("safety_relevant_reading")
+    if detector["fired"]:
+        risk.append("risk_language_detected")
+    if safety.models_missed_it(detector, clusters):
+        # The lexicon found it and no model proposed a risk sense. Loudest signal we have.
+        risk.append("risk_language_missed_by_models")
     if not live:
         risk.append("placeholder_ids_not_verified")
     if bt_mode == "off":
@@ -171,11 +181,14 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
         # A terminology service was unreachable: "no adequate match" here may just be a missed lookup.
         risk.append("terminology_lookup_failed")
     high = {"back_translation_mismatch", "cultural_term_lost_in_back_translation", "terminology_lookup_failed", "minority_clinical_reading", "over_medicalisation_risk", "safety_relevant_reading",
+            "risk_language_detected", "risk_language_missed_by_models",
             "translation_divergence", "experiencer_not_speaker", "polarity_negated", "context_incomplete"}
     priority = "high" if high & set(risk) else ("medium" if risk and set(risk) - {"placeholder_ids_not_verified"} else "low")
     roles = ["linguist", "cultural_expert", "lived_experience"]
     if any(c["category"] in ag.CLINICAL_CATEGORIES | {"emotional_state", "cognitive_process", "somatic_experience"} for c in clusters):
         roles.insert(2, "clinician")
+    if detector["fired"] and "clinician" not in roles:
+        roles.insert(0, "clinician")
 
     pkg = base | {
         "status": "awaiting_review",
@@ -207,7 +220,7 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
         "L6_concept_candidates": {"per_cluster": per_cluster},
         "L7_review_signals": {
             "review_priority": priority, "risk_flags": sorted(set(risk)), "suggested_reviewer_roles": roles,
-            "nonconformances": nonconformances,
+            "nonconformances": nonconformances, "safety_signals": detector,
             "confidence_components": {
                 "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
                 "translation_self_reported_mean": round(sum(t.get("self_reported_confidence", 0) for t in trans) / len(trans), 3),

@@ -98,7 +98,22 @@
         "suggested_reviewer_roles": {"type": "array", "items": {"enum": ["linguist", "cultural_expert", "clinician", "lived_experience"]}},
         "nonconformances": {"type": "array", "description": "Repairs applied to schema-invalid model output, with the raw value kept.",
           "items": {"type": "object", "properties": {"where": {"type": "string"}, "field": {"type": "string"},
-                    "model_value": {"type": "string"}, "used_instead": {"type": "string"}}}}
+                    "model_value": {"type": "string"}, "used_instead": {"type": "string"}}}},
+        "safety_signals": {
+          "type": "object",
+          "description": "Model-independent lexicon screen (mr_farajamh/safety.py) over the utterance, translations, senses and gap notes. An over-inclusive screen, never a clinical assessment, and never a substitute for the v10 safety check that runs before triage.",
+          "required": ["fired", "lexicon_version"],
+          "properties": {
+            "fired": {"type": "boolean"},
+            "lexicon_version": {"type": "string"},
+            "categories": {"type": "array", "items": {"enum": ["self_harm_or_suicide", "harm_to_others"]}},
+            "matches": {"type": "array", "items": {"type": "object", "properties": {
+              "category": {"type": "string"}, "term": {"type": "string"},
+              "where": {"type": "string", "description": "Which field the term was found in, e.g. gap_note/C3."},
+              "context": {"type": "string"}}}},
+            "note": {"type": "string"}
+          }
+        }
       }
     }
   },

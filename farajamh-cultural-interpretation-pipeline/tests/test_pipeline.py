@@ -161,6 +161,7 @@ def test_embeddings_merge_synonymous_senses(env):
 def test_unassessed_back_translation_still_validates(env):
     """A 'not assessed' similarity (null) must be allowed by the package schema."""
     cfg, backend, terms = env
+    cfg["models"]["back_translation"] = "ring"  # the shipped default is now "off"; this tests the code path
     real = backend.generate_json
 
     def degenerate(model, prompt, key=None):
@@ -251,3 +252,106 @@ def test_try_ids_are_stable_across_runs():
     assert re.search(r'uid = .*sha256\(text\.encode\(\)\)\.hexdigest\(\)\[:8\]\.upper\(\)', src)
     expected = hashlib.sha256("Moyo wangu unauma".encode()).hexdigest()[:8].upper()
     assert len(expected) == 8
+
+
+# ---------------------------------------------------------------------------
+# Risk language. Regression tests for the TRY-BA9BBCEC failure (2026-09-25):
+# three models processed "...nataka nitoke duniani" ("I want to leave the world")
+# and none proposed a risk_or_safety sense.
+# ---------------------------------------------------------------------------
+
+REAL_MISS = "Na Kwazika kiroho sana nataka nitoke duniani"
+
+
+def test_detector_catches_the_utterance_the_models_missed():
+    from mr_farajamh import safety
+    r = safety.scan(REAL_MISS, "original_text")
+    assert r, "the expression that three models read as 'sadness' must fire the screen"
+    assert {h["category"] for h in r} == {"self_harm_or_suicide"}
+
+
+@pytest.mark.parametrize("text", [
+    "nataka nitoke duniani", "sitaki kuishi", "nimechoka na maisha", "anafikiria kujiua",
+    "I just want to leave the world", "I don't want to be here anymore", "thoughts of hurting myself",
+])
+def test_detector_fires_on_risk_phrasings(text):
+    from mr_farajamh import safety
+    assert safety.scan(text, "t"), text
+
+
+@pytest.mark.parametrize("text", ["Moyo wangu unauma", "Nina mawazo mengi", "Sipati usingizi usiku"])
+def test_detector_quiet_on_ordinary_distress(text):
+    from mr_farajamh import safety
+    assert not safety.scan(text, "t"), f"{text} is distress, not risk language"
+
+
+def test_detector_reads_gap_notes_not_just_the_utterance():
+    """In TRY-BA9BBCEC the ranker wrote 'a desire to end one's life (suicidal ideation)' in a gap note
+    while no interpreter proposed a risk sense. That signal must reach L7."""
+    from mr_farajamh import safety
+    d = safety.detect_in_package({
+        "original_text": "Nimechoka", "normalised_text": "Nimechoka", "translations": [], "senses": [],
+        "per_cluster": [{"cluster_id": "C1", "gap_note": "includes a desire to end my life (suicidal ideation)"}]})
+    assert d["fired"]
+    assert any(m["where"].startswith("gap_note/") for m in d["matches"])
+
+
+def test_models_missed_it_is_the_loud_case():
+    from mr_farajamh import safety
+    fired = {"fired": True}
+    assert safety.models_missed_it(fired, [{"category": "emotional_state"}])
+    assert not safety.models_missed_it(fired, [{"category": "risk_or_safety"}])
+    assert not safety.models_missed_it({"fired": False}, [{"category": "emotional_state"}])
+
+
+def test_risk_flags_and_priority_when_models_miss_it(env):
+    """A package whose text carries risk language must carry both flags, high priority and a clinician."""
+    cfg, backend, terms = env
+    u = copy.deepcopy(UTTS["PILOT-P02"])
+    u["original_text"] = u["original_text"] + " nataka nitoke duniani"
+    u["expression_span"] = {"start": 0, "end": len(u["original_text"]), "text": u["original_text"]}
+    p = run_package(u, cfg, backend, terms)
+    sig = p["L7_review_signals"]
+    assert sig["safety_signals"]["fired"]
+    assert "risk_language_detected" in sig["risk_flags"]
+    assert "risk_language_missed_by_models" in sig["risk_flags"]  # fixtures propose no risk sense
+    assert sig["review_priority"] == "high"
+    assert "clinician" in sig["suggested_reviewer_roles"]
+    jsonschema.validate(p, SCHEMA("candidate_package"))
+
+
+def test_review_card_banner_precedes_the_ai_candidates(env):
+    """The warning must sit above the blind pass. A reviewer who has read 'sadness' first is anchored."""
+    from mr_farajamh.review import review_card
+    cfg, backend, terms = env
+    u = copy.deepcopy(UTTS["PILOT-P02"])
+    u["original_text"] = u["original_text"] + " nataka nitoke duniani"
+    u["expression_span"] = {"start": 0, "end": len(u["original_text"]), "text": u["original_text"]}
+    card = review_card(run_package(u, cfg, backend, terms))
+    assert "RISK LANGUAGE DETECTED" in card
+    assert card.index("RISK LANGUAGE DETECTED") < card.index("Step 1")
+    assert card.index("RISK LANGUAGE DETECTED") < card.index("Step 2")
+    assert "No model proposed a risk_or_safety reading" in card
+
+
+def test_no_banner_on_ordinary_distress(env):
+    from mr_farajamh.review import review_card
+    card = review_card(run_package(UTTS["PILOT-P02"], *env))
+    assert "RISK LANGUAGE DETECTED" not in card
+
+
+def test_interpret_prompt_forbids_arguing_risk_away():
+    """The prompt that caused the failure said 'give a clinical reading only if the context supports it'
+    and nothing else; a model used that to rule out suicidal ideation."""
+    t = (ROOT / "prompts/interpret.md").read_text()
+    assert "risk_or_safety" in t and "overrides" in t
+    assert "not a literal statement of risk" in t
+    tr = (ROOT / "prompts/translate.md").read_text()
+    assert "hyperbolic" in tr and "clinician's judgement" in tr
+
+
+def test_ranker_prompt_starts_from_rejection():
+    """Three models ranked MFOEM:000027 'terror' as a broadMatch for 'overwhelm'."""
+    t = (ROOT / "prompts/rank_concepts.md").read_text()
+    assert "Start from the assumption that NONE" in t
+    assert "Terror" in t and "different emotion" in t

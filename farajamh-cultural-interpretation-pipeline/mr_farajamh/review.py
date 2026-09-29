@@ -43,6 +43,34 @@ def export_review_sheet(packages: list[dict], path: Path):
         w.writerows(rows)
 
 
+SAFETY_RULE = ("This is a curation card, not a triage decision. If this expression came from a real person, "
+               "the clinical escalation route in the study protocol takes precedence over everything on this card "
+               "and must be followed first. Curation can wait; escalation cannot.")
+
+
+def _safety_banner(p: dict) -> list[str]:
+    """Risk language, at the top, before the reviewer reads anything the models proposed.
+
+    Placed above the blind pass on purpose. A reviewer who has already read "sadness / overwhelm" and three
+    emotion concepts is anchored; TRY-BA9BBCEC is what that looks like in practice.
+    """
+    sig = p["L7_review_signals"]
+    det = sig.get("safety_signals") or {}
+    if not det.get("fired"):
+        return []
+    cats = ", ".join(det.get("categories") or []) or "unspecified"
+    L = ["> [!WARNING]", f"> ## ⚠ RISK LANGUAGE DETECTED — {cats}", ">",
+         f"> {SAFETY_RULE}", ">"]
+    if "risk_language_missed_by_models" in sig["risk_flags"]:
+        L += ["> **No model proposed a risk_or_safety reading of this utterance.** The detection below comes from a "
+              "lexicon screen that runs independently of the models. Treat the AI candidates further down as having "
+              "missed this, and do not let their framing stand in for your own judgement.", ">"]
+    L += ["> Terms found (over-inclusive screen, negation not resolved — judge each one):", ">"]
+    L += [f"> - `{m['term']}` in *{m['where']}* — …{m['context']}…" for m in (det.get("matches") or [])[:8]]
+    L += [">", f"> Screen version `{det.get('lexicon_version', '?')}`. A clinician must sign off on this card.", ""]
+    return L
+
+
 def review_card(p: dict) -> str:
     uid = p["utterance_ref"]["utterance_id"]
     if p["status"] != "awaiting_review":
@@ -50,6 +78,7 @@ def review_card(p: dict) -> str:
     ctx = p["L1_original"]["context_as_received"]
     L = [f"# Review card — {uid}", f"Package `{p['package_id']}` · priority **{p['L7_review_signals']['review_priority']}** · "
          f"backend `{p['provenance']['backend_mode']}`", ""]
+    L += _safety_banner(p)
     if p["provenance"]["backend_mode"] != "live":
         L += ["> SIMULATED run: candidates come from hand-written fixtures and concept IDs are placeholders.", ""]
     L += ["## Step 1 — Your own reading first (blind pass)",

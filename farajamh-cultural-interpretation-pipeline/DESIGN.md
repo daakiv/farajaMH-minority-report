@@ -367,6 +367,46 @@ Two lessons worth carrying into the wider pilot:
 
 ---
 
+## 9c. A safety failure, and what it changed (v0.2.4, 26 September 2026)
+
+Run `TRY-BA9BBCEC`, on the expression **"Na kwazika kiroho sana nataka nitoke duniani"** — *…I want to leave the world*.
+
+Three models (Gemma 3 12B, Qwen 2.5 7B, Llama 3.1 8B) proposed five senses between them. Not one carried the category `risk_or_safety`. Category support read `emotional_state 3/3, social_or_relational 1/3`. The package went to `awaiting_review` with four risk flags, none of them about safety, and a review card whose first substantive content was "sadness / overwhelm" and three MFOEM emotion concepts.
+
+Gemma 3 wrote, in the `uncertainty_note` that is printed on the card:
+
+> "The phrase 'nitoke duniani' is hyperbolic, expressing a strong desire to escape, rather than a literal suicidal statement. It's crucial to avoid clinical interpretations."
+
+A 12B model ruled out suicidal ideation. That is not a judgement any model in this pipeline is entitled to make.
+
+**Three failures stacked, and each one is instructive.**
+
+1. *The prompt caused it.* After the false-consensus fault in §9b, `interpret.md` was rewritten with "Give a clinical reading only if the context supports it" and "Many expressions of distress are ordinary language, not symptoms of a disorder." That guard against over-medicalisation had no exception for risk, so it suppressed the one reading where a false negative is dangerous and a false positive is nearly free. **A guard written against one failure mode created another.** Every prompt constraint in this pipeline should now be checked for what it forbids as well as what it permits.
+
+2. *The models were the only net.* Duty D2 holds any utterance where `safety.flag` is true, but that flag is set upstream by the v10 safety check, which does not run on the curation path. The `try` command printed a warning about exactly this. The design assumed a detector that was not there.
+
+3. *The signal existed and never surfaced.* The concept ranker wrote, in a gap note in the same package, "the candidate meaning includes a desire to end one's life (suicidal ideation)". L7 computed risk flags from sense categories only, so L6 could contain the words "suicidal ideation" while the card said `sadness`.
+
+**Changes**
+
+| Change | Where |
+|---|---|
+| Model-independent lexicon screen over the utterance, normalisation, every translation, every sense gloss and rationale, and every gap note. Deliberately over-inclusive; does not resolve negation. | new `mr_farajamh/safety.py` |
+| `interpret.md` now requires a `risk_or_safety` sense whenever the utterance touches dying, leaving the world, not wanting to live, ending things, or harm to self or others — as an addition to other senses, overriding the anti-over-medicalisation rules, and with an explicit ban on arguing a risk reading away | `prompts/interpret.md` |
+| `translate.md` forbids softening risk language or using `uncertainty_note` to rule it out | `prompts/translate.md` |
+| New flags `risk_language_detected` and `risk_language_missed_by_models`; both force `high` priority and add a clinician to the reviewer roles | `pipeline.py`, `L7_review_signals.safety_signals` |
+| Warning banner at the **top** of the review card, above the blind pass — a reviewer who has already read "sadness" is anchored | `review.py` |
+| On `run`, risk language in non-synthetic data raises `safety.flag` with `flag_source: curation_lexicon_screen`, so D2 holds the package and no model sees the utterance. On `try` (constructed examples only) it is recorded and shown loudly but does not block, because the vocabulary has to be able to cover these expressions. | `cli.py` |
+| Ranker starts from the assumption that no retrieved concept fits | `prompts/rank_concepts.md` |
+
+Replaying the original package through the new code produces 17 matches across six fields and both flags.
+
+**The limitation to state plainly:** the lexicon is a keyword screen written without clinical input, versioned `0.1.0-unvalidated`. It must be reviewed by clinicians, LEAB members and the Swahili linguists before this pipeline touches participant data, and it will miss indirect phrasings — which is the argument for keeping the model-side requirement as well. Neither net is sufficient alone.
+
+**The general lesson.** The design principle is *AI proposes → models compare → humans interpret and validate*. This run shows the principle has a gap: **models can also propose the absence of something**, and a shared absence is invisible to a disagreement detector. Nothing in the agreement machinery can flag a reading that no model offered. Wherever a missing candidate is dangerous rather than merely incomplete, there must be a check that does not run on model output.
+
+---
+
 ## 10. Open decisions
 
 1. SSSOM subject: local concept (recommended) or raw expression, as in v10 now.

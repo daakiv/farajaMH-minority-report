@@ -7,6 +7,16 @@ Propose only readings you can support from the words in front of you or the cont
 - Give a clinical reading only if the context supports it, and never name a diagnosis.
 - Many expressions of distress are ordinary language, not symptoms of a disorder.
 
+## Risk language — this rule overrides the two rules above
+
+If the utterance refers in any way to dying, being dead, leaving or exiting the world, not wanting to live, not wanting to be here, ending things, being better off gone, harming or injuring oneself, or harming another person, you MUST include a sense with category `risk_or_safety`, in addition to any other senses you propose. This holds no matter how idiomatic, hyperbolic, poetic, common or casual the phrasing seems to you.
+
+You may say in that sense's rationale that the phrasing may be idiomatic or hyperbolic, and you should, because that is useful to a reviewer. You may NOT use that as a reason to leave the sense out, and you may not write that something is "not a literal statement of risk", "just an expression", or "should not be read clinically". Whether an expression of this kind is a statement of intent is a judgement for a clinician and a person with lived experience, working with the speaker's full context. It is not yours and you do not have what you would need to make it.
+
+Being wrong about this in one direction produces an extra sense that a reviewer discards in ten seconds. Being wrong in the other direction means a person's words were filed as vocabulary and nobody looked. Always err towards proposing the sense.
+
+The same applies to your `uncertainty_note` in any other stage: never argue that risk language is not risk language.
+
 For each sense give:
 - sense_key: 1–3 lowercase words naming the sense (for example "sadness", "worry", "sleep difficulty"). Reuse an obvious plain word rather than inventing a label.
 - gloss: one sentence in English.

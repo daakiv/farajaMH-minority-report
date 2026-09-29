@@ -1,0 +1,694 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-PILOT-P01-batch-01",
+ "utterance_ref": {
+  "utterance_id": "PILOT-P01",
+  "input_sha256": "affc2daca54e176b5f961194bc5d8cb73c642d1fc58029b42d6f89da3a407116"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.4-pilot",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "batch-01",
+  "started_at": "2026-09-25T22:17:09+00:00",
+  "ended_at": "2026-09-25T22:19:02+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "125e32f402d0ad2da346e519bb4d80e226d9d9a10c0eab20e3bd11985fd213fc"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Tangu msiba ule, roho yangu imeondoka.",
+  "expression_span": {
+   "start": 17,
+   "end": 37,
+   "text": "roho yangu imeondoka"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-coast",
+   "site_id": "pilot",
+   "dialect_declared": "Kiamu",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Tangu msiba ule, roho yangu imeondoka.",
+  "normalised_expression": "roho yangu imeondoka",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "Since disaster that, soul my has departed.",
+    "idiomatic_translation": "Ever since that tragedy, my spirit has left me.",
+    "preserved_terms": [
+     {
+      "term": "roho",
+      "reason": "Refers to the spirit, soul, or inner self – a concept that goes beyond a simple 'mind' or 'heart' in English. It conveys a sense of being deeply affected and diminished."
+     },
+     {
+      "term": "msiba",
+      "reason": "Means a great misfortune, calamity, or tragedy. It's a culturally significant term for a significant loss or hardship."
+     }
+    ],
+    "uncertainty_note": "The phrase 'roho yangu imeondoka' suggests a profound emotional impact following a loss. It doesn't necessarily imply a clinical condition, but rather a feeling of being fundamentally changed or emptied by the experience.",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "My heart is heavy today",
+    "idiomatic_translation": "I am feeling very sad today",
+    "preserved_terms": [
+     {
+      "term": "roho",
+      "reason": "This term is culturally specific and refers to one's emotional state or spirit."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "Since the grief, my spirit has gone out.",
+    "idiomatic_translation": "Since the grief, I've lost my spirit.",
+    "preserved_terms": [
+     {
+      "term": "roho",
+      "reason": "refers to the spiritual or emotional aspect of a person, not just the physical heart"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "sadness",
+    "gloss": "The speaker is experiencing a profound sense of sadness following a tragedy.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker's emotional state is being inquired about."
+    ],
+    "rationale": "The translation 'I am feeling very sad today' suggests a state of sadness. The phrase 'roho yangu imeondoka' can be interpreted metaphorically as a loss of vitality or spirit, which is often associated with sadness and grief.",
+    "evidence": [
+     {
+      "type": "translation_candidate",
+      "ref": "translation_candidate_1",
+      "quote": "I am feeling very sad today"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "loss",
+    "gloss": "The speaker feels as though a vital part of themselves, their spirit, has departed.",
+    "category": "somatic_experience",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker is describing a feeling of disconnection or emptiness."
+    ],
+    "rationale": "The phrase 'roho yangu imeondoka' literally translates to 'my spirit has left me,' suggesting a sense of loss or departure of something essential.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "roho yangu imeondoka",
+      "quote": "roho yangu imeondoka"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, while potentially hyperbolic, expresses a deep sense of distress that warrants concern for their well-being; it may reflect a desire to escape overwhelming emotional pain.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker's emotional state appears severe.",
+     "The speaker is in a home visit setting, suggesting a level of vulnerability."
+    ],
+    "rationale": "The phrasing 'my spirit has left me' could be a metaphorical expression of a desire to escape a difficult situation or a feeling of being overwhelmed. It is important to consider the possibility of self-harm or suicidal ideation, even if the phrasing is idiomatic or hyperbolic.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "roho yangu imeondoka",
+      "quote": "roho yangu imeondoka"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "The speaker feels very sad since the tragedy.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker uses the term 'roho' (spirit) to indicate a state of being, and 'imeondoka' (has left) suggests a sense of loss, which aligns with sadness.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "roho yangu imeondoka",
+      "quote": "roho yangu imeondoka"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker may be expressing a risk of harm or suicidal ideation due to the use of 'roho yangu imeondoka', which can be interpreted metaphorically as feeling like one's spirit has left, indicating a desire to end one's life.",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The phrase 'roho yangu imeondoka' can be interpreted metaphorically as feeling like one's spirit has left, which can be a sign of suicidal ideation. The speaker's self-attribution and current state make this interpretation plausible.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "roho yangu imeondoka",
+      "quote": "roho yangu imeondoka"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S6",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "feeling sad or grief-stricken",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current"
+    ],
+    "rationale": "The speaker mentions a 'msiba ule' (tragedy) and says their 'roho yangu' (spirit) has left them, suggesting a strong emotional response to the event.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Tangu msiba ule, roho yangu imeondoka.",
+      "quote": "roho yangu imeondoka"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S7",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "expressing a desire to leave or exit the world",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current"
+    ],
+    "rationale": "The speaker says their 'roho yangu' (spirit) has left them, which may be an idiomatic expression of feeling overwhelmed or wanting to escape their current situation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Tangu msiba ule, roho yangu imeondoka.",
+      "quote": "roho yangu imeondoka"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S4",
+     "S6"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S3",
+     "S5",
+     "S7"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "loss",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S2"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "member_categories": [
+     "somatic_experience"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "somatic_experience",
+    "models": [
+     "gemma3:12b"
+    ],
+    "support_ratio": 0.333
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.083,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.914,
+   "n_clusters": 3,
+   "n_minority_clusters": 1,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000056",
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOEM:000056"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": "MFOEM:000030",
+      "llama3.1:8b": "MFOEM:000016"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "multiple_components_in_utterance",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning describes a profound sense of sadness. 'Sadness' is a broader concept that encompasses this, although it may not fully capture the cultural richness of the expression."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning describes a profound sense of sadness, which is a broader category that includes the specific instance of sadness following a tragedy. The retrieved concept 'sadness' fits this broader category."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of sadness is broader than the candidate meaning, which is a specific instance of sadness following a tragedy."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [],
+    "gap_note": "The concept would need to cover the specific context of sadness following a tragedy, including the emotional intensity and the trigger event. | The expression likely involves cultural nuances related to grief and tragedy that 'sadness' alone does not convey."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the dual aspects of hyperbolic expression and deep distress, possibly reflecting a desire for escape from overwhelming emotional pain. | Concepts would need to cover a sense of deep distress, emotional pain, and a desire to escape overwhelming emotions, potentially with a hyperbolic tone. | The candidate meaning describes a state of deep distress and a desire to escape overwhelming emotional pain. A suitable concept would need to encompass feelings of profound suffering, potential psychological vulnerability, and a wish to avoid or alleviate intense emotional discomfort. Concepts related to emotional suffering, psychological distress, or a desire for emotional escape would be relevant."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000106",
+      "label": "appraisal of loss",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "loss",
+      "retrieval_rank": 1,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000030",
+      "label": "despair",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "loss",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "Despair is a broader concept that can encompass the feeling of a vital part of oneself departing, as it involves a deep sense of hopelessness and loss."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000016",
+      "label": "grief",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "loss",
+      "retrieval_rank": 3,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "Grief is a broader concept that encompasses the feeling of loss, including the departure of a vital part of oneself."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "loss",
+      "retrieval_rank": 4,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "None of the concepts precisely capture the specific feeling of a spirit leaving the body, but despair comes closest as a broader emotional state. | The candidate meaning describes a sense of spiritual departure or loss of self. A suitable concept would need to encompass a feeling of diminished vitality or a sense of being incomplete, potentially involving a somatic experience and a cultural understanding of the spirit or soul. | The concept would need to cover the specific feeling of a vital part of oneself departing, which is not explicitly mentioned in the retrieved concepts."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "multiple_components_in_utterance",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "suicidal ideation",
+     "where": "sense/S3/rationale",
+     "context": "…onsider the possibility of self-harm or suicidal ideation, even if the phrasing is idiomatic or h…"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S3/rationale",
+     "context": "…mportant to consider the possibility of self-harm or suicidal ideation, even if the phras…"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "suicidal ideation",
+     "where": "sense/S5/gloss",
+     "context": "…ker may be expressing a risk of harm or suicidal ideation due to the use of 'roho yangu imeondoka…"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "suicidal ideation",
+     "where": "sense/S5/rationale",
+     "context": "…spirit has left, which can be a sign of suicidal ideation. the speaker's self-attribution and cur…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.983,
+   "translation_agreement": 0.083,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 1.0,
+   "sense_entropy": 0.914,
+   "context_fields_resolved": 1.0
+  }
+ }
+}
