@@ -35,28 +35,18 @@ def _live_env(config_path: str, run_id: str):
     cfg = yaml.safe_load(Path(config_path).read_text())
     cfg["_run_id"] = run_id
     backend = OllamaBackend(cfg["ollama_hosts"], cfg["models"].get("options", {}))
-    # Every entry under `terminologies:` is built from its own `client:` key, so adding an ontology is a
-    # config change and nothing else. An entry whose endpoint is still a <placeholder> is skipped loudly:
-    # "no adequate match" must never silently mean "we never looked".
-    t = cfg["terminologies"] or {}
-    clients, skipped, unknown = [], [], []
-    for name, c in t.items():
-        if "<" in str(c.get("endpoint", "")):
-            skipped.append(name)
-            continue
-        kind = (c.get("client") or "").lower()
-        if kind == "snowstorm":
-            clients.append(SnowstormClient(c["endpoint"], c["branch"], c["version"], c.get("ecl_scope"), c.get("limit", 8)))
-        elif kind == "ols":
-            clients.append(OLSClient(c["endpoint"], c["ontology"], c["version"], c.get("limit", 8), system=name))
-        else:
-            unknown.append(f"{name} (client: {c.get('client')!r})")
+    t = cfg["terminologies"]
+    configured = lambda name: name in t and "<" not in t[name]["endpoint"]
+    clients = []
+    if configured("SNOMEDCT"):
+        c = t["SNOMEDCT"]
+        clients.append(SnowstormClient(c["endpoint"], c["branch"], c["version"], c.get("ecl_scope"), c["limit"]))
+    if configured("MFOEM"):
+        c = t["MFOEM"]
+        clients.append(OLSClient(c["endpoint"], c["ontology"], c["version"], c["limit"]))
+    skipped = [name for name in ("SNOMEDCT", "MFOEM") if not configured(name)]
     if skipped:
-        print(f"WARNING: no endpoint configured for {', '.join(sorted(skipped))}; these systems are not searched in this run.")
-    if unknown:
-        print(f"WARNING: no client implementation for {', '.join(sorted(unknown))}; not searched.")
-    if clients:
-        print(f"Terminology systems searched this run: {', '.join(c.system for c in clients)}")
+        print(f"WARNING: no endpoint configured for {', '.join(skipped)}; these systems are not searched in this run.")
     return cfg, backend, TerminologyHub(clients=clients)
 
 

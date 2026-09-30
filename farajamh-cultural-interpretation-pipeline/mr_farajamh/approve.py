@@ -14,6 +14,7 @@ PREFIXES = {
     "FMHLC": "https://w3id.org/farajamh/lc/",
     "SCTID": "http://snomed.info/id/",
     "MFOEM": "http://purl.obolibrary.org/obo/MFOEM_",
+    "MFOMD": "http://purl.obolibrary.org/obo/MFOMD_",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "semapv": "https://w3id.org/semapv/vocab/",
     "sssom": "https://w3id.org/sssom/",
@@ -21,7 +22,7 @@ PREFIXES = {
     "orcid": "https://orcid.org/",
     "fmhr": "https://w3id.org/farajamh/reviewer/",
 }
-SOURCES = {"SCTID": "http://snomed.info/sct", "MFOEM": "obo:mfoem"}
+SOURCES = {"SCTID": "http://snomed.info/sct", "MFOEM": "obo:mfoem", "MFOMD": "obo:mfomd"}
 SSSOM_COLS = ["subject_id", "subject_label", "predicate_id", "predicate_modifier", "object_id", "object_label", "object_source",
               "object_source_version", "mapping_justification", "author_id", "reviewer_id", "creator_id", "mapping_tool",
               "mapping_tool_version", "confidence", "mapping_date", "comment"]
@@ -97,7 +98,7 @@ def build_outputs(packages: dict[str, dict], decisions: list[dict], out: Path, t
     header = ["# curie_map:"] + [f"#   {k}: {v}" for k, v in PREFIXES.items()] + [
         f"# mapping_set_id: {set_id}", f"# mapping_set_version: {date.today().isoformat()}",
         "# license: https://creativecommons.org/licenses/by/4.0/",
-        "# mapping_set_description: FarajaMH local concepts (idioms of distress) to SNOMED CT / MFOEM. Human-approved only."]
+        "# mapping_set_description: FarajaMH local concepts (idioms of distress) to external terminologies. Human-approved only."]
     if demo_placeholders:
         header.append("# comment: DEMO built from SIMULATED review decisions and placeholder IDs. Do not register or load.")
     with open(out / "mappings.sssom.tsv", "w", newline="", encoding="utf-8") as f:

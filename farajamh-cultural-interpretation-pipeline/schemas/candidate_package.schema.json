@@ -154,7 +154,7 @@
       "type": "object",
       "required": ["system", "id", "label", "id_verified", "retrieval_query", "retrieved_from"],
       "properties": {
-        "system": {"enum": ["SNOMEDCT", "MFOEM", "FARAJAMH_LOCAL"]},
+        "system": {"enum": ["SNOMEDCT", "MFOEM", "MFOMD", "FARAJAMH_LOCAL"]},
         "id": {"type": "string"},
         "label": {"type": "string"},
         "id_verified": {"type": "boolean", "description": "True only if the ID came back from the terminology service in this run. LLMs never originate IDs."},

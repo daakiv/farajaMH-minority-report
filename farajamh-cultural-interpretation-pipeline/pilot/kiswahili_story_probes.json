@@ -1,0 +1,86 @@
+[
+ {
+  "utterance_id": "KISWA-STORY-01",
+  "utterance": "Sijambo, lakini moyo wangu umekuwa mzito tangu majuma matatu.",
+  "expression": "moyo wangu umekuwa mzito",
+  "probes": "heart-heavy idiom; emotion-side retrieval",
+  "chw_question": "Habari ya leo? Unajisikiaje siku hizi?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-02",
+  "utterance": "Ni kama kuna jiwe kifuani kwangu, halitoki.",
+  "expression": "kuna jiwe kifuani kwangu",
+  "probes": "somatic metaphor with no obvious external concept; gap candidate",
+  "chw_question": "Unaweza kunieleza zaidi kuhusu hilo?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-03",
+  "utterance": "Usingizi umenikimbia. Nakesha hadi alfajiri nikiwaza.",
+  "expression": "Usingizi umenikimbia",
+  "probes": "sleep loss as idiom; disorder-side retrieval",
+  "chw_question": "Je, unalala vizuri usiku?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-04",
+  "utterance": "Mawazo ya deni, ya watoto, ya kazi. Yananijaa kichwani.",
+  "expression": "Yananijaa kichwani",
+  "probes": "mawazo as social-economic burden, not a mood term",
+  "chw_question": "Unawaza nini hasa unapokesha?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-05",
+  "utterance": "Siwezi kulima tena. Nikianza, nguvu zinaisha mara moja.",
+  "expression": "nguvu zinaisha mara moja",
+  "probes": "functional decline and fatigue",
+  "chw_question": "Je, hali hii inaathiri kazi zako za kila siku?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-06",
+  "utterance": "La, hii ni mpya. Tangu mume wangu aondoke.",
+  "expression": "hii ni mpya",
+  "probes": "onset and temporality carried by context, not the expression",
+  "chw_question": "Umewahi kuwa hivi hapo awali?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-07",
+  "utterance": "Wanasema nimerogwa. Shangazi ameniambia niende kwa mganga.",
+  "expression": "nimerogwa",
+  "probes": "reported speech: the EXPERIENCER is self but the claim is the family's; over-medicalisation trap",
+  "chw_question": "Watu wa familia wanasemaje kuhusu hali yako?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-08",
+  "utterance": "Sijui. Labda ni kweli. Lakini pia nachoka tu.",
+  "expression": "nachoka tu",
+  "probes": "resolves only against the previous turn; tests {{conversation}}",
+  "chw_question": "Wewe mwenyewe unafikiri nini?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-09",
+  "utterance": "Nimejifungia ndani. Sitaki kuona mtu.",
+  "expression": "Nimejifungia ndani",
+  "probes": "withdrawal; note 'jifung' is close to the SW_ROOTS shapes — checks for a false positive",
+  "chw_question": "Je, unatoka nje kuonana na watu?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-10",
+  "utterance": "Niko down sana, stress imezidi. Sina mood ya kitu.",
+  "expression": "Niko down sana",
+  "probes": "code-switching: 'down', 'stress' and 'mood' must survive normalisation unchanged",
+  "chw_question": "Na siku hizi unajisikiaje kwa ujumla?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-11",
+  "utterance": "Kuna siku nafikiri afadhali nisiwepo. Lakini watoto wananihitaji.",
+  "expression": "afadhali nisiwepo",
+  "probes": "RISK, phrased outside the lexicon, with a protective factor in the same turn",
+  "chw_question": "Je, umewahi kuwa na mawazo ya kujidhuru?"
+ },
+ {
+  "utterance_id": "KISWA-STORY-12",
+  "utterance": "Mwenyezi Mungu tu. Na jirani mmoja.",
+  "expression": "Mwenyezi Mungu tu",
+  "probes": "religious coping; should NOT be read as a clinical sign",
+  "chw_question": "Nani anakusaidia kwa sasa?"
+ }
+]

@@ -2,10 +2,7 @@
 
 Live clients:
   - SnowstormClient: SNOMED CT via a licensed Snowstorm instance (IHTSDO open-source terminology server).
-  - OLSClient: one ontology on an OLS instance — MFOEM and MFOMD via EMBL-EBI OLS4, one client each
-    (or swap for BioPortal via upstream ontoportal.OntoPortalClient).
-  - CodebookClient: another team's controlled vocabulary, held locally as a file — used to crosswalk
-    FarajaMH local concepts onto, for example, an annotation codebook, without touching their pipeline.
+  - OLSClient: MFOEM via EMBL-EBI OLS4 (or swap for BioPortal via upstream ontoportal.OntoPortalClient).
 Check both endpoints against your deployment before the pilot; they are written to the public API docs
 but were not called from this sandbox.
 
@@ -15,7 +12,6 @@ They copy the '<lookup>' convention in the v10 diagram and are not real codes.
 from __future__ import annotations
 
 import json
-import re
 import time
 import urllib.parse
 import urllib.request
@@ -62,16 +58,10 @@ class SnowstormClient:
 
 
 class OLSClient:
-    """One ontology on an OLS instance (EBI OLS4 by default).
+    system = "MFOEM"
 
-    `system` is what the retrieved identifiers are labelled with, and it must come from the config key
-    rather than a class constant: with MFOEM and MFOMD both configured, a shared constant would stamp
-    every MFOMD concept as MFOEM and the provenance in the package would be wrong.
-    """
-
-    def __init__(self, endpoint: str, ontology: str, version: str, limit: int = 8, system: str | None = None):
+    def __init__(self, endpoint: str, ontology: str, version: str, limit: int = 8):
         self.endpoint, self.ontology, self.version, self.limit = endpoint.rstrip("/"), ontology, version, limit
-        self.system = system or ontology.upper()
 
     def search(self, query: str) -> list[dict]:
         params = {"q": query, "ontology": self.ontology, "rows": self.limit, "type": "class", "local": "true"}
@@ -79,65 +69,6 @@ class OLSClient:
         return [{"system": self.system, "id": d.get("obo_id") or d.get("iri"), "label": d.get("label", ""),
                  "id_verified": True, "retrieved_from": self.endpoint, "system_version": self.version}
                 for d in data.get("response", {}).get("docs", [])]
-
-
-class CodebookClient:
-    """A local controlled vocabulary held in a file — for crosswalking to another team's codebook.
-
-    The annotation team keeps their codebook; we map our local concepts onto it and publish the result
-    as an SSSOM set. Nothing about their pipeline has to change, and the mapping is reviewed by the same
-    panel under the same rules as any external mapping.
-
-    Identifiers are marked id_verified=True because they come from a file the other team owns and the
-    file's version is recorded in provenance — the D3 guarantee is "not invented by a model", not
-    "fetched over a network".
-
-    File format: CSV or JSON, one row/object per code, with at least `code` and `label`.
-    Optional `definition` and `synonyms` (pipe-separated) widen the match.
-
-        code,label,definition,synonyms
-        LOW_MOOD,low mood,"Persistent sadness or flat affect",sadness|feeling down
-    """
-
-    def __init__(self, path, system: str, version: str, limit: int = 8, prefix: str | None = None):
-        self.system, self.version, self.limit = system, version, limit
-        self.prefix = prefix or system
-        self.path = Path(path)
-        raw = self.path.read_text(encoding="utf-8")
-        if self.path.suffix.lower() == ".json":
-            rows = json.loads(raw)
-        else:
-            import csv
-            import io
-            rows = list(csv.DictReader(io.StringIO(raw)))
-        self.codes = []
-        for r in rows:
-            code, label = (r.get("code") or "").strip(), (r.get("label") or "").strip()
-            if not code or not label:
-                continue
-            syn = [s.strip() for s in (r.get("synonyms") or "").split("|") if s.strip()]
-            self.codes.append({"code": code, "label": label, "definition": (r.get("definition") or "").strip(),
-                               "haystack": " ".join([label, r.get("definition") or "", *syn]).lower()})
-
-    def search(self, query: str) -> list[dict]:
-        """Token-overlap search over label, definition and synonyms.
-
-        Deliberately generous: it is proposing candidates for a human panel to reject, and a missed
-        candidate is worse than a spurious one. It is NOT deciding anything.
-        """
-        q = {w for w in re.findall(r"[\w']+", (query or "").lower()) if len(w) > 2}
-        scored = []
-        for c in self.codes:
-            if not q:
-                continue
-            hay = set(re.findall(r"[\w']+", c["haystack"]))
-            overlap = len(q & hay)
-            if overlap:
-                scored.append((overlap / len(q), c))
-        scored.sort(key=lambda x: -x[0])
-        return [{"system": self.system, "id": f"{self.prefix}:{c['code']}", "label": c["label"],
-                 "id_verified": True, "retrieved_from": str(self.path), "system_version": self.version}
-                for _, c in scored[:self.limit]]
 
 
 class FixtureTerminology:

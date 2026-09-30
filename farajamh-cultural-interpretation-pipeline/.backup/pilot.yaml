@@ -36,16 +36,6 @@ terminologies:
     ontology: "mfoem"
     version: "<pin release>"
     limit: 8
-  MFOMD:
-    client: ols
-    endpoint: "https://www.ebi.ac.uk/ols4/api"
-    ontology: "mfomd"
-    version: "<pin release>"
-    limit: 8
-    # Mental disease / mental disorder concepts. VERIFY BEFORE RELYING ON IT: MFOMD's disorder content
-    # is anchored to DSM-IV, and its last OBO/BioPortal submission was some years ago, so a concept
-    # retrieved here may reflect a superseded classification. It is a retrieval source for reviewers to
-    # judge, not an authority — which is the same rule as every other system in this list.
   # MFOEM is optional parallel enrichment (not a mandatory hop), per the current architecture decision.
 
 agreement:

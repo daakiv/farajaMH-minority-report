@@ -1,0 +1,579 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-04-kiswa-story-v1",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-04",
+  "input_sha256": "fb3f0e4ee4c19541c5b0a90e825b6ef04f14df4be3994c6b7b08c14760094b91"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.5-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "kiswa-story-v1",
+  "started_at": "2026-09-30T06:37:27+00:00",
+  "ended_at": "2026-09-30T06:39:16+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld"
+ },
+ "L1_original": {
+  "original_text": "Mawazo ya deni, ya watoto, ya kazi. Yananijaa kichwani.",
+  "expression_span": {
+   "start": 36,
+   "end": 54,
+   "text": "Yananijaa kichwani"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Mawazo ya deni, ya watoto, ya kazi. Yananijaa kichwani.",
+  "normalised_expression": "Yananijaa kichwani",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "Thoughts of debt, of children, of work. They fill my head.",
+    "idiomatic_translation": "I'm overwhelmed with thoughts of debt, my children, and my work. It's all consuming me.",
+    "preserved_terms": [],
+    "uncertainty_note": "None",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "Thoughts of death, of children, of work. They make me feel heavy.",
+    "idiomatic_translation": "Thinking about death, children, and work makes me feel weighed down.",
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "This term is a key concept in expressing emotional distress and is preserved to maintain the original meaning."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "Thoughts of debt, of children, of work. They are shouting at my head.",
+    "idiomatic_translation": "I'm overwhelmed by worries about my family's financial struggles, my kids, and my job.",
+    "preserved_terms": [
+     {
+      "term": "mawazo",
+      "reason": "refers to thoughts or ideas, which is a culturally specific concept in Swahili"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "worry",
+    "gloss": "The speaker expresses being overwhelmed by thoughts and worries.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The preceding conversation indicates the speaker is experiencing sleep difficulty and worrying."
+    ],
+    "rationale": "The phrase 'Mawazo ya...' (thoughts of...) followed by specific concerns (debt, children, work) suggests a state of worry and being overwhelmed. The translation 'I'm overwhelmed...' supports this interpretation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Mawazo ya deni, ya watoto, ya kazi. Yananijaa kichwani",
+      "quote": "Mawazo ya deni, ya watoto, ya kazi. Yananijaa kichwani."
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's expression of being overwhelmed by worries about debt, children, and work may indicate a risk of harm to themselves or others, or a desire to escape a difficult situation.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker's sleep difficulty and expressed worries could be indicative of a more serious underlying issue.",
+     "The speaker's tone and body language, if available, could provide further context."
+    ],
+    "rationale": "While the phrasing may be idiomatic and hyperbolic, the expression of being 'consumed' by worries about significant life stressors warrants consideration as a potential indicator of risk. The context of sleep difficulty further elevates this concern.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Mawazo ya deni, ya watoto, ya kazi. Yananijaa kichwani",
+      "quote": "Mawazo ya deni, ya watoto, ya kazi. Yananijaa kichwani."
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "overwhelmed",
+    "gloss": "The speaker feels overwhelmed by various concerns.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker uses the term 'yananijaa kichwani' which means 'it's all consuming me', indicating a sense of being overwhelmed.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Yananijaa kichwani",
+      "quote": "Yananijaa kichwani"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "overwhelmed",
+    "gloss": "feeling burdened by too many thoughts or worries",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker_role=participant",
+     "setting=home_visit"
+    ],
+    "rationale": "The speaker mentions being overwhelmed by thoughts of debt, children, and work, which suggests a state of emotional overwhelm.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "1",
+      "quote": "Yananijaa kichwani"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "expressing a desire to escape or leave the situation",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current"
+    ],
+    "rationale": "The speaker's use of 'yananijaa' may be idiomatic, but the context suggests a desire to escape or leave the situation, which could be interpreted as a risk to the speaker's safety.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "1",
+      "quote": "Yananijaa kichwani"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "worry",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S3"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "overwhelmed",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.107,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.96,
+   "n_clusters": 3,
+   "n_minority_clusters": 1,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": "MFOEM:000171",
+      "llama3.1:8b": "MFOEM:000171"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": "MFOMD:0000076"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000171",
+      "label": "worry",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "worry",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "Worry is a broader concept that encompasses the state of being overwhelmed by thoughts and worries."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of worry is broader than the candidate meaning of being overwhelmed by thoughts and worries, as it encompasses a range of negative thoughts and emotions, but does not necessarily imply a state of being overwhelmed."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000168",
+      "label": "concern",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "worry",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000184",
+      "label": "nervousness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "worry",
+      "retrieval_rank": 3,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "A concept that captures the idea of being overwhelmed by thoughts and worries, potentially in a state of emotional distress, would be needed to accurately represent the candidate meaning. | The candidate meaning describes a state of being overwhelmed by thoughts and worries. The retrieved concepts of 'worry', 'concern', and 'nervousness' all refer to specific emotions or states, but do not capture the broader sense of being overwhelmed by a multitude of thoughts and anxieties. A suitable concept would need to encompass a state of being burdened or incapacitated by mental distress, potentially relating to cognitive overload or a feeling of being unable to cope."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to cover the complex emotional state of being overwhelmed by multiple concerns (debt, children, work) and the associated risks or desires for escape or harm. | Concepts would need to cover a sense of being overwhelmed by multiple worries, potentially indicating a risk of harm or desire to escape, with a nuanced cultural context. | The candidate meaning describes a complex state involving overwhelm, potential for harm, and a desire for escape, all rooted in specific stressors like debt, children, and work. A suitable concept would need to encompass a state of distress that includes elements of overwhelm, risk, and a desire to avoid a difficult situation, potentially with a sense of being unable to cope. Simply naming an emotion like 'sadness' or 'fear' is insufficient, as it misses the crucial element of potential harm or escape."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000027",
+      "label": "terror",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "overwhelmed",
+      "retrieval_rank": 1,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000076",
+      "label": "dissociative fugue",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "overwhelmed",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "Dissociative fugue is a state of being overwhelmed by thoughts, which is a kind of the candidate meaning of feeling burdened by too many thoughts or worries."
+       }
+      ]
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "A concept that captures the idea of being overwhelmed by thoughts or worries, but is more specific to a state of being disconnected from one's identity, would be a better match. | A concept would need to capture the feeling of being burdened by too many thoughts or worries in an everyday cultural context. | A concept would need to cover a state of mental distress arising from an excess of thoughts or worries, rather than a different emotional state like fear (terror) or a dissociative disorder (dissociative fugue)."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [],
+  "safety_signals": {
+   "fired": false,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [],
+   "matches": [],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.95,
+   "translation_agreement": 0.107,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.96,
+   "context_fields_resolved": 1.0
+  }
+ }
+}
