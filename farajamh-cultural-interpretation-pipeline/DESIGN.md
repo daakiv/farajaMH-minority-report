@@ -3,20 +3,43 @@
 
 ---
 
-## Bottom line
+## Contents
 
-1. **Reuse the Minority Report's infrastructure and patterns, not its decision logic.** Several parts carry over with small changes: multi-model dispatch on Ollama, model-to-host routing, JSON repair, prompt-as-file templates, ODRL-as-runtime-policy, the OntoPortal client, Croissant/PROV provenance and SHA-256 hashing. The core consensus mechanism does not carry over and needs replacing:
-   - it forces one "most standard" term;
-   - it counts exact string matches;
-   - its arbitrator picks a winner or synthesises a new term.
-
-   That mechanism is the opposite of what FarajaMH needs.
-2. **The name already describes the fix.** In the current code, dissenting outputs are labelled "Arbitration lost" and left out of the metadata. The FarajaMH adaptation keeps the minority reading and labels it, because for idioms of distress the dissenting reading is often the one reviewers need to see.
-3. **The Minority Report was built for a different task.** It translates *English technical terms with authoritative definitions* (UNDRR hazard profiles) *into European and UN languages*. FarajaMH needs *Swahili and Sheng expressions, often code-mixed and with no definition, interpreted into English meanings*. The source language, the prompts, the validation rule (translation ≥ 40% of source length) and the proofreader (IAEA/WMO terminology) do not transfer.
-4. **I built a working pilot kit in this folder.** It includes schemas, prompts, the pipeline, agreement logic, review cards and export to Local Concept Layer, SSSOM and gap register. It runs end to end on 10 constructed Swahili examples and passes 9 tests covering the guard rules. The offline run uses **hand-written simulated model responses and placeholder concept IDs**. It shows the mechanics work. It does not show that any model interprets Swahili well. The next step is a live run on the project's model host.
-5. **Before a live run, decide four things:** which models are on the DSA-approved host, whether SNOMED CT licensing covers this use, who the reviewers are for each role, and whether the SSSOM subject should be the local concept rather than the raw expression (recommended; see §5).
+- [Current state](#current-state)
+- [1. How the Minority Report works today, and what is reusable](#1-how-the-minority-report-works-today-and-what-is-reusable)
+- [2. Mapping Minority Report components to the FarajaMH workflow](#2-mapping-minority-report-components-to-the-farajamh-workflow)
+- [3. What needs to change or be added](#3-what-needs-to-change-or-be-added)
+- [4. Input and output schemas](#4-input-and-output-schemas)
+- [5. Connecting to the Local Concept Layer, the mapping workflow and SSSOM](#5-connecting-to-the-local-concept-layer-the-mapping-workflow-and-sssom)
+- [6. Keeping the layers separate](#6-keeping-the-layers-separate)
+- [7. Risks](#7-risks)
+- [8. Architecture](#8-architecture)
+- [9. Pilot: 10 constructed Swahili expressions](#9-pilot-10-constructed-swahili-expressions)
+- [10. Run log](#10-run-log)
+- [11. Open decisions](#11-open-decisions)
 
 ---
+
+## Current state
+
+*Updated 30 September 2026 · pipeline `0.2.5` · lexicon `0.2.0-unvalidated` · upstream pinned at `a7cb9cb`*
+
+| | |
+|---|---|
+| **Runs** | End to end on constructed Kiswahili and English examples, with live local models and live terminology lookups. Four live runs to date; see §10. |
+| **Models** | Three interpreters from three families on a laptop via Ollama (Gemma 3 12B, Qwen 2.5 7B, Llama 3.1 8B), one of them also normalising. |
+| **Terminologies** | **MFOEM** and **MFOMD** live via EMBL-EBI OLS4. **SNOMED CT** configured but disabled: no licence covering Kenya or Tanzania, and no terminology server. |
+| **Outputs** | Candidate packages, review cards, Local Concept Layer, SSSOM mappings and gap records. Demo outputs use placeholder identifiers and are marked not for registration. |
+| **Tests** | 66, covering the rules that must hold whatever the models say. |
+| **Not yet done** | No participant data. Kiswahili not validated by linguists. Risk lexicon not reviewed by clinicians or LEAB. Reviewer panel not constituted. |
+
+**What the design assumes, and why**
+
+1. **Reuse the Minority Report's infrastructure and patterns, not its decision logic.** Multi-model dispatch on Ollama, model-to-host routing, JSON repair, prompt-as-file templates, ODRL-as-runtime-policy, the OntoPortal client, Croissant/PROV provenance and SHA-256 hashing all carry over. The consensus mechanism does not: it forces one "most standard" term, counts exact string matches, and its arbitrator picks a winner or synthesises a new one. That is the opposite of what FarajaMH needs.
+2. **The name already describes the fix.** Upstream, dissenting outputs are labelled "Arbitration lost" and left out of the metadata. This adaptation keeps the minority reading and labels it, because for idioms of distress the dissenting reading is often the one reviewers need to see.
+3. **The two projects have different tasks.** The Minority Report translates *English technical terms with authoritative definitions* into European and UN languages. FarajaMH interprets *Kiswahili and Sheng expressions, often code-mixed and with no definition*. The source language, the prompts, the validation rule (translation ≥ 40% of source length) and the IAEA/WMO proofreader do not transfer.
+
+**Decisions still outstanding** — which models sit on the DSA-approved host, SNOMED CT licence coverage, the reviewer roster per role, and whether the SSSOM subject is the local concept rather than the raw expression (recommended; §5). The full list is in §11.
 
 ## 1. How the Minority Report works today, and what is reusable
 
@@ -53,10 +76,10 @@
 | MCP server | **Optional later** | Useful for reviewers' tools once the pipeline is stable. |
 
 Things to raise with Slava:
-- **The README publishes an OntoPortal API key in plain text.** It should be rotated.
 - An internal Ollama IP address is hard-coded as the default.
 - `croissant_generator.py` imports from an absolute path on a CODATA machine.
 - `SKILL.md` describes a "flag consensus below 0.7 for manual review" rule and `rai_flags`. I found neither in the code.
+- One further item concerns a credential in the upstream repository. It is raised with the maintainer directly rather than in this document, which is public.
 
 ---
 
@@ -70,7 +93,7 @@ Things to raise with Slava:
 | Context-aware interpretation | scope note as context | **M3** `prompts/interpret.md` × N: reads the Silver context (negation, temporality, attribution, speaker, setting, region, dialect, conversation window) |
 | Multiple candidate interpretations | forbidden by prompt | M3 returns 1–4 senses per model, including non-medical readings |
 | Agreement/disagreement | exact-match count + arbitration | **M4** `agreement.py`: sense clustering, unanimous/majority/minority standing, divergence flags, no winner |
-| Candidate concept matching (MFOEM, SNOMED CT) | OntoPortal definition lookup (enrichment only) | **M5** `terminology.py`: Snowstorm (SNOMED CT) + OLS/OntoPortal (MFOEM) retrieval → every model ranks → invented IDs dropped |
+| Candidate concept matching (MFOEM, MFOMD, SNOMED CT) | OntoPortal definition lookup (enrichment only) | **M5** `terminology.py`: one client per configured system — OLS4 for MFOEM and MFOMD, Snowstorm for SNOMED CT → every model ranks → invented IDs dropped |
 | Rationale, evidence, confidence | `reasoning` + `final_confidence_score` from the arbitrator | per-sense rationale + evidence spans; confidence reported as separate components (§3) |
 | Structured package for review | CSV + Croissant | **M6** `candidate_package.schema.json` (layers L1–L7) + review card + review sheet |
 | Human validation | "Antigravity Manager Surface" (described, not in code) | `review_decision.schema.json`: per role, per layer, blind first pass, adjudication |
@@ -95,10 +118,11 @@ Things to raise with Slava:
 - Following v10, context resolution happens in Silver. The Minority Report *reads* it, *cites* it as evidence and *flags* inconsistencies; it does not re-resolve it.
 - Negated, non-self or unresolved context raises review priority: `polarity_negated`, `experiencer_not_speaker`, `context_incomplete`.
 
-**MFOEM and SNOMED CT candidate mapping**
+**MFOEM, MFOMD and SNOMED CT candidate mapping**
 - Concepts are *retrieved* first, then *ranked*. An LLM never originates an identifier, which matches the v10 rule. Any ID that did not come back from the terminology service in the same run is dropped (tested).
 - SNOMED CT retrieval is scoped by ECL to the Clinical finding hierarchy by default. Widening the scope is an explicit configuration decision.
-- MFOEM is queried in parallel as optional enrichment, in line with the decision to make it a parallel step rather than a mandatory hop.
+- MFOEM (emotion, mood and appraisal) and MFOMD (mental disorder) are queried in parallel as optional enrichment, in line with the decision to make them a parallel step rather than a mandatory hop. Each configured system is built from its own `client` key, so adding an ontology is a configuration change; the system name is carried per client, because a shared constant would stamp every MFOMD concept as MFOEM and the provenance would be wrong.
+- A broader ontology returns more noise. In `kiswa-story-v1` a model ranked 38% of the MFOEM candidates offered and 13% of the MFOMD ones, and some MFOMD candidates were clinically loaded and irrelevant. Retrieval scope per system is a tuning decision, not a default (§10).
 - "No adequate match" is a first-class answer, recorded per model.
 - Pin terminology versions in the configuration and record them in provenance.
 
@@ -210,6 +234,7 @@ Example outputs from the dry run are in `out/packages/`, `out/review_cards/` and
    - v10's "is evidence for" is not a standard mapping predicate. If you want that relation, define it in a FarajaMH namespace and document it in the mapping-set metadata. Otherwise SSSOM consumers cannot interpret it.
 5. **Justification and authorship.**
    - `mapping_justification: semapv:ManualMappingCuration`
+   - every configured terminology needs a CURIE prefix and an `object_source` in `approve.py`; a retrieved concept that has neither cannot be published as a mapping
    - `author_id` = the reviewers; `reviewer_id` = the adjudicator; `mapping_tool` = `farajamh-minority-report` with its version
    - `confidence` = the reviewer's confidence
    - `comment` cites the package ID, so each row links back to the AI rationale without copying restricted text
@@ -261,6 +286,9 @@ Two implementation details keep these separate:
 | **Privacy / DSA** | Utterances are participant data | D1 (local hosts only; Gemini path off); package stays in the restricted environment; only L9 leaves | Free text in conversation windows can re-identify. Minimise the window. |
 | **Licensing** | SNOMED CT | Pinned licensed server | **Confirm Kenya/Tanzania SNOMED CT licence coverage** and any conditions on publishing SSSOM files that contain SNOMED IDs and labels before release. |
 | **Reproducibility** | Model updates and non-determinism | Digest, seed, options and prompt hashes recorded | Ollama output is not bit-identical across hardware. Treat runs as evidence, not as reproducible truth. |
+| **Model capability below the task** | M1–M3, on small local models | Diversity rule; conformance repair recorded; blind human pass | Measured in `kiswa-story-v1`: two of three laptop models proposed a risk reading on every utterance and cited text from other turns as if it were the utterance, where a large model on the identical prompt proposed it on 5 of 12 with calibrated confidence. Prompt constraints assume a model that can follow them. Model scale in the interpretation stage is an open infrastructure decision (§11). |
+| **Context mistaken for the utterance** | M3, when a conversation window is supplied | Typed evidence with a `conversation_turn` category distinct from `utterance_span` | Small models tag context quotes as `utterance_span`. A code-side check that evidence tagged `utterance_span` appears in the utterance is queued, not yet built. |
+| **Retrieval noise from a broad ontology** | M5, with more than one system configured | "No adequate match" is a first-class answer, recorded per model; retrieval scope configurable per system | A clinically loaded but irrelevant candidate in front of a tired reviewer is a risk even when the models decline it. Audit ranked-versus-offered rates per system. |
 | **Upstream drift** | Minority Report changes | Pin the upstream commit; adapt as a module, not a fork of `orchestrator.py` | Needs agreement with Slava on what goes upstream. |
 
 ---
@@ -345,29 +373,79 @@ pip install jsonschema pyyaml pytest
 python pilot/build_pilot_inputs.py && python pilot/build_fixtures.py
 python -m mr_farajamh.cli run --input pilot/utterances.jsonl --out out --fixture       # simulated
 python -m mr_farajamh.cli approve --out out --decisions pilot/review_decisions_SIMULATED.jsonl --demo-placeholders
-python -m pytest -q tests                                                               # 9 tests
+python -m pytest -q tests                                                               # 66 tests
 # live: edit config/pilot.yaml (hosts, models, Snowstorm/OLS endpoints, versions), then run without --fixture
 ```
 
 ---
 
-## 9b. What the first live run changed (v0.2, 23 September 2026)
+## 10. Run log
 
-The first run with real models (Gemma 3 12B, Qwen 2.5 7B, Llama 3.1 8B on a laptop, expression *moyo wangu unauma*) exposed three faults. All three are fixed in v0.2; none of them was visible in the simulated run.
+Newest first. Each entry records what a run showed and what changed because of it. Runs are evidence,
+not reproducible truth: Ollama output is not bit-identical across hardware.
 
-| Fault seen | Cause | Fix in v0.2 |
+### 30 September 2026 · `kiswa-story-v1` · twelve-turn Kiswahili session, both ontologies live
+
+Twelve turns of one simulated home visit, in standard Kiswahili and Sheng, each carrying the CHW
+question that prompted it. MFOEM and MFOMD both live. First run on connected conversational context
+rather than isolated utterances.
+
+**What worked.** Turn 07, *"Wanasema nimerogwa"* — the family says she has been bewitched — produced
+spiritual clusters with no concepts retrieved and a unanimous "no adequate match". A culturally
+normative explanation was recorded as a gap rather than forced onto a delusion concept, with
+`over_medicalisation_risk` and `possible_semantic_gap` both raised. The language guard held: the Sheng
+turn (*"Niko down sana, stress imezidi"*) passed normalisation unchanged and no package raised
+`normalisation_changed_language`.
+
+**What failed.** `risk_or_safety` was proposed on **all twelve** utterances, including one about who
+supports the speaker. By model: Gemma 12/12 (43% of all senses it proposed), Llama 12/12 (46%), Qwen
+1/12 (9%). Seven risk senses cited text from a *different turn*, or from the CHW's own question, tagged
+`utterance_span`. And the clustering rewarded it: on turn 05 three models said one thing in three
+wordings and produced three separate *minority* clusters, while the rote risk sense, phrased almost
+identically by two models, merged into a *majority*. Standing was measuring phrasing similarity, not
+agreement about meaning.
+
+**The controlled comparison.** The same twelve prompts, with the same upstream normalisations and
+translations, were run through a single large model. It proposed `risk_or_safety` on **5 of 12**, cited
+zero quotes outside the utterance, tagged context from other turns as `conversation_turn` rather than
+`utterance_span`, and spread its plausibility from 0.15 to 0.92 — with 0.92 on the one genuinely
+risk-bearing turn. The small models rated fabricated risk senses at 0.8 and 0.9.
+
+**The conclusion, which changed the planned fix.** The prompt is not at fault. The risk rule in
+`interpret.md` is followed correctly by a capable model; rewriting it to suit a 7B model would break it
+for any model the project moves to later. What this run argues for is the evidence check below, and a
+decision about model scale in the interpretation stage that is a governance and infrastructure
+question, not a prompt question.
+
+**Retrieval.** MFOEM offered 45 candidates across the twelve packages and a model ranked 17 of them
+(38%). MFOMD offered 60 and a model ranked 8 (13%), including `binge-eating disorder` and
+`abstinence syndrome` against a Kiswahili distress idiom. The models declined them correctly, but
+clinically loaded noise in front of a tired reviewer is itself a risk. MFOMD retrieval needs tightening
+or parking; that decision is open.
+
+**Changes queued, not yet made:** `conform.sense()` to verify that evidence tagged `utterance_span`
+actually appears in the utterance, downgrading it otherwise; the model-risk banner to key on standing
+rather than presence.
+
+### 29 September 2026 · `qrec-dryrun-v7` · English clinical-interview answers
+
+Thirty-four patient answers from another system's Question Recommender dry run — English, elicited by
+PHQ-9 and GAD-7 items rather than volunteered. The wrong material for interpretation and the right
+material for testing the safety screen.
+
+| Fault | Cause | Fix |
 |---|---|---|
-| "Spiritual affliction" proposed by all three models, and therefore recorded as **unanimous** | `interpret.md` listed "spiritual" among the example categories and used "spiritual affliction" as an example `sense_key`. The prompt manufactured the consensus it was supposed to detect. | The prompt now asks only for readings the model can support from the words or context, forbids a supernatural reading unless something in the utterance or context points to it, tells the model that fewer senses is a better answer, caps plausibility at 0.3 for senses resting only on background knowledge, and rejects empty rationales. |
-| Every back-translation similarity was 0.0 ("Ndiyo kusimamia kusimamia kusimamia"), so the mismatch flag fired on everything | Models of this size translate English into Swahili badly. Unusable output was being scored as disagreement. | Degenerate output (repeated or very short) is detected and recorded as **not assessed** rather than 0. The new flag is `back_translation_not_assessed`. The stage can be pointed at a dedicated translation model or switched `off`, which raises `back_translation_disabled`. The lost-cultural-term check now skips unusable back-translations. |
-| One meaning split across three clusters ("sadness", "emotional pain", "somatic experience" / "physical discomfort") | Clustering compared words, not meaning. | Optional sentence embeddings via Ollama (`models.embedding_model`, threshold `agreement.embedding_similarity_threshold`). Cluster labels and categories are now decided by majority among members. Packages record `clustering_method`, so a reviewer can see whether words or meaning did the grouping. Without an embedding model it falls back to word overlap and says so. |
+| M1 translated English into Kiswahili — *"Not good at all"* became *"Si nzuri kabisa"*, with the substitutions recorded as `asr_correction`, and *"killing"* recorded as an `orthographic` edit. Every later stage ran on Kiswahili the pipeline invented, and the edit log claimed spelling fixes. | `normalise.md` never received `language_declared`, and its framing ("normalise to standard Swahili") made translation the obedient reading. | `conform.language_changed`: rejects a normalisation whose primary language subtag differs from the declared one, or that retains too few of the original tokens, and restores the original text. Code-switching and Sheng pass by design. `normalise.md` reframed around the languages present. |
+| The risk banner fired backwards. *"Not good at all"* carried a full banner whose every lexicon match sat in the models' own gap notes — one of them `nife` matched inside the word *manifestations*. *"Yes, I do feel like killing people who annoy me"*, read as `risk_or_safety` by all three models unanimously, carried no banner at all. | `_safety_banner` fired only on the lexicon. Model consensus on a risk reading raised nothing. | Two banners, firing independently: one for the lexicon, one for a model-proposed risk reading. The lexicon banner now says when every match is in model-generated text. |
+| MFOMD retrieved real concepts and the package was rejected at validation, after the models had run and before anything was written. | Clients were made config-driven; the `system` enum in the package schema and the CURIE prefixes in `approve.py` were not. | Both updated, plus tests asserting that every configured terminology appears in the schema enum and has a prefix and an `object_source`. |
 
-Two lessons worth carrying into the wider pilot:
-- **Agreement among models is only evidence when the prompt has not steered them.** Prompt wording should be reviewed as carefully as the design, and the blind human pass is what catches this.
-- **A quality check that always fires is worse than none**, because it trains reviewers to ignore flags. Prefer "not assessed" to a false signal.
+**The safety measurement.** Nine of the 34 turns were risk-bearing in context. The lexicon reached
+**two**. Six were reachable only because the *question* was a risk question — a detector that does not
+exist. One (*"Dying maybe"*, answering *"what would help you feel better"*) was reachable by neither and
+had to be hand-marked. The `nife` false positive is a substring match fixed in lexicon `0.2.0`; the
+0.1.0 screen was still deployed.
 
----
-
-## 9c. A safety failure, and what it changed (v0.2.4, 26 September 2026)
+### 26 September 2026 · v0.2.4 · a safety failure, and what it changed
 
 Run `TRY-BA9BBCEC`, on the expression **"Na kwazika kiroho sana nataka nitoke duniani"** — *…I want to leave the world*.
 
@@ -407,7 +485,23 @@ Replaying the original package through the new code produces 17 matches across s
 
 ---
 
-## 10. Open decisions
+### 23 September 2026 · v0.2 · first live run
+
+The first run with real models (Gemma 3 12B, Qwen 2.5 7B, Llama 3.1 8B on a laptop, expression *moyo wangu unauma*) exposed three faults. All three are fixed in v0.2; none of them was visible in the simulated run.
+
+| Fault seen | Cause | Fix in v0.2 |
+|---|---|---|
+| "Spiritual affliction" proposed by all three models, and therefore recorded as **unanimous** | `interpret.md` listed "spiritual" among the example categories and used "spiritual affliction" as an example `sense_key`. The prompt manufactured the consensus it was supposed to detect. | The prompt now asks only for readings the model can support from the words or context, forbids a supernatural reading unless something in the utterance or context points to it, tells the model that fewer senses is a better answer, caps plausibility at 0.3 for senses resting only on background knowledge, and rejects empty rationales. |
+| Every back-translation similarity was 0.0 ("Ndiyo kusimamia kusimamia kusimamia"), so the mismatch flag fired on everything | Models of this size translate English into Swahili badly. Unusable output was being scored as disagreement. | Degenerate output (repeated or very short) is detected and recorded as **not assessed** rather than 0. The new flag is `back_translation_not_assessed`. The stage can be pointed at a dedicated translation model or switched `off`, which raises `back_translation_disabled`. The lost-cultural-term check now skips unusable back-translations. |
+| One meaning split across three clusters ("sadness", "emotional pain", "somatic experience" / "physical discomfort") | Clustering compared words, not meaning. | Optional sentence embeddings via Ollama (`models.embedding_model`, threshold `agreement.embedding_similarity_threshold`). Cluster labels and categories are now decided by majority among members. Packages record `clustering_method`, so a reviewer can see whether words or meaning did the grouping. Without an embedding model it falls back to word overlap and says so. |
+
+Two lessons worth carrying into the wider pilot:
+- **Agreement among models is only evidence when the prompt has not steered them.** Prompt wording should be reviewed as carefully as the design, and the blind human pass is what catches this.
+- **A quality check that always fires is worse than none**, because it trains reviewers to ignore flags. Prefer "not assessed" to a false signal.
+
+---
+
+## 11. Open decisions
 
 1. SSSOM subject: local concept (recommended) or raw expression, as in v10 now.
 2. Whether to keep "is evidence for" as a FarajaMH predicate or use SKOS mapping predicates only.
