@@ -1,4 +1,4 @@
-# farajamh-minority-report (pilot kit v0.1)
+# farajamh-minority-report 
 
 This kit adapts the CODATA Minority Report (github.com/codata/the-minority-report @ a7cb9cb) for FarajaMH Stage 1: AI-assisted translation and candidate interpretation of Swahili idioms of distress, with human review before anything is accepted.
 
