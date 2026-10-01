@@ -31,6 +31,43 @@ def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def retrieval_queries(cluster: dict, rep_sense: dict) -> list[str]:
+    """Search terms for one cluster, best first, de-duplicated.
+
+    Two corrections over sending the cluster label to a terminology service as-is. Both were found in
+    run snomed-v1 (2026-10-01), where the search string for a risk cluster was the literal text
+    "risk_or_safety":
+
+      * Underscores become spaces. An enum name is not a phrase, and lexical search treats it as one
+        token sequence.
+      * A label that is nothing but the category name is dropped. Models routinely copy the category
+        enum into sense_key, and the cluster label is derived from sense_key, so such a label carries no
+        lexical information the category did not already have. Searched anyway it retrieved SNOMED's
+        "Behavior poses safety risk to staff (finding)" — a concept about danger to clinicians, offered
+        as the ONLY candidate for a reading about danger to the speaker.
+
+    The gloss is always searched: it is a reviewer-facing sentence and carries the actual meaning.
+    """
+    def clean(value) -> str:
+        return " ".join(str(value or "").replace("_", " ").split())
+
+    category = clean(cluster.get("category")).lower()
+    out: list[str] = []
+    for raw in (cluster.get("label"), rep_sense.get("gloss")):
+        q = clean(raw)
+        if not q or q in out or q.lower() == category:
+            continue
+        out.append(q)
+    if not out:
+        # No gloss and a category-only label: search the category as a phrase rather than retrieve
+        # nothing, but say so, because these are the queries that produce clinically wrong candidates.
+        fallback = clean(cluster.get("category"))
+        print(f"    WARNING: cluster {cluster.get('cluster_id')} has no searchable label or gloss; "
+              f"falling back to the category name {fallback!r}. Candidates for it will be low precision.")
+        return [fallback] if fallback else []
+    return out
+
+
 def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict] | None = None) -> dict:
     started = now()
     interpreters = cfg["models"]["interpreters"]
@@ -87,10 +124,25 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
     # ---- M3 interpretation: independent, blind to each other's senses (they see translations only)
     senses = []
     conv = utt.get("conversational_context", {})
+    # Each interpreter is normally shown all three translations. That is a design choice with a cost:
+    # in run TRY-BA9BBCEC an interpreter quoted another model's translation back as if it were the
+    # participant's words, so the three interpretations are not fully independent. Setting
+    # `models.share_translations: false` withholds them, which is the other arm of the experiment that
+    # measures how much of the observed agreement the sharing accounts for. Default is true, so an
+    # existing configuration behaves exactly as before.
+    share_translations = cfg["models"].get("share_translations", True)
+    shown_translations = ([x["idiomatic_translation"] for x in trans] if share_translations else
+                          "(withheld in this run — interpret from the utterance and context alone)")
+    # what each evidence type is entitled to quote from, so a mis-typed span can be re-attributed
+    ev_sources = {"utterance": f"{utt['original_text']} {norm['normalised_text']}",
+                  "conversation": [x.get("text", "") for x in
+                                   (conv.get("preceding_turns") or []) + (conv.get("following_turns") or [])],
+                  "translations": [x.get("idiomatic_translation", "") for x in trans]
+                                  + [x.get("literal_gloss", "") for x in trans]}
     for m in model_refs:
         r = backend.generate_json(m, fill(PROMPTS["interpret"], original_text=utt["original_text"],
                                   normalised_text=norm["normalised_text"], normalised_expression=norm["normalised_expression"],
-                                  translations=[t["idiomatic_translation"] for t in trans], country=ctx["country"],
+                                  translations=shown_translations, country=ctx["country"],
                                   region=ctx.get("region", "unknown"), dialect_declared=ctx.get("dialect_declared", "unknown"),
                                   speaker_role=ctx["speaker_role"], setting=ctx["setting"], negation=ctx["negation"]["value"],
                                   temporality=ctx["temporality"]["value"], attribution=ctx["attribution"]["value"],
@@ -100,7 +152,8 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
             if not isinstance(s, dict):
                 conform._note(nonconformances, f"{m}/interpret", "sense", s, "dropped")
                 continue
-            senses.append({"sense_id": f"S{len(senses) + 1}", "model_ref": m} | conform.sense(s, m, nonconformances))
+            senses.append({"sense_id": f"S{len(senses) + 1}", "model_ref": m}
+                          | conform.sense(s, m, nonconformances, sources=ev_sources))
     if not senses:
         return base | {"status": "failed", "note": "No usable senses returned by any model."}
 
@@ -135,7 +188,8 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
         before = len(getattr(terms, "errors", []))
         # Query the model-coined label AND the reviewer-facing gloss: a label like "emotional distress"
         # retrieves poor candidates on its own. Results are merged and de-duplicated by id.
-        queries = [c["label"]] + ([rep["gloss"]] if rep.get("gloss") and rep["gloss"] != c["label"] else [])
+        # See retrieval_queries: a label that is only the category enum is dropped rather than searched.
+        queries = retrieval_queries(c, rep)
         retrieved, seen = [], set()
         for q in queries:
             for hit in enforce_id_origin(terms.search(q), live):
@@ -213,6 +267,7 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
             "terminologies": terms.describe(),
             "terminology_errors": getattr(terms, "errors", []),
             "policy": cfg["policy"],
+            "share_translations": share_translations,
         },
         "L1_original": {"original_text": utt["original_text"], "expression_span": utt["expression_span"], "context_as_received": ctx},
         "L2_normalisation": norm | {"producer": norm_model},

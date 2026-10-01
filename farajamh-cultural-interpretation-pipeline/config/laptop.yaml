@@ -2,7 +2,7 @@
 # The three models actually pulled on the MacBook, not the server-class refs in pilot.yaml.
 # Still three families (gemma / qwen / llama), which the agreement stage requires.
 
-pipeline_version: "0.2.5-laptop"
+pipeline_version: "0.2.6-laptop"
 upstream: "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9"
 
 ollama_hosts: ["http://localhost:11434"]
@@ -21,25 +21,36 @@ models:
 # Do NOT use the model being fine-tuned for FarajaMH (Llama 4 Scout per the grant) as an interpreter while its
 # training data is being built from reviewed packages; that would feed its own outputs back into its training set.
 
+# `version` is deliberately absent from every entry below. Since v0.2.6 the OLS client resolves the release
+# from the service's own ontology record (config.versionIri) at the start of each run and prints it. A pinned
+# string here would override that; "<pin release>" used to sit in these entries and reached provenance and
+# SSSOM output looking like a real pin, which is worse than no version at all. Pin one only when you need a
+# specific release and can name it.
 terminologies:
   MFOEM:
     client: ols
     endpoint: "https://www.ebi.ac.uk/ols4/api"
     ontology: "mfoem"
-    version: "<pin release>"
     limit: 8
   MFOMD:
     client: ols
     endpoint: "https://www.ebi.ac.uk/ols4/api"
     ontology: "mfomd"
-    version: "<pin release>"
     limit: 8
     # Mental disease / mental disorder concepts. VERIFY BEFORE RELYING ON IT: MFOMD's disorder content
     # is anchored to DSM-IV, and its last OBO/BioPortal submission was some years ago, so a concept
     # retrieved here may reflect a superseded classification. It is a retrieval source for reviewers to
     # judge, not an authority — which is the same rule as every other system in this list.
-  # SNOMED CT is deliberately absent: no Kenya/Tanzania licence and no Snowstorm instance.
-  # Re-add the block from pilot.yaml once both exist.
+  # SNOMED CT is absent from the DEFAULT configuration, and the reason is not reachability.
+  # EBI OLS4 serves the full International Edition (ontology id "snomed", 376k terms, pinned at
+  # http://snomed.info/sct/900000000000207008/version/20251017), so retrieval needs no Snowstorm instance
+  # and no API key. What FarajaMH does not have is the right to REDISTRIBUTE those identifiers: no
+  # Affiliate licence, Kenya and Tanzania are not SNOMED International Members, and the research
+  # fee-exemption terms make encoded material SNOMED International's property while requiring downstream
+  # users to hold their own licence. approve.NON_REDISTRIBUTABLE_PREFIXES therefore withholds any approved
+  # SCTID mapping from mappings.sssom.tsv, which declares CC-BY-4.0 over its contents.
+  # To experiment with SNOMED retrieval, use config/laptop_snomed.yaml rather than enabling it here: this
+  # file is what a clone runs by default and what examples/ was generated from.
 
 agreement:
   cluster_jaccard_threshold: 0.34             # used only when no embedding model is configured

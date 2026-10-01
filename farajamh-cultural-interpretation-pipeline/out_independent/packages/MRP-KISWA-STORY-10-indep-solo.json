@@ -1,0 +1,615 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-10-indep-solo",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-10",
+  "input_sha256": "72b754fb235b492310bd0746305c3b650b64c3c61bb9aac11cb205f9c5a7c43f"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.5-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "indep-solo",
+  "started_at": "2026-09-30T12:20:50+00:00",
+  "ended_at": "2026-09-30T12:22:25+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld",
+  "share_translations": false
+ },
+ "L1_original": {
+  "original_text": "Niko down sana, stress imezidi. Sina mood ya kitu.",
+  "expression_span": {
+   "start": 0,
+   "end": 14,
+   "text": "Niko down sana"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "Sheng",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Niko down sana, stress imezidi. Sina mood ya kitu.",
+  "normalised_expression": "Niko down sana",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [
+   {
+    "text": "down",
+    "lang": "en"
+   },
+   {
+    "text": "stress",
+    "lang": "en"
+   },
+   {
+    "text": "mood",
+    "lang": "en"
+   }
+  ],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "I am down very, stress has exceeded. I have mood of nothing.",
+    "idiomatic_translation": "I'm really feeling low, the stress has gotten too much. I don't feel like doing anything.",
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "I am very sad, my heart is heavy.",
+    "idiomatic_translation": "I am feeling very sad.",
+    "preserved_terms": [
+     {
+      "term": "down",
+      "reason": "This term is commonly used in Swahili to express sadness or depression."
+     },
+     {
+      "term": "sana",
+      "reason": "This term emphasizes the intensity of the emotion."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "I am down very much",
+    "idiomatic_translation": "I'm feeling really down, overwhelmed with stress",
+    "preserved_terms": [
+     {
+      "term": "down",
+      "reason": "In this context, 'down' is used to convey a sense of emotional distress, which is a common idiomatic expression in East Africa, particularly in Kenya. It's not a direct translation of the English word 'down', but rather a way to express feeling overwhelmed or defeated."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "sadness",
+    "gloss": "The speaker is feeling very sad or depressed.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The preceding conversation indicates a withdrawal from social interaction."
+    ],
+    "rationale": "The phrase 'Niko down sana' suggests a low mood. The statement 'Sina mood ya kitu' reinforces this, indicating a lack of interest or enthusiasm.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Niko down sana",
+      "quote": "Niko down sana"
+     },
+     {
+      "type": "utterance_span",
+      "ref": "Sina mood ya kitu",
+      "quote": "Sina mood ya kitu"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, while potentially idiomatic, expresses a desire to isolate and avoid interaction, which warrants consideration for risk and safety.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker's refusal to see people and self-imposed isolation are concerning."
+    ],
+    "rationale": "The phrase 'Niko down sana' and the subsequent statements about lacking motivation and avoiding social contact, combined with the refusal to see people, may be a veiled expression of distress or a potential indicator of a desire to withdraw from life. It is important to assess the speaker's safety and well-being, even if the phrasing is hyperbolic.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Niko down sana",
+      "quote": "Niko down sana"
+     },
+     {
+      "type": "conversation_turn",
+      "ref": "participant",
+      "quote": "Nimejifungia ndani. Sitaki kuona mtu."
+     },
+     {
+      "type": "utterance_span",
+      "ref": "Sina mood ya kitu",
+      "quote": "Sina mood ya kitu"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "Niko feels very sad.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The phrase 'Niko down sana' directly conveys a strong emotional state, and the speaker attributes this to themselves.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Niko down sana",
+      "quote": "Niko down sana"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "I'm feeling extremely down",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed"
+    ],
+    "rationale": "The speaker uses the word 'sana' to emphasize their emotional state, and the context indicates that they are affirming their feelings rather than denying them.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Niko down sana",
+      "quote": "Niko down sana"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "I'm feeling so down that I'm considering harming myself",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed"
+    ],
+    "rationale": "The speaker's use of 'sana' to describe their emotional state may be idiomatic, but the overall tone and context suggest a possible risk of self-harm.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Niko down sana",
+      "quote": "Niko down sana"
+     },
+     {
+      "type": "model_background_knowledge",
+      "ref": "self-harm is a possible interpretation of extreme emotional distress",
+      "quote": ""
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S3",
+     "S4"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.077,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.971,
+   "n_clusters": 2,
+   "n_minority_clusters": 0,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000056",
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOMD:0000013"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning describes a feeling of sadness or depression. 'Sadness' is a broader concept that encompasses this feeling."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The term 'sadness' is a broader concept that encompasses the feeling of being very sad or depressed, which aligns with the candidate meaning."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 4,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of 'depressed mood episode' is broader than the candidate meaning of feeling very sad or depressed, as it implies a more prolonged and complex emotional state."
+       }
+      ]
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000143",
+      "label": "major depressive episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 5,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000147",
+      "label": "nightmare",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 6,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000149",
+      "label": "mixed episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 7,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [],
+    "gap_note": "The candidate meaning describes a subjective emotional state, which may or may not be clinically significant. A concept covering a general feeling of sadness or low mood would be useful. | The concept would need to cover a range of emotions and states that are not necessarily tied to a specific mood episode, such as feelings of sadness or despair that are not necessarily part of a diagnosed condition."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the nuanced meaning of expressing a desire to isolate and avoid interaction, with considerations for risk and safety. | Concepts would need to cover a desire to isolate and avoid interaction, considering risk and safety, with a mixed register. | The candidate meaning describes a desire for isolation and avoidance of interaction due to safety concerns. A suitable concept would need to encompass feelings of withdrawal, apprehension, or a need for protection, potentially linked to a perceived threat or risk. It's not simply sadness or distress, but a proactive response to a perceived danger."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "model_output_coerced",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [
+   {
+    "where": "gemma3:12b/normalise",
+    "field": "language_id",
+    "model_value": "['sw', 'en']",
+    "used_instead": "sw"
+   }
+  ],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "harming myself",
+     "where": "sense/S5/gloss",
+     "context": "…'m feeling so down that i'm considering harming myself"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S5/rationale",
+     "context": "…and context suggest a possible risk of self-harm."
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.95,
+   "translation_agreement": 0.077,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 1.0,
+   "sense_entropy": 0.971,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

@@ -104,10 +104,43 @@ def _model_risk_banner(p: dict) -> list[str]:
     L = ["> [!WARNING]", "> ## ⚠ A RISK READING WAS PROPOSED BY THE MODELS", ">",
          f"> {SAFETY_RULE}", ">",
          f"> {who} proposed a `risk_or_safety` reading ({standing}): "
-         + "; ".join(f"**{c.get('label') or c.get('category')}**" for c in clusters[:3]) + ".", ">",
-         "> This is separate from the lexicon screen above and fires independently of it. A model reading "
-         "is a proposal, not a finding — but a proposal about risk is not one to leave to the bottom of "
-         "the card.", ""]
+         + "; ".join(f"**{c.get('label') or c.get('category')}**" for c in clusters[:3]) + ".", ">"]
+
+    # What the reading rests on. In kiswa-story-v1 a risk reading was proposed on all twelve turns of a
+    # session, majority standing on eleven of them, so standing alone told a reviewer nothing. What did
+    # differ was the grounding: seven of those senses cited text from another turn or from the
+    # interviewer's question. conform.sense re-attributes such quotes, and the count is shown here, because
+    # "two models proposed this and neither quoted the utterance" is a different card from "two models
+    # proposed this and both quoted it".
+    member_ids = {sid for c in clusters for sid in (c.get("member_sense_ids") or [])}
+    senses = [s for s in (p.get("L4_interpretation", {}) or {}).get("candidates", [])
+              if s.get("sense_id") in member_ids]
+    spans = sum(1 for s in senses for e in (s.get("evidence") or []) if e.get("type") == "utterance_span")
+    elsewhere = sum(1 for s in senses for e in (s.get("evidence") or [])
+                    if e.get("type") in {"conversation_turn", "translation_candidate"})
+    only_bg = [s for s in senses
+               if s.get("evidence") and all(e.get("type") == "model_background_knowledge"
+                                            for e in s["evidence"])]
+    ground = []
+    if spans:
+        ground.append(f"{spans} quote{'s' if spans != 1 else ''} from the utterance itself")
+    if elsewhere:
+        ground.append(f"{elsewhere} from the surrounding conversation or a translation, not from this utterance")
+    if only_bg:
+        ground.append(f"{len(only_bg)} sense{'s' if len(only_bg) != 1 else ''} resting only on model background knowledge")
+    if ground:
+        L += [f"> Grounding: {'; '.join(ground)}.", ">"]
+    if senses:
+        pl = [s.get("self_reported_plausibility") for s in senses
+              if isinstance(s.get("self_reported_plausibility"), (int, float))]
+        if pl:
+            L += [f"> Self-reported plausibility for these senses: "
+                  f"{', '.join(f'{x:.2f}' for x in sorted(pl, reverse=True))} "
+                  f"— poorly calibrated on small models; weigh the grounding above it.", ">"]
+
+    L += ["> This is separate from the lexicon screen above and fires independently of it. A model reading "
+          "is a proposal, not a finding — but a proposal about risk is not one to leave to the bottom of "
+          "the card.", ""]
     return L
 
 

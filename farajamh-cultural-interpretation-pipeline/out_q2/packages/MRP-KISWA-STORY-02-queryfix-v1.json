@@ -1,0 +1,858 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-02-queryfix-v1",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-02",
+  "input_sha256": "68de7a27833e063107111fc44b31e1ad4282c3546eeeeeac71607e53c1ea0e82"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.6-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "queryfix-v1",
+  "started_at": "2026-10-01T12:04:23+00:00",
+  "ended_at": "2026-10-01T12:06:52+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld",
+  "share_translations": true
+ },
+ "L1_original": {
+  "original_text": "Ni kama kuna jiwe kifuani kwangu, halitoki.",
+  "expression_span": {
+   "start": 8,
+   "end": 32,
+   "text": "kuna jiwe kifuani kwangu"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Ni kama kuna jiwe kifuani kwangu, halitoki.",
+  "normalised_expression": "kuna jiwe kifuani kwangu",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "there is stone on chest my, it-does-not-leave",
+    "idiomatic_translation": "I feel like there's a heavy stone on my chest that won't go away.",
+    "preserved_terms": [
+     {
+      "term": "jiwe",
+      "reason": "Literally 'stone', but here it represents a burden or weight of emotional distress. It's a metaphor for something oppressive and difficult to remove."
+     },
+     {
+      "term": "kifuani",
+      "reason": "Means 'on the chest'. The chest is a culturally significant location for feeling emotional distress, representing the core of one's being. It's not simply 'on my chest' in a physical sense."
+     }
+    ],
+    "uncertainty_note": "None",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "If I have a heavy heart in my chest, I do not laugh.",
+    "idiomatic_translation": "When my heart is heavy, I don't laugh.",
+    "preserved_terms": [
+     {
+      "term": "jiwe kifuani",
+      "reason": "This is a culturally specific expression of emotional distress and is preserved to maintain the original meaning."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "there is a stone on my head",
+    "idiomatic_translation": "I feel weighed down, like a burden is on my head",
+    "preserved_terms": [
+     {
+      "term": "jiwe",
+      "reason": "jiwe is a Swahili word that refers to a stone or a burden, and its meaning is specific to the culture"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "emotional distress",
+    "gloss": "The speaker feels burdened and weighed down by an unspecified emotional difficulty.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The preceding conversation indicates the speaker has been experiencing emotional distress for several weeks."
+    ],
+    "rationale": "The phrase 'kuna jiwe kifuani kwangu' (there's a stone on my chest) is a metaphor for a heavy, persistent feeling. The preceding statement about a heavy heart ('moyo wangu umekuwa mzito') reinforces this sense of emotional burden.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Ni kama kuna jiwe kifuani kwangu",
+      "quote": "Ni kama kuna jiwe kifuani kwangu"
+     },
+     {
+      "type": "conversation_turn",
+      "ref": "Sijambo, lakini moyo wangu umekuwa mzito tangu majuma matatu.",
+      "quote": "Sijambo, lakini moyo wangu umekuwa mzito tangu majuma matatu."
+     }
+    ],
+    "self_reported_plausibility": 0
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, while potentially figurative, expresses a desire to be free from a distressing condition, which could indicate a risk of harm or a need for support.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker's emotional state may be severe enough to warrant concern for their safety."
+    ],
+    "rationale": "The phrase 'halitoki' (it won't go away) suggests a persistent and unwelcome condition. While the metaphor may be idiomatic, the speaker's desire for relief from this condition could indicate underlying distress that poses a risk. It is important to consider this as a potential indicator of a need for support, even if the phrasing is not a literal statement of risk.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "halitoki",
+      "quote": "halitoki"
+     }
+    ],
+    "self_reported_plausibility": 0
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "gemma3:12b",
+    "sense_key": "somatic experience",
+    "gloss": "The speaker is experiencing a physical sensation of heaviness or pressure in their chest.",
+    "category": "somatic_experience",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The speaker may be experiencing a physical manifestation of emotional distress."
+    ],
+    "rationale": "The metaphor 'jiwe kifuani' (stone on the chest) suggests a physical sensation of weight or pressure. While likely metaphorical, it could also reflect a genuine physical discomfort associated with emotional distress.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "kuna jiwe kifuani kwangu",
+      "quote": "kuna jiwe kifuani kwangu"
+     }
+    ],
+    "self_reported_plausibility": 0
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "The speaker feels weighed down by a heavy burden in their heart.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker uses the metaphor of a heavy stone on their chest, indicating a feeling of heaviness and burden.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Ni kama kuna jiwe kifuani kwangu, halitoki.",
+      "quote": "Ni kama kuna jiwe kifuani kwangu, halitoki."
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "heaviness",
+    "gloss": "feeling weighed down or burdened",
+    "category": "somatic_experience",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's physical sensations"
+    ],
+    "rationale": "The speaker mentions their heart being 'mzito' (heavy) which is a physical sensation.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "1",
+      "quote": "moyo wangu umekuwa mzito"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S6",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "feeling unhappy or sorrowful",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's emotional state"
+    ],
+    "rationale": "The speaker says they are not feeling well ('Sijambo') and their heart is heavy, which suggests they are experiencing sadness.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "2",
+      "quote": "Sijambo"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S7",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "expressing a desire to escape or leave the situation",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's tone and language"
+    ],
+    "rationale": "The speaker says 'halitoki' which means 'it won't go away', but in the context of feeling weighed down, it may imply a desire to escape or leave the situation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "1",
+      "quote": "halitoki"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "emotional distress",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S4"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S7"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "somatic experience",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S3"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "member_categories": [
+     "somatic_experience"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C4",
+    "label": "heaviness",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S5"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "somatic_experience"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C5",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S6"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "somatic_experience",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.056,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.963,
+   "n_clusters": 5,
+   "n_minority_clusters": 3,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": "MFOEM:000216"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C4": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C5": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOEM:000056"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000055",
+      "label": "shame",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "emotional distress",
+      "retrieval_rank": 1,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000052",
+      "label": "compassion",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "emotional distress",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000216",
+      "label": "gloomy mood",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "emotional distress",
+      "retrieval_rank": 3,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of 'gloomy mood' is broader than the candidate meaning, as it encompasses a range of negative emotions, including the feeling of being burdened and weighed down."
+       }
+      ]
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000187",
+      "label": "abstinence syndrome",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "emotional distress",
+      "retrieval_rank": 4,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "emotional distress",
+      "retrieval_rank": 5,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "A concept would need to cover a feeling of being burdened by an unspecified emotional weight, without necessarily implying sadness or depression. It should capture the sense of being 'weighed down' emotionally, rather than simply experiencing a negative mood. | None of the retrieved concepts directly match the candidate meaning of feeling burdened and weighed down by an unspecified emotional difficulty. A concept that would fit would need to capture the sense of emotional heaviness or distress without being too specific to a particular emotion like shame or depression. | The concept would need to cover the specific feeling of being burdened and weighed down by an unspecified emotional difficulty, which is not explicitly captured by the retrieved concepts."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the mixed register and the nuanced meaning of expressing a desire for freedom from a distressing condition, potentially indicating a risk of harm or a need for support. | Concepts would need to cover a desire to be free from a distressing condition, indicating a risk of harm or need for support, and potentially figurative. | The candidate meaning expresses a desire for relief from a distressing condition potentially involving risk or need for support. A suitable concept would need to encompass feelings of distress, a desire for escape or relief, and a potential underlying vulnerability or risk. Concepts relating to burdens, oppression, or a need for assistance might be relevant, but require careful assessment against the specific cultural context."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to cover the physical sensation of heaviness or pressure in the chest, which is a specific somatic experience. | Concepts would need to cover a physical sensation of heaviness or pressure in the chest, specifically a somatic experience in everyday cultural register. | The candidate meaning describes a specific physical sensation (heaviness/pressure in the chest). A suitable concept would need to relate to physical discomfort, specifically sensations felt in the body, and ideally have a cultural dimension that acknowledges somatic expressions of distress."
+   },
+   {
+    "cluster_id": "C4",
+    "candidates": [
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000185",
+      "label": "paranoia",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "heaviness",
+      "retrieval_rank": 1,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the feeling of being weighed down or burdened, which is a somatic experience in everyday cultural context. | Concepts would need to cover feelings of being overwhelmed or burdened, possibly with a physical or somatic connotation. | The candidate meaning describes a feeling of being weighed down or burdened, likely physically and emotionally. A suitable concept would need to encompass feelings of heaviness, oppression, or being overwhelmed by responsibility or circumstance. It should not be limited to a specific mental health condition like paranoia."
+   },
+   {
+    "cluster_id": "C5",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The term 'sadness' is a broader concept that encompasses the feeling of being unhappy or sorrowful, which aligns with the candidate meaning."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "The concept of sadness directly matches the candidate meaning of feeling unhappy or sorrowful."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 4,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000143",
+      "label": "major depressive episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 5,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000147",
+      "label": "nightmare",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 6,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000149",
+      "label": "mixed episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 7,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "The candidate meaning describes a general feeling of unhappiness or sorrow. A suitable concept would need to represent a general emotional state of distress or unhappiness, rather than a specific emotion like sadness, a physical manifestation of sadness, or a clinical depressive episode."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "model_output_coerced",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [
+   {
+    "where": "gemma3:12b/interpret",
+    "field": "self_reported_plausibility",
+    "model_value": "None",
+    "used_instead": "0"
+   },
+   {
+    "where": "gemma3:12b/interpret",
+    "field": "self_reported_plausibility",
+    "model_value": "None",
+    "used_instead": "0"
+   },
+   {
+    "where": "gemma3:12b/interpret",
+    "field": "self_reported_plausibility",
+    "model_value": "None",
+    "used_instead": "0"
+   },
+   {
+    "where": "llama3.1:8b/interpret",
+    "field": "evidence.type (quote not in the utterance)",
+    "model_value": "utterance_span: moyo wangu umekuwa mzito",
+    "used_instead": "conversation_turn"
+   },
+   {
+    "where": "llama3.1:8b/interpret",
+    "field": "evidence.type (quote not in the utterance)",
+    "model_value": "utterance_span: Sijambo",
+    "used_instead": "conversation_turn"
+   }
+  ],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "nife",
+     "where": "gap_note/C5",
+     "context": "…ific emotion like sadness, a physical manifestation of sadness, or a clinical depres…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.95,
+   "translation_agreement": 0.056,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.963,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

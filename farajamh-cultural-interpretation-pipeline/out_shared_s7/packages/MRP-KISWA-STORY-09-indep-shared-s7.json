@@ -1,0 +1,513 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-09-indep-shared-s7",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-09",
+  "input_sha256": "09e32c25907e5c02c45854bc2aad1505d1076c48b1f6e2d27d6b6e83705477d4"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.5-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "indep-shared-s7",
+  "started_at": "2026-09-30T14:05:20+00:00",
+  "ended_at": "2026-09-30T14:07:01+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld",
+  "share_translations": true
+ },
+ "L1_original": {
+  "original_text": "Nimejifungia ndani. Sitaki kuona mtu.",
+  "expression_span": {
+   "start": 0,
+   "end": 18,
+   "text": "Nimejifungia ndani"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Nimejifungia ndani. Sitaki kuona mtu.",
+  "normalised_expression": "Nimejifungia ndani",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "I-have-locked myself inside. I-do-not want to see person.",
+    "idiomatic_translation": "I've locked myself in. I don't want to see anyone.",
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "We are feeling inside. Because we see a person.",
+    "idiomatic_translation": "We are feeling upset. Because we see a person.",
+    "preserved_terms": [
+     {
+      "term": "jifungia",
+      "reason": "This term is specific to the emotional state being described and is not easily translated without losing the cultural context."
+     },
+     {
+      "term": "ndani",
+      "reason": "This term is specific to the emotional state being described and is not easily translated without losing the cultural context."
+     }
+    ],
+    "uncertainty_note": "uncertain",
+    "self_reported_confidence": 0.8
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "I have locked myself inside",
+    "idiomatic_translation": "I'm feeling overwhelmed and isolated",
+    "preserved_terms": [
+     {
+      "term": "ndani",
+      "reason": "refers to the inner self or inner space, not just physically inside"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.9
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "isolation",
+    "gloss": "The speaker expresses a desire to be alone and avoid contact with others.",
+    "category": "social_or_relational",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The preceding conversation indicates a desire to withdraw from interaction."
+    ],
+    "rationale": "The phrase 'Sitaki kuona mtu' directly translates to 'I don't want to see anyone,' indicating a wish to avoid social contact and suggesting a feeling of isolation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Sitaki kuona mtu",
+      "quote": "Sitaki kuona mtu"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, while potentially idiomatic, expresses a desire to avoid others and may indicate a need for safety assessment.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The preceding conversation indicates distress and withdrawal."
+    ],
+    "rationale": "The phrase 'Nimejifungia ndani' (I've locked myself in) and 'Sitaki kuona mtu' (I don't want to see anyone) could be hyperbolic expressions of distress, but they also suggest a desire to avoid interaction and potentially a risk of self-harm or harm to others. It is important to assess the speaker's safety and well-being.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Nimejifungia ndani. Sitaki kuona mtu.",
+      "quote": "Nimejifungia ndani. Sitaki kuona mtu."
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "isolation",
+    "gloss": "The speaker feels isolated and does not want to see anyone.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "setting=home_visit"
+    ],
+    "rationale": "The speaker explicitly states they do not want to see anyone, indicating a desire for isolation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Nimejifungia ndani. Sitaki kuona mtu.",
+      "quote": "Sitaki kuona mtu."
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "isolation",
+    "gloss": "feeling trapped or shut away from others",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "setting=home_visit"
+    ],
+    "rationale": "The speaker says 'Nimejifungia ndani', which means 'I've locked myself in', suggesting a physical or emotional sense of being trapped.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Nimejifungia ndani",
+      "quote": "Nimejifungia ndani"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "expressing a desire to harm oneself or escape the situation",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed"
+    ],
+    "rationale": "The speaker says 'Sitaki kuona mtu', which means 'I don't want to see anyone', and given the context of feeling overwhelmed and isolated, this may be a statement of intent to harm oneself or escape the situation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Sitaki kuona mtu",
+      "quote": "Sitaki kuona mtu"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "isolation",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S3",
+     "S4"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state",
+     "social_or_relational"
+    ],
+    "support_ratio": 1.0,
+    "standing": "unanimous",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "emotional_state",
+    "models": [
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "social_or_relational",
+    "models": [
+     "gemma3:12b"
+    ],
+    "support_ratio": 0.333
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.03,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.971,
+   "n_clusters": 2,
+   "n_minority_clusters": 0,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": "MFOMD:0000013"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "isolation",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of 'depressed mood episode' is broader than the candidate meaning, as it encompasses a range of emotions, including a desire to be alone, but also other symptoms of depression."
+       }
+      ]
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000023",
+      "label": "residual schizophrenia",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "isolation",
+      "retrieval_rank": 2,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "A concept would need to capture the specific emotional state of desiring solitude and avoiding contact with others, which is distinct from clinical conditions like depression or schizophrenia. | The candidate meaning describes a desire for solitude and avoidance of social contact. A suitable concept would need to encompass states of withdrawal, isolation, or a need for seclusion, rather than focusing on specific mental health conditions like depression or schizophrenia. | The concept would need to cover a specific emotional state of wanting to be alone and avoid contact with others, without implying other symptoms of depression."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to cover the idea of expressing a desire to avoid others and indicating a need for safety assessment. | Concepts would need to cover a sense of danger or threat, potentially with a focus on social or interpersonal aspects, and a desire to withdraw or assess safety. | The candidate meaning describes a desire for isolation and a potential need for safety assessment. A suitable concept would need to encompass feelings of withdrawal, vulnerability, and a need for protection, potentially linking to concepts of refuge, seclusion, or a state of heightened alert due to perceived threat."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S2/rationale",
+     "context": "…d interaction and potentially a risk of self-harm or harm to others. it is important to a…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.883,
+   "translation_agreement": 0.03,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 1.0,
+   "sense_entropy": 0.971,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

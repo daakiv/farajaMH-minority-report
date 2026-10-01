@@ -20,7 +20,52 @@ def _note(log: list, where: str, what: str, original, used):
     log.append({"where": where, "field": what, "model_value": str(original)[:80], "used_instead": str(used)})
 
 
-def sense(s: dict, model_ref: str, log: list) -> dict:
+def _normalise_quote(q: str) -> str:
+    import re
+    import unicodedata
+    q = unicodedata.normalize("NFKC", q or "").lower()
+    q = q.replace("\u2019", "'").replace("\u2018", "'").replace("\u201c", '"').replace("\u201d", '"')
+    return re.sub(r"[^\w\s]", " ", re.sub(r"\s+", " ", q)).strip()
+
+
+def _check_evidence_spans(s: dict, model_ref: str, log: list, sources: dict) -> None:
+    """A quote tagged `utterance_span` must actually be in the utterance.
+
+    Found in run kiswa-story-v1 (2026-09-30). Across twelve turns of one session, seven risk senses
+    cited text that belonged to a different turn, or to the interviewer's own question, and tagged it
+    `utterance_span`. One card's risk reading quoted the previous turn's "Kuna siku nafikiri afadhali
+    nisiwepo"; another quoted the CHW's question back as though the participant had said it. The
+    reading may still be reasonable — context is supplied precisely so it can be used — but a reviewer
+    reading "the speaker said X" needs that to be true.
+
+    The same twelve prompts through a larger model produced zero such quotes: context from other turns
+    came back tagged `conversation_turn`, translation-derived content as `translation_candidate`. So
+    this check separates careful from careless output rather than penalising any particular model size.
+
+    A quote that is not in the utterance is re-tagged by where it actually came from, and the repair is
+    recorded. Nothing is dropped: the claim survives, correctly attributed.
+    """
+    utt = _normalise_quote(sources.get("utterance", ""))
+    conv = _normalise_quote(" ".join(sources.get("conversation", []) or []))
+    trans = _normalise_quote(" ".join(sources.get("translations", []) or []))
+    for e in s.get("evidence") or []:
+        if e.get("type") != "utterance_span":
+            continue
+        q = _normalise_quote(e.get("quote", ""))
+        if len(q) < 4 or q in utt:
+            continue
+        if conv and q in conv:
+            became = "conversation_turn"
+        elif trans and q in trans:
+            became = "translation_candidate"
+        else:
+            became = "model_background_knowledge"
+        _note(log, f"{model_ref}/interpret", "evidence.type (quote not in the utterance)",
+              f"utterance_span: {e.get('quote', '')[:60]}", became)
+        e["type"] = became
+
+
+def sense(s: dict, model_ref: str, log: list, sources: dict | None = None) -> dict:
     if s.get("category") not in CATEGORIES:
         _note(log, f"{model_ref}/interpret", "category", s.get("category"), "other")
         s["category"] = "other"
@@ -44,6 +89,8 @@ def sense(s: dict, model_ref: str, log: list) -> dict:
         e.setdefault("ref", "")
         ev.append({k: v for k, v in e.items() if k in {"type", "ref", "quote"} and isinstance(v, str)} | {"type": e["type"]})
     s["evidence"] = ev
+    if sources:
+        _check_evidence_spans(s, model_ref, log, sources)
     p = s.get("self_reported_plausibility")
     if not isinstance(p, (int, float)):
         _note(log, f"{model_ref}/interpret", "self_reported_plausibility", p, 0)

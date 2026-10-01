@@ -1,0 +1,68 @@
+# FarajaMH-adapted Minority Report — laptop configuration
+# The three models actually pulled on the MacBook, not the server-class refs in pilot.yaml.
+# Still three families (gemma / qwen / llama), which the agreement stage requires.
+
+pipeline_version: "0.2.6-laptop-snomed"
+upstream: "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9"
+
+ollama_hosts: ["http://localhost:11434"]
+
+models:
+  normaliser:     {model_ref: "gemma3:12b",  family: "gemma"}
+  interpreters:                               # >= 3 models from >= 2 families; diversity is a hard requirement
+    - {model_ref: "gemma3:12b",   family: "gemma"}
+    - {model_ref: "qwen2.5:7b",   family: "qwen"}
+    - {model_ref: "llama3.1:8b",  family: "llama"}
+  back_translation: "off"                     # OFF since v0.2.4: small models produce ungrammatical Swahili, so the
+                                              # similarity score measured model competence, not translation fidelity.
+  embedding_model: "nomic-embed-text"         # empty = word-overlap clustering; this is pulled, so use it
+  options: {temperature: 0.2, seed: 42}
+
+# Do NOT use the model being fine-tuned for FarajaMH (Llama 4 Scout per the grant) as an interpreter while its
+# training data is being built from reviewed packages; that would feed its own outputs back into its training set.
+
+# `version` is deliberately absent from every entry below. Since v0.2.6 the OLS client resolves the release
+# from the service's own ontology record (config.versionIri) at the start of each run and prints it. A pinned
+# string here would override that; "<pin release>" used to sit in these entries and reached provenance and
+# SSSOM output looking like a real pin, which is worse than no version at all. Pin one only when you need a
+# specific release and can name it.
+terminologies:
+  MFOEM:
+    client: ols
+    endpoint: "https://www.ebi.ac.uk/ols4/api"
+    ontology: "mfoem"
+    limit: 8
+  MFOMD:
+    client: ols
+    endpoint: "https://www.ebi.ac.uk/ols4/api"
+    ontology: "mfomd"
+    limit: 8
+    # Mental disease / mental disorder concepts. VERIFY BEFORE RELYING ON IT: MFOMD's disorder content
+    # is anchored to DSM-IV, and its last OBO/BioPortal submission was some years ago, so a concept
+    # retrieved here may reflect a superseded classification. It is a retrieval source for reviewers to
+    # judge, not an authority — which is the same rule as every other system in this list.
+  SNOMEDCT:
+    client: ols
+    endpoint: "https://www.ebi.ac.uk/ols4/api"
+    ontology: "snomed"
+    prefix: "SCTID"                           # OLS reports SNOMED:310190000; approve.PREFIXES declares SCTID
+    limit: 4                                  # LOWER than the others on purpose: 376k concepts against MFOEM's
+                                              # few hundred, retrieved by lexical search on the sense key. At 8
+                                              # this crowds the merged candidate list and buries the MFOEM hits
+                                              # that currently work. Raise it only with evidence.
+    # EXPERIMENT ONLY. Retrieval through OLS4 is fine; redistribution is not. An approved SCTID mapping is
+    # withheld from mappings.sssom.tsv by approve.NON_REDISTRIBUTABLE_PREFIXES and recorded in
+    # withheld_mappings.jsonl instead. Do not copy this block into laptop.yaml until a licence permitting
+    # redistribution exists, and when it does, remove SCTID from that set in the same commit.
+
+agreement:
+  cluster_jaccard_threshold: 0.34             # used only when no embedding model is configured
+  embedding_similarity_threshold: 0.85        # merge two senses in the SAME category above this cosine
+  embedding_cross_category_threshold: 0.93    # higher bar to merge across categories, so somatic/clinical
+                                              # readings are not absorbed into an emotional cluster
+  minority_below: 0.5
+  translation_divergence_below: 0.35
+  back_translation_mismatch_below: 0.25
+  min_model_families: 2
+
+policy: "policy/farajamh_mr_odrl.jsonld"

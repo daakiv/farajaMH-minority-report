@@ -2,8 +2,8 @@
 
 Live clients:
   - SnowstormClient: SNOMED CT via a licensed Snowstorm instance (IHTSDO open-source terminology server).
-  - OLSClient: one ontology on an OLS instance — MFOEM and MFOMD via EMBL-EBI OLS4, one client each
-    (or swap for BioPortal via upstream ontoportal.OntoPortalClient).
+  - OLSClient: one ontology on an OLS instance — MFOEM, MFOMD and (licence permitting) SNOMED CT via
+    EMBL-EBI OLS4, one client each (or swap for BioPortal via upstream ontoportal.OntoPortalClient).
   - CodebookClient: another team's controlled vocabulary, held locally as a file — used to crosswalk
     FarajaMH local concepts onto, for example, an annotation codebook, without touching their pipeline.
 Check both endpoints against your deployment before the pilot; they are written to the public API docs
@@ -24,6 +24,8 @@ from pathlib import Path
 RETRIES = 3
 BACKOFF = 4  # seconds, doubled after each failed attempt
 
+UNVERSIONED = "unversioned"
+
 
 def fetch_json(url: str, headers: dict | None = None, timeout: int = 30, retries: int = RETRIES) -> dict:
     """GET with retries. Network failures are common on unstable links; a retry is cheaper than
@@ -41,6 +43,39 @@ def fetch_json(url: str, headers: dict | None = None, timeout: int = 30, retries
                 print(f"    terminology lookup failed ({type(e).__name__}); retrying in {wait}s")
                 time.sleep(wait)
     raise last
+
+
+def is_unpinned_version(value) -> bool:
+    """True when a configured version is not an actual release identifier.
+
+    Covers empty, None, and the '<pin release>' style placeholder that sat in the configs: a
+    placeholder in provenance is worse than an absent version, because it reads like a pin.
+    """
+    if not value:
+        return True
+    return isinstance(value, str) and (not value.strip() or value.strip().startswith("<"))
+
+
+def ols_ontology_version(endpoint: str, ontology: str) -> str | None:
+    """The release an OLS instance currently serves for one ontology, or None if undeterminable.
+
+    OLS reports the release in `config.versionIri` and leaves the top-level `version` field null, so
+    reading `version` alone gets you nothing. For SNOMED CT on EBI OLS4 this returns, for example,
+    http://snomed.info/sct/900000000000207008/version/20251017 — module and release date, which is
+    exactly what a mapping to a SNOMED identifier needs in order to be unambiguous.
+
+    One extra call per client, at construction. Never raises: failing to resolve a version must
+    degrade provenance, not kill a run.
+    """
+    try:
+        data = fetch_json(f"{endpoint.rstrip('/')}/ontologies/{urllib.parse.quote(ontology)}", retries=1)
+    except Exception:  # noqa: BLE001 - version resolution is best-effort by design
+        return None
+    cfg = data.get("config") or {}
+    for candidate in (cfg.get("versionIri"), cfg.get("version"), data.get("version")):
+        if candidate:
+            return str(candidate)
+    return None
 
 
 class SnowstormClient:
@@ -67,18 +102,50 @@ class OLSClient:
     `system` is what the retrieved identifiers are labelled with, and it must come from the config key
     rather than a class constant: with MFOEM and MFOMD both configured, a shared constant would stamp
     every MFOMD concept as MFOEM and the provenance in the package would be wrong.
+
+    `prefix` overrides the CURIE prefix OLS itself reports. Needed where OLS's preferred prefix is not
+    the one this pipeline's curie_map declares: OLS returns SNOMED:310190000, while PREFIXES in
+    approve.py — and SnowstormClient — use SCTID. Left unset, the OLS-native obo_id is used unchanged,
+    which is correct for MFOEM and MFOMD.
+
+    `version` may be left unset or given as a placeholder, in which case the release is resolved from
+    the OLS ontology record at construction. Pass a real release string to pin it and skip the call.
     """
 
-    def __init__(self, endpoint: str, ontology: str, version: str, limit: int = 8, system: str | None = None):
-        self.endpoint, self.ontology, self.version, self.limit = endpoint.rstrip("/"), ontology, version, limit
+    def __init__(self, endpoint: str, ontology: str, version: str | None = None, limit: int = 8,
+                 system: str | None = None, prefix: str | None = None):
+        self.endpoint, self.ontology, self.limit = endpoint.rstrip("/"), ontology, limit
         self.system = system or ontology.upper()
+        self.prefix = prefix
+        if is_unpinned_version(version):
+            resolved = ols_ontology_version(self.endpoint, self.ontology)
+            if resolved is None:
+                print(f"    WARNING: no release version available for {self.system} at {self.endpoint}; "
+                      f"recording '{UNVERSIONED}'. Mappings to this system will not name a release.")
+            self.version = resolved or UNVERSIONED
+        else:
+            self.version = version
+
+    def _curie(self, doc: dict) -> str | None:
+        """CURIE for one OLS search hit, under this client's configured prefix."""
+        native = doc.get("obo_id") or ""
+        iri = doc.get("iri") or ""
+        if not self.prefix:
+            return native or iri or None
+        local = native.split(":")[-1] if native else iri.rstrip("/").rsplit("/", 1)[-1].rsplit("#", 1)[-1]
+        return f"{self.prefix}:{local}" if local else None
 
     def search(self, query: str) -> list[dict]:
         params = {"q": query, "ontology": self.ontology, "rows": self.limit, "type": "class", "local": "true"}
         data = fetch_json(f"{self.endpoint}/search?{urllib.parse.urlencode(params)}")
-        return [{"system": self.system, "id": d.get("obo_id") or d.get("iri"), "label": d.get("label", ""),
-                 "id_verified": True, "retrieved_from": self.endpoint, "system_version": self.version}
-                for d in data.get("response", {}).get("docs", [])]
+        out = []
+        for doc in data.get("response", {}).get("docs", []):
+            cid = self._curie(doc)
+            if not cid:
+                continue
+            out.append({"system": self.system, "id": cid, "label": doc.get("label", ""),
+                        "id_verified": True, "retrieved_from": self.endpoint, "system_version": self.version})
+        return out
 
 
 class CodebookClient:

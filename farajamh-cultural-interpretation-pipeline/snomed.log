@@ -1,0 +1,18 @@
+Terminology systems searched this run: MFOEM, MFOMD, SNOMEDCT
+    MFOEM      release http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl
+    MFOMD      release http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl
+    SNOMEDCT   release http://snomed.info/sct/900000000000207008/version/20251017
+{
+ "KISWA-STORY-01": "awaiting_review",
+ "KISWA-STORY-02": "awaiting_review",
+ "KISWA-STORY-03": "awaiting_review",
+ "KISWA-STORY-04": "awaiting_review",
+ "KISWA-STORY-05": "awaiting_review",
+ "KISWA-STORY-06": "awaiting_review",
+ "KISWA-STORY-07": "awaiting_review",
+ "KISWA-STORY-08": "awaiting_review",
+ "KISWA-STORY-09": "awaiting_review",
+ "KISWA-STORY-10": "awaiting_review",
+ "KISWA-STORY-11": "awaiting_review",
+ "KISWA-STORY-12": "awaiting_review"
+}

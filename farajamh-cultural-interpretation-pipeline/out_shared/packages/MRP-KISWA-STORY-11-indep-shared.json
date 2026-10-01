@@ -1,0 +1,651 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-11-indep-shared",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-11",
+  "input_sha256": "4abaaa798c137444b57663263eb14ae3ee9ea5f3183519a906b77b98be1cb7de"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.5-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "indep-shared",
+  "started_at": "2026-09-30T10:06:22+00:00",
+  "ended_at": "2026-09-30T10:08:12+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld",
+  "share_translations": true
+ },
+ "L1_original": {
+  "original_text": "Kuna siku nafikiri afadhali nisiwepo. Lakini watoto wananihitaji.",
+  "expression_span": {
+   "start": 19,
+   "end": 36,
+   "text": "afadhali nisiwepo"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Kuna siku nafikiri afadhali nisiwepo. Lakini watoto wananihitaji.",
+  "normalised_expression": "afadhali nisiwepo",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "There days I think it is better I not be (to exist).",
+    "idiomatic_translation": "There are days when I think it would be better if I weren't here. But my children need me.",
+    "preserved_terms": [],
+    "uncertainty_note": "",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "please think for me today. But children need too.",
+    "idiomatic_translation": "Please think of me today. But the children need it too.",
+    "preserved_terms": [
+     {
+      "term": "nisiwepo",
+      "reason": "This term is a request for someone to think or pray for the speaker, which is an important cultural expression of emotional distress."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "it is better I do not exist",
+    "idiomatic_translation": "I wish I wasn't here",
+    "preserved_terms": [
+     {
+      "term": "afadhali",
+      "reason": "This term is a Swahili expression that conveys a sense of 'better' or 'preferable', but its meaning is not directly translatable to English. It implies a sense of resignation or hopelessness."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "desire_for_absence",
+    "gloss": "The speaker expresses a wish or feeling that they would be better off not existing.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's emotional state",
+     "speaker's relationship with children"
+    ],
+    "rationale": "The phrase 'afadhali nisiwepo' directly translates to 'it would be better if I weren't here,' indicating a desire to not be present.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "afadhali nisiwepo",
+      "quote": "afadhali nisiwepo"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker expresses a desire to not be here, which may be a hyperbolic expression of distress but requires consideration for potential self-harm ideation.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "speaker's emotional state",
+     "previous conversation about self-harm"
+    ],
+    "rationale": "The phrasing 'afadhali nisiwepo' expresses a desire to not exist, which, while potentially idiomatic, warrants assessment for risk. The preceding conversation about self-harm further elevates this concern.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "afadhali nisiwepo",
+      "quote": "afadhali nisiwepo"
+     },
+     {
+      "type": "conversation_turn",
+      "ref": "chw",
+      "quote": "Je, umewahi kuwa na mawazo ya kujidhuru?"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "The speaker expresses a sense of sadness and considering not being here.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker uses the phrase 'afadhali nisiwepo' which suggests a desire not to be present, indicating sadness.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Kuna siku nafikiri afadhali nisiwepo. Lakini watoto wananihitaji.",
+      "quote": "afadhali nisiwepo"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "feeling unhappy or sorrowful",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's emotional state"
+    ],
+    "rationale": "The speaker mentions being 'down sana' and having 'stress imezidi', indicating a negative emotional state.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "participant",
+      "quote": "Niko down sana, stress imezidi. Sina mood ya kitu."
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "expressing a desire to end one's life",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's emotional state, relationship with children"
+    ],
+    "rationale": "The speaker says 'afadhali nisiwepo', which can be translated to 'it would be better if I weren't here', a phrase that may be idiomatic but still expresses a risk to one's safety.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "participant",
+      "quote": "Kuna siku nafikiri afadhali nisiwepo."
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S3",
+     "S4"
+    ],
+    "supporting_models": [
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C1",
+    "label": "desire_for_absence",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.097,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.96,
+   "n_clusters": 3,
+   "n_minority_clusters": 1,
+   "concept_agreement": {
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000056",
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOMD:0000013"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": false
+    },
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the mixed register of the expression and the potential for hyperbolic distress with considerations for self-harm ideation. | Concepts would need to cover self-harm ideation, hyperbole, and distress, with a focus on the speaker's desire to not be present. | The candidate meaning expresses a desire to not be present, potentially indicating distress and requiring assessment for self-harm. A suitable concept would need to encompass feelings of wanting to escape a situation, potentially linked to distress or suicidal ideation. Concepts related to hopelessness, despair, or a wish for non-existence would be relevant."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning includes sadness, and this concept names sadness. The candidate meaning is a specific, culturally-bound expression of sadness, so broadMatch is appropriate."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning of sadness aligns with the broader concept of sadness, even though the expression may carry additional cultural nuances."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 4,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of 'depressed mood episode' is broader than the candidate meaning, as it encompasses a range of emotions and experiences, including sadness, but also other symptoms and duration."
+       }
+      ]
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000143",
+      "label": "major depressive episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 5,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000147",
+      "label": "nightmare",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 6,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000149",
+      "label": "mixed episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 7,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [],
+    "gap_note": "The candidate meaning also includes a sense of wanting to not be present, which is not captured by sadness alone. | The concepts retrieved do not fully capture the cultural nuances of the expression 'afadhali nisiwepo', which conveys a sense of sadness and longing for a place or situation. A more comprehensive concept would need to account for the speaker's emotional state, their relationship to the place or situation, and the cultural context in which the expression is used."
+   },
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000081",
+      "label": "sexual desire disorder",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "desire_for_absence",
+      "retrieval_rank": 1,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept is needed that broadly captures the idea of wishing one were not alive or feeling that one would be better off not existing. | The candidate meaning expresses a wish for non-existence, reflecting a profound sense of distress and a desire to escape a difficult situation. A suitable concept would need to encompass feelings of hopelessness, despair, and a wish to not be alive, potentially linking to concepts of existential suffering or severe emotional pain, but not simply related emotions like sadness or disappointment. | The concept would need to cover a sense of existential despair or self-destructive sentiment, possibly related to emotional states or psychological conditions."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "model_output_coerced",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [
+   {
+    "where": "llama3.1:8b/interpret",
+    "field": "evidence.type (quote not in the utterance)",
+    "model_value": "utterance_span: Niko down sana, stress imezidi. Sina mood ya kitu.",
+    "used_instead": "conversation_turn"
+   }
+  ],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S2/gloss",
+     "context": "…ut requires consideration for potential self-harm ideation."
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S2/rationale",
+     "context": "…risk. the preceding conversation about self-harm further elevates this concern."
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "suicidal ideation",
+     "where": "gap_note/C2",
+     "context": "…tion, potentially linked to distress or suicidal ideation. concepts related to hopelessness, desp…"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "gap_note/C2",
+     "context": "…rbolic distress with considerations for self-harm ideation. | concepts would need to cove…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.983,
+   "translation_agreement": 0.097,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.96,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

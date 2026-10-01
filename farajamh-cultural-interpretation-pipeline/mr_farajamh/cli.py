@@ -48,7 +48,12 @@ def _live_env(config_path: str, run_id: str):
         if kind == "snowstorm":
             clients.append(SnowstormClient(c["endpoint"], c["branch"], c["version"], c.get("ecl_scope"), c.get("limit", 8)))
         elif kind == "ols":
-            clients.append(OLSClient(c["endpoint"], c["ontology"], c["version"], c.get("limit", 8), system=name))
+            # `prefix` overrides the CURIE prefix the OLS instance reports, for systems where it differs
+            # from the one declared in approve.PREFIXES: OLS returns SNOMED:310190000 where this pipeline
+            # and SnowstormClient both use SCTID. `version` may be omitted or left as a placeholder, in
+            # which case the client resolves the release from the OLS ontology record.
+            clients.append(OLSClient(c["endpoint"], c["ontology"], c.get("version"), c.get("limit", 8),
+                                     system=name, prefix=c.get("prefix")))
         else:
             unknown.append(f"{name} (client: {c.get('client')!r})")
     if skipped:
@@ -57,6 +62,10 @@ def _live_env(config_path: str, run_id: str):
         print(f"WARNING: no client implementation for {', '.join(sorted(unknown))}; not searched.")
     if clients:
         print(f"Terminology systems searched this run: {', '.join(c.system for c in clients)}")
+        for c in clients:
+            # Printed because an unresolved version is a provenance gap, and it should be visible at
+            # the start of a run rather than discovered later in a package.
+            print(f"    {c.system:<10} release {c.version}")
     return cfg, backend, TerminologyHub(clients=clients)
 
 
@@ -145,8 +154,16 @@ def print_summary(p: dict):
             w(f"      keeps     {pt.get('term')} — {pt.get('reason', '')}")
         if t.get("uncertainty_note"):
             w(f"      unsure    {t['uncertainty_note']}")
-        bt = t["back_translation"]
-        w(f"      back      {bt['text']}  (similarity {bt['similarity_to_normalised']})")
+        # Absent whenever models.back_translation is "off", which it has been since v0.2.4 because small
+        # models produce ungrammatical Swahili and the similarity score measured model competence rather
+        # than translation fidelity. cmd_run never calls this, so the crash only showed up on `try`.
+        bt = t.get("back_translation")
+        if bt:
+            sim = bt.get("similarity_to_normalised")
+            w(f"      back      {bt.get('text', '')}  "
+              + (f"(similarity {sim})" if sim is not None else f"({bt.get('note', 'not assessed')})"))
+        else:
+            w("      back      not run (back-translation disabled in this configuration)")
     cs = p["L5_agreement"].get("category_support") or []
     if cs:
         w("\nHOW THE MODELS READ IT, BY CATEGORY (labels aside)")

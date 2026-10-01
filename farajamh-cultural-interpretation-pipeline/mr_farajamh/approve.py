@@ -24,18 +24,36 @@ PREFIXES = {
 }
 SOURCES = {"SCTID": "http://snomed.info/sct", "MFOEM": "obo:mfoem", "MFOMD": "obo:mfomd"}
 SSSOM_COLS = ["subject_id", "subject_label", "predicate_id", "predicate_modifier", "object_id", "object_label", "object_source",
-              "object_source_version", "mapping_justification", "author_id", "reviewer_id", "creator_id", "mapping_tool",
-              "mapping_tool_version", "confidence", "mapping_date", "comment"]
+              "object_source_version", "mapping_justification", "mapping_cardinality", "author_id", "reviewer_id", "creator_id",
+              "mapping_tool", "mapping_tool_version", "confidence", "mapping_date", "comment"]
+
+# Prefixes whose content FarajaMH is not licensed to redistribute.
+#
+# A candidate from one of these may be retrieved, reviewed, and recorded in a candidate package — that
+# is our own audit trail. It must not appear as an object_id in the published mapping set, which
+# declares CC-BY-4.0 over its contents and would otherwise be asserting a licence we have no right to
+# grant over someone else's terminology.
+#
+# Rows recording an ABSENCE (object_id = sssom:NoTermFound) are NOT withheld. They carry no identifier
+# and no content from the terminology; "we searched SNOMED CT and found nothing adequate" is our
+# finding to publish, and it is the scientifically useful half of this output.
+#
+# SCTID is here because SNOMED CT is licensed content: queryable through a third-party terminology
+# service, not redistributable by us. Remove it only when a licence permitting redistribution is in
+# place, and record that decision where the licence is recorded.
+NON_REDISTRIBUTABLE_PREFIXES = {"SCTID"}
 
 
 class ApprovalError(Exception):
     pass
 
 
-def build_outputs(packages: dict[str, dict], decisions: list[dict], out: Path, tool_version: str, demo_placeholders: bool = False):
+def build_outputs(packages: dict[str, dict], decisions: list[dict], out: Path, tool_version: str,
+                  demo_placeholders: bool = False, non_redistributable: set[str] | None = None):
     out.mkdir(parents=True, exist_ok=True)
+    blocked = set(NON_REDISTRIBUTABLE_PREFIXES if non_redistributable is None else non_redistributable)
     final = [d for d in decisions if d["final"]]
-    lcl, rows, gaps = [], [], []
+    lcl, rows, gaps, withheld = [], [], [], []
     for d in final:
         p = packages.get(d["package_id"])
         if p is None or p["status"] != "awaiting_review":
@@ -66,13 +84,17 @@ def build_outputs(packages: dict[str, dict], decisions: list[dict], out: Path, t
             base = {"subject_id": subj, "subject_label": lca.get("pref_label_sw", ""), "mapping_justification": "semapv:ManualMappingCuration",
                     "author_id": "|".join(reviewers), "reviewer_id": d["reviewer"]["reviewer_id"], "creator_id": "",
                     "mapping_tool": "farajamh-minority-report", "mapping_tool_version": tool_version,
-                    "mapping_date": d["decided_at"][:10], "predicate_modifier": ""}
+                    "mapping_date": d["decided_at"][:10], "predicate_modifier": "", "mapping_cardinality": ""}
             note = f"{c.get('justification', '')} | AI candidate package {p['package_id']}"
             if c["decision"] == "no_adequate_concept":
                 system = c.get("system", "SNOMEDCT")
                 prefix = "SCTID" if system == "SNOMEDCT" else system
+                # 1:0 — one subject, no object. The SSSOM field that says this row records an absence
+                # rather than a mapping, and the counterpart to 1:1 on an approved row. Kept even for
+                # a non-redistributable system: it names no concept from it.
                 rows.append(base | {"predicate_id": c.get("predicate_id", "skos:exactMatch"), "object_id": "sssom:NoTermFound",
                                     "object_label": "", "object_source": SOURCES.get(prefix, system), "object_source_version": "",
+                                    "mapping_cardinality": "1:0",
                                     "confidence": c.get("confidence", ""), "comment": "Semantic gap. " + note})
                 gaps.append({"local_concept_id": subj, "system": system, "cluster_id": c.get("cluster_id"),
                              "reason": c.get("justification", ""), "package_id": p["package_id"], "recorded_at": d["decided_at"],
@@ -86,11 +108,21 @@ def build_outputs(packages: dict[str, dict], decisions: list[dict], out: Path, t
             if is_placeholder and not demo_placeholders:
                 raise ApprovalError(f"{d['decision_id']}: {c['id']} is a placeholder, not a verified identifier")
             prefix = c["id"].split(":")[0]
+            if prefix in blocked:
+                # The human approved this mapping and that decision stands in the package and here.
+                # What is withheld is PUBLICATION of the identifier, not the review outcome.
+                withheld.append({"decision_id": d["decision_id"], "package_id": p["package_id"],
+                                 "subject_id": subj, "predicate_id": c["predicate_id"], "object_id": c["id"],
+                                 "object_label": c.get("label", ""), "prefix": prefix,
+                                 "decision": c["decision"], "decided_at": d["decided_at"],
+                                 "reason": f"{prefix} identifiers are not licensed for redistribution in the published mapping set"})
+                continue
             ver = next((x["system_version"] for pc in p["L6_concept_candidates"]["per_cluster"] for x in pc["candidates"] if x["id"] == c["id"]),
                        "reviewer-supplied")
             rows.append(base | {"predicate_id": c["predicate_id"], "object_id": c["id"], "object_label": c.get("label", ""),
                                 "object_source": SOURCES.get(prefix, prefix), "object_source_version": ver,
                                 "predicate_modifier": "Not" if c["decision"] == "reject" else "",
+                                "mapping_cardinality": "1:1",
                                 "confidence": c.get("confidence", ""),
                                 "comment": ("DEMO PLACEHOLDER ID. " if is_placeholder else "") + note})
 
@@ -99,6 +131,13 @@ def build_outputs(packages: dict[str, dict], decisions: list[dict], out: Path, t
         f"# mapping_set_id: {set_id}", f"# mapping_set_version: {date.today().isoformat()}",
         "# license: https://creativecommons.org/licenses/by/4.0/",
         "# mapping_set_description: FarajaMH local concepts (idioms of distress) to external terminologies. Human-approved only."]
+    if withheld:
+        held = ", ".join(sorted({w["prefix"] for w in withheld}))
+        # Stated in the file itself: an incomplete set that does not say so is a misleading set, and the
+        # CC-BY-4.0 line above would otherwise imply this is everything the reviewers approved.
+        header.append(f"# comment: {len(withheld)} human-approved mapping(s) are NOT in this set. "
+                      f"{held} identifiers are not licensed for redistribution. The decisions are recorded in "
+                      f"withheld_mappings.jsonl and in the candidate packages; only publication is withheld.")
     if demo_placeholders:
         header.append("# comment: DEMO built from SIMULATED review decisions and placeholder IDs. Do not register or load.")
     with open(out / "mappings.sssom.tsv", "w", newline="", encoding="utf-8") as f:
@@ -108,4 +147,9 @@ def build_outputs(packages: dict[str, dict], decisions: list[dict], out: Path, t
         w.writerows(rows)
     (out / "local_concept_layer.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in lcl), encoding="utf-8")
     (out / "gap_register.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in gaps), encoding="utf-8")
-    return {"local_concepts": len(lcl), "sssom_rows": len(rows), "gaps": len(gaps)}
+    (out / "withheld_mappings.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in withheld), encoding="utf-8")
+    if withheld:
+        held = ", ".join(sorted({w["prefix"] for w in withheld}))
+        print(f"    {len(withheld)} approved mapping(s) withheld from mappings.sssom.tsv ({held} not redistributable). "
+              f"See withheld_mappings.jsonl.")
+    return {"local_concepts": len(lcl), "sssom_rows": len(rows), "gaps": len(gaps), "withheld": len(withheld)}

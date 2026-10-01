@@ -1,0 +1,699 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-08-indep-solo",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-08",
+  "input_sha256": "da5037d2e9c8f764c63d5ba9b32a7cccbe1f348d1f7b4df04e3a9bb104790e10"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.5-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "indep-solo",
+  "started_at": "2026-09-30T12:16:51+00:00",
+  "ended_at": "2026-09-30T12:18:59+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld",
+  "share_translations": false
+ },
+ "L1_original": {
+  "original_text": "Sijui. Labda ni kweli. Lakini pia nachoka tu.",
+  "expression_span": {
+   "start": 34,
+   "end": 44,
+   "text": "nachoka tu"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Sijui. Labda ni kweli. Lakini pia nachoka tu.",
+  "normalised_expression": "nachoka tu",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "I feel/become just tired",
+    "idiomatic_translation": "I'm just feeling worn out.",
+    "preserved_terms": [],
+    "uncertainty_note": "The phrase 'nachoka tu' is commonly used to express a general feeling of exhaustion, discouragement, or being overwhelmed. It doesn't necessarily imply a clinical state of fatigue, but rather a sense of being depleted. The 'tu' emphasizes the simplicity and immediacy of the feeling.",
+    "self_reported_confidence": 0.95
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "I am confused. It is true. But also my heart is heavy too.",
+    "idiomatic_translation": "I am confused. It is true, but my heart is heavy too.",
+    "preserved_terms": [
+     {
+      "term": "heart",
+      "reason": "The term 'heart' is used metaphorically in Swahili to express emotional distress."
+     }
+    ],
+    "uncertainty_note": "uncertain",
+    "self_reported_confidence": 0.8
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "I don't know. Maybe it's true. But I am tired only.",
+    "idiomatic_translation": "I'm not sure, but I'm exhausted.",
+    "preserved_terms": [
+     {
+      "term": "tu",
+      "reason": "Indicates a sense of 'only' or 'just', but also implies a sense of 'enough' or 'exhaustion' that is culturally specific to East Africa."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "weariness",
+    "gloss": "The speaker feels tired or exhausted.",
+    "category": "somatic_experience",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's age",
+     "recent activity level"
+    ],
+    "rationale": "The phrase 'nachoka tu' literally translates to 'I am tired' or 'I am getting tired'. The context of a home visit and discussion about health suggests a possible physical or emotional exhaustion.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "nachoka tu",
+      "quote": "nachoka tu"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, even if seemingly casual, expresses a desire to exit or be free from a difficult situation, and warrants consideration as a potential expression of distress.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "speaker's age",
+     "recent life events",
+     "relationship with the healthcare worker"
+    ],
+    "rationale": "The phrase 'nachoka tu' could be a hyperbolic expression of wanting to escape a situation, even if not a literal statement of intent to harm oneself. The preceding conversation about being 'rogwa' (cursed) and being sent to a traditional healer suggests a stressful situation. It may be idiomatic, but the potential for underlying distress necessitates a risk assessment.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "nachoka tu",
+      "quote": "nachoka tu"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "uncertainty",
+    "gloss": "Expressing a lack of certainty or confusion about one's feelings or situation.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker uses 'sijui' (I don't know) and 'nachoka tu' (I'm not sure), indicating uncertainty.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "nachoka tu",
+      "quote": "nachoka tu"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "feeling unhappy or sorrowful",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's current emotional state"
+    ],
+    "rationale": "The speaker says 'Sijui' (I don't know) and then 'Labda ni kweli' (maybe it's true), which suggests a sense of uncertainty or doubt. The phrase 'nachoka tu' (I'm just fed up) implies a feeling of frustration or sadness.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "nachoka tu",
+      "quote": "nachoka tu"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "expressing a desire to leave or exit the world",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's current emotional state, previous conversation"
+    ],
+    "rationale": "The speaker mentions being 'roga' (tired) and considering going to a 'mganga' (traditional healer), which may imply a sense of desperation or hopelessness. The phrase 'nachoka tu' could be interpreted as a desire to leave or exit the current situation.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "Wanasema nimerogwa",
+      "quote": "Wanasema nimerogwa"
+     },
+     {
+      "type": "utterance_span",
+      "ref": "nachoka tu",
+      "quote": "nachoka tu"
+     }
+    ],
+    "self_reported_plausibility": 0.6
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C1",
+    "label": "weariness",
+    "category": "somatic_experience",
+    "member_sense_ids": [
+     "S1"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "member_categories": [
+     "somatic_experience"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "uncertainty",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S3"
+    ],
+    "supporting_models": [
+     "qwen2.5:7b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C4",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "emotional_state",
+    "models": [
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "somatic_experience",
+    "models": [
+     "gemma3:12b"
+    ],
+    "support_ratio": 0.333
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.056,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.961,
+   "n_clusters": 4,
+   "n_minority_clusters": 3,
+   "concept_agreement": {
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": "MFOEM:000173",
+      "qwen2.5:7b": "MFOEM:000173",
+      "llama3.1:8b": "MFOEM:000173"
+     },
+     "top1_agreement": 1.0,
+     "no_adequate_match_votes": [],
+     "predicate_disagreement": false
+    },
+    "C4": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOEM:000056"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to capture the idea of expressing a desire to exit or be free from a difficult situation as a form of distress. | Concepts would need to cover a desire to exit or be free from a difficult situation, with consideration as a potential expression of distress, and be related to risk or safety. | The candidate meaning describes a desire for escape from a difficult situation, potentially masking distress. A suitable concept would need to encompass feelings of wanting to leave, or a sense of being trapped, even if expressed subtly. It would also need to acknowledge the potential for underlying distress."
+   },
+   {
+    "cluster_id": "C1",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to cover the feeling of being tired or exhausted, which is a somatic experience in everyday cultural context. | Concepts would need to cover a sense of physical or mental fatigue, possibly with a connotation of being overwhelmed or unable to cope. | The candidate meaning describes a state of tiredness or exhaustion. A suitable concept would need to cover somatic experiences related to fatigue, weariness, or depletion of energy."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000170",
+      "label": "dubious",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "uncertainty",
+      "retrieval_rank": 1,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000173",
+      "label": "confusion",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "uncertainty",
+      "retrieval_rank": 2,
+      "ranking": [
+       {
+        "model_ref": "gemma3:12b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning describes a state of uncertainty and confusion. 'Confusion' directly aligns with this aspect of the meaning, representing a broader category that encompasses the lack of clarity described."
+       },
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "Confusion is a broader concept that can encompass a lack of certainty or confusion about one's feelings or situation."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of confusion is broader than the candidate meaning of expressing a lack of certainty or confusion about one's feelings or situation."
+       }
+      ]
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [],
+    "gap_note": "A concept that captures the nuance of uncertainty or ambiguity in emotional states would be more suitable. | The candidate meaning includes a sense of feeling overwhelmed by one's situation, which 'confusion' does not fully capture. A concept that encompasses both mental disorientation and a sense of being overwhelmed would be more appropriate."
+   },
+   {
+    "cluster_id": "C4",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept 'sadness' is a broader category that encompasses the feeling of being unhappy or sorrowful, which aligns with the candidate meaning."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "The concept of sadness directly matches the candidate meaning of feeling unhappy or sorrowful."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 4,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000143",
+      "label": "major depressive episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 5,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000147",
+      "label": "nightmare",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 6,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000149",
+      "label": "mixed episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 7,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "The candidate meaning describes a general feeling of unhappiness or sorrow. A suitable concept would need to represent a general emotional state of distress or unhappiness, rather than a specific clinical condition (like depression or a mixed episode), a physiological manifestation (facial expression or voice), or a specific event (nightmare)."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "model_output_coerced",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [
+   {
+    "where": "llama3.1:8b/interpret",
+    "field": "evidence.type (quote not in the utterance)",
+    "model_value": "utterance_span: Wanasema nimerogwa",
+    "used_instead": "conversation_turn"
+   }
+  ],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "nife",
+     "where": "gap_note/C4",
+     "context": "…or a mixed episode), a physiological manifestation (facial expression or voice), or…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.917,
+   "translation_agreement": 0.056,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.961,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

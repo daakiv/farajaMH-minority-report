@@ -98,7 +98,13 @@ def test_no_sssom_without_final_decision_and_no_placeholders(env, tmp_path):
     with pytest.raises(ApprovalError):
         build_outputs({p["package_id"]: p}, d02, tmp_path, "t", demo_placeholders=False)
     res = build_outputs({p["package_id"]: p}, d02, tmp_path, "t", demo_placeholders=True)
-    assert res == {"local_concepts": 1, "sssom_rows": 2, "gaps": 0}
+    assert res == {"local_concepts": 1, "sssom_rows": 0, "gaps": 0, "withheld": 2}
+    assert len((tmp_path / "withheld_mappings.jsonl").read_text().strip().splitlines()) == 2
+    # Both demo mappings are SCTID, so the guard withholds them. With a licence in place the
+    # negative assertion still renders as predicate_modifier=Not.
+    licensed = build_outputs({p["package_id"]: p}, d02, tmp_path, "t", demo_placeholders=True,
+                             non_redistributable=set())
+    assert licensed == {"local_concepts": 1, "sssom_rows": 2, "gaps": 0, "withheld": 0}
     assert "\tNot\t" in (tmp_path / "mappings.sssom.tsv").read_text()
 
 

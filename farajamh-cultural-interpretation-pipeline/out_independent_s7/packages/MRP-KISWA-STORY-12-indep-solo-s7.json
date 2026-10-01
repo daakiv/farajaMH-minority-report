@@ -1,0 +1,745 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-12-indep-solo-s7",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-12",
+  "input_sha256": "30fd7ba882a943992c9b1f96a903aefbdfb4555323f18ee44ecdb82991dc47b4"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.5-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "indep-solo-s7",
+  "started_at": "2026-09-30T14:36:37+00:00",
+  "ended_at": "2026-09-30T14:38:38+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 7
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "f99af45371c88a076eb21fe4270b82763367fd2e6a102bb3212b110ff408d6e3"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "<pin release>",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld",
+  "share_translations": false
+ },
+ "L1_original": {
+  "original_text": "Mwenyezi Mungu tu. Na jirani mmoja.",
+  "expression_span": {
+   "start": 0,
+   "end": 17,
+   "text": "Mwenyezi Mungu tu"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Mwenyezi Mungu tu. Na jirani mmoja.",
+  "normalised_expression": "Mwenyezi Mungu tu",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "God Almighty only",
+    "idiomatic_translation": "Only God knows.",
+    "preserved_terms": [
+     {
+      "term": "Mwenyezi Mungu",
+      "reason": "This is a Swahili term for God, specifically emphasizing His majesty and power. While 'God' is a direct translation, 'Mwenyezi Mungu' carries a specific cultural and religious weight that isn't fully captured by the single word."
+     }
+    ],
+    "uncertainty_note": "The phrase 'Only God knows' is often used to express frustration, overwhelm, or a sense of helplessness about a situation. It implies that the speaker feels the situation is beyond their understanding or control.",
+    "self_reported_confidence": 0.9
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "God is the moon. God is the moon.",
+    "idiomatic_translation": "God is the moon.",
+    "preserved_terms": [
+     {
+      "term": "Mwenyezi Mungu",
+      "reason": "This is a culturally specific reference to God, likely referring to the moon as a symbol of divine presence or guidance in Swahili culture."
+     }
+    ],
+    "uncertainty_note": "Uncertain",
+    "self_reported_confidence": 0.8
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "God alone is heavy on my heart",
+    "idiomatic_translation": "I'm feeling overwhelmed and burdened by my problems",
+    "preserved_terms": [
+     {
+      "term": "Mwenyezi Mungu",
+      "reason": "refers to God in Swahili, a culturally specific term"
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "distress",
+    "gloss": "The speaker is expressing a general sense of distress or suffering.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The preceding conversation about self-harm thoughts indicates a state of emotional vulnerability."
+    ],
+    "rationale": "The utterance 'Mwenyezi Mungu tu' (God alone) can be an expression of feeling overwhelmed and isolated, often accompanying distress. The context of a conversation about self-harm further supports this interpretation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Mwenyezi Mungu tu",
+      "quote": "Mwenyezi Mungu tu"
+     }
+    ],
+    "self_reported_plausibility": 0.7
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, while potentially idiomatic, expresses a desire to not be present, which warrants consideration as a potential statement of risk.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The preceding question from the CHW about self-harm thoughts increases the importance of assessing the risk conveyed in this statement."
+    ],
+    "rationale": "The phrase 'nafikiri afadhali nisiwepo' (I think it would be better if I wasn't here) directly expresses a wish to not exist. While it may be hyperbolic, this phrasing requires assessment for risk, given the preceding conversation.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "participant",
+      "quote": "Lakini watoto wananihitaji."
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "The speaker is expressing sadness or distress.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker uses a negation ('tu' meaning 'not') to affirm a distressing statement, indicating sadness or distress.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Mwenyezi Mungu tu. Na jirani mmoja.",
+      "quote": "Mwenyezi Mungu tu. Na jirani mmoja."
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "sadness",
+    "gloss": "Feeling unhappy or sorrowful",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's tone, facial expression"
+    ],
+    "rationale": "The speaker says 'Kuna siku nafikiri afadhali nisiwepo', which implies a sense of sadness or regret.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "2",
+      "quote": "Kuna siku nafikiri afadhali nisiwepo"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "Expressing a desire to die or leave the world",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker's intent, tone, and context"
+    ],
+    "rationale": "The speaker says 'Kuna siku nafikiri afadhali nisiwepo', which may be an expression of a desire to die or leave the world, despite the idiomatic phrasing.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "2",
+      "quote": "Kuna siku nafikiri afadhali nisiwepo"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "distress",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S3"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S5"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "sadness",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S4"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 1.0
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.083,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.96,
+   "n_clusters": 3,
+   "n_minority_clusters": 1,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": "MFOEM:000216"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": "MFOEM:000056",
+      "llama3.1:8b": "MFOEM:000056"
+     },
+     "top1_agreement": 0.667,
+     "no_adequate_match_votes": [
+      "gemma3:12b"
+     ],
+     "predicate_disagreement": true
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000031",
+      "label": "crying",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 1,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000052",
+      "label": "compassion",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000055",
+      "label": "shame",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000216",
+      "label": "gloomy mood",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 4,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The concept of gloomy mood is broader than the candidate meaning of general distress or suffering."
+       }
+      ]
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000081",
+      "label": "sexual desire disorder",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 5,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000151",
+      "label": "binge-eating disorder",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 6,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000004",
+      "label": "mental disorder",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 7,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 8,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000187",
+      "label": "abstinence syndrome",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "distress",
+      "retrieval_rank": 9,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "A concept that captures a sense of general emotional pain or hardship would be needed to cover this meaning. | None of the retrieved concepts directly match or broadly match the candidate meaning of distress or suffering. A concept that covers a general sense of emotional distress or suffering would be needed. | The candidate meaning describes a general sense of distress or suffering. A suitable concept would need to represent a state of emotional discomfort or hardship, without specifying a particular cause or type of suffering. Concepts related to coping mechanisms or seeking divine intervention might be relevant, but the current list focuses on specific emotions, disorders, or behaviors."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "A concept would need to cover a desire to not be present, which warrants consideration as a potential statement of risk, with a nuanced understanding of the cultural context and idiomatic expression 'Mwenyezi Mungu tu'. | The candidate meaning expresses a desire to avoid a situation perceived as risky. A suitable concept would need to encompass a sense of aversion, avoidance, or a wish to be elsewhere due to perceived danger or unpleasantness. It's not simply about distress, but about a desire to escape a potentially harmful situation. | The expression 'Mwenyezi Mungu tu' translates to 'God above' in Swahili, which is a common phrase used to express a desire for God's protection or to seek refuge in God. This expression does not directly relate to a desire to not be present or a statement of risk. A more appropriate concept would need to capture the idea of seeking safety or protection, which is not represented in the given list."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000056",
+      "label": "sadness",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "qwen2.5:7b",
+        "rank": 1,
+        "proposed_predicate": "skos:broadMatch",
+        "rationale": "The candidate meaning is an emotional state of feeling unhappy or sorrowful, which is a broader category than the specific concept of 'sadness'."
+       },
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "The concept of sadness matches the candidate meaning of feeling unhappy or sorrowful."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000182",
+      "label": "canonical sad facial expression",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000188",
+      "label": "canonical sad voice utterance",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 4,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000143",
+      "label": "major depressive episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 5,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000147",
+      "label": "nightmare",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 6,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000149",
+      "label": "mixed episode",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "<pin release>",
+      "retrieval_query": "sadness",
+      "retrieval_rank": 7,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b"
+    ],
+    "gap_note": "None of the concepts precisely match the candidate meaning, but 'sadness' is the closest and can be considered a broad match. | The candidate meaning describes a general feeling of unhappiness or sorrow. A suitable concept would need to represent a general emotional state of distress or unhappiness, rather than a specific emotion like sadness, a particular manifestation of sadness (facial expression or voice), or a clinical diagnosis (depressive episode, mixed episode)."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "model_output_coerced",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [
+   {
+    "where": "llama3.1:8b/interpret",
+    "field": "evidence.type (quote not in the utterance)",
+    "model_value": "utterance_span: Kuna siku nafikiri afadhali nisiwepo",
+    "used_instead": "conversation_turn"
+   },
+   {
+    "where": "llama3.1:8b/interpret",
+    "field": "evidence.type (quote not in the utterance)",
+    "model_value": "utterance_span: Kuna siku nafikiri afadhali nisiwepo",
+    "used_instead": "conversation_turn"
+   }
+  ],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S1/rationale",
+     "context": "…ss. the context of a conversation about self-harm further supports this interpretation."
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "leave the world",
+     "where": "sense/S5/gloss",
+     "context": "expressing a desire to die or leave the world"
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "leave the world",
+     "where": "sense/S5/rationale",
+     "context": "…be an expression of a desire to die or leave the world, despite the idiomatic phrasing."
+    },
+    {
+     "category": "self_harm_or_suicide",
+     "term": "nife",
+     "where": "gap_note/C3",
+     "context": "…ic emotion like sadness, a particular manifestation of sadness (facial expression or…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.9,
+   "translation_agreement": 0.083,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.96,
+   "context_fields_resolved": 1.0
+  }
+ }
+}
