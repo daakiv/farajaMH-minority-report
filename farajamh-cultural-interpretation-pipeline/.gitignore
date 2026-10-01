@@ -2,3 +2,6 @@ __pycache__/
 .pytest_cache/
 out_live/
 .DS_Store
+out_*/
+!out_*/.gitkeep
+runs/
