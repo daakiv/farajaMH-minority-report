@@ -384,6 +384,69 @@ python -m pytest -q tests                                                       
 Newest first. Each entry records what a run showed and what changed because of it. Runs are evidence,
 not reproducible truth: Ollama output is not bit-identical across hardware.
 
+### 2 October 2026 · `example-v3` · freeing the sense key, and what it uncovered
+
+`interpret.md` was changed so a `sense_key` may not be a category value, after `example-v2` showed 26
+of 70 senses keyed `risk_or_safety` — every risk sense, all three models, all twelve utterances. The
+cluster label derives from `sense_key` and the label is a terminology search term, so the search string
+for a risk cluster was the literal enum text.
+
+**The stated problem was fixed and the cluster structure got worse.**
+
+| | `example-v2` | `example-v3` |
+|---|---|---|
+| sense keys that are category values | 26 of 70 | 1 of 76 |
+| clusters | 43 | 59 |
+| unanimous | 5 | 4 |
+| majority | 17 | 9 |
+| minority | 21 | **46** |
+| risk clusters across twelve utterances | 12 | 19 |
+
+Seven of twelve packages carried clusters that were the same meaning twice: `wish not to be here`
+beside `wish_not_to_be_here`, `heart heavy` beside `heart_heaviness`, and on turn 08 `weariness`,
+`exhausted` and `exhaustion` as three separate clusters. Both runs clustered on embeddings — neither
+fell back to word overlap — so this is not a configuration accident.
+
+**What that means: the bug was holding the clustering together.** In `example-v2` twenty-five risk
+senses carried an identical key, which pulled their embeddings together and forced them to merge.
+Remove the uniformity and the clustering's actual behaviour appears: at
+`embedding_similarity_threshold: 0.85` it will not merge `exhausted` with `exhaustion`. This is the
+30 September observation — standing measures phrasing similarity, not agreement about meaning —
+measured rather than asserted.
+
+**The prompt fix also over-corrected.** 26 of 76 senses are now literally `wish not to be here`, copied
+from the first example in the prompt, including on *"Moyo wangu umekuwa mzito"* where it asserts
+something the speaker did not say. Models copy whatever uniform string the prompt hands them: first the
+category value, then the example. Two attempts at this by prompt wording have produced two different
+uniformity artefacts.
+
+**The underlying problem is that `sense_key` does three incompatible jobs.** It labels the cluster on
+the reviewer card, it is embedded with the gloss for clustering, and the cluster label becomes the
+terminology search term. A good label is short and distinctive; a good clustering key is stable across
+phrasings; a good search term matches how a clinical vocabulary words things. One model-generated
+three-word string cannot be all three, and every retrieval and clustering failure recorded this week is
+that overload surfacing.
+
+**Changed:** `conform.normalise_sense_key()` collapses underscores, hyphens, case and spacing before
+the key reaches clustering, the card or a search, and records the edit as a nonconformance so a
+reviewer can see the label was changed. It deliberately does **not** merge `exhausted` with
+`exhaustion` — that is the clustering stage's job, and a string rule there would hide the question
+rather than answer it.
+
+**Open, and needing evidence rather than judgement:** whether to cluster on the gloss alone instead of
+`sense_key: gloss`, since a full sentence is what sentence embeddings handle well and a three-word
+fragment is not; and where `embedding_similarity_threshold` should sit. See §11.
+
+**Method note.** Clustering is deterministic post-processing over senses already saved in the packages,
+so it can be re-run offline against `example-v2` and `example-v3` in seconds. Tuning it with full
+pipeline runs — two hours each at present — is the wrong instrument, and doing so twice on 2 October is
+how a prompt change shipped before its consequence was understood.
+
+**Cost note.** `example-v3` ran at 10.3 minutes per package against 2.9 for `example-v2`: a 3.5x
+slowdown from passing a definition for every retrieved candidate into the ranking prompt. A 35-minute
+run became two hours. Whether definitions belong on every candidate or only the top few is an open
+question with an operational answer attached.
+
 ### 1 October 2026 · `queryfix` / `definitions` · terminology retrieval, and what OLS4 can and cannot serve
 
 Three changes to the retrieval and ranking stages, and one closed question about SNOMED CT.
@@ -551,6 +614,12 @@ and the direction reproduced; the confound is not closed. Standing limitations o
 utterances, one constructed corpus, three small models on one host, two seeds — two points, not a
 distribution — and no Kiswahili validation.
 
+**Added 2 October.** Every number above is a count of clusters, and `example-v3` showed the clustering
+to be sensitive to the surface form of `sense_key` in a way that was masked while every risk sense
+carried the same key. Both arms of this experiment shared that behaviour, so the direction of the
+comparison should hold; the absolute counts rest on a threshold now known to be fragile and should
+carry that qualification wherever they are cited.
+
 ### 30 September 2026 · `kiswa-story-v1` · twelve-turn Kiswahili session, both ontologies live
 
 Twelve turns of one simulated home visit, in standard Kiswahili and Sheng, each carrying the CHW
@@ -675,7 +744,13 @@ Two lessons worth carrying into the wider pilot:
 3. Which models are on the DSA-approved host, and whether any Swahili-specialised model is available to add to the panel.
 4. SNOMED CT licence coverage for Kenya/Tanzania, and publication conditions for mapping files.
 5. Reviewer roster per role and site, pseudonymous IDs for LEAB members, and who adjudicates.
-6. Upstream strategy with Slava. I suggest contributing three general features back to the Minority Report and keeping FarajaMH logic in its own module:
+6. What the clustering stage embeds: `sense_key: gloss` as now, or the gloss alone. A three-word key is
+   a poor input to a sentence embedding model and, on `example-v3`, varying it split single meanings
+   across clusters. Testable offline against saved packages; see `pilot/cluster_sweep.py`.
+7. Where `embedding_similarity_threshold` should sit. 0.85 was chosen before there was evidence, and at
+   that value `exhausted` and `exhaustion` do not merge. This decides what "unanimous" and "minority"
+   mean, so it should be set from a sweep rather than judgement, and reviewed by the ontology lead.
+8. Upstream strategy with Slava. I suggest contributing three general features back to the Minority Report and keeping FarajaMH logic in its own module:
    - pluggable consensus/arbitration;
    - a source-language parameter;
    - model digest and prompt hash in provenance.

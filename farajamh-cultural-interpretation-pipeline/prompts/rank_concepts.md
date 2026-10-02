@@ -9,6 +9,8 @@ Judge each concept on its DEFINITION, not its label. The definitions are the fou
 
 Where the definition reads NO DEFINITION PROVIDED BY THIS TERMINOLOGY, you have only a label. That is a reason for more caution, not less: say in your rationale that you are judging from the label alone, and prefer rejecting the concept over guessing what it means.
 
+`no_adequate_match` and a non-empty `ranked` list are mutually exclusive. If you rank even one concept, `no_adequate_match` is false. If you set it to true, `ranked` must be empty. Returning both makes the reviewer's card contradict itself.
+
 If nothing survives that test, return an empty `ranked` list, set `no_adequate_match` to true, and use `gap_note` to say what a concept would need to cover. An empty list is a good answer and is recorded as a semantic gap for human review. Returning a poor match is worse than returning nothing, because several models rationalising the same poor match looks like agreement.
 
 For each concept you rank, propose a predicate:

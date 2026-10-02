@@ -65,6 +65,27 @@ def _check_evidence_spans(s: dict, model_ref: str, log: list, sources: dict) -> 
         e["type"] = became
 
 
+def normalise_sense_key(raw: str) -> str:
+    """One surface form per meaning, before the key reaches clustering, the card or a search.
+
+    `sense_key` does three jobs: it labels the cluster on the reviewer card, it is embedded with the
+    gloss for clustering, and the cluster label becomes a terminology search term. Models vary the
+    surface form freely, and in run example-v3 (2 October 2026) seven of twelve packages contained
+    clusters that were the same meaning twice — `wish not to be here` beside `wish_not_to_be_here`,
+    `heart heavy` beside `heart_heaviness` — each splitting one majority into two minorities.
+
+    This fixes punctuation and spacing only. It does NOT merge `exhausted` with `exhaustion`: that is
+    the clustering stage's job and a separate open question. A prompt can ask for a tidy key; this
+    guarantees one.
+    """
+    import re
+    import unicodedata
+    k = unicodedata.normalize("NFKC", raw or "")
+    k = re.sub(r"[_\-/]+", " ", k).replace("\u2019", "'")
+    k = re.sub(r"[^\w\s']+", " ", k, flags=re.UNICODE)
+    return " ".join(k.split()).lower()
+
+
 def sense(s: dict, model_ref: str, log: list, sources: dict | None = None) -> dict:
     if s.get("category") not in CATEGORIES:
         _note(log, f"{model_ref}/interpret", "category", s.get("category"), "other")
@@ -76,6 +97,12 @@ def sense(s: dict, model_ref: str, log: list, sources: dict | None = None) -> di
         if not isinstance(s.get(field), str) or not s.get(field):
             _note(log, f"{model_ref}/interpret", field, s.get(field), default or "(empty)")
             s[field] = default
+    tidy = normalise_sense_key(s["sense_key"])
+    if tidy and tidy != s["sense_key"]:
+        # Recorded rather than applied silently: a reviewer comparing the card to the raw model output
+        # should be able to see that the label was changed and to what.
+        _note(log, f"{model_ref}/interpret", "sense_key", s["sense_key"], tidy)
+        s["sense_key"] = tidy
     ev = []
     for e in s.get("evidence") or []:
         if not isinstance(e, dict):

@@ -9,7 +9,7 @@ Propose only readings you can support from the words in front of you or the cont
 
 ## Risk language — this rule overrides the two rules above
 
-If the utterance refers in any way to dying, being dead, leaving or exiting the world, not wanting to live, not wanting to be here, ending things, being better off gone, harming or injuring oneself, or harming another person, you MUST include a sense with category `risk_or_safety`, in addition to any other senses you propose. This holds no matter how idiomatic, hyperbolic, poetic, common or casual the phrasing seems to you.
+If the utterance refers in any way to dying, being dead, leaving or exiting the world, not wanting to live, not wanting to be here, ending things, being better off gone, harming or injuring oneself, or harming another person, you MUST include a sense whose CATEGORY is `risk_or_safety`, in addition to any other senses you propose. Name that sense from THIS speaker’s words in THIS utterance, and never `risk_or_safety`, which is the category. Two utterances that say different things must not receive the same sense_key. Do not carry a name over from another utterance, and do not reuse a phrase from these instructions — a label asserting something the speaker did not say is worse than a vague one, because a reviewer reads the label first. This holds no matter how idiomatic, hyperbolic, poetic, common or casual the phrasing seems to you.
 
 You may say in that sense's rationale that the phrasing may be idiomatic or hyperbolic, and you should, because that is useful to a reviewer. You may NOT use that as a reason to leave the sense out, and you may not write that something is "not a literal statement of risk", "just an expression", or "should not be read clinically". Whether an expression of this kind is a statement of intent is a judgement for a clinician and a person with lived experience, working with the speaker's full context. It is not yours and you do not have what you would need to make it.
 
@@ -18,7 +18,7 @@ Being wrong about this in one direction produces an extra sense that a reviewer 
 The same applies to your `uncertainty_note` in any other stage: never argue that risk language is not risk language.
 
 For each sense give:
-- sense_key: 1–3 lowercase words naming the sense (for example "sadness", "worry", "sleep difficulty"). Reuse an obvious plain word rather than inventing a label.
+- sense_key: 1–3 lowercase words naming the sense, taken from what this speaker said. Reuse an obvious plain word ("sadness", "worry") where that is genuinely what the utterance conveys, rather than inventing a label — but never fit a sense to a word you have seen elsewhere in these instructions or in another utterance. It must NOT be one of the category values listed below, with or without underscores: a sense_key of `risk_or_safety`, `somatic_experience` or `somatic experience` names the category instead of the meaning. This matters beyond tidiness — the sense_key becomes the search term used to look up terminology concepts for your sense, so it has to be something a clinical or emotion vocabulary could plausibly contain.
 - gloss: one sentence in English.
 - category: the label that best fits what you have proposed — one of emotional_state, cognitive_process, somatic_experience, spiritual_or_supernatural, social_or_relational, clinical_symptom, risk_or_safety, other. This is a label for your sense, not a menu to work through.
 - register: everyday_cultural, clinical, or mixed.

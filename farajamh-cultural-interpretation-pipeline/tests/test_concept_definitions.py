@@ -82,11 +82,14 @@ def test_codebook_definitions_are_no_longer_dropped(tmp_path):
 
 
 def test_fixture_candidates_declare_no_definition():
-    fx = terminology.FixtureTerminology(ROOT / "tests" / "_fixture_terms.json") if \
-        (ROOT / "tests" / "_fixture_terms.json").exists() else None
-    if fx is None:
-        pytest.skip("fixture file not present in this checkout")
-    assert all(h["definition"] == "" for h in fx.search_all("sadness"))
+    """Placeholder candidates carry the key with an empty value, so the ranker listing says so
+    explicitly rather than rendering a blank field."""
+    fx = terminology.FixtureTerminology(ROOT / "pilot" / "fixtures" / "terminology_fixture.json")
+    hits = [h for q in fx.data for h in fx.search_all(q)]
+    assert hits, "the terminology fixture returned nothing; check its shape"
+    assert all("definition" in h for h in hits)
+    assert all(h["definition"] == "" for h in hits)
+    assert all(h["id_verified"] is False for h in hits)
 
 
 # --- what the ranker is shown -----------------------------------------------------------------
