@@ -1,0 +1,746 @@
+{
+ "schema_version": "0.1.0",
+ "package_id": "MRP-KISWA-STORY-07-example-v2",
+ "utterance_ref": {
+  "utterance_id": "KISWA-STORY-07",
+  "input_sha256": "f3cef8ee8d5de18a192f03f215973e4fee474388847b0ae7427ee199ad9e0408"
+ },
+ "status": "awaiting_review",
+ "provenance": {
+  "pipeline": "farajamh-minority-report",
+  "pipeline_version": "0.2.6-laptop",
+  "upstream": "https://github.com/codata/the-minority-report @ a7cb9cbf90cffb186c69699b5a188f970d22e5b9",
+  "run_id": "example-v2",
+  "started_at": "2026-10-02T06:56:30+00:00",
+  "ended_at": "2026-10-02T06:59:00+00:00",
+  "backend_mode": "live",
+  "models": [
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "normaliser",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "gemma3:12b",
+    "family": "gemma",
+    "role": "translator+interpreter+ranker",
+    "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "qwen2.5:7b",
+    "family": "qwen",
+    "role": "translator+interpreter+ranker",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   },
+   {
+    "model_ref": "llama3.1:8b",
+    "family": "llama",
+    "role": "translator+interpreter+ranker",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "host_locality": "local_dsa_approved",
+    "options": {
+     "temperature": 0.2,
+     "seed": 42
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "name": "normalise",
+    "sha256": "d27bf844b973ec735a6e2f1c80813a903e8a5dc9b4932e53ab77825d2287bf25"
+   },
+   {
+    "name": "translate",
+    "sha256": "2341b33b577199078740487b53dac94d9170f8c20de0354dcf6a478284dd8d40"
+   },
+   {
+    "name": "back_translate",
+    "sha256": "a8b7049c7eaf02c95ec151acad85449e0b163413ff4a5f631feb5ebc9c1bea3d"
+   },
+   {
+    "name": "interpret",
+    "sha256": "85b3c7033d15eba6873e57f89dd58381c0b0b281acce286a2f1610661df691c4"
+   },
+   {
+    "name": "rank_concepts",
+    "sha256": "2d0fb3271cac4a11e01b244e3a97c3883e71c845633c57cf3eb6528d6bcc2317"
+   }
+  ],
+  "terminologies": [
+   {
+    "system": "MFOEM",
+    "version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   },
+   {
+    "system": "MFOMD",
+    "version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+    "endpoint": "https://www.ebi.ac.uk/ols4/api"
+   }
+  ],
+  "terminology_errors": [],
+  "policy": "policy/farajamh_mr_odrl.jsonld",
+  "share_translations": true
+ },
+ "L1_original": {
+  "original_text": "Wanasema nimerogwa. Shangazi ameniambia niende kwa mganga.",
+  "expression_span": {
+   "start": 9,
+   "end": 18,
+   "text": "nimerogwa"
+  },
+  "context_as_received": {
+   "country": "KE",
+   "region": "KE-western",
+   "site_id": "sim-visit",
+   "dialect_declared": "standard",
+   "speaker_role": "participant",
+   "setting": "home_visit",
+   "negation": {
+    "value": "affirmed",
+    "source": "annotator"
+   },
+   "temporality": {
+    "value": "current",
+    "source": "annotator"
+   },
+   "attribution": {
+    "value": "self",
+    "source": "annotator"
+   }
+  }
+ },
+ "L2_normalisation": {
+  "normalised_text": "Wanasema nimerogwa. Shangazi ameniambia niende kwa mganga.",
+  "normalised_expression": "nimerogwa",
+  "edits": [],
+  "language_id": "sw",
+  "code_switch_segments": [],
+  "dialect_hypotheses": [],
+  "producer": "gemma3:12b"
+ },
+ "L3_translation": {
+  "candidates": [
+   {
+    "candidate_id": "T1",
+    "model_ref": "gemma3:12b",
+    "literal_gloss": "I am-said have-been-struck/affected. Auntie told-me to-go to the traditional healer.",
+    "idiomatic_translation": "People say I've been bewitched. My auntie told me to go see a traditional healer.",
+    "preserved_terms": [
+     {
+      "term": "roho",
+      "reason": "While 'struck' or 'affected' attempts to convey the sense of an external force impacting the person, 'rogo' carries a culturally specific meaning of being targeted by witchcraft or negative spiritual forces. It's more than just feeling down; it implies a deliberate, malevolent influence."
+     },
+     {
+      "term": "mganga",
+      "reason": "This refers to a traditional healer, often a diviner or herbalist, who is believed to deal with spiritual and physical ailments. The English 'healer' is insufficient to convey the cultural role and expertise implied by 'mganga'."
+     }
+    ],
+    "uncertainty_note": "The term 'nimerogwa' is deeply embedded in beliefs about witchcraft and spiritual influence. The literal translation attempts to show the sense of being affected by an external force, but the full meaning is tied to cultural understandings of magic and curses. Without further context, it's difficult to know the precise nature of the distress being expressed.",
+    "self_reported_confidence": 0.8
+   },
+   {
+    "candidate_id": "T2",
+    "model_ref": "qwen2.5:7b",
+    "literal_gloss": "I feel sad. The pain they tell me is to see a doctor.",
+    "idiomatic_translation": "I feel sad. They say the pain is to see a doctor.",
+    "preserved_terms": [
+     {
+      "term": "nimerogwa",
+      "reason": "This term directly conveys the feeling of sadness or distress and is culturally specific."
+     },
+     {
+      "term": "shangazi",
+      "reason": "This term is a culturally specific way to express pain or distress."
+     }
+    ],
+    "uncertainty_note": "uncertain",
+    "self_reported_confidence": 0.8
+   },
+   {
+    "candidate_id": "T3",
+    "model_ref": "llama3.1:8b",
+    "literal_gloss": "I have been worn out",
+    "idiomatic_translation": "I'm exhausted, drained, and feeling overwhelmed",
+    "preserved_terms": [
+     {
+      "term": "roga",
+      "reason": "The word 'roga' is a Swahili term that refers to a state of being worn out or exhausted, but its meaning is not directly translatable to English. It carries a sense of being drained of one's energy and vitality."
+     }
+    ],
+    "uncertainty_note": "",
+    "self_reported_confidence": 1.0
+   }
+  ]
+ },
+ "L4_interpretation": {
+  "candidates": [
+   {
+    "sense_id": "S1",
+    "model_ref": "gemma3:12b",
+    "sense_key": "distress",
+    "gloss": "The speaker is experiencing a state of significant emotional distress.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The preceding conversation indicates the speaker is experiencing a new and difficult situation."
+    ],
+    "rationale": "The phrase 'nimerogwa' is translated as 'I feel sad' and 'I'm exhausted, drained, and feeling overwhelmed', both of which indicate distress. The context of a recent loss ('Tangu mume wangu aondoke') further supports this.",
+    "evidence": [
+     {
+      "type": "translation_candidate",
+      "ref": "translation 1",
+      "quote": "I feel sad."
+     },
+     {
+      "type": "conversation_turn",
+      "ref": "participant turn 2",
+      "quote": "La, hii ni mpya. Tangu mume wangu aondoke."
+     }
+    ],
+    "self_reported_plausibility": 0
+   },
+   {
+    "sense_id": "S2",
+    "model_ref": "gemma3:12b",
+    "sense_key": "risk_or_safety",
+    "gloss": "The speaker's statement, even if expressed idiomatically or hyperbolically, may indicate a desire to end their current state or seek escape from a difficult situation.",
+    "category": "risk_or_safety",
+    "register": "mixed",
+    "context_dependencies": [
+     "The speaker's emotional state and the advice received from their auntie."
+    ],
+    "rationale": "The phrase 'nimerogwa' is translated as 'I'm exhausted, drained, and feeling overwhelmed', which, while potentially idiomatic, could also reflect a desire to escape a painful situation. The instruction to see a traditional healer may be a sign of desperation.",
+    "evidence": [
+     {
+      "type": "translation_candidate",
+      "ref": "translation 3",
+      "quote": "I'm exhausted, drained, and feeling overwhelmed"
+     },
+     {
+      "type": "utterance_span",
+      "ref": "Shangazi ameniambia niende kwa mganga",
+      "quote": "Shangazi ameniambia niende kwa mganga"
+     }
+    ],
+    "self_reported_plausibility": 0
+   },
+   {
+    "sense_id": "S3",
+    "model_ref": "gemma3:12b",
+    "sense_key": "spiritual_disruption",
+    "gloss": "The speaker believes they have been affected by a supernatural force or curse.",
+    "category": "spiritual_or_supernatural",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "The translation 'People say I've been bewitched' is accepted as valid by the speaker."
+    ],
+    "rationale": "The phrase 'nimerogwa' is translated as 'People say I've been bewitched', suggesting a belief in supernatural interference. The aunt's advice to see a traditional healer reinforces this interpretation, as traditional healers often deal with spiritual matters.",
+    "evidence": [
+     {
+      "type": "translation_candidate",
+      "ref": "translation 1",
+      "quote": "People say I've been bewitched"
+     }
+    ],
+    "self_reported_plausibility": 0
+   },
+   {
+    "sense_id": "S4",
+    "model_ref": "qwen2.5:7b",
+    "sense_key": "sadness",
+    "gloss": "The speaker feels sad and is experiencing emotional distress.",
+    "category": "emotional_state",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "temporality=current",
+     "attribution=self"
+    ],
+    "rationale": "The speaker uses the term 'nimerogwa' which is associated with sadness and emotional distress. The speaker also mentions that their auntie told them to see a traditional healer, suggesting they are seeking help for their emotional state.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "Wanasema nimerogwa. Shangazi ameniambia niende kwa mganga.",
+      "quote": "nimerogwa"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S5",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "bewitchment",
+    "gloss": "Being accused of being bewitched by others",
+    "category": "spiritual_or_supernatural",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "speaker_role=participant",
+     "setting=home_visit"
+    ],
+    "rationale": "The speaker mentions that 'People say I've been bewitched', which suggests a supernatural or spiritual explanation for their current situation.",
+    "evidence": [
+     {
+      "type": "utterance_span",
+      "ref": "1",
+      "quote": "Wanasema nimerogwa"
+     }
+    ],
+    "self_reported_plausibility": 0.9
+   },
+   {
+    "sense_id": "S6",
+    "model_ref": "llama3.1:8b",
+    "sense_key": "risk_or_safety",
+    "gloss": "Considering self-harm or seeking help from a traditional healer",
+    "category": "risk_or_safety",
+    "register": "everyday_cultural",
+    "context_dependencies": [
+     "negation=affirmed",
+     "attribution=self"
+    ],
+    "rationale": "The speaker's auntie advises them to go see a traditional healer, which may be a response to a perceived risk or safety issue.",
+    "evidence": [
+     {
+      "type": "conversation_turn",
+      "ref": "2",
+      "quote": "Shangazi ameniambia niende kwa mganga"
+     }
+    ],
+    "self_reported_plausibility": 0.8
+   }
+  ]
+ },
+ "L5_agreement": {
+  "n_models": 3,
+  "model_families": [
+   "gemma",
+   "llama",
+   "qwen"
+  ],
+  "sense_clusters": [
+   {
+    "cluster_id": "C1",
+    "label": "distress",
+    "category": "emotional_state",
+    "member_sense_ids": [
+     "S1",
+     "S4"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "member_categories": [
+     "emotional_state"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C2",
+    "label": "risk_or_safety",
+    "category": "risk_or_safety",
+    "member_sense_ids": [
+     "S2",
+     "S6"
+    ],
+    "supporting_models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "risk_or_safety"
+    ],
+    "support_ratio": 0.667,
+    "standing": "majority",
+    "registers": [
+     "everyday_cultural",
+     "mixed"
+    ]
+   },
+   {
+    "cluster_id": "C3",
+    "label": "spiritual_disruption",
+    "category": "spiritual_or_supernatural",
+    "member_sense_ids": [
+     "S3"
+    ],
+    "supporting_models": [
+     "gemma3:12b"
+    ],
+    "member_categories": [
+     "spiritual_or_supernatural"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   },
+   {
+    "cluster_id": "C4",
+    "label": "bewitchment",
+    "category": "spiritual_or_supernatural",
+    "member_sense_ids": [
+     "S5"
+    ],
+    "supporting_models": [
+     "llama3.1:8b"
+    ],
+    "member_categories": [
+     "spiritual_or_supernatural"
+    ],
+    "support_ratio": 0.333,
+    "standing": "minority",
+    "registers": [
+     "everyday_cultural"
+    ]
+   }
+  ],
+  "clustering_method": "embeddings",
+  "category_support": [
+   {
+    "category": "emotional_state",
+    "models": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "risk_or_safety",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   },
+   {
+    "category": "spiritual_or_supernatural",
+    "models": [
+     "gemma3:12b",
+     "llama3.1:8b"
+    ],
+    "support_ratio": 0.667
+   }
+  ],
+  "metrics": {
+   "translation_agreement": 0.048,
+   "back_translation_similarity": [],
+   "cultural_terms_lost": [],
+   "sense_entropy": 0.959,
+   "n_clusters": 4,
+   "n_minority_clusters": 2,
+   "concept_agreement": {
+    "C1": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": "MFOEM:000031"
+     },
+     "top1_agreement": 0.333,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C2": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C3": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    },
+    "C4": {
+     "top1_by_model": {
+      "gemma3:12b": null,
+      "qwen2.5:7b": null,
+      "llama3.1:8b": null
+     },
+     "top1_agreement": 0.0,
+     "no_adequate_match_votes": [
+      "gemma3:12b",
+      "qwen2.5:7b",
+      "llama3.1:8b"
+     ],
+     "predicate_disagreement": false
+    }
+   }
+  },
+  "divergence_flags": [
+   "translation_divergence",
+   "sense_divergence",
+   "register_divergence_clinical_vs_everyday"
+  ]
+ },
+ "L6_concept_candidates": {
+  "per_cluster": [
+   {
+    "cluster_id": "C1",
+    "candidates": [
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000031",
+      "label": "crying",
+      "definition": "A multimodal behaviour consisting of tears, non-verbal vocalisations (wails, sobs), and facial expressions of distress. [Source: OCEAS]",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 1,
+      "ranking": [
+       {
+        "model_ref": "llama3.1:8b",
+        "rank": 1,
+        "proposed_predicate": "skos:exactMatch",
+        "rationale": "The definition states 'A multimodal behaviour consisting of tears, non-verbal vocalisations (wails, sobs), and facial expressions of distress.' This matches the candidate meaning of significant emotional distress, which is also described as a state of distress."
+       }
+      ]
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000052",
+      "label": "compassion",
+      "definition": "",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 2,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000055",
+      "label": "shame",
+      "definition": "A negative emotion that is distressing and occurs when one appraises one's behaviour or circumstance as wrong, dishonourable, immodest or indecorous.",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 3,
+      "ranking": []
+     },
+     {
+      "system": "MFOEM",
+      "id": "MFOEM:000216",
+      "label": "gloomy mood",
+      "definition": "A mood process that is a general feeling of being down, having a negative outlook and gives rise to a heightened disposition to experience negatively valenced emotions.",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOEM/2025-07-31/MFOEM.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 4,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000081",
+      "label": "sexual desire disorder",
+      "definition": "There are two types of sexual desire disorders: - Hypoactive sexual desire disorder; where the essential feature is a deficiency or absence of sexual fantasies and desire for sexual activity. More frequently, the disorder develops in adulthood, after period of adequate sexual interest, in association with psychological distress, stressful life events, or interpersonal difficulties. The loss of sexual desire may be continuous or episodic, depending on psychosocial or relationship factors. - Sexual aversion disorder; where the essential feature is the aversion to and active avoidance of genital sexual contact with a sexual partner. The individual reports anxiety, fear, or disgust when confronted by a sexual opportunity with a partner. The intensity of the individual's reaction when exposed to the aversive stimulus may range from moderate anxiety and lack of pleasure to extreme psychological distress. DSM-IV-TR (american Psychiatric Association)",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 5,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000151",
+      "label": "binge-eating disorder",
+      "definition": "The essential features are recurrent episodes of being eating associated with subjective and behavioural indicators of impaired control over, and significant distress about, the binge eating and the absence of the regular use of inappropriate compensatory behaviours (such as self-induced vomiting, misuse of laxatives and other medications, fasting, and excessive exercise) that are characteristic of Bulimia Nervosa.",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 6,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000004",
+      "label": "mental disorder",
+      "definition": "Clinically significant behavioural and/or cognitive pathology.",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 7,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000013",
+      "label": "depressed mood episode",
+      "definition": "A depressed mood episode is a pathological mental process characterised by persistent feelings of sadness, anxiety, guilt, anger, isolation or hopelessness and other negative valence emotions, disturbances in sleep and appetite, fatigue, loss of interest in usually enjoyable activities and morbid or suicidal ideation.",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 8,
+      "ranking": []
+     },
+     {
+      "system": "MFOMD",
+      "id": "MFOMD:0000187",
+      "label": "abstinence syndrome",
+      "definition": "Condition characterised by distress or impairment in social, occupational, or other areas of functioning, or physical or emotional symptoms such as shaking, irritability, and inability to concentrate after reducing or ceasing intake of a substance. \"Understanding abnormal behavior\". David Sue, Derald Wing Sue, Stanley Sue",
+      "id_verified": true,
+      "retrieved_from": "https://www.ebi.ac.uk/ols4/api",
+      "system_version": "http://purl.obolibrary.org/obo/MFOMD/2020-04-26/MFOMD.owl",
+      "retrieval_query": "distress",
+      "retrieval_rank": 9,
+      "ranking": []
+     }
+    ],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b"
+    ],
+    "gap_note": "None of the concepts provided fit the candidate meaning of 'The speaker is experiencing a state of significant emotional distress.' The concepts either refer to specific emotional states, disorders, or general moods, none of which are a broad match for the candidate meaning. | The candidate meaning describes a general state of emotional distress. The retrieved concepts either refer to specific expressions of distress (crying), specific emotions (shame, compassion, depressed mood), specific disorders (sexual desire disorder, binge-eating disorder, abstinence syndrome, mental disorder) or a mood state. To cover the candidate meaning, a concept would need to represent a general state of emotional distress, without specifying a particular emotion, behavior, or disorder."
+   },
+   {
+    "cluster_id": "C2",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "The candidate meaning describes a desire to end a state or seek escape. A suitable concept would need to cover feelings of wanting to avoid or terminate a difficult situation, potentially including elements of distress, hopelessness, or a wish for relief. | The candidate meaning refers to a desire to end a current state or seek escape from a difficult situation, which is a specific emotional or situational state. The retrieved concepts list is empty, so there are no concepts to rank. A concept that could fit might need to capture the idea of a strong desire for change or escape, possibly related to distress or urgency. | The concept would need to cover a desire to end a current state or seek escape from a difficult situation, including idiomatic or hyperbolic expressions."
+   },
+   {
+    "cluster_id": "C3",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "No concepts were retrieved that match or are broader than the candidate meaning. The candidate meaning involves a belief in supernatural forces or curses affecting the speaker, which does not align with any of the provided labels or definitions. | The candidate meaning describes a belief about supernatural causation. A suitable concept would need to name a belief, a spiritual explanation for misfortune, or a culturally-specific understanding of supernatural influence. The label alone is insufficient to determine relevance. | The concept would need to cover the idea of being affected by a supernatural force or curse, which is a specific kind of spiritual or supernatural experience."
+   },
+   {
+    "cluster_id": "C4",
+    "candidates": [],
+    "retrieval_status": "ok",
+    "no_adequate_match_votes": [
+     "gemma3:12b",
+     "qwen2.5:7b",
+     "llama3.1:8b"
+    ],
+    "gap_note": "No concepts were retrieved that match or broadly match the candidate meaning of 'Being accused of being bewitched by others'. A concept would need to capture the spiritual or supernatural context and the cultural aspect of the accusation. | The candidate meaning describes a social accusation of being under a supernatural influence. A suitable concept would need to cover beliefs about supernatural harm caused by others, or the experience of being targeted by such beliefs. | The concept would need to cover the idea of being accused of supernatural or spiritual harm by others, with a focus on the cultural and everyday aspects of this experience."
+   }
+  ]
+ },
+ "L7_review_signals": {
+  "review_priority": "high",
+  "risk_flags": [
+   "back_translation_disabled",
+   "model_output_coerced",
+   "over_medicalisation_risk",
+   "possible_semantic_gap",
+   "register_divergence_clinical_vs_everyday",
+   "risk_language_detected",
+   "safety_relevant_reading",
+   "sense_divergence",
+   "translation_divergence"
+  ],
+  "suggested_reviewer_roles": [
+   "linguist",
+   "cultural_expert",
+   "clinician",
+   "lived_experience"
+  ],
+  "nonconformances": [
+   {
+    "where": "gemma3:12b/interpret",
+    "field": "self_reported_plausibility",
+    "model_value": "None",
+    "used_instead": "0"
+   },
+   {
+    "where": "gemma3:12b/interpret",
+    "field": "self_reported_plausibility",
+    "model_value": "None",
+    "used_instead": "0"
+   },
+   {
+    "where": "gemma3:12b/interpret",
+    "field": "self_reported_plausibility",
+    "model_value": "None",
+    "used_instead": "0"
+   }
+  ],
+  "safety_signals": {
+   "fired": true,
+   "lexicon_version": "0.1.0-unvalidated",
+   "categories": [
+    "self_harm_or_suicide"
+   ],
+   "matches": [
+    {
+     "category": "self_harm_or_suicide",
+     "term": "self-harm",
+     "where": "sense/S6/gloss",
+     "context": "considering self-harm or seeking help from a traditional heal…"
+    }
+   ],
+   "note": "Over-inclusive lexicon screen, not a clinical assessment. Negation is not resolved."
+  },
+  "confidence_components": {
+   "note": "Separate signals for reviewers. Not a probability and not used to approve anything.",
+   "translation_self_reported_mean": 0.867,
+   "translation_agreement": 0.048,
+   "back_translation_similarity_min": null,
+   "top_cluster_support": 0.667,
+   "sense_entropy": 0.959,
+   "context_fields_resolved": 1.0
+  }
+ }
+}

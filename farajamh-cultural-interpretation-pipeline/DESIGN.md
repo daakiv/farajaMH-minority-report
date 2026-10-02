@@ -458,8 +458,37 @@ Before and after on TRY-ED93AEBF (*"Moyo wangu umekuwa mzito"*), same seed:
 | gemma3:12b | no adequate match | no adequate match |
 
 S1–S5, `translation_agreement` 0.372 and `sense_entropy` 0.971 were identical across the two runs:
-interpretation did not move, only the stage that changed. Two specific errors disappeared and nothing
-regressed. That is what the change was for; it is not evidence that ranking is now good.
+interpretation did not move, only the stage that changed. Two specific errors disappeared on that
+utterance. That is what the change was for; it is not evidence that ranking is now good.
+
+**The twelve-utterance run says less.** `example-v2` re-ran the whole story corpus on
+`config/laptop.yaml` with definitions live, and two results cut against the single-utterance reading.
+
+On KISWA-STORY-11, cluster C1 (`desire_for_absence`, minority) still retrieves `MFOMD:0000081 sexual
+desire disorder` as its only candidate — the query is now `desire for absence` rather than the enum,
+and "desire" still matches — and llama3.1:8b **newly ranked it** `relatedMatch`, where in
+`kiswa-story-v1` no model ranked it at all. Both the query construction and the definitions changed
+between those runs, so the regression cannot be attributed to either alone. It is a regression either
+way, and it is the reason KISWA-STORY-11 is no longer the worked example in `examples/`.
+
+The prompt's own named counter-example is also being reproduced. `rank_concepts.md` states that
+"'Terror' is not a broader concept than 'overwhelm'; it is a different emotion, and ranking it would be
+wrong". In this run llama3.1:8b ranked `MFOEM:000027 terror` twice: `broadMatch` against an
+"overwhelmed" cluster on turn 04, and `relatedMatch` on turn 06.
+
+By model, across all twelve utterances:
+
+| model | ranking behaviour |
+|---|---|
+| gemma3:12b | ranks sparingly, `broadMatch` throughout, no off-topic rankings; votes no-adequate-match most often |
+| qwen2.5:7b | `broadMatch` throughout, one defensible stretch (`nervousness` for a worry cluster) |
+| llama3.1:8b | twelve `exactMatch` proposals against a prompt asking for broadMatch where the cultural meaning is richer, plus `terror` twice, `paranoia`, `depressed mood episode` for a risk cluster, and `sexual desire disorder` |
+
+Definitions did not change llama's behaviour, and on this evidence were never going to: the failure is
+not missing information but a model that proposes a mapping whenever a label is lexically close. That is
+the 30 September conclusion reached from a different direction — context and prompt changes do not
+substitute for model capability — and it strengthens the case that model scale, not prompt wording, is
+the binding decision on this layer.
 
 **What this leaves open.** `sense_key` is still a category name on risk clusters, which is both why C2
 retrieves nothing and why a reviewer reads `C3 · risk_or_safety · risk_or_safety` on the card. That is
