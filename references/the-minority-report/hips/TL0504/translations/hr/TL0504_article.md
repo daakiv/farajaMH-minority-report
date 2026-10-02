@@ -1,1 +1,0 @@
-is provided above, formatted in Markdown and incorporating all domain‑specific terminology and consistent Croatian language usage.*

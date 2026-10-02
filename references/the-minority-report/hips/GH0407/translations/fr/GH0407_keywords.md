@@ -1,1 +1,0 @@
-Ground gases, natural gases, material decay, natural decay, anthropogenic decay, magma bodies

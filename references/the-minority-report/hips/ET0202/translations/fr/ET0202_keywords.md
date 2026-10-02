@@ -1,1 +1,0 @@
-Ultraviolet radiation (UVR),UV exposure,exposure from the sun,artificial sources,sunbeds,skin cancers,skin cancer-associated deaths

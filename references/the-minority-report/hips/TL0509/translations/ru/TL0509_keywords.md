@@ -1,1 +1,0 @@
-final placement of waste, scientifically designed and constructed site, emissions of gases liquids and solid materials, specially engineered landfill, lined discrete cells, containment sites, leachate, biogas generation, methane and carbon dioxide, waste decomposition, underground water table

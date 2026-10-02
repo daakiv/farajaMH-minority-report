@@ -1,1 +1,0 @@
-suicide cluster definition, time clusters, space-time clusters, point clusters, media-related phenomena, clusters in a small geographical area, contagion of suicide, suicide time cluster, mass suicide as a space-time cluster, self-induced mass suicide, hetero-induced mass suicide, geographic hotspots of suicide

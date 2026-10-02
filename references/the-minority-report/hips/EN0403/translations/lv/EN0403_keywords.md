@@ -1,1 +1,0 @@
-increased production of organic matter,nitrogen and phosphorus,nutrient loading,algal blooms,hypoxic or anoxic conditions,degradation of organic matter,dead zones,Chlorophyll-a concentration,Redfield nitrogen-to-phosphorus ratio,biomagnification,microcystins and saxitoxins,sewage outfalls,agricultural runoff

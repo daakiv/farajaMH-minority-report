@@ -1,1 +1,0 @@
-incomplete combustion of fossil fuels,pure carbon in linked forms,aerosol species,major component of PM₂.₅,thermal optical analysis,laser-induced incandescence,reducing albedo,atmospheric radiative forcing,snow darkening,outdoor sources,indoor black carbon

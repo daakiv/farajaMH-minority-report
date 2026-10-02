@@ -1,1 +1,0 @@
-service restoration, network failure, communications reroute, network element(s), control plane traffic, priority classifications, network overloads, service restoration methods, network resilience, backup communication systems, system performance monitoring, disaster response capabilities

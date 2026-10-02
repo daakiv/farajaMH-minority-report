@@ -1,1 +1,0 @@
-social phenomena, political phenomena, social unrest, political unrest, civil conflict, public disorder, social dynamics, political instability, agency frameworks, international aid programmes

@@ -1,1 +1,0 @@
-UVR exposure, Sun exposure, Artificial sources, Sunbeds, Skin cancers, Skin cancer-associated deaths, Radiation exposure, Skin cancer diagnosis, Global cancer cases, UVR statistics

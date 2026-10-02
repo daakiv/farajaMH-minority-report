@@ -1,1 +1,0 @@
-naturally occurring heavy metal, environmental contamination, cumulative toxicant, neurological damage, haematological systems, gastrointestinal systems, cardiovascular systems, renal systems, neurotoxic effects, toxic heavy metal, neurological damage

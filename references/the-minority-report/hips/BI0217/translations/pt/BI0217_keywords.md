@@ -1,1 +1,0 @@
-pathogenic bacterium of the genus Leptospira,leptospirosis infectious disease,leptospires,urine of infected animals,urine-contaminated environment,direct contact infection,infected animals,leptospirosis causation,bacterial agent,human animal infection

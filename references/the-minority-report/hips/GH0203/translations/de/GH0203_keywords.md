@@ -1,1 +1,0 @@
-hot, fast-moving mixtures of volcanic particles and gas,gravitational collapse of explosive eruption columns,pyroclastic flow,block-and-ash flow,pumice flow,pyroclastic surge,pyroclastic current,ignimbrite deposits,dense basal undercurrent,dilute upper part,particle-particle interactions,turbulence,dynamic pressure,flow density

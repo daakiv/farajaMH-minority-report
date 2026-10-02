@@ -1,1 +1,0 @@
-incorporates consistent terminology, proper Slovenian expressions for meteorological concepts, and a clear Markdown structure.

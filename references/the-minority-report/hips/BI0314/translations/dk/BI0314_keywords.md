@@ -1,1 +1,0 @@
-Acute hepatopancreatic necrosis disease (AHPND),Vibrio parahaemolyticus,Vibrio species,mass mortalities,shrimp hepato-pancreas,melanised tubules,pirABvp genes,Vibrio bacteria in aquatic environments,biosecurity measures,suboptimal temperature or salinity,pathogen-free postlarvae

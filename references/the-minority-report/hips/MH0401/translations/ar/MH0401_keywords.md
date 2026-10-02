@@ -1,1 +1,0 @@
-prolonged deficiency of precipitation, moisture availability, hydrometeorological processes, meteorological drought, hydrological drought, agricultural drought, socioeconomic drought, soil water deficits, drought monitoring and early warning, drought indicators and indices, surface water supply index, vegetation health index

@@ -1,1 +1,0 @@
-Antimicrobial-resistant microorganisms, misuse and overuse of antimicrobials, environmental contamination, human health, animal health, plant production, Multidrug-resistant TB (MDR-TB), HIV drug resistance, foodborne antimicrobial resistance, One Health approach, antimicrobial stewardship programs, genomic surveillance

@@ -1,1 +1,0 @@
-explosive substance or agent, Pyrotechnic substances and mixtures, Ammonium nitrate, explosive agents as the E of CBRNE, high explosive substance, fuel and oxidizer, Primary explosives, Secondary explosives, Improvised explosive devices, Emulsion explosives, Energetic materials, Binary explosives, Blasting explosives, fragmenting charge, Explosive weapons

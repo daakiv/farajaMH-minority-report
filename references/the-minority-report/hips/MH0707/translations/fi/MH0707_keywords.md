@@ -1,1 +1,0 @@
-motion of ice, gravitational forces, ice stress, sea ice, wind, water currents, tide, motion driven by forces, flow of ice, ice flow, gravitational forces, ice stress

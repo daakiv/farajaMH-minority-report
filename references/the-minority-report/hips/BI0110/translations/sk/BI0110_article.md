@@ -1,1 +1,0 @@
-*(Markdown formatted, with proper headings and consistent terminology.)*

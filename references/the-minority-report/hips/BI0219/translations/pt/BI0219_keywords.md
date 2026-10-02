@@ -1,1 +1,0 @@
-parasites, infected female Anopheles mosquitoes, malaria worldwide, malaria cases, malaria deaths, transmission through bites, malaria disease, malaria vector, estimated malaria cases, estimated malaria deaths

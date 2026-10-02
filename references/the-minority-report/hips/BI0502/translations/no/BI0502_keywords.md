@@ -1,1 +1,0 @@
-blights, wilts, rots, mildews, canker, smuts, rusts, mycelium, fungal agents, plant diseases, late blight, wheat rust, Fusarium wilt, powdery mildew, basal rot, grey mould rot, apple scab, corn smut

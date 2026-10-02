@@ -1,1 +1,0 @@
-salt-affected soils, saline soils, sodic soils, soluble salts, osmotic pressure, soil solution, high osmotic pressure, soil water uptake, saline and sodic soils, salt-affected soils

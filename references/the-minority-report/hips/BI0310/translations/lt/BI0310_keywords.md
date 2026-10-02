@@ -1,1 +1,0 @@
-Peste des petits ruminants virus,genus Morbillivirus,Family Paramyxoviridae,live attenuated vaccine,herd immunity,aerosol or direct contact,fomites spreading infection,bedding feed pasture and water troughs,small ruminants,zoonotic infection,PPR outbreak

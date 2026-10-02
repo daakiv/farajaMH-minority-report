@@ -1,1 +1,0 @@
-precipitation of drops of water, small suspended cloud droplets, rainfall intensity, millimetres per hour, rainfall-runoff processes, heavy rain events, rainfall-induced disasters, heavy precipitation, seasonal variations, rainfall-runoff

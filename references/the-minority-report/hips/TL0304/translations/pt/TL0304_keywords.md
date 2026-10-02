@@ -1,1 +1,0 @@
-Explosion-related technological incidents, rapid energetic events, chemical hazard exposure, intentional rapid events, accidental rapid events, energetic events, responder exposure, public exposure, chemical hazard, technological incidents

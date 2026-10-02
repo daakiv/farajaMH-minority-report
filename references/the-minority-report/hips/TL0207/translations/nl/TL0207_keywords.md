@@ -1,1 +1,0 @@
-physical structures, facilities, networks and assets,essential services,disruption of basic services,resilience measures,business continuity measures,cyberattacks on critical infrastructure,ageing infrastructure,disaster risk reduction,cascading effects,transport accident,industrial facility failures

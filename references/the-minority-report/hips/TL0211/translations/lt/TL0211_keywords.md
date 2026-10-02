@@ -1,1 +1,0 @@
-service restoration, network failure, communications reroute, network element(s), control plane traffic, signalling protocol extensions, priority classification, network overloads, service restoration mechanisms, network resilience, disaster response capabilities, real-time voice and video services, virtual private network services

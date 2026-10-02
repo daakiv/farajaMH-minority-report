@@ -1,1 +1,0 @@
-air motion, relative to the Earth’s surface, horizontal component, wind vector, atmospheric motion, surface reference, horizontal wind flow, air movement, WMO specification, air motion

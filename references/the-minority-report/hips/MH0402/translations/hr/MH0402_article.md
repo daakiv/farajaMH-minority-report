@@ -1,1 +1,0 @@
-adheres to Croatian terminology used in disaster‑risk‑reduction literature, avoids incorrect genitive forms, normalizes punctuation and measurement units, and presents the content in clear, Markdown‑formatted sections.*

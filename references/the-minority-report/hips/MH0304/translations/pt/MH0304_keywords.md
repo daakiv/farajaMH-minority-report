@@ -1,1 +1,0 @@
-variation of wind speed, sudden onset, duration of the order of minutes, sudden decrease in speed, atmospheric phenomenon, shower or thunderstorm, wind speed, sudden change in speed, thunderstorm accompaniment, wind speed variation

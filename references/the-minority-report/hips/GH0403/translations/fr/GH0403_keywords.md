@@ -1,1 +1,0 @@
-wearing away of the land surface,soil erosion rates,intensive agriculture,deforestation,overgrazing,sheet erosion,rill erosion,gully erosion,tillage erosion,splash erosion,soil quality and functions,soil carbon and nutrient cycling,off-site effects,sedimentation and siltation,soil erosion mitigation

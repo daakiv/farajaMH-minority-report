@@ -1,1 +1,0 @@
-polychlorinated biphenyls, polychlorinated dibenzo-p-dioxins, polychlorinated dibenzofurans, persistent organic pollutants, toxic equivalency factors, TCDD, bioaccumulation in food chains, combustion by-products, chlorine bleaching of paper pulp, Stockholm Convention, bioaccumulation and bioconcentration, reproductive and developmental effects, thyroid hormone effects

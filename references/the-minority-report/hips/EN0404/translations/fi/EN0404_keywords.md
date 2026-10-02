@@ -1,1 +1,0 @@
-loss of symbiotic algae,symbiotic zooxanthellae algae,thermal stress,marine heatwaves,Degree Heating Week (DHW) product,sea surface temperatures (SSTs),seasonal maximum,coral starvation and death,mass bleaching events,ocean acidification,eutrophication,thermal tolerance

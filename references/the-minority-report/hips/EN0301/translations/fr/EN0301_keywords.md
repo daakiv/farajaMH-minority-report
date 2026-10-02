@@ -1,1 +1,0 @@
-arid, semi-arid and dry sub-humid areas,biological or economic productivity,rainfed cropland,irrigated cropland,range pasture,forest and woodlands,soil erosion caused by wind and/or water,deterioration of soil properties,loss of natural vegetation,land uses

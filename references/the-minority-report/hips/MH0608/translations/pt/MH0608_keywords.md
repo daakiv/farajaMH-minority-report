@@ -1,1 +1,0 @@
-accumulation of shuga,ice cakes,below ice cover,broken ice,narrowing of the river channel,rise in water level,local floods,ice-jam flood,shuga including ice cakes

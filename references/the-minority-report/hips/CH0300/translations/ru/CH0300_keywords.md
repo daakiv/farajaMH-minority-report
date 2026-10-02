@@ -1,1 +1,0 @@
-gaseous state, physiological effects, respiratory systems, cardiovascular systems, systemic toxicity, volatile compounds, ground gases, industrial processes, air contaminants, volatility and density, chemical reactivity, respiratory irritants, systemic asphyxiants, halogenated hydrocarbon gases, phosgene, hydrogen cyanide

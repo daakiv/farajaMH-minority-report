@@ -1,1 +1,0 @@
-human-made objects,orbital objects,post-mission break-ups,debris mitigation guidelines,low Earth orbit,space debris removal spacecraft,space debris collision,debris release during operations,high relative speeds,space surveillance network,orbital debris

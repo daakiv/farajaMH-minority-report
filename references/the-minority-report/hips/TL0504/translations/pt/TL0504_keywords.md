@@ -1,1 +1,0 @@
-physical characteristics, chemical characteristics, biological characteristics, special handling, disposal procedures, negative health effects, adverse environmental effects, hazardous waste management, waste classification, special handling procedures

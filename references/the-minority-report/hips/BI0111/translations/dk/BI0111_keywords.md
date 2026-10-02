@@ -1,1 +1,0 @@
-microscopic parasite, cryptosporidiosis, faecal-oral route, Cryptosporidium parvum, watery diarrhoea, zoonotic waterborne pathogens, environmental oocysts, drinking-water outbreaks, chlorine tolerance, gastrointestinal tract, protozoan parasite

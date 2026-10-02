@@ -1,1 +1,0 @@
-*(the entire text above is the finalized, properly formatted, Slovak translation of the original English hazard profile document.)*

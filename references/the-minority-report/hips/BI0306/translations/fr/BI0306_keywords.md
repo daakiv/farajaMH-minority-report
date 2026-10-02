@@ -1,1 +1,0 @@
-Foot-and-mouth disease, virus of the familyPicornaviridae, genusAphthovirus, cloven-hoofed domestic animals, cattle, buffaloes, pigs, sheep, goats, wild animals, highly contagious, economically important disease

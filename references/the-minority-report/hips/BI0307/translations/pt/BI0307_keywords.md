@@ -1,1 +1,0 @@
-vector-borne pox disease, domestic cattle, Asian water buffalo, skin nodules, pox disease, body surfaces, skin appearance, udder appearance, vector-borne nature, disease hosts

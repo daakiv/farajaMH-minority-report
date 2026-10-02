@@ -1,1 +1,0 @@
-neutron radiation, atomic fission, nuclear fusion, neutron activation, nuclear yield, radiation dispersal devices, improvised nuclear devices, radioactive fallout, dangerous-radiation zone, air-kerma rate, Early Warning System

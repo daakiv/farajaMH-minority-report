@@ -1,1 +1,0 @@
-space accident, space objects, causing damage, space event, space debris, spacecraft failure, collision, orbital mechanics, space hazard, damage

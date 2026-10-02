@@ -1,1 +1,0 @@
-Marine toxins (biotoxins), toxic algae, bacteria, accumulation in fish and shellfish, Paralytic shellfish poisoning (PSP), Diarrhoeic shellfish poisoning (DSP), Amnesic shellfish poisoning (ASP), Neurotoxic shellfish poisoning (NSP), Saxitoxin (STX) group, Okadaic Acid (OA) group, Ciguatoxins causing ciguatera poisoning (CP), food chain accumulation, ballast water discharge

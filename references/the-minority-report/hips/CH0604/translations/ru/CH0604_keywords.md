@@ -1,1 +1,0 @@
-synthetic opioids, natural opiates, opioid receptors, opioid overdose, respiratory depression, tolerance and dependence, morphine milligram equivalents, fentanyl analogues, opioid antagonists, naloxone, opioid agonist maintenance treatment, prescription opioids, morphinans

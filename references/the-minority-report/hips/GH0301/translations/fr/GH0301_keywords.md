@@ -1,1 +1,0 @@
-fragment of rock, body of debris or earth, detached by sliding, toppling, or falling, vertical or sub-vertical cliff, ballistic trajectories, rolling on talus slopes, debris slopes, sliding, toppling, falling, earth falls, rock falls

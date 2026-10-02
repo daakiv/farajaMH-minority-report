@@ -1,1 +1,0 @@
-load-bearing structural elements, catastrophic failure, structural failure, progressive collapse, load failure, failure mechanism, structural integrity, load paths, structural elements, building collapse

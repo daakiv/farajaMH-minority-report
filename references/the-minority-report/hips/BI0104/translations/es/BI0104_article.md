@@ -1,1 +1,0 @@
-(The full document continues in the same refined format, preserving the controlled vocabulary, consistent terminology, and accurate Spanish syntax.)

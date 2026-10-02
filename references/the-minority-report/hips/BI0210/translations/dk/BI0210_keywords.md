@@ -1,1 +1,0 @@
-Escherichia coli (E. coli), Shiga-toxin producing E. coli (STEC), Enterohaemorrhagic E. coli (EHEC), E. coli O157:H7 serotype, faecal-oral transmission, cattle reservoir, haemolytic uraemic syndrome (HUS), haemolytic colitis, waterborne transmission, foodborne infections, multiply resistant to antibiotics

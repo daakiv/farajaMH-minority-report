@@ -1,1 +1,0 @@
-space accident,space objects,involving space objects,causing damage,space hazard,space debris,spacecraft failure,collision event,impact event,space object accident

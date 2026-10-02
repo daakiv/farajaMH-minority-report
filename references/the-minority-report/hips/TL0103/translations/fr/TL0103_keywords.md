@@ -1,1 +1,0 @@
-prolonged and targeted cyber-attack, remains undetected for an extended period, exploit vulnerabilities, spear-phishing, zero-day vulnerabilities, lateral movement, privilege escalation, deploying backdoors, rootkits, data exfiltration, supply chain attacks, state actors, intellectual property theft

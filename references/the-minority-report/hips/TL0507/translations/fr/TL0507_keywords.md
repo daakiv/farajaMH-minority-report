@@ -1,1 +1,0 @@
-Electrical and electronic waste, E-waste, electrical or electronic equipment, components, sub-assemblies, consumables, electronic equipment, electrical equipment, equipment that becomes waste, components and sub-assemblies

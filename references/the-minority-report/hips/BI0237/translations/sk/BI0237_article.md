@@ -1,1 +1,0 @@
-has been formatted as a Markdown document with appropriate headings, consistent terminology, and precise numeric formatting. All legacy formatting has been replaced with standard Markdown syntax.*

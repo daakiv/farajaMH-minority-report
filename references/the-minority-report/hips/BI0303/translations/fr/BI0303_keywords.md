@@ -1,1 +1,0 @@
-Classical swine fever, hog cholera, viral disease, domestic swine, wild swine, virus of the genus Pestivirus, family Flaviviridae, viral disease of swine, domestic and wild swine, Pestivirus

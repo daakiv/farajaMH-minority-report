@@ -31,6 +31,21 @@ def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def concept_line(candidate: dict) -> str:
+    """One retrieved concept as the ranking prompt sees it: system | id | label | definition.
+
+    Before this, the prompt was given labels only, which is how "canonical sad facial expression" came
+    to sit indistinguishably beside "sadness" in a list offered for an emotional-state reading, and how
+    a model proposed a relatedMatch to "mixed episode" for sadness.
+
+    When a terminology serves no definition — SNOMED CT through OLS returns none at all — the absence is
+    stated rather than left blank, so a model cannot read an empty field as "nothing to object to".
+    """
+    definition = " ".join(str(candidate.get("definition") or "").split())
+    return (f"{candidate['system']} | {candidate['id']} | {candidate.get('label', '')} | "
+            f"{definition or 'NO DEFINITION PROVIDED BY THIS TERMINOLOGY'}")
+
+
 def retrieval_queries(cluster: dict, rep_sense: dict) -> list[str]:
     """Search terms for one cluster, best first, de-duplicated.
 
@@ -197,7 +212,7 @@ def run_package(utt: dict, cfg: dict, backend, terms, local_concepts: list[dict]
                     seen.add(hit["id"])
                     retrieved.append(hit)
         failed = [e["system"] for e in getattr(terms, "errors", [])[before:]]
-        listing = "\n".join(f"{r['system']} | {r['id']} | {r['label']}" for r in retrieved) or "(none retrieved)"
+        listing = "\n".join(concept_line(r) for r in retrieved) or "(none retrieved)"
         rankings = {}
         for m in model_refs:
             rk = backend.generate_json(m, fill(PROMPTS["rank_concepts"], sense_gloss=rep["gloss"], sense_category=c["category"],

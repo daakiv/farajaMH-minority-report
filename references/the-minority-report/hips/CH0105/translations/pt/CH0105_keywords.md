@@ -1,1 +1,0 @@
-dental caries, tooth enamel, skeletal fluorosis, high exposure, fluoride dose intake, fluoridated water, dental health, fluoride effects, mineral exposure, iodine/iodide intake

@@ -1,1 +1,0 @@
-monkeypox virus, Orthopoxvirus, clade I, clade II, subclades Ia and Ib, subclades IIa and IIb, viral illness, clade I and clade II, fatal in some cases, monkeypox

@@ -1,1 +1,0 @@
-reduction of biological diversity, genetic species and ecosystem levels,extinction or destruction,decline in total diversity,ecosystem services,pollination climate regulation,habitat fragmentation,invasive species,pollution and contaminants,functional diversity,genetic diversity

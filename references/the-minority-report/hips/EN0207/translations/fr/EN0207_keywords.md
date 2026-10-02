@@ -1,1 +1,0 @@
-intertidal zone, high salinity, anaerobic soils, mangrove habitat, sediment erosion, extreme storm surges, mangrove habitat loss, coastal communities, low mangrove diversity, mangrove deforestation, aquaculture ponds

@@ -1,1 +1,0 @@
-groundwater lowering, sub-surface mining or tunnelling, consolidation, sinkholes, changes in moisture content, expansive soils, volumetric change, shrink in response to desiccation, swell by hydration, ground subsidence, ground heave

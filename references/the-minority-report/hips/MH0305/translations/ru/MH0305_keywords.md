@@ -1,1 +1,0 @@
-condensation funnel, dust or debris cloud, wedge tornado, rope funnel, suction vortices, supercell, quasi-linear convective systems, landspout, waterspout, cold-air funnel, Enhanced Fujita Scale, International Fujita Scale, tornado intensity, storm rotation

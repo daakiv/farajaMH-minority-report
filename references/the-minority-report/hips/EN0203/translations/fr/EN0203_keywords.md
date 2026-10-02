@@ -1,1 +1,0 @@
-insect pests, diseases, severe weather events, fires, biotic disturbance, abiotic disturbance, forest vigour, forest productivity, damage caused by factors

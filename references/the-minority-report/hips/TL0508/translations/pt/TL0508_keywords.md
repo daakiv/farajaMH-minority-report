@@ -1,1 +1,0 @@
-sharps, non-sharp blood contaminated items,blood,body parts and tissues,chemicals,pharmaceuticals,radioactive materials,safe management,health-care workers,waste handlers,preventable infections,toxic effects

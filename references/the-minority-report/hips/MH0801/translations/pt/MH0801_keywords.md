@@ -1,1 +1,0 @@
-mass of snow and ice, falling suddenly, mountain slope, earth rocks and rubble, snow and ice mass, mass movement, mountain hazard, falling down slope, snow and ice, rubble and debris

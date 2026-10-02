@@ -1,1 +1,0 @@
-Pesticide definition,insecticides,herbicides,rodenticides,fungicides,larvicides,highly hazardous pesticides,organochlorines,pyrethroids,pesticide residue,Maximum residue limits,Integrated Pest Management,nanopesticide formulations,bioaccumulation

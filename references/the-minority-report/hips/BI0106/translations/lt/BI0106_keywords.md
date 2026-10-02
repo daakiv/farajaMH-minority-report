@@ -1,1 +1,0 @@
-sexually transmitted infections, sexual contact, vaginal sex, anal sex, oral sex, mother-to-child transmission, pregnancy, childbirth, breastfeeding

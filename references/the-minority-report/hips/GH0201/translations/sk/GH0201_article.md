@@ -1,1 +1,0 @@
-aligns with the Controlled Vocabulary for Disaster Risk Reduction and maintains precise geological terminology throughout.

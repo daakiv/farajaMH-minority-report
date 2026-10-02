@@ -1,1 +1,0 @@
-(the full document above in markdown)

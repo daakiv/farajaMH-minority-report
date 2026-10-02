@@ -1,1 +1,0 @@
-Newcastle Disease, avian paramyxovirus type 1, virulent strains, highly contagious, avian paramyxovirus, strains of paramyxovirus, avian disease, bird affected, contagious disease, disease worldwide

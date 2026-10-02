@@ -1,1 +1,0 @@
-MERS-CoV, zoonotic disease, dromedary camels, zoonotic reservoir, human-to-animal transmission, human-to-human transmission, respiratory failure, pneumonia, gastrointestinal symptoms, health-care-associated outbreaks, case fatality ratio, camel milk avoidance, zoonotic transmission

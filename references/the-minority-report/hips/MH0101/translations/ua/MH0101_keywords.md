@@ -1,1 +1,0 @@
-violent and damaging downdraught, downdraught reaching the ground surface, violent downdraught, damaging downdraught, downdraught, severe thunderstorm association

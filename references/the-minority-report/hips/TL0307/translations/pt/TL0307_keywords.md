@@ -1,1 +1,0 @@
-pollution of water bodies, degradation of forest resources, depletion of soil nutrients, destruction of wildlife habitat, threats to human health, environmental impacts, water pollution, forest resource degradation, soil nutrient depletion, wildlife habitat destruction

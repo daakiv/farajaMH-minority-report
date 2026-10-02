@@ -1,1 +1,0 @@
-neurological disease, flavivirus genus, mosquito-bird-mosquito transmission cycle, Culex mosquitoes, bird reservoir hosts, vector-borne pathogens, dead-end hosts, West Nile encephalitis, molecular tests, serological tests, West Nile virus

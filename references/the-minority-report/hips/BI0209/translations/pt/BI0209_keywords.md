@@ -1,1 +1,0 @@
-Ebola virus disease, EVD,zoonotic viral infectious disease,haemorrhagic fever,Ebola virus,viral infectious disease,case-fatality rates,epidemics,severe zoonotic,viral infectious disease

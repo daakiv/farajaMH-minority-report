@@ -1,1 +1,0 @@
-increased production of organic matter, nitrogen and phosphorus, aquatic systems, sewage outfall, agricultural runoff, aquaculture, algal blooms, fish kills, secondary environmental effects

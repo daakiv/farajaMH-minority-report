@@ -1,1 +1,0 @@
-Wind velocity, Surface wind, gustiness, wind gusts, Beaufort Scale, wind speed, wind patterns, extreme winds, tropical cyclone, tornado, windstorms

@@ -1,1 +1,0 @@
-unusual period of hot weather,consecutive days and nights,hot period of the year,local climatological conditions,thermal conditions recorded,given thresholds,WMO standards,WHO guidelines,marked weather period,consecutive days and nights

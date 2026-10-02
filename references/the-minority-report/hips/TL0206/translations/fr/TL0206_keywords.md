@@ -1,1 +1,0 @@
-supply chain failure, flow of materials, initial suppliers, final customers, journey from suppliers, disruption of flow, material journey, supply chain event, flow disruption, material flow

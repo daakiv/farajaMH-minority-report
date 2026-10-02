@@ -1,1 +1,0 @@
-premature, progressive loss of tree and stand vigour,physical disturbance or attack by primary disease or insect,abiotic stress,climate deregulation,biological invasions,insect pest and disease outbreaks,soil degradation,biotic and abiotic stressors,root necrosis,premature fall colouring,major biomass loss,hydraulic failure,critical slowing down

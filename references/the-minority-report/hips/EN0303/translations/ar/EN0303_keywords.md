@@ -1,1 +1,0 @@
-Saline soils, elevated amount of soluble salts, osmotic pressure of the soil solution, electrical conductivity (ECe), sodium adsorption ratio (SAR), exchangeable sodium percentage (ESP), sodicity hazard, clay dispersion, soil structure and porosity, soil salinisation and sodification, soil salinity and sodicity classes

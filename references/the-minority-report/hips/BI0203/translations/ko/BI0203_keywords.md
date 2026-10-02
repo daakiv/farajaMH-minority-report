@@ -1,1 +1,0 @@
-mosquito-borne viral infection, arthralgia (joint pain), Alphavirus genus of the family Togaviridae, Aedes aegypti and A. albopictus species, serological and/or virological testing, IgM antibody levels, virological testing, mosquito breeding habitats, vector-borne diseases, mosquito-borne virus

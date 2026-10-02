@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+
+# Upstream CODATA Minority Report: referenced by commit, not vendored. See references/README.md.
+#
+# It WAS tracked here until 2 October 2026, and because it is a verbatim copy of the upstream
+# repository that also published upstream's plain-text OntoPortal API key in its README and
+# quickstart. Removed, the maintainer notified, and kept out from here on.
+references/the-minority-report/

@@ -1,1 +1,0 @@
-The final translation above, presented as a well‑structured Markdown document, incorporates the corrected terminology, consistent phrasing, and proper formatting for use in a Controlled Vocabulary for Disaster Risk Reduction context.

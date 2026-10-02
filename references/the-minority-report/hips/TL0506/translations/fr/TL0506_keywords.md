@@ -1,1 +1,0 @@
-persistent solid material, marine litter, discarded into the sea, abandoned in the marine environment, derelict fishing gear, discarded consumer plastics, plastic debris, microplastics, nanoparticles, plastic accumulation, land-based sources, floating debris

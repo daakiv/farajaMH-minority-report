@@ -1,1 +1,0 @@
-Leptospirosis, pathogenic bacterium, genus Leptospira, leptospires, infected animals, urine of infected animals, urine-contaminated environment, direct contact, humans and animals, infectious disease

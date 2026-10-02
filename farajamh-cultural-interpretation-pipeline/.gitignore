@@ -5,3 +5,7 @@ out_live/
 out_*/
 !out_*/.gitkeep
 runs/
+.backup/
+*.bak
+*.log
+DESIGN.html

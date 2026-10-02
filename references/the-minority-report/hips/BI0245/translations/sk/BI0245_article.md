@@ -1,1 +1,0 @@
-above constitutes the final output in Markdown format. All sections have been preserved, terminology standardized, and formatting adjusted to meet the controlled vocabulary and technical precision required for a disaster risk reduction hazard profile document.)*

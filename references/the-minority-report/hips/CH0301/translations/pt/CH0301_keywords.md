@@ -1,1 +1,0 @@
-Ammonia (NH3), reactive gas, ambient temperature and pressure, public health hazard, colourless gas, acrid-smelling, significant public health hazard, reactive nature, WHO classification

@@ -1,1 +1,0 @@
-West Nile virus disease, neurological disease, virus transmitted through the bites, infected mosquitoes, flavivirus genus, Japanese encephalitis antigenic complex, Flaviviridae family, West Nile virus, neurological disease, potentially fatal neurological disease

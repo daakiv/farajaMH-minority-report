@@ -1,1 +1,0 @@
-digital devices, cell/mobile phones, computers and tablets, SMS, e-mail, social media, forums, gaming, sharing content, sending harmful content, sharing personal information, unlawful or criminal behaviour

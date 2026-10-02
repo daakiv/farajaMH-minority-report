@@ -1,1 +1,0 @@
-*(Nadovezu se na gore navedeni ispravljen tekst, uzimajući u obzir sve jezične i terminološke izmjene iz kritike.)*

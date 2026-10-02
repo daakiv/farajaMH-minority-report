@@ -1,1 +1,0 @@
-mycelium, fungal agents, spores, anthracnose, chestnut blight, late blight, Dutch elm disease, Fusarium wilt, mildew, powdery mildew, basal rot, grey mould rot, heart rot, wheat rust disease, apple scab, corn smut, Verticillium wilt

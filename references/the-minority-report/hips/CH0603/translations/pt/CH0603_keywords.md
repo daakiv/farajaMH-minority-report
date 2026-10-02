@@ -1,1 +1,0 @@
-alcohol categorization,volatile liquid,solvent and reagent,industrial applications,methanol poisoning,adulterated spirit drinks,informally produced spirit drinks,spirit drinks consumption,methanol adulteration,chemical category

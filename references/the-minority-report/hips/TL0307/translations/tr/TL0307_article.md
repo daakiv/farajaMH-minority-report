@@ -1,1 +1,0 @@
-is fully integrated above, presented in Markdown format with proper headings and terminology consistent with the Disaster Risk Reduction controlled vocabulary.)*

@@ -1,1 +1,0 @@
-*(Full, cleaned‑up translation appears above, preserving markdown structure and correct terminology.)*

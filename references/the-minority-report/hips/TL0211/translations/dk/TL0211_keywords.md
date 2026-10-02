@@ -1,1 +1,0 @@
-telecommunications of an ‘extraordinary nature’, service restoration, network failure, service restoration methods, control plane traffic, network overloads or failures, priority classification, emergency telecommunications, disaster response and recovery efforts, network traffic and system performance monitoring, backup communication systems, mobile technology mitigation

@@ -1,1 +1,0 @@
-uses consistent, domain‑appropriate terminology, corrects grammatical and plural/singular usage, and aligns with the Controlled Vocabulary for Disaster Risk Reduction in Slovenian.

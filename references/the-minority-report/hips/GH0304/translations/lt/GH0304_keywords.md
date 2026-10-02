@@ -1,1 +1,0 @@
-mass of rock, debris or earth,movement of a mass,individualized failure surface,slide movement,failure surface,mass movement,rock slide,debris slide,earth slide

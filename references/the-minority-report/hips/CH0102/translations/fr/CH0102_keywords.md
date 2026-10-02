@@ -1,1 +1,0 @@
-toxic heavy metal,cadmium oxide,cadmium sulphide,cadmium chloride,cadmium sulphate,cadmium-containing batteries,cadmium-plated steel scrap,cadmium-containing phosphate fertilisers,remobilisation of historic sources,Itai-Itai Disease,urinary cadmium,cadmium-contaminated food,nickel-cadmium batteries,cadmium toxicity

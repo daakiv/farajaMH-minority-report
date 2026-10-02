@@ -1,1 +1,0 @@
-arsenic sulfide,metal arsenates and arsenides,arsenite As(III),arsenate As(V),inorganic arsenic,organic arsenic compounds,chronic arsenic poisoning,arsenicosis,arsenic speciation,drinking-water guidelines,groundwater contamination,arsenic poisoning

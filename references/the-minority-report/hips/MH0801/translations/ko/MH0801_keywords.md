@@ -1,1 +1,0 @@
-mass of snow and ice, loose snow avalanches, slab avalanches, powder avalanches, loose snow avalanche, slab avalanches, gliding avalanches, wet-snow avalanches, artificial avalanche triggering, avalanche galleries, Spaltkeil, rapid, significant, warming of the snow, snowpack comprises multiple layers

@@ -1,1 +1,0 @@
-Maximum Level, Guideline Level, Maximum Residue Limits, Acceptable Daily Intakes, Codex Alimentarius Commission, Hazard Information Profiles, Food Safety and Quality Programmes, Monitoring levels of contaminants, Aflatoxins limits, Pesticide Residues, Dioxins and PCBs

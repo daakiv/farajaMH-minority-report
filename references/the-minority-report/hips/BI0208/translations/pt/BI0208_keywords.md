@@ -1,1 +1,0 @@
-Corynebacterium diphtheriae,Diphtheria toxin,infectious disease,upper airways,throat infection,vaccine-preventable disease,epidemics potential,severe infectious disease,bacterial cause,toxin production

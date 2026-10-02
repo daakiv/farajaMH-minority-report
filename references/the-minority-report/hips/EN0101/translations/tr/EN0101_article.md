@@ -1,1 +1,0 @@
-” bölümü, tüm teknik detayları ve bağlamı koruyarak net ve anlaşılır bir Türkçe metin sağlar.

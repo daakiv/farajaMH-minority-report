@@ -1,1 +1,0 @@
-above adheres to the DRR controlled vocabulary, uses proper Slovak terminology, maintains grammatical consistency, and formats the document in Markdown with appropriate headings.*

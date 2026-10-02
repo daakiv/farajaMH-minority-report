@@ -1,1 +1,0 @@
-aligns with the Controlled Vocabulary for Disaster Risk Reduction, uses consistent DRR terminology, and is properly formatted in Markdown.

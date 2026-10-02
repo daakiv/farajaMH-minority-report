@@ -1,1 +1,0 @@
-Corynebacterium diphtheriae, diphtheria toxin, pseudo membrane, acute respiratory obstruction, diphtheria antitoxin, diphtheria toxoid, diphtheria-containing vaccine, C. diphtheriae identification, case fatality rates, acute systemic toxicity, myocarditis

@@ -1,1 +1,0 @@
-Rock spread, near-horizontal stretching, mass of coherent blocks of rock, intensive deformation, underlying weak material, multiple retrogressive sliding, weak basal surface, total displacement, slow movement

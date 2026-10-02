@@ -1,1 +1,0 @@
-aligns terminology with established Croatian geological vocabulary, eliminates domain‑mixing errors, and adopts consistent Markdown formatting suitable for a technical hazard profile document.

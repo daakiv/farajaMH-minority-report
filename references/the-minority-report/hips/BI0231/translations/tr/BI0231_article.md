@@ -1,1 +1,0 @@
-(Above is the complete, corrected Turkish translation following DRR controlled vocabulary, presented in Markdown format with appropriate headings and standardized styling.)

@@ -1,1 +1,0 @@
-sharp and significant drop, drop in air temperatures, maximum minimum daily average, air temperatures near the surface, persisting below thresholds, consecutive days, cold season, marked and unusual cold weather, large area, cold wave definition

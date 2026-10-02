@@ -1,1 +1,0 @@
-neutron radiation, atomic fission, nuclear fusion, beta- and gamma-radiation, nuclear yield, blast generated, radioactive fallout, neutron activation, dangerous-radiation zone, nuclear terrorism incident, air-kerma rate

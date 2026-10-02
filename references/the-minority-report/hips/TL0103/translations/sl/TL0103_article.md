@@ -1,1 +1,0 @@
-The above markdown document presents the fully translated, terminology‑accurate, and domain‑consistent version of the original English text, ready for use in a technical hazard profile within the Controlled Vocabulary for Disaster Risk Reduction.

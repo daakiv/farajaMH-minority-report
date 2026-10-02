@@ -1,1 +1,0 @@
-toxic metalloid,arsenic sulfide,metal arsenates,arsenides,arsenic compounds,acute health effects,long-term adverse health effects,arsenic distribution,public health concern,health effects and diseases

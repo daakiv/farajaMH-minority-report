@@ -1,1 +1,0 @@
-hoar frost, deposit of ice, deposition of water vapour, water vapour from the surrounding air, crystalline in appearance, ice formation, water vapour deposition, surrounding air, crystalline appearance

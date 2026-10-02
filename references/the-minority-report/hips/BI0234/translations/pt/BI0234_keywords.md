@@ -1,1 +1,0 @@
-acute invasive infection, enteric infection, genus Shigella, bloody diarrhoea, enteric infection, invasive infection, bacterial cause, Shigellosis, bloody stools, infectious disease

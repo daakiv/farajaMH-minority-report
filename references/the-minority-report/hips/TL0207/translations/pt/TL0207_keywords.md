@@ -1,1 +1,0 @@
-physical structures, facilities, networks, other assets, essential services, social functioning, economic functioning, community functioning, societal functioning, essential functioning

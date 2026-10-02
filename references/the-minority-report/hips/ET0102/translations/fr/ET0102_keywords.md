@@ -1,1 +1,0 @@
-state of the ionosphere,irregular variations,ionospheric parameters,systematic pattern,spatiotemporal scales,geographic locations,ionospheric disturbances,different characteristics,risks to applications,ionospheric variations

@@ -1,1 +1,0 @@
-change in soil health status,reduction in soil health,soil physical condition,soil chemical condition,soil biological condition,water erosion,wind erosion,soil compaction,surface sealing,soil salinization,soil organic matter,soil fertility,soil biodiversity,soil microbiomes,soil degradation processes

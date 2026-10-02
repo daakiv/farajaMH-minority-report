@@ -1,1 +1,0 @@
-psychoactive substances, synthetic opioids, natural opiates, opioid receptors, opioid overdose, respiratory depression, heroin, morphine, fentanyl, carfentanil, opioid antagonists, opioid agonist maintenance treatment

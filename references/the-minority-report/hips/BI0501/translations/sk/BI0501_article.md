@@ -1,1 +1,0 @@
-The final, corrected Slovak translation is presented above, incorporating all necessary terminological adjustments, correct usage of official names, and consistent formatting in Markdown.

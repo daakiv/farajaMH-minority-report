@@ -1,1 +1,0 @@
-accumulation of wind-borne sand,affects coasts,affects watercourses,cultivated land,uncultivated land,arid to semi-arid regions,bury towns,bury roads,bury oases,bury crops,bury market gardens,bury irrigation channels,bury dams,socioeconomic damage

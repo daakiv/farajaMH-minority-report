@@ -1,1 +1,0 @@
-Ultraviolet radiation (UVR) exposure, skin cancers, wavelength range of 100-400 nm, UVA, UVB, UVC, ozone absorption, Global Solar UV Index (UVI), photokeratitis, cutaneous melanoma, basal cell carcinoma, UV-related eye damage, photochemical smog formation

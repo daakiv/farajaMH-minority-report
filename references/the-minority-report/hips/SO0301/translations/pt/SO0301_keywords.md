@@ -1,1 +1,0 @@
-forceful acts, intended to cause harm, physical injury, psychological harm, sexual violence, deprivation, individual harm, collective group, intentional violence, forceful behaviour

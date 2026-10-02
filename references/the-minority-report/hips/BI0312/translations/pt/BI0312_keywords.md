@@ -1,1 +1,0 @@
-acute viral disease, highly contagious disease, wild ruminants, domesticated ruminants, pigs, sudden onset fever, oculonasal discharges, necrotic stomatitis, gastroenteritis, viral disease of ruminants

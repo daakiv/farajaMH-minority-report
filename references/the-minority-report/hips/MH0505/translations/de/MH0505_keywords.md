@@ -1,1 +1,0 @@
-hoar frost proper, advection hoar frost, deposition of water vapour, horizontal surfaces, vertical exposed surfaces, nocturnal radiation, sublimation, advection, low stratus or fog, high humidity, light winds, and low temperatures, frost damage on vegetation

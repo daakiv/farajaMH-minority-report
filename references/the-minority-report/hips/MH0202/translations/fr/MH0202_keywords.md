@@ -1,1 +1,0 @@
-suspension of water droplets, microscopic water droplets, water droplets in the air, reducing visibility, visibility at the Earth’s surface

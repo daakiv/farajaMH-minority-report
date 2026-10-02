@@ -1,1 +1,0 @@
-Airborne transmission, infectious agents, dissemination of droplets, very small droplets, infectious when suspended, transmission of disease, long distances and time, significant morbidity, potential mortality, infectious agents in air

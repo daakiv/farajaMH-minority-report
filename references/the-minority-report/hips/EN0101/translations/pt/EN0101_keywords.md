@@ -1,1 +1,0 @@
-incomplete combustion of solid fuels, particles of varying sizes, carbon monoxide (CO), nitrogen dioxide, volatile and semi-volatile organic compounds, formaldehyde and benzo[a]pyrene, methylene chloride, dioxins, solid fuels, inefficient and polluting fuels, household air pollution

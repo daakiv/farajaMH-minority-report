@@ -1,1 +1,0 @@
-biological and toxin agents,microorganisms,viruses,bacteria,fungi,living organisms,toxic substances,cause disease and death,humans,animals,plants

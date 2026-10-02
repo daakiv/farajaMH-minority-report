@@ -1,1 +1,0 @@
-Prion diseases, Transmissible Spongiform Encephalopathies, prion protein, PrPSc, Creutzfeldt-Jakob disease, Bovine Spongiform Encephalopathies, variant Creutzfeldt-Jakob disease, Chronic Wasting Disease, spongiform encephalopathy, scrapie, kuru

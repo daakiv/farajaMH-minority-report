@@ -1,1 +1,0 @@
-progressive collapse, failure propagation, structural robustness, redundancy, progressive structural collapse, chain reaction, abnormal loads, seismic vulnerability index, ground subsidence, substandard construction materials, dynamic loading, structural integrity, fire-induced collapse, multi-hazard context

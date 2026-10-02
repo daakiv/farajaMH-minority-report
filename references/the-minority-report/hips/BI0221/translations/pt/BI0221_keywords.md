@@ -1,1 +1,0 @@
-highly contagious, serious disease, paramyxovirus family, virus cause, respiratory transmission, severe disease, disease complications, cause of death, viral spread, infectious disease

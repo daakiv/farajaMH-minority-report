@@ -1,1 +1,0 @@
-above is provided as a complete, well‑structured Markdown document. All terminologies are aligned with DRR context and Turkish linguistic norms.)*

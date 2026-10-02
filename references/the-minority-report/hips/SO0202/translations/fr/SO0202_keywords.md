@@ -1,1 +1,0 @@
-Environmental degradation, driver of conflict, consequence of disasters, reducing environmental capacity, ecological needs, social needs, conflict as a driver, environmental capacity, degradation from conflict, disasters and conflict

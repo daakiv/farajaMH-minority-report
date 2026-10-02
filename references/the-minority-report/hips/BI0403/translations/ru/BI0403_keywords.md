@@ -1,1 +1,0 @@
-Invasive species, Alien invasive species, Invasive plant species, Aquatic weeds, Poisonous weeds, Seed germination capacity, Non-indigenous species, Control measures, Early warning systems, Global Invasive Species Database

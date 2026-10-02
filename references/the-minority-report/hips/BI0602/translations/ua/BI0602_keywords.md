@@ -1,1 +1,0 @@
-biological and toxin agents, disease-producing organisms, biological weapons, bioterrorism, biological agents, infectious hazards, secondary transmission, aerosol dissemination, food water insect vectors, Bacillus anthracis, public health challenge, biological warfare

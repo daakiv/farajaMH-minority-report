@@ -1,1 +1,0 @@
-interface/intertidal zone, muddy, anaerobic soils, sediment erosion, extreme storm surges, sea-level rise, coastal squeeze, mangrove deforestation, aquaculture and agriculture, direct and indirect settlement, coastal protection, carbon storage, disaster risk reduction, natural filters for chemical pollutants

@@ -1,1 +1,0 @@
-acute vaccine-preventable viral liver disease, faecal-oral route, HAV-specific immunoglobulin G (IgM) antibodies, reverse transcriptase polymerase chain reaction (RT-PCR), HAV virus RNA, fulminant hepatitis, waterborne outbreaks, oral-anal sex, safe drinking water, inadequate sanitation, personal hygiene

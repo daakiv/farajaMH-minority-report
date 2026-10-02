@@ -1,1 +1,0 @@
-acute contagious disease, variola virus, Smallpox eradication, devastating diseases, fatal in up to 30% of cases, contagious disease, variola virus cause, world’s most devastating diseases, infectious disease, disease eradication

@@ -1,1 +1,0 @@
-*(See the Markdown document above. It preserves the original structure, uses correct Slovak terminology, and follows a consistent formatting style.)*

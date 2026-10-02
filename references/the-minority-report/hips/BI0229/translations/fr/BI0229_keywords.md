@@ -1,1 +1,0 @@
-viral disease, irreversible paralysis, breathing muscles become immobilized, irreversible paralysis, paralysis, immobilization of breathing muscles, young children, infectious viral disease, mortality rate, paralysis and death

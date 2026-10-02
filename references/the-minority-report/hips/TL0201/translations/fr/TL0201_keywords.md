@@ -1,1 +1,0 @@
-failure of load-bearing structural elements, load-bearing structural elements,building to fall,catastrophic failure,structural elements,building collapse,structural failure,load-bearing,catastrophic failure

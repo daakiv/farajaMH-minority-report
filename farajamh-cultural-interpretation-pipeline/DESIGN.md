@@ -384,6 +384,144 @@ python -m pytest -q tests                                                       
 Newest first. Each entry records what a run showed and what changed because of it. Runs are evidence,
 not reproducible truth: Ollama output is not bit-identical across hardware.
 
+### 1 October 2026 · `queryfix` / `definitions` · terminology retrieval, and what OLS4 can and cannot serve
+
+Three changes to the retrieval and ranking stages, and one closed question about SNOMED CT.
+
+**Terminology versions.** Every package until now recorded `"version": "<pin release>"` for MFOEM and
+MFOMD, because the configs carried that placeholder and the clients passed it through. A placeholder in
+provenance is worse than an absent version: it reads like a pin. `OLSClient` now resolves the release
+from the service's own ontology record (`config.versionIri`, which OLS populates while leaving the
+top-level `version` field null) and records `unversioned` with a printed warning when it cannot. The
+configs no longer name a version at all. MFOEM resolves to `2025-07-31`; MFOMD to `2020-04-26`, which
+puts a date on the DSM-IV caveat that had been an assertion in a config comment.
+
+**SNOMED CT through OLS4: a closed question.** SNOMED was added as a third `ols` client, prefix `SCTID`,
+limit 4. EBI serves the full International Edition — 376,452 terms, pinned at
+`http://snomed.info/sct/900000000000207008/version/20251017` — with no key and no Snowstorm instance.
+Across the twelve-utterance story corpus it contributed **11 candidates and zero rankings**: not one
+model proposed a predicate for any SNOMED concept.
+
+For `sadness` it returned *Saddle-billed stork*, *Paresthesia of saddle area (finding)*, *Sadistic
+torture* and *Reduced level of persistent sadness* — three of four matching on words beginning "sad",
+and the fourth semantically inverted. For the risk cluster on KISWA-STORY-01 it returned a single
+candidate, *Behavior poses safety risk to staff (finding)*: a concept about danger to clinicians,
+offered as the only option for a unanimous reading about danger to the speaker.
+
+The fault is not SNOMED's. *Saddle-billed stork* is legitimate content — SNOMED has an Organism
+hierarchy — retrieved for an illegitimate reason. The fault is that we queried a general clinical
+terminology with no scope restriction. The obvious fix was a semantic-tag filter, and it is not
+available: OLS returns `description: []` for every SNOMED concept, exposes only the preferred label
+rather than the fully specified name, so the `(organism)` / `(finding)` tag is absent, and reaches the
+hierarchy only through a separate call per concept.
+
+The same query against SNOMED's own server returns *Persistent sadness (finding)*, *Prolonged grief
+disorder (disorder)* and *Assessment of sadness (procedure)*, with semantic tags exposed for filtering.
+`Persistent sadness` is the concept cluster C1 needed and OLS never surfaced it.
+
+**Conclusion.** OLS4 is a usable lookup and resolution surface for SNOMED CT and a poor retrieval
+surface. Filtering cannot close the gap, because filtering is subtractive: it can drop the stork, it
+cannot surface a concept the search never returned. Proper scoping needs ECL through a licensed
+Snowstorm instance, which `SnowstormClient` and the `ecl_scope` config key already anticipate. SNOMED
+is therefore not in the shipped configuration, and the reason recorded in `config/laptop.yaml` is the
+access path rather than the terminology. A licence application is with the project.
+
+**Redistribution.** Separately, SNOMED CT content is not ours to redistribute.
+`approve.NON_REDISTRIBUTABLE_PREFIXES` withholds any human-approved `SCTID` mapping from
+`mappings.sssom.tsv` — which declares CC-BY-4.0 over its contents and would otherwise assert a licence
+over someone else's terminology — and records it in `withheld_mappings.jsonl` with the decision intact.
+Rows recording an absence (`sssom:NoTermFound` against SNOMED) are **not** withheld: they name no
+concept, and the gap is ours to publish.
+
+**The retrieval query was an enum.** Cluster labels derive from the model-proposed `sense_key`, and
+models routinely put the category value there. So the search string for a `risk_or_safety` cluster was
+the literal text `risk_or_safety`, and for KISWA-STORY-11 it was `desire_for_absence` — which returned
+`MFOMD:0000081 sexual desire disorder` as the sole candidate, matched on "desire".
+`pipeline.retrieval_queries()` now replaces underscores and drops a label that is only the category
+name, falling back to the gloss. This removed a clinically wrong candidate and did **not** replace it
+with a right one: cluster C2 on TRY-ED93AEBF now retrieves nothing at all. Recorded as a partial fix.
+
+**Definitions reach the ranker.** Until now the ranking prompt received `system | id | label`. That is
+how `canonical sad facial expression` came to sit indistinguishably beside `sadness` in a list offered
+for an emotional-state reading, and how llama3.1:8b proposed a `relatedMatch` to `MFOMD:0000149 mixed
+episode` for a sadness reading. OLS serves definitions for both ontologies and the client was
+discarding them. Candidates now carry `definition`, the schema declares it, and the listing is
+`system | id | label | definition`, with `NO DEFINITION PROVIDED BY THIS TERMINOLOGY` stated explicitly
+where a terminology serves none — an empty field reads as nothing to object to.
+
+Before and after on TRY-ED93AEBF (*"Moyo wangu umekuwa mzito"*), same seed:
+
+| | before | after |
+|---|---|---|
+| `MFOEM:000056` sadness | qwen → exactMatch | qwen → broadMatch, llama → broadMatch |
+| `MFOMD:0000149` mixed episode | llama → relatedMatch | not ranked |
+| gemma3:12b | no adequate match | no adequate match |
+
+S1–S5, `translation_agreement` 0.372 and `sense_entropy` 0.971 were identical across the two runs:
+interpretation did not move, only the stage that changed. Two specific errors disappeared and nothing
+regressed. That is what the change was for; it is not evidence that ranking is now good.
+
+**What this leaves open.** `sense_key` is still a category name on risk clusters, which is both why C2
+retrieves nothing and why a reviewer reads `C3 · risk_or_safety · risk_or_safety` on the card. That is
+an `interpret.md` change and is now the highest-value item on this layer. Below it: per-vocabulary scope
+declarations, since every vocabulary currently receives every query; recording the queries issued and
+anything a scope filter excluded, because "nothing exists", "nothing was asked" and "something was
+filtered" are presently indistinguishable in a package; and using OLS's ancestor endpoints to check
+`broadMatch` against `narrowMatch` rather than taking a model's assertion from a label.
+
+Also closed from the 30 September entry: `conform.sense()` now re-attributes evidence tagged
+`utterance_span` whose quote is not in the utterance, to `conversation_turn`, `translation_candidate` or
+`model_background_knowledge`, dropping nothing. The model-risk banner was **not** keyed on standing as
+queued there — on `kiswa-story-v1` the risk clusters were majority or unanimous on eleven of twelve
+utterances, so standing would have changed nothing. It reports grounding instead: how many of the
+cited quotes come from the utterance, how many from elsewhere, and how many senses rest on background
+knowledge alone.
+
+### 1 October 2026 · `indep-shared-s7` / `indep-solo-s7` · does sharing translations manufacture consensus?
+
+Each interpreter is normally shown the three idiomatic translations. In `TRY-BA9BBCEC` one quoted
+another model's translation back as if it were the participant's words, so the three readings are not
+independent. `models.share_translations: false` withholds them. Both arms were run at seed 42 and again
+at seed 7, so that the effect could be separated from ordinary run-to-run variation — the first run
+alone could not distinguish the two.
+
+| comparison | unanimous clusters | top cluster support | evidence citing a translation |
+|---|---|---|---|
+| shared → independent, seed 42 | 5 → 2 | 0.78 → 0.72 | 0.75 → 0.00 |
+| shared → independent, seed 7 | 6 → 2 | 0.81 → 0.72 | 0.50 → 0.00 |
+| seed 42 → seed 7, shared arm | 5 → 6 | 0.78 → 0.81 | 0.75 → 0.50 |
+| seed 42 → seed 7, independent arm | 2 → 2 | 0.72 → 0.72 | 0.00 → 0.00 |
+
+Withholding costs three unanimous clusters at one seed and four at the other, out of twelve utterances.
+Seed alone moves the count by one in the shared arm and by zero in the independent arm. The effect is
+three to four times the largest observed noise and it reproduced in both replications, with both
+independent runs landing on exactly two.
+
+**The sharper result is the stability, not the count.** Across two seeds the independent arm returned
+*identical* top-cluster support on all twelve utterances — not one row moved. The shared arm flipped
+three of twelve: 08 lost unanimity, 09 and 11 gained it. Per utterance, 03, 08, 09 and 11 all sit at
+2-of-3 support in the independent arm at both seeds, while the shared arm reports unanimity or 2-of-3
+depending on which seed was run. **Unanimity is the unstable state.** Sharing translations does not only
+inflate agreement; it makes the agreement seed-dependent, which is a reproducibility problem as well as
+a validity one. The independent arm is not frozen — minority clusters moved 1.67 → 1.75 and senses per
+model 1.72 → 1.75 between seeds — the seed moves the periphery and never the top cluster.
+
+**Risk detection was unchanged**, at 1.00 risk clusters per utterance in nine of ten cells. Withholding
+translations costs nothing operationally, which is what would clear the change for a real pipeline.
+
+**The confound, unresolved.** In the independent arm eleven of twelve utterances sit at exactly 0.67 —
+a 2-1 split on almost everything. That is consistent with honest dissent surfacing, and equally
+consistent with the third model losing a crutch and guessing. These models are capability-limited on
+this corpus: 5/12 risk proposals against a large model's 12/12, seven mislabelled `utterance_span`
+quotes against zero. Withholding the translation may be producing divergence rather than insight, and
+the two readings predict the same numbers. The planned adjudicator is the large-model run over the same
+twelve prompts: if the independent arm's minority senses overlap what it proposed, they are signal.
+
+**Not yet decided:** whether `share_translations: false` becomes the default. The mechanism is measured
+and the direction reproduced; the confound is not closed. Standing limitations on all of it: twelve
+utterances, one constructed corpus, three small models on one host, two seeds — two points, not a
+distribution — and no Kiswahili validation.
+
 ### 30 September 2026 · `kiswa-story-v1` · twelve-turn Kiswahili session, both ontologies live
 
 Twelve turns of one simulated home visit, in standard Kiswahili and Sheng, each carrying the CHW

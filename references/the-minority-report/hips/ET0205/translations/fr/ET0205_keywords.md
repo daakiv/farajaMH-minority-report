@@ -1,1 +1,0 @@
-Near-Earth Object,asteroid,comet,trajectory,astronomical units,Sun,Earth’s orbit,orbital mechanics,geocentric distance,45 million kilometres

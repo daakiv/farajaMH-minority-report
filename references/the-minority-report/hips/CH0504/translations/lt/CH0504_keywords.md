@@ -1,1 +1,0 @@
-small plastic pieces less than five millimetres, primary microplastics, secondary microplastics, microbeads, microfibers released during washing, nanoplastics, 1 to 100 nanometres, weathering and fragmentation, ingestion by marine organisms, adsorption of harmful pollutants, microplastic fibres per cubic meter

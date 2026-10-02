@@ -1,1 +1,0 @@
-Psychoactive substances, synthetic opioids, natural opiates, opioid overdose, respiratory depression, morphine, heroin, fentanyl analogues, prescription opioids, morphinans, oxycodone hydrochloride, fentanyl and xylazine combinations, naloxone, opioid agonist maintenance treatment, nicotine addiction

@@ -1,1 +1,0 @@
-The above Markdown document incorporates all terminology corrections, consistent use of Croatian glaciological terms, and aligns with the DRR context.

@@ -1,1 +1,0 @@
-luminous manifestation, electrical discharge, sudden electrical discharge, electrical storm, discharge from cloud, lightning location, discharge from structures, lightning manifestation, electrical phenomenon, electrical discharge event

@@ -1,1 +1,0 @@
-Hepatitis B virus (HBV), acute and chronic liver disease, cirrhosis and liver cancer, perinatal transmission, horizontal transmission, yellowing of the skin and eyes (jaundice), acute liver failure, hepatocellular carcinoma, chronic hepatitis B infection, transmission by needlestick injury, infant and childhood vaccination, HBsAg seroprevalence

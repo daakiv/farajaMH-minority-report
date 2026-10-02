@@ -1,1 +1,0 @@
-more suicides than expected, restricted time period, media-related phenomena, space-time clusters, point clusters, small geographical area, institutional clusters, brief period of time, time place or both, unusual number of suicides

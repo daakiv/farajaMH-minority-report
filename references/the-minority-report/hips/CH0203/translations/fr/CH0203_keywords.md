@@ -1,1 +1,0 @@
-organic compounds composed of hydrogen and carbon,fossil fuels components,coal natural gas and petroleum,aromatic hydrocarbon,molecular formula C6H6,delocalized $\pi$-electron system,alternating single and double bonds,highly flammable and volatile,hydrocarbon ground gases,liquid aromatic hydrocarbon

@@ -1,1 +1,0 @@
-emergency telecommunications failure, service restoration,network failure,service restoration methods,network element(s),control plane traffic,real-time voice and video services,virtual private network services,network overloads,priority classifications,disaster response capabilities,network traffic monitoring,backup communication systems,transmission network circuits

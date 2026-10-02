@@ -1,1 +1,0 @@
-increased production of organic matter, nitrogen and phosphorus, nutrient loading, algal blooms, dissolved oxygen depletion, hypoxia,anoxic conditions, chlorophyll-a concentration, nutrient-rich wastewater, biomagnification,eutrophication risk

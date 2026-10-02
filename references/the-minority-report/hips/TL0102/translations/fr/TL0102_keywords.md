@@ -1,1 +1,0 @@
-data breach, security incident, breach of confidentiality, breach of availability, breach of integrity, data responsibility, confidentiality, availability, integrity, security incident, data security

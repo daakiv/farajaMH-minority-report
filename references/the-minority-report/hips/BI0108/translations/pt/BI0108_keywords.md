@@ -1,1 +1,0 @@
-malaria, dengue, African swine fever, Nipah virus disease, bloodsucking insects, mosquito vectors, ticks, flies, sandflies, fleas, triatomine bugs, freshwater aquatic snails

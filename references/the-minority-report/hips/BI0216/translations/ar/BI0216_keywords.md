@@ -1,1 +1,0 @@
-Mycobacterium leprae, multidrug therapy (MDT), paucibacillary (PB) leprosy, multibacillary (MB) leprosy, acid-fast bacilli, slit-skin smear, interruption of transmission, Leprosy Elimination Framework, neglected tropical disease (NTD), skin and peripheral nerves

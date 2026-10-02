@@ -1,1 +1,0 @@
-forward rotation, rotation out of the slope, mass of soil or rock, center of gravity, displaced mass, rotation about a point or axis, mass of rock, slope, forward rotation out of the slope, mass of soil

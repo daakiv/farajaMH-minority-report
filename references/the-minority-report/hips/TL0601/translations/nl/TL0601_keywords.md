@@ -1,1 +1,0 @@
-radioactive material,radionuclides,gas liquid or solid form,clearance levels,High-Level Waste (HLW),Intermediate-Level Waste (ILW),Long-Lived Waste,Low-Level Waste (LLW),Short-Lived Waste,Very Low-Level Waste (VLLW),Spent fuel,radioactive waste management,long-term isolation

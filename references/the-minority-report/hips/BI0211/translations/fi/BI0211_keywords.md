@@ -1,1 +1,0 @@
-acute vaccine-preventable viral liver disease, fulminant hepatitis, faecal-oral route, contaminated food or water, inadequate sanitation, HAV-specific immunoglobulin G, reverse transcriptase polymerase chain reaction, personal hygiene practices, safe drinking water, food safety, oral-anal sex, injectable inactivated vaccines, cyclic recurrences

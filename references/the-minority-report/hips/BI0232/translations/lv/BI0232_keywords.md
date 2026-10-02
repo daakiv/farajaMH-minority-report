@@ -1,1 +1,0 @@
-viral zoonotic disease, central nervous system, infectious saliva, post-exposure prophylaxis, rabies immunoglobulins (RIG), furious form, paralytic form, incubation phase, prodromal phase, neurological phase, dog-mediated rabies, reservoir hosts, mass dog vaccination, rabies elimination, bat-mediated rabies

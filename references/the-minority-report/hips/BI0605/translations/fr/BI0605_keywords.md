@@ -1,1 +1,0 @@
-snakebite envenoming, venomous snake, toxins in the bite, snakebite, envenoming, life-threatening disease, toxins, bite of a venomous snake, snakebite envenoming

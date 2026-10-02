@@ -1,1 +1,0 @@
-bacterial disease,Brucella species,infect cattle,infect swine,infect goats,infect sheep,infect dogs,direct contact,infected animals,acquisition of disease

@@ -1,1 +1,0 @@
-Cold air, Lift, Moisture, extra-tropical cyclones, hypothermia, frostbite, loss of traction, freezing of points, de-iced before take-off, loss of electrical connection, freezing of water supply pipes, loss of adhesion

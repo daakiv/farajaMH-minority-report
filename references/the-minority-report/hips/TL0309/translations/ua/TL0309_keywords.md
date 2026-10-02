@@ -1,1 +1,0 @@
-Natural hazard triggered technological accident, technological secondary effects, Natech accidents, health impacts, environmental degradation, economic losses, shortage of raw materials, cascading disasters, slow-release Natech events, groundwater and soil systems, integrated risk governance

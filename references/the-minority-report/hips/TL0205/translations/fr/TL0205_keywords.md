@@ -1,1 +1,0 @@
-Dam failure, uncontrolled release of water, structural collapse, foundation instability, overtopping, release of water, structural failure, foundation failure, downstream risks, hydrological release

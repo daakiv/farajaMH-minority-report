@@ -1,1 +1,0 @@
-preserves domain‑specific terminology, uses proper Serbian numerals and punctuation, and adheres to Markdown formatting guidelines. All legacy formatting (e.g., underlining) has been converted to appropriate Markdown headers and lists.

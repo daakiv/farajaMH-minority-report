@@ -1,1 +1,0 @@
-International armed conflict, declared war, de facto armed conflict, armed conflict between States, state of war, use of armed force, unilateral use of armed force, armed force, declared war and other de facto armed conflict, use of armed force is unilateral

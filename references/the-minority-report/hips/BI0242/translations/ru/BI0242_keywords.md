@@ -1,1 +1,0 @@
-Aedes mosquitoes, microcephaly and other congenital malformations, neurodevelopmental disorders, mosquito-borne virus, Aedes aegypti, transmission from mother to foetus, sexual transmission, congenital Zika syndrome, Guillain-Barré syndrome, vector control, arboviruses

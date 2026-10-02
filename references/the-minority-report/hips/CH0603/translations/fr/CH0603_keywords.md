@@ -1,1 +1,0 @@
-volatile liquid, alcohol, solvent, reagent, industrial applications, methanol poisoning, adulterated spirit drinks, informally produced spirit drinks, spirit drinks, methanol poisoning

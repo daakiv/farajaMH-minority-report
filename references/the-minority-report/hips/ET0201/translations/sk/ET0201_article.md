@@ -1,1 +1,0 @@
-is now fully consistent with geological and DRR terminology, avoiding domain‑mixing errors and ensuring clarity for Slovak‑speaking technical audiences.

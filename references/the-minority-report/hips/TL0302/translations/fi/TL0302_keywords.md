@@ -1,1 +1,0 @@
-substances and heat in environmental media, air pollution, water pollution, hazardous chemicals and wastes, persistent organic pollutants, micro- and nano-plastics, marine pollution, industrial emissions, water contamination, endocrine-disrupting compounds, plastic pollution

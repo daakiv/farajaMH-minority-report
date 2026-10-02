@@ -1,1 +1,0 @@
-Natural hazard triggered technological accident, technological secondary effects, Natech accidents, cascading disasters, multi-hazard context, Natech risk management, risk reduction guidance, chronic environmental impacts, industrial risk governance, public health authorities, chemical releases from natural events

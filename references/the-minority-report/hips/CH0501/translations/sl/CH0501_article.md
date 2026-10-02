@@ -1,1 +1,0 @@
-*(The above final section provides the fully corrected, well‑structured Markdown translation of the entire original text, with all terminology and formatting appropriately adapted to the Slovene language and the DRR context.)*

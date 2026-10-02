@@ -1,1 +1,0 @@
-Permafrost thaw, loss of ground ice, active layer, abrupt thaw, thaw slumps, thermokarst lakes, permafrost carbon pool, ground subsidence, thaw-impacted lakes, permafrost ground ice, phase change, ground thermal regime

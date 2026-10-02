@@ -1,1 +1,0 @@
-blights, wilts, rots, mildews, canker, smuts, rusts, mycelium, spores, anthracnose, late blight, Fusarium wilt, powdery mildew, basal rot, grey mould rot, heart rot, aflatoxin, Aspergillus species, fungal-like organisms, post-harvest diseases

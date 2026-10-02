@@ -1,1 +1,0 @@
-severe acute respiratory syndrome,viral respiratory illness,coronavirus,SARS-associated coronavirus,SARS-CoV,WHO case definition,confirmed SARS,case-fatality rate,viral illness,respiratory syndrome

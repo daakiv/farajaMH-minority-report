@@ -1,1 +1,0 @@
-adversary with sophisticated expertise, significant resources, multiple different attack vectors, cyber attack vectors, physical attack vectors, deception vectors, generate opportunities, achieve objectives, advanced threat creation, attack vectors

@@ -1,1 +1,0 @@
-above aligns all terminology with geological standards, uses consistent Turkish vocabulary, and presents the document in proper Markdown format.*

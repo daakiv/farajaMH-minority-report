@@ -1,1 +1,0 @@
-> *(Full, properly formatted Slovene translation as shown above, with all sections translated, corrected terminology, and consistent Markdown formatting.)*

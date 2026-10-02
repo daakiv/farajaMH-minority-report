@@ -1,1 +1,0 @@
-non-frontal system, low-pressure system, tropical and extra-tropical cyclones, synoptic-scale cyclones, tropical or subtropical waters, closed surface wind circulation, well-defined centre, surface wind circulation, subtropical cyclone, non-frontal cyclones

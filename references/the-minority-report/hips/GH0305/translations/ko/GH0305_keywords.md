@@ -1,1 +1,0 @@
-forward rotation out of the slope,modes of toppling,Flexural topples,Block topples,Chevron topples,Block-flexure topples,debris cone,talus cone,rockfalls,scaling

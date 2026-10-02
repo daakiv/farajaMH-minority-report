@@ -1,1 +1,0 @@
-mosquito-borne viral infection, chikungunya virus, viral infection, fever, severe arthralgia, arthralgia (joint pain), endemic, epidemic, mosquito-borne, joint pain

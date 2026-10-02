@@ -1,1 +1,0 @@
-naturally occurring fibrous silicate minerals, building materials, lung cancer, mesothelioma, cancer of the larynx, cancer of the ovary, asbestosis, fibrosis of the lungs, fibrous silicate minerals

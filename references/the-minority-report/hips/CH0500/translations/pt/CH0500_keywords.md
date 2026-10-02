@@ -1,1 +1,0 @@
-long-range transport, persistence in the environment, bio-magnify, bio-accumulate, bio-accumulate in ecosystems, human health effects, environmental effects, chemicals of global concern, persistence in the environment, potential for long-range transport

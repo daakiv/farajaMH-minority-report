@@ -1,1 +1,0 @@
-Q fever, zoonosis, Coxiella burnetii, natural reservoirs, domestic and wild animals, inhalation of aerosols, food-borne infections, aerosols produced, high resilience, abortion

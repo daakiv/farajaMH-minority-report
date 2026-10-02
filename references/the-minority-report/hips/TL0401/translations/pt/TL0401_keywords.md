@@ -1,1 +1,0 @@
-operation of an aircraft, boards the aircraft, intention of flight, persons have disembarked, fatally or seriously injured, aircraft sustains damage, structural failure, aircraft is missing, aircraft is completely inaccessible, occurrence associated with operation

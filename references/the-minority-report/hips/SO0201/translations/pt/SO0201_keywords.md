@@ -1,1 +1,0 @@
-explosive remnants of war, mines, cluster munitions, unexploded ordnance, abandoned ordnance, booby traps, other devices, explosive ordnance, munitions

@@ -1,1 +1,0 @@
-acute haemorrhagic viral disease, Phlebovirus genus, viral zoonosis, haemorrhagic fever, small and large ruminants, mosquito bites, viral transmission, animal vaccination, arbovirus, flood association, RVF Early Warning Decision Support Tool, vector control

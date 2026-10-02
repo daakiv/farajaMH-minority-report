@@ -1,1 +1,0 @@
-deposit or coating of ice, impact of liquid hydrometeors, liquid hydrometeors, supercooled, deposit of ice, coating of ice, ice on an object, impact caused by

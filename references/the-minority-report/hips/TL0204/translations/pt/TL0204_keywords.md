@@ -1,1 +1,0 @@
-Bridge failure, components failure, design requirements, construction requirements, structural performance, load-bearing capacity, structural integrity, failure mode, material degradation, design specifications, structural analysis

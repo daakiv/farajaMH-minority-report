@@ -1,1 +1,0 @@
-removal of primary sand resources,mineral sands and aggregates,extraction from the natural environment,terrestrial sand mining,riverine sand mining,coastal sand mining,marine sand mining,valuable minerals,crushed stone,sand and gravel,subsequent processing

@@ -1,1 +1,0 @@
-Prion diseases,Transmissible Spongiform Encephalopathies,prion protein,PrP or PrPc,PrPsc,spongiform encephalopathies,Creutzfeldt-Jakob disease (CJD),Bovine spongiform encephalopathies (BSE),Chronic Wasting Disease (CWD),scrapie,variant Creutzfeldt-Jakob disease (vCJD),infectious protein

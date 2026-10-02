@@ -1,1 +1,0 @@
-bonamiosis, Bonamia exitiosa, marteiliosis, Marteilia refringens, perkinsosis, Perkinsus marinus, causal agents, protozoan agents, oyster diseases, OIE-listed diseases

@@ -1,1 +1,0 @@
-progressive collapse, structural failure, load-bearing structural elements, chain reaction, progressive structural collapse, failure propagation, structural robustness, redundancy, seismic vulnerability index, floor area ratio

@@ -1,1 +1,0 @@
-bacterium Mycobacterium leprae, infectious disease, endemic in many countries, affects the skin, peripheral nerves, mucosa of the upper respiratory tract, eyes, permanent disability, curable disease, infectious disease, peripheral nerves

@@ -1,1 +1,0 @@
-negative trend in wetland condition, human-induced processes, biological productivity, ecological role or value, marsh fen peatland, permanent or temporary wetlands, static or flowing water, fresh brackish or salt, riparian and coastal zones, marine water depth

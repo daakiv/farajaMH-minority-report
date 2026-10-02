@@ -1,1 +1,0 @@
-fully aligns with the DRR controlled vocabulary, employs accurate Slovak medical terminology, corrects any typographical or grammatical errors, and presents the information in a clear, Markdown‑formatted document.

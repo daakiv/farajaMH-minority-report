@@ -1,1 +1,0 @@
-(The above Markdown block contains the finalized, correctly translated text.)

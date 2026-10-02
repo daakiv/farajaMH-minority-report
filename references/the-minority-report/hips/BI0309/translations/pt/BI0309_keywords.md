@@ -1,1 +1,0 @@
-New World screwworm (NWS),Cochliomyia hominivorax,obligate parasite,larval stages,feeding on the skin,underlying tissues,traumatic myiasis,wound myiasis,myiasis,parasite of mammals

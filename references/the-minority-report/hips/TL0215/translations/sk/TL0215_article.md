@@ -1,1 +1,0 @@
-aligns with the DRR controlled vocabulary, employs proper geological terminology, and maintains consistent grammatical and stylistic conventions suitable for a technical hazard profile document.

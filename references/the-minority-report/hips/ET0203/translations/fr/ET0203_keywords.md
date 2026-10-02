@@ -1,1 +1,0 @@
-Meteorite, Earth's atmosphere, atmospheric entry, atmospheric survival, impact event, ground impact, atmospheric trajectory, re-entry phase, impact dynamics, surface collision

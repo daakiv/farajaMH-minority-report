@@ -1,1 +1,0 @@
-sudden slip on a fault, ground shaking, radiated seismic energy, surface rupture, ground shaking, subsidence/uplift, liquefaction, tsunami, seiche, seismic building codes, Moment magnitude, Peak ground acceleration, elastic spectral acceleration, Modified Mercalli intensity (MMI) scale, ground failure, earthquake hazard maps

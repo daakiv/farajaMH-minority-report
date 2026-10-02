@@ -1,1 +1,0 @@
-(Provided above in the Markdown block.)

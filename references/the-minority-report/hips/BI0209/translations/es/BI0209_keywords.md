@@ -1,1 +1,0 @@
-Ebola virus disease,haemorrhagic fever,zoonotic viral infectious disease,Orthoebolavirus genus,Filoviridae family,incubation period,human-to-human transmission,reservoir hosts,wildlife-to-human transmission,Ebola pathogenesis,Reverse-transcriptase polymerase chain reaction,Ebola outbreak containment measures

@@ -1,1 +1,0 @@
-biotoxins, toxic algae, marine organisms, fishery and aquaculture products, Paralytic shellfish poisoning, Diarrhoeic shellfish poisoning, Neurotoxic shellfish poisoning, Azaspiracid shellfish poisoning, Ciguatoxins, ciguatera poisoning, Okadaic acid group, Saxitoxin group, Domoic acid group, Brevetoxin group, Yessotoxin group

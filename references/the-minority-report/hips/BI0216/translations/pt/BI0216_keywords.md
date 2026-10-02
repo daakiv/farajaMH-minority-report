@@ -1,1 +1,0 @@
-Mycobacterium leprae, infectious disease, skin involvement, peripheral nerves, mucosa of the upper respiratory tract, eyes, permanent disability, infectious disease, endemic in many countries, curable infectious disease

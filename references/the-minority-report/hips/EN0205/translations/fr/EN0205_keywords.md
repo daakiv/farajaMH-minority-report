@@ -1,1 +1,0 @@
-unplanned vegetation fire,uncontrolled vegetation fire,ignition source,suppression response,vegetation fire,environmental values,economic values,social values,fire suppression,agency policy

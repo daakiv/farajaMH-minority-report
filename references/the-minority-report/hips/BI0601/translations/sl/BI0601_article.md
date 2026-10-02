@@ -1,1 +1,0 @@
-(Full Markdown document above, with consistent terminology, proper Slovenian grammar, and standardized formatting.)

@@ -1,1 +1,0 @@
-prion protein,PrPsc,Transmissible Spongiform Encephalopathies,Creutzfeldt-Jakob disease,bovine spongiform encephalopathies,Chronic Wasting Disease,classical scrapie,atypical scrapie,human-transmissible prion diseases,variant Creutzfeldt-Jakob disease,Transmissible spongiform encephalopathy

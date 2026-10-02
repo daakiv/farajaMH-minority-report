@@ -707,6 +707,10 @@
     "label": {
      "type": "string"
     },
+    "definition": {
+     "type": "string",
+     "description": "Definition text as served by the terminology, or an empty string when it serves none. Recorded because it is what the ranking stage judges on: MFOEM and MFOMD populate it, SNOMED CT through OLS4 returns none for any concept, and a reviewer needs to know which of those applied to a given candidate."
+    },
     "id_verified": {
      "type": "boolean",
      "description": "True only if the ID came back from the terminology service in this run. LLMs never originate IDs."

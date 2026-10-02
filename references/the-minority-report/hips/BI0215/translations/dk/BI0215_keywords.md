@@ -1,1 +1,0 @@
-zoonotic disease,haemorrhagic illness,Arenaviridae virus family,Mastomys rats,rodent host,urine or faeces transmission,endemic regions,asymptomatic infection rate,infection prevention and control,case fatality rate

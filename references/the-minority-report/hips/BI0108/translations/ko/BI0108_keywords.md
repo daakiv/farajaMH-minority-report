@@ -1,1 +1,0 @@
-Vector-borne diseases,pathogen transmission,disease vectors,blood meal,infectious pathogens,blood-sucking insects,mosquitoes,ticks,triatomine bugs,schistosomiasis (snails),leishmaniasis (sandflies),vector control,disease management technologies,African Swine Fever,Trypanosomiasis

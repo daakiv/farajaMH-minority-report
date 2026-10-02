@@ -1,1 +1,0 @@
-Substandard medical products, Falsified medical products, Cause harm to patients, Fail to treat diseases, Intended diseases, Patient harm, Treatment failure, Product efficacy, Medical products, harm to patients

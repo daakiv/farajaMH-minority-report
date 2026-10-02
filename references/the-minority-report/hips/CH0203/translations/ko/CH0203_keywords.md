@@ -1,1 +1,0 @@
-Organic compounds composed of hydrogen and carbon atoms,Fossil fuels as main components,Aromatic hydrocarbon structure,Delocalized $\pi$-electron system,Hydrocarbon ground gases,Flammable and volatile properties,Alkanes (Saturated Hydrocarbons),Alkenes and Alkynes (Unsaturated Hydrocarbons),Occupational Exposure Limits (OEL/PEL/TLV),Flash point and vapour pressure

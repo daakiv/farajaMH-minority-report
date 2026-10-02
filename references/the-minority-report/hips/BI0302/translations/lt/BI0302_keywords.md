@@ -1,1 +1,0 @@
-African swine fever (ASF), viral disease, domestic pigs, wild pigs, mortality rate, pig populations, farming economy, highly contagious, disease of pigs, devastating effects

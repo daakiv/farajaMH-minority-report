@@ -1,1 +1,0 @@
-Peste des petits ruminants virus,genus Morbillivirus,Family Paramyxoviridae,live attenuated vaccine,solid immunity,small ruminant flock,transmission via fomites,aerosol or direct contact,small ruminants and their products,small ruminant morbillivirus,herd immunity,biosecurity

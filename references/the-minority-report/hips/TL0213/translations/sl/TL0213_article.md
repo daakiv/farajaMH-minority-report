@@ -1,1 +1,0 @@
-is provided above, formatted in Markdown with proper headings, correct terminology, and consistent style.)

@@ -1,1 +1,0 @@
-perturbations in Earth's magnetosphere, variations in the solar wind's properties, geomagnetic indexes, geomagnetic storms, geomagnetically-induced currents, solar wind magnetic field orientation, K-index, Kp-index, coronal mass ejections, high-frequency radio propagation, spacecraft operations, power grids disruption

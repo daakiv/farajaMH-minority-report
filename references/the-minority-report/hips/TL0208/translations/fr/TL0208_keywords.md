@@ -1,1 +1,0 @@
-accidental melting, melting of the core, core collapse, complete core collapse, partial core collapse, core of a nuclear reactor, nuclear reactor failure, core melt, core collapse event, nuclear plant failure

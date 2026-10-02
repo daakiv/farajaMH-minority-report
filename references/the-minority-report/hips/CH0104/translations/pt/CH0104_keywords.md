@@ -1,1 +1,0 @@
-naturally occurring element, exposure to mercury, health problems, foetus in utero, development of the foetus, children early in life, developmental threat, environmental distribution, mercury contamination, small amounts

@@ -1,1 +1,0 @@
-SARS-associated coronavirus, droplet spread, airborne spread, incubation period of SARS, prodrome of fever, lower respiratory phase, hypoxemia, mechanical ventilation, respiratory isolation and precautions, contact tracing

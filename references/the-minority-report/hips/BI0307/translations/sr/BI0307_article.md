@@ -1,1 +1,0 @@
-follows the controlled vocabulary for Disaster Risk Reduction and uses consistent, domain‑specific terminology throughout.*

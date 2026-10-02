@@ -1,1 +1,0 @@
-Solar energetic particle events,coronal mass ejection,solar flares,charged particles,protons,solar atmosphere,magnetosphere,particle flux forecasting,radiation shielding,space hardware damage,radio communications disruption,flight re-routing,SEP classification scale

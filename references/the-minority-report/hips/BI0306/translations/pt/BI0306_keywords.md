@@ -1,1 +1,0 @@
-familyPicornaviridae, genusAphthovirus, highly contagious disease, economically important disease, cloven-hoofed domestic animals, cattle, buffaloes, pigs, sheep, goats, wild animals

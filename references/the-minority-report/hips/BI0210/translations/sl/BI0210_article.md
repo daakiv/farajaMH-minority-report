@@ -1,1 +1,0 @@
-is now fully consistent with the Controlled Vocabulary for Disaster Risk Reduction, uses proper Slovenian terminology, and follows the required Markdown structure.

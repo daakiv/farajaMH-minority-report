@@ -1,1 +1,0 @@
-zoonosis (infection that could transmit from animals to humans), Coxiella burnetii, Natural reservoirs, domestic and wild animals, infection can cause abortions, high resilience in the environment of Coxiella, inhalation of aerosols, aerosols produced in contaminated locations, modes of infection, food-borne

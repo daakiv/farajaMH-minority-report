@@ -1,1 +1,0 @@
-toxic metalloid, arsenic sulfide, metal arsenates, arsenides, arsenic compounds, Earth’s crust, arsenic distribution, acute health effects, long-term adverse effects, arsenic diseases

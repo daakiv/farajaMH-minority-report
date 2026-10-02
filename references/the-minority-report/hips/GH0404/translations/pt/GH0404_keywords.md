@@ -1,1 +1,0 @@
-river erosion, removal of material, banks and beds, channel bars, sandbanks, deltas, sedimentation, changing river flow, river erosion, river accretion

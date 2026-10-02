@@ -1,1 +1,0 @@
-submarine gravitational mass movement, downslope movement, sediment or rock, movement due to gravity, downslope forces, sediment's resistance to movement, gravitational mass movement, Landslide, downslope forces exceed resistance

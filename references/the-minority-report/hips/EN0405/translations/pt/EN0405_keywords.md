@@ -1,1 +1,0 @@
-primary virgin sand, sand resources, mineral sands and aggregates, terrestrial environments, riverine environments, coastal environments, marine environments, extracting valuable minerals, crushed stone, sand and gravel, subsequent processing

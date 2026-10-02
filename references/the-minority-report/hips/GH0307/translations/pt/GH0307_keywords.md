@@ -1,1 +1,0 @@
-loss of strength, loosely packed sediments, saturated sediments, ground shaking, cyclic loading, repeated application of stresses, excess pore water pressure, change in head, confining pressures, ground surface

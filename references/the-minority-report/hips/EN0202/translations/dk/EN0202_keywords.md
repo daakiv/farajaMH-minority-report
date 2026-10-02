@@ -1,1 +1,0 @@
-loss of tree and stand vigour and health,abiotic stress,climate deregulation,emergence of new pathogens,biological invasions,insect pest and disease outbreaks,predisposing inciting and contributing factors,forest ecosystem resilience,hydraulic failure,root decay fungi,NDVI monitoring,early warning systems

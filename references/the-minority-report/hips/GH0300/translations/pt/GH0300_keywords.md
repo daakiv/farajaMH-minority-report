@@ -1,1 +1,0 @@
-gravitational mass movement, downslope movement, soil rock and organic materials,gravitational driving forces,frictional resistance,material resisting on the slope,terrestrial movements,submarine movements,gravitational effects

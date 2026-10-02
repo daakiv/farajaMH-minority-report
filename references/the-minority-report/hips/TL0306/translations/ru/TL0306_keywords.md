@@ -1,1 +1,0 @@
-explosive substance or agent,pyrotechnic substances and mixtures,explosive agents,Ammonium nitrate,fuel and oxidizer,primary explosives,secondary explosives,civilian explosives,emulsion explosives,improvised explosive devices,Home-made explosives (HMEs),Binary explosives,dynamites

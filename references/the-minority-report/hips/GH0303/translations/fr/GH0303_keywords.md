@@ -1,1 +1,0 @@
-gravitational mass movements,flows down a slope,fluid form,fan-shaped deposit,landslide material,mass movements,stopped moving,deposit formation,slope movement,mass flow

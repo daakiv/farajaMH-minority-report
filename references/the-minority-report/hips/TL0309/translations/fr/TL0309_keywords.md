@@ -1,1 +1,0 @@
-Natural hazard, Technological accident, Triggered accident, Hazard triggering, Technological event, Natural event, Accident causation, Hazard-technology interaction, Technological consequence, Hazard-induced failure

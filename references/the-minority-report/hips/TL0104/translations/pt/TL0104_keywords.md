@@ -1,1 +1,0 @@
-prevention of authorised access, delaying of time-critical operations, time-critical operations, resource denial, access to resources, time-critical processes, milliseconds delay, hours duration, service provided, resource exhaustion

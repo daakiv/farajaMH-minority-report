@@ -1,1 +1,0 @@
-ensemble of particles of dust or sand,wind erosion of surface soil,mineral dust aerosol emission,forward portion of a storm,walls of dust or sand,cumulonimbus accompaniment,wind threshold value,visibility in sandstorms,particle size spectra,VIS visibility and gusts,sand and dust storm warning advisory,airborne particulate matter PM10,PM2.5

@@ -1,1 +1,0 @@
-Transboundary Animal Diseases (TADs), African swine fever, classical swine fever, contagious bovine pleuropneumonia, foot-and-mouth disease, rinderpest, lumpy skin disease, peste des petits ruminants, Rift Valley fever, swill feeding, vaccination, biosecurity, Early Warning System (EWS), food security

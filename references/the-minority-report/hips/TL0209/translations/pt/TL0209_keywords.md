@@ -1,1 +1,0 @@
-electric power domain, power transmission and distribution,loss of power supply,end user,critical systems,equipment breakdowns,failure of control mechanisms,targeted attacks,physical or cyber,natural hazards

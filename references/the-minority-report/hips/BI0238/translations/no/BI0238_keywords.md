@@ -1,1 +1,0 @@
-human African trypanosomiasis, animal trypanosomosis, Trypanosoma parasites, tsetse flies, sub-Saharan Africa, sleeping sickness,Trypanosoma brucei gambiense, Trypanosoma brucei rhodesiense,Tsetse fly (Glossina genus) bites,vector-borne parasitic disease,Trypanosoma congolense, T. vivax, T. brucei, T. simiae,Nagana,Cyclical transmission,mechanical transmission

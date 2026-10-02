@@ -78,6 +78,23 @@ def ols_ontology_version(endpoint: str, ontology: str) -> str | None:
     return None
 
 
+def concept_definition(doc: dict) -> str:
+    """The definition text an OLS search hit carries, or "" when it carries none.
+
+    OLS returns `description` as a LIST of strings, empty for terminologies it holds without
+    definitions. MFOEM and MFOMD are populated and the definitions are the discriminator the ranking
+    stage was missing: "sadness" is "A negative emotion felt when an event is appraised as unpleasant",
+    while "canonical sad facial expression" is "The canonical facial expression associated with the
+    experience of sadness" — indistinguishable by label, obvious by definition. SNOMED CT through OLS
+    returns `[]` for every concept, so this is empty there and the ranking prompt says so explicitly
+    rather than letting a model treat silence as endorsement.
+    """
+    d = doc.get("description")
+    if isinstance(d, (list, tuple)):
+        d = next((x for x in d if x and str(x).strip()), "")
+    return " ".join(str(d or "").split())
+
+
 class SnowstormClient:
     system = "SNOMEDCT"
 
@@ -92,6 +109,10 @@ class SnowstormClient:
         data = fetch_json(url, {"Accept": "application/json", "Accept-Language": "en"})
         return [{"system": self.system, "id": f"SCTID:{it['conceptId']}",
                  "label": (it.get("pt") or it.get("fsn") or {}).get("term", ""),
+                 # No definition in a Snowstorm concept search response. The fully specified name carries
+                 # the semantic tag — "(finding)", "(organism)" — and is the thing worth surfacing here,
+                 # but it is a name, not a definition, so it is not put in this field.
+                 "definition": "",
                  "id_verified": True, "retrieved_from": self.endpoint, "system_version": self.version}
                 for it in data.get("items", [])]
 
@@ -144,6 +165,7 @@ class OLSClient:
             if not cid:
                 continue
             out.append({"system": self.system, "id": cid, "label": doc.get("label", ""),
+                        "definition": concept_definition(doc),
                         "id_verified": True, "retrieved_from": self.endpoint, "system_version": self.version})
         return out
 
@@ -203,6 +225,7 @@ class CodebookClient:
                 scored.append((overlap / len(q), c))
         scored.sort(key=lambda x: -x[0])
         return [{"system": self.system, "id": f"{self.prefix}:{c['code']}", "label": c["label"],
+                 "definition": c.get("definition", ""),
                  "id_verified": True, "retrieved_from": str(self.path), "system_version": self.version}
                 for _, c in scored[:self.limit]]
 
@@ -218,7 +241,8 @@ class FixtureTerminology:
                 slug = lab.lower().replace(" ", "-").replace("/", "-")
                 prefix = "SCTID" if system == "SNOMEDCT" else system
                 out.append({"system": system, "id": f"{prefix}:LOOKUP-{slug}", "label": f"<lookup: {lab}>",
-                            "id_verified": False, "retrieved_from": "fixture-placeholder", "system_version": "placeholder"})
+                            "definition": "", "id_verified": False,
+                            "retrieved_from": "fixture-placeholder", "system_version": "placeholder"})
         return out
 
 

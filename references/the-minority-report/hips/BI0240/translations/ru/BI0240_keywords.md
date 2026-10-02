@@ -1,1 +1,0 @@
-West Nile virus disease,neurological disease,flavivirus genus,Flaviviridae family,mosquito-bird-mosquito transmission cycle,Culex mosquitoes,C. pipiens,vertical transmission,bird reservoir hosts,dead-end hosts,neuroinvasive disease,West Nile encephalitis,PCR testing,serological tests,vector-borne pathogens,organ transplants

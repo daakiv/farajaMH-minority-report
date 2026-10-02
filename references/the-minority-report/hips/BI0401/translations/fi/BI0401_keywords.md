@@ -1,1 +1,0 @@
-insect pest infestation,incursion,infestation of a commodity,introduction of a pest,outbreak,biological control agent,incidence of a pest,official control,invasive insect pest,plant pest,agroecosystem-based integrated management,relative impact potential

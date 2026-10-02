@@ -1,1 +1,0 @@
-Man-made reservoirs, artificial lakes, constructing a dam, diverting a part of the river flow, storing the water, uncontrolled release of water, dam failure, reservoir failure, river flow, artificial lakes

@@ -1,1 +1,0 @@
-sexual contact, vaginal sex, anal sex, oral sex, mother-to-child transmission, sexually transmitted diseases, human immunodeficiency virus (HIV), chlamydia, gonorrhoea, hepatitis B, human papillomavirus (HPV), genital herpes, pelvic inflammatory disease, antimicrobial resistance (AMR)

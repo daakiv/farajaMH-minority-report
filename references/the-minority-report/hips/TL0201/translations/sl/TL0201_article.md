@@ -1,1 +1,0 @@
-*(see above Markdown‑formatted translation)*

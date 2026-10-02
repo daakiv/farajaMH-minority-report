@@ -1,1 +1,0 @@
-explosive substance or agent,solid or liquid substance,mixture of substances,chemical reaction,producing gas,temperature and pressure,speed as to cause damage,pyrotechnic substances,pyrotechnic mixtures,explosions,causing damage

@@ -1,1 +1,0 @@
-mass of snow and ice, falling suddenly,mountain slope,snow and ice,earth,rocks and rubble,mountain slope,mass of snow and ice,falling suddenly,rubble of every description

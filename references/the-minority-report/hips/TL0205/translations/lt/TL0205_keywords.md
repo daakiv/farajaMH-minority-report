@@ -1,1 +1,0 @@
-uncontrolled release of water,structural collapse,foundation instability,loss of integrity of the dam structure,failure mode analysis,basal liquefaction,seepage and internal erosion,static and seismic instability,overtopping,tailings dam failure,hazard creep

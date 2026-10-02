@@ -1,1 +1,0 @@
-total collapses, partial collapses, excessive deformations, water ingress, ground instability, fire and explosion, gas incursion, ground settlement, structural health monitoring, inadequate ground support

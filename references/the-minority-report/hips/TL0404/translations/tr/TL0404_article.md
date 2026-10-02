@@ -1,1 +1,0 @@
-preserves DRR terminology, adheres to the Controlled Vocabulary guidelines, and presents the content in clear, well‑structured Markdown.*

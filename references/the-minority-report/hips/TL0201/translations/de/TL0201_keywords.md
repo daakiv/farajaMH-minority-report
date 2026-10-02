@@ -1,1 +1,0 @@
-failure of load-bearing structural elements,progressive collapse,structural failure,progressive structural collapse,failure propagation,pancake collapse,domino collapse,chain reaction,structural robustness,redundancy,seismic vulnerability index,multi-hazard context,building collapse drivers

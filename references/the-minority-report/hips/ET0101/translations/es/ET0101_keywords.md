@@ -1,1 +1,0 @@
-perturbations in Earth's magnetosphere, variations in the solar wind's properties, geomagnetic-induced currents, alteration of magnetic fields, geomagnetic storm classifications, K-index, Kp-index, effects on power systems, interference with aeromagnetic surveys, satellite operations, pipeline corrosion, high-frequency radio communication disruption

@@ -1,1 +1,0 @@
-preserves the original meaning while using precise, domain‑specific terminology and a consistent, formal Serbian style suitable for a controlled vocabulary in disaster risk reduction.

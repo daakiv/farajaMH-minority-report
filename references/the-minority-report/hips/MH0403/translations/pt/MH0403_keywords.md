@@ -1,1 +1,0 @@
-severe snowstorm,poor visibility,high latitudes,mountainous regions,snowstorm,WMO,1992,severe snowstorm,characterised by,poor visibility

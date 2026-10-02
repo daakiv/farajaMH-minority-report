@@ -1,1 +1,0 @@
-organic compounds composed entirely of hydrogen and carbon,hydrocarbon ground gases,aromatic hydrocarbon,delocalized $\pi$-electron system,flash point,vapour pressure,Alkanes (Saturated Hydrocarbons),Aromatic Hydrocarbons,Occupational Exposure Limit (OEL),bioaccumulation of hydrocarbons,petroleum products

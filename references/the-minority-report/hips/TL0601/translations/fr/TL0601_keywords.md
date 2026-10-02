@@ -1,1 +1,0 @@
-radioactive material,contains radionuclides,is contaminated with radionuclides,gas form,liquid form,solid form,remain radioactive,few hours,hundreds of thousands of years,no further use foreseen

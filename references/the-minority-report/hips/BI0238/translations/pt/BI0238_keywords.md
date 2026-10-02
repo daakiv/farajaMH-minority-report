@@ -1,1 +1,0 @@
-human African sleeping sickness, animal trypanosomosis, protozoan parasites, genus Trypanosoma, infected tsetse flies, sub-Saharan Africa, sleeping sickness, nagana, animal trypanosomosis, trypanosomiasis

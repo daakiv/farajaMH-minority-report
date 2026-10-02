@@ -1,1 +1,0 @@
-variola virus, orthopoxvirus family, smallpox vaccine, cowpox, smallpox eradication, widespread immunization, case classification, surveillance standards, biological attack, biosafety and biosecurity, smallpox vaccine stockpile, Smallpox Eradication Programme

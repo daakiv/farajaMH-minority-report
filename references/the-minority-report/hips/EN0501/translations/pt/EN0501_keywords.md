@@ -1,1 +1,0 @@
-genetic diversity, species diversity, ecosystem levels, global extinctions, local population extinctions, biological diversity, extinction, destruction, manual removal, population extinctions

@@ -1,1 +1,0 @@
-organic compounds, aromatic hydrocarbon, molecular formula C6H6, delocalized $\pi$-electron system, hydrocarbon ground gases, highly flammable and volatile, liquid aromatic hydrocarbon, simplest aromatic hydrocarbon, alternating single and double bonds, fossil fuels

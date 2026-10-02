@@ -1,1 +1,0 @@
-increased production of organic matter,primary nitrogen and phosphorus,aquatic systems,sewage outfall,agricultural runoff,algal blooms,fish kills,hypoxic or anoxic conditions,nutrient loading,chlorophyll-a concentration,Redfield nitrogen-to-phosphorus ratio,biomagnification,hypoxia

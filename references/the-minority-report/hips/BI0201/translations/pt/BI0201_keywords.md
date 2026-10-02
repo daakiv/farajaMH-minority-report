@@ -1,1 +1,0 @@
-spore-forming bacteria, Bacillus anthracis, cutaneous pattern, gastrointestinal pattern, inhalational pattern, herbivorous animals, mammalian hosts, disease manifestation patterns, spore-forming bacteria, disease caused by

@@ -1,1 +1,0 @@
-solar flare emission of electromagnetic radiation,active regions on the Sun,coronal mass ejections (CME),X-ray brightness classification,1-8 Å band measurement,solar flare intensity,X-ray and Extreme UV sensors,ionosphere disturbances,HF radio wave absorption,Solar Radio Burst (SRB),GNSS signal interference

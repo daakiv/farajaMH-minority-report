@@ -1,1 +1,0 @@
-sudden slip on a fault, ground shaking, seismic energy, surface rupture, fissures, subsidence/uplift, landslides, debris flow, liquefaction, tsunami, seiche, ground gases, Moment magnitude scale, Modified Mercalli intensity scale, Peak ground acceleration (PGA), elastic spectral acceleration (SA), Earthquake Early Warning systems, seismic networks, Global Earthquake Model

@@ -1,1 +1,0 @@
-mass of snow and ice falling suddenly,loose snow avalanches,slab avalanches,gliding avalanches,powder avalanches,wet-snow avalanches,inverted-V-shaped avalanche,artificial avalanche triggering,avalanche forecasting,snowpack stability,avalanche galleries or tunnels,early warning system

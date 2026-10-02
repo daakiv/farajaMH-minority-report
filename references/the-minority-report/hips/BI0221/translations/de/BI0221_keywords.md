@@ -1,1 +1,0 @@
-highly contagious viral disease,paramyxovirus family,droplet transmission,high fever,runny nose,conjunctivitis,measles rash,severe diarrhoea and dehydration,encephalitis,pneumonia,population immunity gaps,measles vaccination coverage,measles outbreak response

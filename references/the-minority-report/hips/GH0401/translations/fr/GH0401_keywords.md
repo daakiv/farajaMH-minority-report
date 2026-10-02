@@ -1,1 +1,0 @@
-volumetric change when subject to mechanical loading,consolidation,compaction,settlement,primary consolidation,secondary consolidation,compaction testing,static cone testing,bulk density rungs,surface ponding of water,soil compaction

@@ -1,1 +1,0 @@
-surge of individuals in a crowd, physical compression of the human bodies, localized crowd density, traumatic asphyxia, external compression of the thorax, ventilatory failure, compressive forces, crushing injuries, posttraumatic stress, mass gathering emergencies, mortality rates

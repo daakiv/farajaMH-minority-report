@@ -1,1 +1,0 @@
-Reservoir flooding, uncontrolled release of water, dam or reservoir fails, constructing a dam, diverting a part of the river flow, man-made reservoirs, artificial lakes, river flow diversion, reservoir formation, water storage

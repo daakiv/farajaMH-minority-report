@@ -1,1 +1,0 @@
-loss of symbiotic algae,thermal stress,symbiotic zooxanthellae algae,thermal tolerance,Degree Heating Weeks (DHWs),marine heatwaves,sea surface temperatures (SSTs),mass bleaching events,coral starvation and death,eutrophication of coastal waters,thermal stress-induced bleaching

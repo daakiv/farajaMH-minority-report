@@ -1,1 +1,0 @@
-cumulonimbus clouds, flash flooding, single-cell thunderstorms, multi-cell storm, supercell, mesoscale convective system, mesoscale convective vortex, squall line, derecho, dry thunderstorm, thunderstorm outflow

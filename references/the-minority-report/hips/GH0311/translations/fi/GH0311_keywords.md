@@ -1,1 +1,0 @@
-localized ground displacements,tensional compressional and shear stresses,unconsolidated sediment,rock,fault slip at depth,smaller displacements,distributed deformation,rupture area,surface ruptures,surface fissures

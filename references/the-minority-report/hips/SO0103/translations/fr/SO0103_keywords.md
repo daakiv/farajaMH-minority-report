@@ -1,1 +1,0 @@
-social phenomena, political phenomena, social and political phenomena, United Nations agencies, United Nations funds, United Nations programmes, spectrum of phenomena, civil unrest, social unrest, political unrest

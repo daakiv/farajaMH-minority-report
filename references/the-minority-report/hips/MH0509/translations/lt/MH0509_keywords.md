@@ -1,1 +1,0 @@
-deposit or coating of ice on an object, impingement and freezing of liquid hydrometeors, supercooled liquid water droplets, soft rime, hard rime, clear ice, glaze, aerodynamic heating, degree of supercooling, particle concentration, distinction from hoar frost

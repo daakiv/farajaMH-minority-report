@@ -1,1 +1,0 @@
-SARS-associated coronavirus,droplet spread,airborne spread,incubation period,hypoxemia,mechanical ventilation,laboratory diagnosis,zoonotic host,personal protective equipment,isolation of cases,contact tracing,quarantine of contacts,exit screening,respiratory droplets

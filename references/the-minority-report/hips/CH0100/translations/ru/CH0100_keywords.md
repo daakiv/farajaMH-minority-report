@@ -1,1 +1,0 @@
-heavy metals are metallic trace elements,trace element contaminants,essential trace elements,non-essential or toxic trace elements,bioavailable metal-organic compounds,non-metal contaminants,halides,metal-organic compounds,bioaccumulation of mercury,persistent inorganic contaminants

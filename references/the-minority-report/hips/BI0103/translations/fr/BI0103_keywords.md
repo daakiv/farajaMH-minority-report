@@ -1,1 +1,0 @@
-infectious diseases, causes of diarrhoea, passage of three or more loose or liquid stools, loose or liquid stools, Diarrhoeal disease, leading cause of death in children, preventable, treatable, passage of stools, causes of diarrhoea

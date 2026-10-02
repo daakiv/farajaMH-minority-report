@@ -1,1 +1,0 @@
-prion protein, prion, PrPsc, Transmissible Spongiform Encephalopathies, Creutzfeldt-Jakob disease, Bovine Spongiform Encephalopathies, Chronic Wasting Disease, variant Creutzfeldt-Jakob disease, spongiform degeneration, prion diseases, Transmissible Spongiform Encephalopathy

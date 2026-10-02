@@ -1,1 +1,0 @@
-atmospheric phenomenon, variation of wind speed, begins suddenly, duration of the order of minutes, decreases suddenly in speed, accompaniment by a shower, accompaniment by a thunderstorm, wind speed variation, sudden onset, temporal scale

@@ -1,1 +1,0 @@
-Infectious animal diseases,non-zoonotic diseases,animal diseases,disease transmission,animal-human sharing,non-shared diseases,animal health,zoonotic distinction,WHO standards,FAO guidelines,OIE regulations

@@ -1,1 +1,0 @@
-land degradation, arid areas, semi-arid areas, dry sub-humid areas, climatic variations, human activities, land degradation, arid environments, human impacts, environmental degradation

@@ -1,1 +1,0 @@
-Subsidence and uplift, Crustal scale processes, Glacial isostatic adjustment, Hydro-isostatic adjustment, Mantle flow, Tectonic uplift and subsidence, Distributed persistent vertical ground deformations, Groundwater fluctuations, Erosional/depositional-isostatic deformation, Volcanic uplift and subsidence, Sinkholes and karst collapse, Subsurface mining or engineering

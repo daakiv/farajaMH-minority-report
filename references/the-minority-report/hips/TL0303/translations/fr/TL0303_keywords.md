@@ -1,1 +1,0 @@
-presence of a chemical, substance out of place, higher-than-normal concentration, adverse effects, non-targeted organism, soil pollution, chemical presence in soil, concentration in soil, adverse effects on organisms

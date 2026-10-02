@@ -1,1 +1,0 @@
-prolonged deficiency of precipitation,hydrometeorological processes,meteorological drought,hydrological drought,agricultural drought,socioeconomic drought,soil water deficits,drought indicators and indices,Palmer Drought Index,Standardized Precipitation Index,vegetation health index,groundwater availability,integrated drought management programme

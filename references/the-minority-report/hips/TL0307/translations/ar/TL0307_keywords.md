@@ -1,1 +1,0 @@
-ground collapse, subsidence, fault reactivation and fissures, acid mine water drainage, mine water rebound, mine gas emissions, mining-induced seismicity, mining-induced landslides, mine flooding, toxic gas leaks, mercury exposure, silicosis or pneumoconiosis

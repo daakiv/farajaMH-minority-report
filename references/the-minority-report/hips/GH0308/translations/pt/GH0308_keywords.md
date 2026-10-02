@@ -1,1 +1,0 @@
-Sinkholes, dolines, dissolution of rock, collapse of rock, erosion of rock, groundsurface, subsidence, lowering of the ground, collapse of the ground, dissolution or collapse

@@ -1,1 +1,0 @@
-systemic infection, Salmonella enterica serotype Paratyphi, febrile illness, gastrointestinal bleeding, altered mental status, intestinal perforation, systemic infection with Salmonella enterica serotype Paratyphi, gastrointestinal bleeding, intestinal perforation

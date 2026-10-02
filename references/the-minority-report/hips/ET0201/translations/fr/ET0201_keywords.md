@@ -1,1 +1,0 @@
-high-energy explosion,mid-air,artificial explosive device,sudden disruption,natural object,entering the Earth's atmosphere,high speeds,altitude,hydrodynamic pressure,structural integrity

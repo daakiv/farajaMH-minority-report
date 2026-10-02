@@ -1,1 +1,0 @@
-disturbance by insect pests,disturbance by diseases,severe weather events,forest fires,insect pests,pathogens,abiotic factors,droughts,acid rain,forest degradation,air water and soil pollution

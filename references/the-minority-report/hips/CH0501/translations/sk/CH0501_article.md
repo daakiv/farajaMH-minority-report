@@ -1,1 +1,0 @@
-is formatted as a Markdown document and contains the accurate Slovak terminology consistent with the Controlled Vocabulary for Disaster Risk Reduction. No further modifications are required.)*

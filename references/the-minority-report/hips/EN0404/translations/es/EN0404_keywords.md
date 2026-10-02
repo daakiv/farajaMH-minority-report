@@ -1,1 +1,0 @@
-symbiotic algae loss, expulsion of zooxanthellae algae, thermal tolerance, mass bleaching events, Degree Heating Weeks (DHWs), accumulated heat stress, Degree Heating Week (DHW) product, marine heatwaves, heat-stressed corals, multi-species mortality, sea surface temperatures (SSTs), coral starvation

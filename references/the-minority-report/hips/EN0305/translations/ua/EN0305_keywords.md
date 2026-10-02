@@ -1,1 +1,0 @@
-permafrost thaw, progressive loss of ground ice, phase change between ice and water, active layer, gradual permafrost loss, abrupt thaw, thermokarst landscapes, permafrost carbon pool, ground subsidence, meltwater-dependent ecosystems, permafrost carbon feedback, ground thermal regime, active layer thickness

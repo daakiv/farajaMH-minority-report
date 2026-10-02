@@ -1,1 +1,0 @@
-failure of load-bearing structural elements, catastrophic failure, progressive collapse, progressive structural collapse, failure propagation, chain reaction, structural robustness, redundancy, structural integrity, progressive building collapse, weak foundations, substandard construction materials, structural instability, failure of steel and concrete buildings

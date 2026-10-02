@@ -1,1 +1,0 @@
-gravitational mass movements,landslide material,fan-shaped deposit,flow deposits,fluid mass movements,mass movements down a slope,landslide flows,debris flows,rock avalanches,slope movement

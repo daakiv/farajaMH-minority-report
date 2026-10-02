@@ -1,1 +1,0 @@
-Emergency telecommunications failure, telecommunications of an extraordinary nature, abnormal network conditions, adverse network conditions, extraordinary nature, abnormal and potentially adverse network conditions, network conditions, telecommunications failure, extraordinary nature, abnormal conditions

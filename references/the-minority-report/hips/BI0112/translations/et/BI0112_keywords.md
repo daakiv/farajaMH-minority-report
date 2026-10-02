@@ -1,1 +1,0 @@
-Cysticercosis in humans and pigs, larval stages of the parasite Taenia solium, neurocysticercosis, porcine cysticercosis, human tapeworm carriers, faecal oral route, ingestion of tapeworm eggs, cysts in the central nervous system, Taeniasis in humans, management of neurocysticercosis, prevention of cysticercosis via vaccination

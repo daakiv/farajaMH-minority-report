@@ -1,1 +1,0 @@
-sudden electrical discharges, flash of light, lightning, rumbling sound, thunder, electrical discharges, flash of light and thunder, sharp sound, rumbling sound, electrical discharge

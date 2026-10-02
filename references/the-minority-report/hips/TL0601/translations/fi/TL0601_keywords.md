@@ -1,1 +1,0 @@
-radioactive material for which no further use is foreseen,gas liquid or solid form,clearance levels,High-Level Waste,Intermediate-Level Waste,Long-Lived Waste,Low-Level Waste,Short-Lived Waste,Very Low-Level Waste,Very Short-Lived Waste,spent fuel and radioactive waste,radioactive waste management

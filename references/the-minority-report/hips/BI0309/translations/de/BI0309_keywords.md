@@ -1,1 +1,0 @@
-Cochliomyia hominivorax,obligate parasite of mammals,wound or traumatic myiasis,myiasis,life cycle,infestation of tissue by fly larvae,screwworm myiasis disease,cuticular hydrocarbon analysis,mitochondrial DNA,RAPD-PCR assays,sterile insect technique,larvicide,secondary bacterial infections,insect growth regulators

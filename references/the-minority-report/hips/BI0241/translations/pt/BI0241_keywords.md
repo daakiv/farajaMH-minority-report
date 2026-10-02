@@ -1,1 +1,0 @@
-acute viral disease, viral haemorrhagic disease, haemorrhagic disease, infected mosquitoes, mosquito transmission, high-impact disease, high-threat disease, international spread risk, global health security, viral transmission

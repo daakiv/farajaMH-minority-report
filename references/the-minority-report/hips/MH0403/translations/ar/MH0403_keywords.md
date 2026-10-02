@@ -1,1 +1,0 @@
-severe snowstorm,poor visibility,sustained or frequent winds,falling and/or blowing snow,whiteout conditions,accumulation of ice,travel disruptions,power outages,hypothermia and frostbite,blowing snow in combination with falling snow,tracking snowfall intensity

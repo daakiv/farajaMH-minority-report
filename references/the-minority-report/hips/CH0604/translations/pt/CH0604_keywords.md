@@ -1,1 +1,0 @@
-Psychoactive substances, physical or psychological dependence, altering brain function, overdose, overuse, synthetic opioids, natural opiates, stimulants, certain sedatives, adverse health effects

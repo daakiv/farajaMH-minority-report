@@ -1,1 +1,0 @@
-agricultural runoff, urban stormwater, atmospheric deposition, subaqueous groundwater discharges, saltwater intrusion, land disposal, forestry, mining, construction, dams and channels, nonpoint sources

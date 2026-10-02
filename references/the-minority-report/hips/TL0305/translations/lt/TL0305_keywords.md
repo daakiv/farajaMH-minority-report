@@ -1,1 +1,0 @@
-Fire-related technological incidents, accidental events, intentional events, physical damage to property, chemical hazard, exposure to a chemical hazard, property damage, exposure of responders, exposure of members of the public, technological incidents

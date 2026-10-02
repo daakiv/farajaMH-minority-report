@@ -1,1 +1,0 @@
-malicious software,malware families and variants,virus propagation,worm replication,trojan horses,ransomware encryption,spyware monitoring,wiper data corruption,rootkits system access,fileless malware,polymorphic malware,phishing attacks

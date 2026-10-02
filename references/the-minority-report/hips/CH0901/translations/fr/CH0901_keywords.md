@@ -1,1 +1,0 @@
-Corrosive substances, strong acids, strong bases, chemical reactions, destruction of biological tissues, decomposition of biological molecules, donate protons, accept protons, dissociating into ions in water, highly corrosive

@@ -1,1 +1,0 @@
-heavy metal, toxicant, environmental contamination, cumulative toxicant, neurological systems, haematological systems, gastrointestinal systems, cardiovascular systems, renal systems, neurotoxic effects, lead exposure

@@ -1,1 +1,0 @@
-West Nile virus disease,neurological disease,Flaviviridae family,mosquito-bird-mosquito transmission cycle,genus Culex,C. pipiens,vector-borne pathogens,reservoir hosts,dead-end hosts,WNV outbreaks,neuroinvasive disease

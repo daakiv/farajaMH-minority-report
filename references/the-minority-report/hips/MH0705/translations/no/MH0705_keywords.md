@@ -1,1 +1,0 @@
-series of long-period travelling waves, seismic sea wave, submarine landslides, coastal rock falls, inundation-distance, inundation height, inundation area, tsunami amplitude, tsunami period, tsunami wavelength, tsunami drawdown, tsunami-induced currents, tsunami hazard preparedness

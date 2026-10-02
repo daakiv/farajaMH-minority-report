@@ -1,1 +1,0 @@
-fibrous silicate minerals, asbestos-related diseases, mesothelioma, asbestosis (fibrosis of the lungs), chrysotile (white asbestos), crocidolite (blue asbestos), asbestos cement, asbestos fibres, carcinogenic potential, occupational exposure, Asbestos Convention, hazardous waste

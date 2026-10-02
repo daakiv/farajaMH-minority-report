@@ -1,1 +1,0 @@
-radioactive material,radionuclides,contaminated with radionuclides,gas liquid or solid form,radioactive waste,no further use foreseen,remaining radioactive,hundreds of thousands of years,radioactive waste form,radioactive material

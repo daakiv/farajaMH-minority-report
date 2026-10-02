@@ -1,1 +1,0 @@
-infectious diseases, prevention by vaccination, vaccination, WHO guidelines, disease control, immunization goal, vaccine efficacy, disease transmission, public health context, herd immunity

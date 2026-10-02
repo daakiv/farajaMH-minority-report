@@ -1,1 +1,0 @@
-Harmful algal blooms,noxious algae,toxic algae,negative impacts,aquatic ecosystems,coastal resources,human health,direct impacts,indirect impacts

@@ -1,1 +1,0 @@
-air pollution, water pollution, marine pollution, persistent organic pollutants, hazardous chemicals, plastic pollution, municipal solid waste, water contamination, endocrine-disrupting compounds, industrial emissions, sustainable consumption and production, environmental cause of disease

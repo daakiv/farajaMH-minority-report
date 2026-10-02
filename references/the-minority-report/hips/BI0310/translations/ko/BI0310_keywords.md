@@ -1,1 +1,0 @@
-Peste des petits ruminants virus, genus Morbillivirus, Family Paramyxoviridae, Order Mononegavirales, live attenuated vaccine, small ruminants, aerosol or direct contact, fomites spreading infection, bedding feed pasture and water troughs, zoonotic infection, economic losses, eradication program

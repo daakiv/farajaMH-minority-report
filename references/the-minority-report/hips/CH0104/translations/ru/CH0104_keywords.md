@@ -1,1 +1,0 @@
-Elemental mercury, inorganic mercury compounds, organic mercury compounds, methylmercury, bioaccumulates, biomagnifies, methylmercury in fish, dental amalgam, inhalation of mercury vapour, Minamata Convention on Mercury, ASGM, Global Mercury Observation System

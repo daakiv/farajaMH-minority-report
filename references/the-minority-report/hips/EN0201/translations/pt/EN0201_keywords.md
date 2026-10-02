@@ -1,1 +1,0 @@
-conversion of forest, forest to other land use,land use change,human-induced deforestation,forest cover loss,land use conversion,deforestation drivers,agricultural expansion,logging activities,habitat fragmentation,forest management practices

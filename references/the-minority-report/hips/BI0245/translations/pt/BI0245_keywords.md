@@ -1,1 +1,0 @@
-type A influenza viruses, Orthomyxoviridae family,avian influenza viruses,domestic poultry infection,infect bird species,zoonotic transmission,infect mammals,human influenza,pandemic occurrence,novel influenza virus

@@ -1,1 +1,0 @@
-chemical warfare agents, dual-use chemicals, blistering agents, blood agents, choking agents, nerve agents, riot control agents, precursors, Schedule 1 chemicals, General Purpose Criterion, thiodiglycol

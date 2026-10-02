@@ -1,1 +1,0 @@
-Pertussis disease, highly contagious disease, respiratory tract, bacterium Bordetella pertussis, Bordetella pertussis, respiratory infection, contagious disease, fatal disease, Bordetella bacterium, human infection

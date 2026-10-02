@@ -1,1 +1,0 @@
-is presented above, fully compliant with Slovak medical terminology and DRR controlled vocabulary.)*

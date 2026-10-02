@@ -1,1 +1,0 @@
-volumetric change when subject to mechanical loading,consolidation,primary consolidation,secondary consolidation,compaction,compressive stress,settlement,differential settlement,static cone testing,bulk density rungs
