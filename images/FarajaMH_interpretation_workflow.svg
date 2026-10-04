@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+<title id="title">FarajaMH interpretation workflow</title>
+<desc id="desc">A six-step, human-governed workflow that retains model disagreement and records semantic gaps.</desc>
+<defs>
+  <style>
+    text { font-family: Inter, Avenir, Arial, sans-serif; }
+    .navy { fill:#10224f; } .muted { fill:#60739b; }
+    .small { font-size:17px; } .body { font-size:20px; }
+    .head { font-size:25px; font-weight:750; }
+    .card { stroke-width:2; rx:18; }
+  </style>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#10224f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#b56b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f8faff"/></linearGradient>
+</defs>
+<rect width="1920" height="1080" fill="url(#paper)"/>
+
+<!-- Title -->
+<text x="58" y="78" class="navy" font-size="48" font-weight="800">FarajaMH interpretation workflow</text>
+<text x="60" y="124" class="muted" font-size="27" font-weight="500">AI proposes  →  models compare  →  humans validate  →  only approved records proceed</text>
+
+<!-- Group headers -->
+<path d="M58 190 v-12 h458 v12" fill="none" stroke="#15958f" stroke-width="2"/>
+<text x="287" y="170" text-anchor="middle" fill="#12877f" font-size="17" font-weight="800" letter-spacing="1.1">PRESERVE SOURCE + SCREEN</text>
+<path d="M530 190 v-12 h794 v12" fill="none" stroke="#1376bf" stroke-width="2"/>
+<text x="927" y="170" text-anchor="middle" fill="#1472b7" font-size="17" font-weight="800" letter-spacing="1.1">KEEP DISAGREEMENT VISIBLE</text>
+<path d="M1338 190 v-12 h524 v12" fill="none" stroke="#15958f" stroke-width="2"/>
+<text x="1600" y="170" text-anchor="middle" fill="#12877f" font-size="17" font-weight="800" letter-spacing="1.1">A PERSON DECIDES; THE RECORD SHOWS HOW</text>
+
+<!-- Flow connectors are drawn behind cards so their arrowheads stay in the gaps. -->
+<g fill="none" stroke="#10224f" stroke-width="3.5" marker-end="url(#arrow)">
+ <path d="M280 446 h11"/><path d="M516 446 h11"/><path d="M800 446 h11"/><path d="M1324 446 h10"/><path d="M1578 446 h10"/>
+</g>
+
+<!-- Step cards -->
+<rect x="58" y="214" width="222" height="444" rx="18" fill="#edfbf9" stroke="#39b9ac" class="card"/>
+<rect x="294" y="214" width="222" height="444" rx="18" fill="#fff3f0" stroke="#ef5143" class="card"/>
+<rect x="530" y="214" width="270" height="444" rx="18" fill="#eff8ff" stroke="#48a6d4" class="card"/>
+<rect x="814" y="214" width="510" height="444" rx="18" fill="#fff7e5" stroke="#efa32d" stroke-width="3"/>
+<rect x="1338" y="214" width="240" height="444" rx="18" fill="#edfbf9" stroke="#39b9ac" class="card"/>
+<rect x="1592" y="214" width="270" height="444" rx="18" fill="#f1f7ff" stroke="#57a4d0" class="card"/>
+
+<!-- Step badges -->
+<g font-size="25" font-weight="800" text-anchor="middle">
+ <circle cx="169" cy="214" r="29" fill="#148b83"/><text x="169" y="223" fill="#fff">1</text>
+ <circle cx="405" cy="214" r="29" fill="#e84437"/><text x="405" y="223" fill="#fff">2</text>
+ <circle cx="665" cy="214" r="29" fill="#1177bd"/><text x="665" y="223" fill="#fff">3</text>
+ <circle cx="1069" cy="214" r="29" fill="#d88712"/><text x="1069" y="223" fill="#fff">4</text>
+ <circle cx="1458" cy="214" r="29" fill="#148b83"/><text x="1458" y="223" fill="#fff">5</text>
+ <circle cx="1727" cy="214" r="29" fill="#173765"/><text x="1727" y="223" fill="#fff">6</text>
+</g>
+
+<!-- 1 source icon -->
+<g fill="none" stroke="#138e87" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M103 287 h110 a23 23 0 0 1 23 23 v61 a23 23 0 0 1-23 23 h-43 l-33 29 v-29 h-34 a23 23 0 0 1-23-23 v-61 a23 23 0 0 1 23-23z"/>
+ <path d="M135 320 q-16 15 0 28 M174 320 q-16 15 0 28" stroke-width="8"/>
+</g>
+<text x="169" y="484" text-anchor="middle" class="navy head">Source + context</text>
+<text x="169" y="518" text-anchor="middle" class="muted body">Keep the original</text>
+<text x="169" y="545" text-anchor="middle" class="muted body">wording unchanged</text>
+<rect x="75" y="551" width="188" height="52" rx="10" fill="#fff" stroke="#b8d8e7"/>
+<text x="169" y="582" text-anchor="middle" class="navy" font-size="14" font-weight="700">“Moyo wangu unaniuma”</text>
+<text x="169" y="632" text-anchor="middle" fill="#12877f" font-size="15" font-weight="700">Context stays attached</text>
+
+<!-- 2 fixed lexicon icon -->
+<g fill="none" stroke="#e84437" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M405 287 l61 24 v54 c0 47-28 74-61 93-33-19-61-46-61-93v-54z"/>
+ <path d="M380 338 h50 M380 359 h50 M380 380 h50" stroke-width="6"/>
+</g>
+<text x="405" y="484" text-anchor="middle" class="navy head">Safety screen</text>
+<text x="405" y="521" text-anchor="middle" class="muted body">Fixed risk lexicon</text>
+<text x="405" y="548" text-anchor="middle" class="muted body">before model calls</text>
+<rect x="315" y="566" width="180" height="48" rx="12" fill="#ffe0db"/>
+<text x="405" y="597" text-anchor="middle" fill="#bd3027" font-size="17" font-weight="800">Not an AI decision</text>
+
+<!-- 3 normaliser and model candidates -->
+<rect x="558" y="268" width="214" height="53" rx="12" fill="#fff" stroke="#173765" stroke-width="2.5"/>
+<text x="665" y="302" text-anchor="middle" class="navy" font-size="22" font-weight="750">One normaliser</text>
+<g stroke="#173765" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+ <path d="M665 322 v32 l-56 21"/><path d="M665 322 v51"/><path d="M665 354 l56 21"/>
+</g>
+<!-- three distinct model bubbles -->
+<g fill="#fff" stroke-width="4">
+ <rect x="551" y="376" width="68" height="58" rx="16" stroke="#138e87"/><path d="M568 434 l-5 15 21-15" fill="#fff" stroke="#138e87"/>
+ <rect x="631" y="376" width="68" height="58" rx="16" stroke="#147bc2"/><path d="M648 434 l-5 15 21-15" fill="#fff" stroke="#147bc2"/>
+ <rect x="711" y="376" width="68" height="58" rx="16" stroke="#584c92"/><path d="M728 434 l-5 15 21-15" fill="#fff" stroke="#584c92"/>
+</g>
+<g fill="#138e87"><circle cx="570" cy="405" r="4"/><circle cx="585" cy="405" r="4"/><circle cx="600" cy="405" r="4"/></g>
+<g fill="#147bc2"><circle cx="650" cy="405" r="4"/><circle cx="665" cy="405" r="4"/><circle cx="680" cy="405" r="4"/></g>
+<g fill="#584c92"><circle cx="730" cy="405" r="4"/><circle cx="745" cy="405" r="4"/><circle cx="760" cy="405" r="4"/></g>
+<text x="665" y="490" text-anchor="middle" class="navy head">Candidate generation</text>
+<text x="665" y="526" text-anchor="middle" class="muted body">Three models propose</text>
+<text x="665" y="552" text-anchor="middle" class="muted body">translations + readings</text>
+<rect x="548" y="574" width="234" height="61" rx="11" fill="#e3f2ff"/>
+<text x="665" y="599" text-anchor="middle" fill="#125f97" font-size="16" font-weight="750">May not translate.</text>
+<text x="665" y="620" text-anchor="middle" fill="#125f97" font-size="15" font-weight="700">Language change → reject</text>
+
+<!-- 4 comparison and terminology -->
+<text x="1069" y="270" text-anchor="middle" class="navy" font-size="28" font-weight="850" letter-spacing=".4">MINORITY REPORT</text>
+<text x="1069" y="304" text-anchor="middle" class="navy" font-size="20" font-weight="700">Compare readings · retrieve and rank concepts</text>
+<rect x="835" y="327" width="222" height="112" rx="14" fill="#fff" stroke="#70cfc6" stroke-width="2"/>
+<rect x="1081" y="327" width="222" height="112" rx="14" fill="#fff" stroke="#efa32d" stroke-width="2"/>
+<text x="946" y="359" text-anchor="middle" fill="#12877f" font-size="18" font-weight="800">MAJORITY READING</text>
+<text x="946" y="389" text-anchor="middle" class="navy" font-size="21" font-weight="750">Emotional reading</text>
+<text x="946" y="418" text-anchor="middle" class="muted" font-size="17" font-weight="700">2 of 3 models</text>
+<text x="1192" y="359" text-anchor="middle" fill="#b56b00" font-size="18" font-weight="800">MINORITY READING</text>
+<text x="1192" y="389" text-anchor="middle" class="navy" font-size="21" font-weight="750">Somatic reading</text>
+<text x="1192" y="418" text-anchor="middle" class="muted" font-size="17" font-weight="700">1 of 3 models</text>
+<text x="1069" y="467" text-anchor="middle" class="navy" font-size="17" font-weight="750">Both readings are retained. No arbitration selects one.</text>
+<text x="1069" y="491" text-anchor="middle" class="muted" font-size="15">Disagreement remains visible for human review.</text>
+<line x1="835" y1="505" x2="1303" y2="505" stroke="#e8d7b4" stroke-width="1.5"/>
+<text x="1069" y="529" text-anchor="middle" fill="#8b5a0a" font-size="16" font-weight="800" letter-spacing=".6">TERMINOLOGY LOOKUP</text>
+<g>
+ <rect x="833" y="541" width="146" height="61" rx="10" fill="#fff" stroke="#ddc58e"/>
+ <rect x="991" y="541" width="146" height="61" rx="10" fill="#fff" stroke="#ddc58e"/>
+ <rect x="1149" y="541" width="156" height="61" rx="10" fill="#fff" stroke="#ddc58e"/>
+ <text x="906" y="565" text-anchor="middle" class="navy" font-size="17" font-weight="850">MFOEM</text>
+ <text x="906" y="587" text-anchor="middle" class="muted" font-size="14">emotion concepts</text>
+ <text x="1064" y="565" text-anchor="middle" class="navy" font-size="17" font-weight="850">MFOMD</text>
+ <text x="1064" y="587" text-anchor="middle" class="muted" font-size="14">mental disorders</text>
+ <text x="1227" y="565" text-anchor="middle" class="navy" font-size="17" font-weight="850">SNOMED CT</text>
+ <text x="1227" y="587" text-anchor="middle" class="muted" font-size="14">conditions · pending</text>
+</g>
+<rect x="835" y="611" width="468" height="34" rx="9" fill="#fff0cc"/>
+<text x="1069" y="634" text-anchor="middle" fill="#8b5a0a" font-size="15" font-weight="750">No adequate concept → retain a gap candidate for review</text>
+
+<!-- 5 reviewers -->
+<g fill="none" stroke="#138e87" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+ <circle cx="1420" cy="310" r="24"/><path d="M1379 386 v-23 a41 41 0 0 1 82 0 v23"/>
+ <circle cx="1494" cy="310" r="24"/><path d="M1470 386 v-23 a24 24 0 0 1 48 0 v23"/>
+ <circle cx="1458" cy="408" r="26" fill="#fff"/><path d="M1447 408 l8 9 16-19"/>
+</g>
+<text x="1458" y="478" text-anchor="middle" class="navy head">Human review</text>
+<text x="1458" y="516" text-anchor="middle" class="muted body">Reviewers decide</text>
+<text x="1458" y="543" text-anchor="middle" class="muted body">meaning first, then</text>
+<text x="1458" y="570" text-anchor="middle" class="muted body">whether a concept fits</text>
+<text x="1458" y="620" text-anchor="middle" fill="#12877f" font-size="15" font-weight="750">No match is a valid decision</text>
+
+<!-- 6 governed record -->
+<g fill="none" stroke="#173765" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1662 287 h87 l35 35 v112 h-122z"/><path d="M1749 288 v36 h35"/>
+ <path d="M1681 348 h69 M1681 373 h69 M1681 398 h50" stroke-width="6"/>
+ <circle cx="1778" cy="435" r="22" fill="#fff"/><path d="M1768 435 l7 8 14-17" stroke-width="5"/>
+</g>
+<text x="1727" y="478" text-anchor="middle" class="navy head">Governed record</text>
+<text x="1727" y="518" text-anchor="middle" class="muted body">Validated local concept</text>
+<text x="1727" y="546" text-anchor="middle" class="muted body">Approved mapping</text>
+<text x="1727" y="574" text-anchor="middle" class="muted body">Recorded semantic gap</text>
+<text x="1727" y="621" text-anchor="middle" fill="#173765" font-size="15" font-weight="750">Only after human approval</text>
+
+<!-- Safety band -->
+<rect x="58" y="690" width="1804" height="126" rx="18" fill="#fff0ed" stroke="#e84437" stroke-width="2.5"/>
+<g transform="translate(94 711)" fill="none" stroke="#e84437" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M35 0 l34 13 v30 c0 24-16 39-34 50C17 82 1 67 1 43V13z"/><path d="M20 29 h30 M20 42 h30 M20 55 h30" stroke-width="3.5"/>
+</g>
+<text x="197" y="750" fill="#c63128" font-size="26" font-weight="850">Safety runs twice</text>
+<text x="197" y="781" fill="#173765" font-size="18">1 · Screen the source before any model call</text>
+<text x="197" y="805" fill="#173765" font-size="18">2 · Screen all generated text and rationale afterwards</text>
+<line x1="785" y1="715" x2="785" y2="791" stroke="#ef8b82" stroke-width="2"/>
+<text x="825" y="746" fill="#a7251e" font-size="21" font-weight="850">Models must propose a risk reading</text>
+<text x="825" y="781" fill="#a7251e" font-size="21" font-weight="850">and may never argue risk away.</text>
+<rect x="1452" y="727" width="360" height="52" rx="14" fill="#e84437"/>
+<text x="1632" y="760" text-anchor="middle" fill="#fff" font-size="19" font-weight="850">AI is not a crisis authority</text>
+
+<!-- Compute / data governance band -->
+<rect x="58" y="840" width="1804" height="142" rx="18" fill="#f0f6ff" stroke="#173765" stroke-width="2.5"/>
+<g transform="translate(93 863)" fill="none" stroke="#173765" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+ <rect x="3" y="0" width="79" height="55" rx="7"/><path d="M-5 64 h95 l-9 12 h-77z"/><rect x="32" y="16" width="22" height="22" rx="4"/><path d="M37 16 v-6 a6 6 0 0 1 12 0 v6" stroke-width="4"/>
+</g>
+<text x="207" y="900" class="navy" font-size="25" font-weight="850">LOCAL OR APPROVED COMPUTE</text>
+<text x="207" y="935" class="muted" font-size="18">Restricted participant data stays inside the approved environment.</text>
+<line x1="1005" y1="862" x2="1005" y2="957" stroke="#a9bddb" stroke-width="2"/>
+<text x="1050" y="890" class="navy" font-size="20" font-weight="750">Terminology identifiers come from live service responses.</text>
+<text x="1050" y="922" class="muted" font-size="18">Models can suggest meanings; they cannot invent concept IDs.</text>
+<text x="1050" y="953" fill="#a25d00" font-size="17" font-weight="750">SNOMED CT access is pending; MFOEM and MFOMD are active via OLS4.</text>
+
+<!-- Small footer principle -->
+<text x="960" y="1031" text-anchor="middle" class="muted" font-size="17" font-weight="650">Candidate interpretations are proposals. Human reviewers decide what meaning and mapping, if any, are approved.</text>
+</svg>
